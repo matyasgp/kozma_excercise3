@@ -1,0 +1,174 @@
+% Draft for the 5-minute pitch; the final version goes to Google Slides.
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{default}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\usepackage{booktabs}
+\usepackage{tikz}
+
+\title{Hesai AT512 for Emergency Brake Assist}
+\subtitle{Lidar performance -- statistical modelling (Exercise 3)}
+\author{Team: \textit{names TBD}}
+\date{3DSSF -- Kozma}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Task and requirements}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \textbf{Question:} does a high-end automotive lidar on a highway car fulfil the EBA requirements?
+    \begin{itemize}
+      \item detection range \textbf{250\,m}
+      \item at least \textbf{5 returns per object}
+    \end{itemize}
+    \vspace{1em}
+    \textbf{Our criterion:} $P(\text{at least 5 returns}) \ge 99\,\%$ in a single frame, at 250\,m,
+    for dark (10\,\%) objects.
+    \column{0.42\textwidth}
+    \textbf{Objects (front view, W $\times$ H)}\\[0.3em]
+    \small
+    \begin{tabular}{lr}
+      \toprule
+      pedestrian & 0.5 $\times$ 1.8\,m \\
+      motorcycle & 0.8 $\times$ 1.4\,m \\
+      car        & 1.8 $\times$ 1.5\,m \\
+      truck      & 2.5 $\times$ 3.5\,m \\
+      tyre / lost cargo & 0.5 $\times$ 0.5\,m \\
+      \bottomrule
+    \end{tabular}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{The lidar: Hesai AT512}
+  \begin{columns}[T]
+    \column{0.56\textwidth}
+    \small
+    \begin{tabular}{ll}
+      \toprule
+      range          & 300\,m @ 10\,\% refl.\ (400\,m max) \\
+      resolution     & 0.05$^\circ$ $\times$ 0.05$^\circ$ \\
+      field of view  & 120$^\circ$ $\times$ 25.6$^\circ$ \\
+      points         & 12.3\,M/s = 2400 $\times$ 512 @ 10\,Hz \\
+      \bottomrule
+    \end{tabular}
+    \column{0.4\textwidth}
+    \textbf{Why this one}
+    \begin{itemize}
+      \item automotive-grade, long-range series product
+      \item very fine angular grid $\rightarrow$ many beams on small, far objects
+      \item 120$^\circ$ covers adjacent lanes
+    \end{itemize}
+  \end{columns}
+  \vspace{1em}
+  \small\textit{Assumption: the 300\,m spec means 90\,\% detection probability (not stated by Hesai).}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Model, step 1: how many beams hit the object?}
+  \begin{columns}[c]
+    \column{0.52\textwidth}
+    Beam spacing at distance $R$: \quad $s = R\,\Delta\theta$ \quad (250\,m $\rightarrow$ 0.22\,m)
+    \[
+      n = \frac{W}{R\,\Delta\theta_h}\cdot\frac{H}{R\,\Delta\theta_v} \;\propto\; \frac{1}{R^2}
+    \]
+    The grid has a random offset: a side of $L = 2.29$ spacings gets
+    2 beams (71\,\%) or 3 beams (29\,\%).
+    \vspace{0.5em}
+
+    Car @ 250\,m: $8.3 \times 6.9 \approx 57$ beams\\
+    Tyre @ 250\,m: $2.3 \times 2.3$ $\rightarrow$ 4, 6 or 9 beams
+    \column{0.44\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=3.2]
+      % tyre 0.5 x 0.5 m, beam spacing 0.218 m
+      \fill[orange!25] (0.12,0.12) rectangle (0.62,0.62);
+      \draw[orange!80!black, thick] (0.12,0.12) rectangle (0.62,0.62);
+      \foreach \x in {0,0.218,0.436,0.654} \foreach \y in {0,0.218,0.436,0.654}
+        \fill (\x,\y) circle (0.018);
+      \node[below] at (0.37,-0.03) {\scriptsize 0.5\,m tyre, beams every 0.22\,m};
+      \node[below, orange!60!black] at (0.37,-0.15) {\scriptsize this offset: 2 $\times$ 2 = 4 hits};
+    \end{tikzpicture}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Model, steps 2--3: returns are a binomial random variable}
+  \textbf{Per-beam detection probability} -- echo power $\propto \rho / R^2$:
+  \[
+    p(R,\rho) = 1 - \exp\!\Big(-C\,\frac{\rho}{R^2}\Big), \qquad
+    C \text{ from the datasheet: } p(300\,\text{m}, 10\,\%) = 0.9
+  \]
+  $\Rightarrow$ $p(250\,\text{m}, 10\,\%) = 0.964$
+  \vspace{0.8em}
+
+  \textbf{Number of returns:} $n$ independent beams, each returns with $p$
+  \[
+    K \sim \mathrm{Binomial}(n, p), \qquad
+    P(K \ge 5) = 1 - \sum_{k=0}^{4} \binom{n}{k} p^k (1-p)^{n-k}
+  \]
+  averaged over the possible beam counts $n$ (random grid offset).
+  \vspace{0.8em}
+
+  \textbf{Verdict:} largest $R$ with $P(K \ge 5) \ge 99\,\%$ -- is it $\ge 250$\,m?
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Results (10\,\% reflectivity)}
+  \centering
+  \includegraphics[width=\textwidth]{lidar_eba.png}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Results}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \small
+    \begin{tabular}{lrrl}
+      \toprule
+      object (10\,\%) & $E[K]$ @ 250\,m & $R_{99\%}$ & \\
+      \midrule
+      pedestrian & 18  & 308\,m & \textcolor{green!50!black}{pass} \\
+      motorcycle & 23  & 353\,m & \textcolor{green!50!black}{pass} \\
+      car        & 55  & $\ge$ 400\,m & \textcolor{green!50!black}{pass} \\
+      truck      & 177 & $\ge$ 400\,m & \textcolor{green!50!black}{pass} \\
+      tyre / cargo & 5.1 & 197\,m & \textcolor{red!70!black}{fail} \\
+      \bottomrule
+    \end{tabular}
+    \column{0.42\textwidth}
+    \textbf{Tyre @ 250\,m: $P(K\ge5) = 0.49$}
+    \begin{itemize}
+      \item half the time only $2\times2 = 4$ beams hit
+      \item same result at 50\,\% reflectivity
+      \item[$\Rightarrow$] limited by \textbf{resolution}, not by sensitivity
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Limitations and conclusion}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \textbf{Assumptions}
+    \begin{itemize}\small
+      \item flat, frontal targets (no windows, no curvature)
+      \item independent beams -- optimistic in rain or with a dirty sensor
+      \item 90\,\% behind the 300\,m spec is assumed
+      \item single frame; 34 frames remain before braking at 130\,km/h (stopping distance $\approx$ 127\,m)
+    \end{itemize}
+    \column{0.48\textwidth}
+    \textbf{Conclusion}
+    \begin{itemize}
+      \item \textbf{AT512 fulfils EBA} for all vehicles and pedestrians at 250\,m, even at 10\,\% reflectivity
+      \item small debris ($\sim$0.5\,m) is reliable only up to $\approx$ 200\,m -- a resolution limit
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\end{document}
