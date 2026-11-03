@@ -1,0 +1,330 @@
+% Backup slides for the Q&A (not part of the 5-minute pitch). Numbers: lidar_eba.py.
+% Referenced from docs/qa_guide.md as B1..B10.
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{default}
+\usecolortheme{seahorse}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\hfill\insertframenumber\hspace{1em}\vspace{0.5em}}
+\renewcommand{\insertframenumber}{B\arabic{framenumber}}
+\usepackage{booktabs}
+\graphicspath{{../}}   % figures are written next to the Python scripts
+\usepackage{amsmath}
+\newcommand{\fail}[1]{\textcolor{red!70!black}{\textbf{#1}}}
+\newcommand{\pass}[1]{\textcolor{green!45!black}{\textbf{#1}}}
+
+\begin{document}
+
+% ---------------------------------------------------------------
+\begin{frame}{Key numbers}
+  \footnotesize\setlength{\tabcolsep}{4pt}
+  \begin{columns}[t]
+    \column{0.47\textwidth}
+    \begin{tabular}{ll}
+      \toprule
+      resolution (ROI) & 0.1$^\circ$ $\times$ 0.05$^\circ$ \\
+      beam spacing @ 250\,m & 44\,cm $\times$ 22\,cm \\
+      datasheet point & 210\,m @ 10\,\%: 90\,\%/beam \\
+      $p$ per beam @ 250\,m & 0.80 / 0.67 / 0.21 \\
+      & \scriptsize(clear / rain / fog) \\
+      stopping @ 130\,km/h & 127\,m, 68 frames left \\
+      \bottomrule
+    \end{tabular}
+    \column{0.49\textwidth}
+    \begin{tabular}{lrrr}
+      \toprule
+      250\,m, 10\,\%, clear & $n$ & $E[K]$ & $R_{99}$ [m] \\
+      \midrule
+      pedestrian & 9.5 & 7.6 & \fail{235} \\
+      motorcycle & 11.8 & 9.4 & \fail{237} \\
+      car & 28.4 & 22.8 & \pass{$\ge$300} \\
+      truck & 91.9 & 73.8 & \pass{$\ge$300} \\
+      tyre / cargo & 2.6 & 2.1 & \fail{143} \\
+      \bottomrule
+    \end{tabular}
+  \end{columns}
+  \vspace{1em}
+  \centering
+  Pedestrian: $P(K\ge5)$ = 96.2\,\% clear, 80\,\% rain, 5\,\% fog $\rightarrow$ 91\,\% weighted (88/8/4\,\%)
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Datasheet source: where 90\,\% at 210\,m comes from}
+  \small
+  \textbf{InnovizTwo GMSL Series Production Datasheet v3.1} (2024), Condor configuration
+  \begin{itemize}
+    \item range line: ``0.1$^\circ$x0.05$^\circ$: 210\,m @ 10\,\% Reflectivity''
+    \item footnote 4: 25\,$^\circ$C; 10\,\% Lambertian target; 100\,klx ambient light; clear weather;
+      no blockage on window; Normal power mode.\\
+      \textbf{``True Positives = 90\,\% per pixel and False Positives = 1\,\% per pixel''}
+    \item footnote 1: 0.05$^\circ$ $\times$ 0.05$^\circ$ can be configured -- trade-off with
+      frame rate, FoV, range, power
+  \end{itemize}
+  \vspace{0.5em}
+  \textbf{Mapping to the model}
+  \[
+    R_0 = 210\,\text{m}, \quad \rho_0 = 0.10, \quad P_0 = 0.90
+    \quad\Rightarrow\quad p(R_0, \rho_0) = P_0
+  \]
+  \textbf{Same convention as lecture 3, slide 20} (Seyond Falcon: 250\,m @ 10\,\%, 100\,klx, POD $>$ 90\,\%)
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Geometry: why the beam count is random}
+  \begin{columns}[c]
+    \column{0.5\textwidth}
+    \small
+    Beams at $x_j = u + j\,s$, \ $s = R\,\Delta\theta$, \ offset $u \sim U[0,s)$\\[0.5em]
+    Object side $[0, W]$, \ $L = W/s$:
+    \[
+      n_h = \begin{cases}
+        \lfloor L\rfloor + 1 & \text{if } u < W - \lfloor L\rfloor s \\
+        \lfloor L\rfloor & \text{otherwise}
+      \end{cases}
+    \]
+    \[
+      \Rightarrow\ P(n_h = \lfloor L\rfloor + 1) = L - \lfloor L\rfloor,
+      \qquad E[n_h] = L
+    \]
+    Same vertically, independently.
+    \column{0.48\textwidth}
+    \small
+    \textbf{Pedestrian @ 250\,m} ($0.5 \times 1.8$\,m)\\[0.3em]
+    \begin{tabular}{lcc}
+      \toprule
+      & horizontal & vertical \\
+      \midrule
+      spacing $s$ & 0.436\,m & 0.218\,m \\
+      $L$ & 1.15 & 8.25 \\
+      counts & 1 or 2 & 8 or 9 \\
+      probability & 85\,\% / 15\,\% & 75\,\% / 25\,\% \\
+      \bottomrule
+    \end{tabular}\\[0.8em]
+    $\Rightarrow$ mostly \textbf{a single column} of 8--9 beams:\\
+    the horizontal resolution is the bottleneck
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Detection probability per beam}
+  \begin{columns}[c]
+    \column{0.52\textwidth}
+    \small
+    \textbf{Signal} (lidar equation, Lambertian, target $>$ spot):
+    $P_r \propto \dfrac{\rho}{R^2}\,e^{-2\alpha R}$\\[0.5em]
+    \textbf{Detection:} signal events $\sim$ Poisson($\lambda$), $\lambda \propto P_r$;
+    return if $\ge 1$ event:
+    \[
+      p = 1 - e^{-\lambda} = 1 - \exp\!\Big(-C\,\frac{\rho}{R^2}\,e^{-2\alpha R}\Big)
+    \]
+    \textbf{Calibration} $p(210\,\text{m}, 10\,\%) = 0.9$:
+    \[
+      C = -\ln(1-P_0)\,\frac{R_0^2}{\rho_0}
+    \]
+    At 250\,m: $\ln 10 \cdot (210/250)^2 = 1.625 \Rightarrow p = 0.803$
+    \column{0.44\textwidth}
+    \small
+    \centering
+    \begin{tabular}{rcc}
+      \toprule
+      $R$ [m] & $p$ (10\,\%) & $p$ (5\,\%) \\
+      \midrule
+      150 & 0.989 & 0.895 \\
+      200 & 0.921 & 0.719 \\
+      \textbf{210} & \textbf{0.900} & 0.684 \\
+      235 & 0.841 & 0.601 \\
+      \textbf{250} & \textbf{0.803} & 0.556 \\
+      275 & 0.739 & 0.489 \\
+      300 & 0.676 & 0.431 \\
+      \bottomrule
+    \end{tabular}\\[0.5em]
+    \scriptsize one free constant, fixed by the one datasheet point
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Statistics: worked example (pedestrian, 250\,m, 10\,\%, clear)}
+  \small
+  \[
+    P(K \ge 5 \mid n) = 1 - \sum_{i=0}^{4} \binom{n}{i} p^i (1-p)^{n-i},
+    \qquad
+    P(K \ge 5) = \sum_{ij} w_{ij}\, P(K\ge5 \mid n_{ij})
+  \]
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+    $n$ & weight $w$ & $P(K\ge5\mid n)$ & contribution \\
+    \midrule
+    $1\times8 = 8$ & $0.85\cdot0.75 = 0.64$ & 0.947 & 0.604 \\
+    $1\times9 = 9$ & $0.85\cdot0.25 = 0.21$ & 0.982 & 0.209 \\
+    $2\times8 = 16$ & $0.15\cdot0.75 = 0.11$ & 1.000 & 0.112 \\
+    $2\times9 = 18$ & $0.15\cdot0.25 = 0.04$ & 1.000 & 0.037 \\
+    \midrule
+    & & & \fail{0.962} $< 0.99$ \\
+    \bottomrule
+  \end{tabular}\\[0.8em]
+  $E[K] = 1.15 \cdot 8.25 \cdot 0.803 = 7.6 \ge 5$ \quad but \quad $P(K < 5) = 3.8\,\%$\\[0.3em]
+  \textbf{the average passes, the probability fails}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Verification}
+  \small
+  \begin{enumerate}
+    \item \textbf{Calibration:} $p(210\,\text{m}, 10\,\%) = 0.900$ exactly
+    \item \textbf{Hand calculation} (B5) = code output: 0.9618
+    \item \textbf{Monte Carlo}, independent of the formulas:\\
+      200\,000 frames: random grid offset $u \sim U[0,s)$, count beams, draw $K \sim \mathrm{Bin}(n,p)$
+  \end{enumerate}
+  \vspace{0.5em}
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    pedestrian, 250\,m & formula & Monte Carlo \\
+    \midrule
+    $P(K \ge 5)$ & 96.18\,\% & 96.19\,\% \\
+    $E[K]$ & 7.60 & 7.60 \\
+    \bottomrule
+  \end{tabular}\\[1em]
+  \raggedright
+  \textbf{Why not Poisson for $K$?} With $p = 0.8$ the binomial is much narrower:
+  Poisson gives 87\,\% (too pessimistic)
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Sensitivity: what changes the pedestrian verdict?}
+  \footnotesize
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+    \centering
+    \begin{tabular}{lcc}
+      \toprule
+      variant & $P$ @ 250\,m & $R_{99}$ \\
+      \midrule
+      \textbf{our model} & \textbf{96.2\,\%} & \textbf{235\,m} \\
+      speckle curve shape & 98.9\,\% & 248\,m \\
+      datasheet $P_0$ = 80\,\% & 82\,\% & 214\,m \\
+      datasheet $P_0$ = 95\,\% & 99.3\,\% & 254\,m \\
+      threshold 95\,\% & -- & 253\,m \\
+      threshold 99.9\,\% & -- & 219\,m \\
+      reflectivity 5\,\% & 59\,\% & 195\,m \\
+      width 0.4\,m & 87.6\,\% & 230\,m \\
+      width 0.6\,m & 97.2\,\% & 238\,m \\
+      \bottomrule
+    \end{tabular}
+    \column{0.46\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+      \toprule
+      min.\ returns $k$ & $P$ @ 250\,m & $R_{99}$ \\
+      \midrule
+      3 & 99.9\,\% & 274\,m \\
+      4 & 99.3\,\% & 254\,m \\
+      \textbf{5} & \textbf{96.2\,\%} & \textbf{235\,m} \\
+      6 & 85.7\,\% & 221\,m \\
+      8 & 35.2\,\% & 196\,m \\
+      \bottomrule
+    \end{tabular}\\[1em]
+    \raggedright\small
+    \pass{Robust:} cars, trucks pass and the tyre fails under every variant.\\[0.3em]
+    \fail{Borderline:} pedestrian, motorcycle -- we say so.
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Weather details}
+  \small
+  \begin{columns}[t]
+    \column{0.48\textwidth}
+    Loss on the way out and back: $e^{-2\alpha R}$\\
+    Visibility $V$ = distance where contrast drops to 2\,\%:
+    \[
+      e^{-\alpha V} = 0.02 \Rightarrow \alpha = \frac{3.912}{V}
+    \]
+    \begin{tabular}{lcc}
+      \toprule
+      & $V$ & $\alpha$ [1/m] \\
+      \midrule
+      clear & $>$ 20\,km & 0 \\
+      rain / haze & 5\,km & $7.8\cdot10^{-4}$ \\
+      fog & 1\,km & $3.9\cdot10^{-3}$ \\
+      \bottomrule
+    \end{tabular}\\[0.3em]
+    \scriptsize WMO: fog = visibility below 1\,km, so 1\,km is the mildest fog
+    \column{0.5\textwidth}
+    \textbf{Denser fog}, 99\,\% range, 10\,\%:\\[0.2em]
+    \begin{tabular}{lccc}
+      \toprule
+      $V$ & 1\,km & 500\,m & 200\,m \\
+      \midrule
+      car & 221 & 175 & 114 \\
+      pedestrian & 167 & 144 & 98 \\
+      truck & 273 & 208 & 131 \\
+      \bottomrule
+    \end{tabular}\\[0.8em]
+    \textbf{Weights} (our estimate), pedestrian weighted $P$:\\[0.2em]
+    \begin{tabular}{cc}
+      \toprule
+      clear / rain / fog & $P$ @ 250\,m \\
+      \midrule
+      \textbf{88 / 8 / 4\,\%} & \textbf{91.3\,\%} \\
+      80 / 12 / 8\,\% & 87.0\,\% \\
+      95 / 4 / 1\,\% & 94.6\,\% \\
+      \bottomrule
+    \end{tabular}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{Higher resolution: the 0.05$^\circ$ $\times$ 0.05$^\circ$ option}
+  \small
+  Footnote 1: configurable, with trade-offs in frame rate, FoV, range and power.\\[0.5em]
+  \textbf{If} the 210\,m @ 10\,\% spec stayed the same (optimistic):\\[0.3em]
+  \centering
+  \begin{tabular}{lcc}
+    \toprule
+    10\,\%, clear & $R_{99}$ at 0.1$^\circ$ (ROI) & $R_{99}$ at 0.05$^\circ$ \\
+    \midrule
+    pedestrian & \fail{235\,m} & \pass{290\,m} \\
+    motorcycle & \fail{237\,m} & \pass{$\ge$300\,m} \\
+    tyre / cargo & \fail{143\,m} & \fail{194\,m} \\
+    \bottomrule
+  \end{tabular}\\[1em]
+  \raggedright
+  $\Rightarrow$ confirms that the \textbf{horizontal resolution is the bottleneck}, but the
+  datasheet says range / frame rate pay for it, so we don't claim it.\\[0.5em]
+  \scriptsize Last year's InnovizTwo team assumed 0.05$^\circ$ everywhere, judged at 200\,m and used averages only.
+\end{frame}
+
+% ---------------------------------------------------------------
+\begin{frame}{EBA context: stopping distance and frames}
+  \small
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+    $d = v\,t_{\text{lat}} + \dfrac{v^2}{2a}$, \ $t_{\text{lat}} = 0.5$\,s, \ $a = 6$\,m/s$^2$\\[0.5em]
+    \begin{tabular}{cccc}
+      \toprule
+      speed & $d$ & time to 250\,m \\
+      \midrule
+      100\,km/h & 78\,m & 9.0\,s \\
+      \textbf{130\,km/h} & \textbf{127\,m} & \textbf{6.9\,s} \\
+      140\,km/h & 146\,m & 6.4\,s \\
+      \bottomrule
+    \end{tabular}\\[0.5em]
+    From 250\,m to 127\,m: 3.4\,s $=$ \textbf{68 frames} @ 20\,FPS
+    \column{0.46\textwidth}
+    \textbf{Several frames?} If independent:\\[0.3em]
+    \begin{tabular}{cc}
+      \toprule
+      frames & $P$ (pedestrian, 250\,m) \\
+      \midrule
+      1 & 96.2\,\% \\
+      2 & 99.85\,\% \\
+      3 & 99.994\,\% \\
+      \bottomrule
+    \end{tabular}\\[0.5em]
+    \fail{But frames are correlated} (same object, distance, grid offset, weather) $\rightarrow$
+    an upper bound only; our verdict uses single frames.
+  \end{columns}
+\end{frame}
+
+\end{document}

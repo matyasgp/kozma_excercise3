@@ -11,10 +11,16 @@ Does the **InnovizTwo** fulfil the Emergency Brake Assist requirements (250 m de
 - `lidar_eba.py`: the model (beam geometry, per-beam detection probability, binomial P(K >= 5)). Run `python lidar_eba.py`; needs numpy and matplotlib.
 - `lidar_eba.png`: the results plot produced by the script (P(K ≥ 5) vs distance, clear / rain / fog).
 - `figures.py`: makes the slide visuals `fig_beams_250m.png`, `fig_k_distribution.png`, `fig_ranges.png` (uses the model from `lidar_eba.py`).
-- `derivation.tex` / `derivation.pdf`: short math derivation of the model, with the reasons for every parameter.
-- `code_explained.md`: walk-through of the code, list of assumptions, how robust the results are, alternative approaches.
-- `speaker_notes.md`: what to say on each slide, background, likely questions.
-- `presentation.tex` / `presentation.pdf`: beamer draft of the 5-minute pitch (the final version will be in Google Slides).
+- `note.md`: status for the team, open fixes, Q&A prep.
+- `slides/presentation.pdf`: beamer draft of the 5-minute pitch (the final version will be in Google Slides).
+- `slides/backup_slides.pdf`: 10 backup slides (B1–B10) for the Q&A.
+- `docs/speaker_notes.md`: what to say on each slide, background, likely questions.
+- `docs/qa_guide.md`: answers to every question we expect, with pointers to the backup slides.
+- `docs/derivation.pdf`: short math derivation of the model, with the reasons for every parameter.
+- `docs/code_explained.md`: walk-through of the code, list of assumptions, how robust the results are, alternative approaches.
+- `sources/` (local only, not in the repo): the course deck and the datasheet PDF.
+
+The figures (`*.png`) stay next to the scripts, which write them there; the slides read them from `..`. Build a PDF with `latexmk -pdf <file>.tex` inside `slides/` or `docs/`; LaTeX build files go to a `build/` folder (see `latexmkrc`), which is ignored.
 
 ## InnovizTwo specs used
 

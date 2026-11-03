@@ -1,6 +1,6 @@
 # Speaker notes: InnovizTwo for EBA (5-minute pitch)
 
-One section per slide in `presentation.pdf`: **what to say** (paste into the Google Slides speaker notes) and **background** (so everyone in the team can answer questions). The timing adds up to about 5 minutes.
+One section per slide in `slides/presentation.pdf`: **what to say** (paste into the Google Slides speaker notes) and **background** (so everyone in the team can answer questions). The timing adds up to about 5 minutes.
 
 ---
 

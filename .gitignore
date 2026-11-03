@@ -1,7 +1,9 @@
-# course deck (100 MB, contains other teams' work)
+# local sources: course deck (100 MB, other teams' work), datasheet PDF (copyright)
+sources/
 *.pptx
 
-# LaTeX build files
+# LaTeX build files (latexmkrc puts them in build/)
+build/
 *.aux
 *.fdb_latexmk
 *.fls

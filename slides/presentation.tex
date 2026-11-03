@@ -6,6 +6,8 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
 \usepackage{booktabs}
+\graphicspath{{../}}   % figures are written next to the Python scripts
+\newcommand{\fail}[1]{\textcolor{red!70!black}{\textbf{#1}}}
 
 \title{InnovizTwo for Emergency Brake Assist}
 \subtitle{Lidar performance -- statistical modelling (Exercise 3)}
@@ -71,7 +73,6 @@
   \centering
   \includegraphics[width=0.88\textwidth]{lidar_eba.png}\\[0.1em]
   \footnotesize
-  \newcommand{\fail}[1]{\textcolor{red!70!black}{\textbf{#1}}}
   \begin{tabular}{l ccc c ccc}
     \toprule
     & \multicolumn{4}{c}{$P(K \ge 5)$ at 250\,m} & \multicolumn{3}{c}{99\,\% range [m]} \\
