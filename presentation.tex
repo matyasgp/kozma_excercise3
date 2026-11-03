@@ -1,4 +1,5 @@
 % Draft for the 5-minute pitch; the final version goes to Google Slides.
+% Figures: lidar_eba.py -> lidar_eba.png, figures.py -> fig_*.png
 \documentclass[aspectratio=169,11pt]{beamer}
 \usetheme{default}
 \usecolortheme{seahorse}
@@ -19,66 +20,47 @@
 
 % ---------------------------------------------------------------
 \begin{frame}{The lidar: Hesai AT512}
-  \begin{columns}[T]
-    \column{0.56\textwidth}
-    \small
-    \begin{tabular}{ll}
-      \toprule
-      range          & 300\,m @ 10\,\% refl.\ (400\,m max) \\
-      resolution     & 0.05$^\circ$ $\times$ 0.05$^\circ$ \\
-      field of view  & 120$^\circ$ $\times$ 25.6$^\circ$ \\
-      points         & 12.3\,M/s = 2400 $\times$ 512 @ 10\,Hz \\
-      \bottomrule
-    \end{tabular}
+  \begin{columns}[c]
     \column{0.4\textwidth}
-    \textbf{Why this one}
+    \small
     \begin{itemize}
-      \item automotive-grade, long-range series product
-      \item very fine angular grid $\rightarrow$ many beams on small, far objects
-      \item 120$^\circ$ covers adjacent lanes
+      \item 300\,m @ 10\,\% reflectivity\\(400\,m max)
+      \item 0.05$^\circ$ $\times$ 0.05$^\circ$ resolution\\2400 $\times$ 512 points @ 10\,Hz
+      \item 120$^\circ$ $\times$ 25.6$^\circ$ field of view\\$\rightarrow$ covers adjacent lanes
+      \item automotive-grade series product
     \end{itemize}
+    \vspace{0.5em}
+    \textbf{Fine grid $\Rightarrow$ many beams on small, far objects}
+
+    \vspace{0.8em}
+    \scriptsize\textit{Assumption: the 300\,m spec means 90\,\% detection probability (not stated by Hesai).}
+    \column{0.58\textwidth}
+    \includegraphics[width=\textwidth]{fig_beams_250m.png}
   \end{columns}
-  \vspace{1em}
-  \small\textit{Assumption: the 300\,m spec means 90\,\% detection probability (not stated by Hesai).}
 \end{frame}
 
 % ---------------------------------------------------------------
 \begin{frame}{Model: returns per frame are a random variable}
-  \begin{columns}[T]
-    \column{0.5\textwidth}
-    \textbf{1. Beams on target} (W $\times$ H object at $R$)
+  \begin{columns}[c]
+    \column{0.47\textwidth}
+    \textbf{1. Beams on target} (W $\times$ H at $R$)
     \[
       n = \frac{W}{R\,\Delta\theta_h}\cdot\frac{H}{R\,\Delta\theta_v}
     \]
     random grid offset $\rightarrow$ $n$ rounds up or down
 
-    \vspace{0.5em}
-    \textbf{2. Each beam returns with probability} (echo $\propto \rho/R^2$)
+    \vspace{0.4em}
+    \textbf{2. Each beam returns with prob.}
     \[
       p = 1 - e^{-C\rho/R^2}, \quad p(300\,\text{m}, 10\,\%) = 0.9
     \]
 
-    \vspace{0.2em}
-    \textbf{3. Returns:} $K \sim \mathrm{Binomial}(n, p)$\\
+    \textbf{3. Returns:} $K \sim \mathrm{Binomial}(n, p)$\\[0.2em]
     \textbf{Requirement:} $P(K \ge 5) \ge 99\,\%$ at 250\,m
-    \column{0.46\textwidth}
-    \textbf{Example:} pedestrian, 10\,\%, 350\,m\\[0.3em]
-    \small
-    \begin{tabular}{lcccccccccc}
-      \toprule
-      frame   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-      beams   & 12 & 12 & 12 & 6 & 6 & 12 & 6 & 6 \\
-      returns & 11 & 10 & 10 & 5 & 5 & 10 & \textcolor{red!70!black}{\textbf{4}} & \textcolor{red!70!black}{\textbf{3}} \\
-      \bottomrule
-    \end{tabular}
-
-    \vspace{0.8em}
-    \normalsize
-    average $E[K] = 7.9 \ge 5$\\
-    but $P(K < 5) = 12\,\%$ $\rightarrow$ \textbf{fails}
-
-    \vspace{0.5em}
-    \small\textit{The average can pass while the probability fails.}
+    \column{0.51\textwidth}
+    \includegraphics[width=\textwidth]{fig_k_distribution.png}\\
+    \small average 7.9 $\ge$ 5, but 12\,\% of frames fail\\
+    $\Rightarrow$ \textbf{the average passes, the probability fails}
   \end{columns}
 \end{frame}
 
@@ -92,23 +74,19 @@
 \end{frame}
 
 % ---------------------------------------------------------------
-\begin{frame}{Conclusion}
-  \begin{columns}[T]
-    \column{0.5\textwidth}
-    \textbf{AT512 fulfils EBA}
+\begin{frame}{Conclusion: the AT512 fulfils EBA}
+  \begin{columns}[c]
+    \column{0.4\textwidth}
     \begin{itemize}
-      \item all vehicles and pedestrians at 250\,m, even at 10\,\% reflectivity
-      \item 99\,\% range: pedestrian 308\,m, motorcycle 353\,m, car/truck $\ge$ 400\,m
-      \item small debris ($\sim$0.5\,m): only up to $\approx$ 200\,m -- too few beams hit (resolution limit, not reflectivity)
+      \item all vehicles and pedestrians pass at 250\,m, even at 10\,\% reflectivity
+      \item small debris ($\sim$0.5\,m): only up to $\approx$ 200\,m\\
+        too few beams hit -- a \textbf{resolution} limit, not reflectivity
     \end{itemize}
-    \column{0.46\textwidth}
-    \textbf{Limitations}
-    \begin{itemize}\small
-      \item flat, frontal targets
-      \item independent beams -- optimistic in rain / dirty sensor
-      \item 90\,\% behind the 300\,m spec is assumed
-      \item single frame; at 130\,km/h, 34 frames remain before braking must start
-    \end{itemize}
+    \vspace{0.6em}
+    \scriptsize\textbf{Limitations:} flat frontal targets; independent beams (optimistic in rain / dirty sensor);
+    90\,\% behind the range spec assumed; single frame -- 34 more frames before braking must start.
+    \column{0.58\textwidth}
+    \includegraphics[width=\textwidth]{fig_ranges.png}
   \end{columns}
 \end{frame}
 
