@@ -1,0 +1,165 @@
+% Short derivation of the model in lidar_eba.py, with the reasons for each parameter.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+\title{InnovizTwo for Emergency Brake Assist:\\ derivation of the statistical model}
+\author{3DSSF -- Kozma, Exercise 3}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{Question.} An object of width $W$, height $H$ and reflectivity $\rho$ is at distance $R$.
+What is the probability that the lidar gets at least $k_{\min}=5$ returns from it in one frame,
+and up to which $R$ is that probability at least 99\,\%?
+
+\section{Number of beams on the object}
+
+The lidar samples a regular angular grid with spacing $\Delta\theta_h$ (horizontal) and
+$\Delta\theta_v$ (vertical). At distance $R$ neighbouring beams are $s = R\,\Delta\theta$ apart
+(small angles: $\tan\Delta\theta \approx \Delta\theta$, error $< 10^{-6}$ for $0.1^\circ$).
+One side of the object therefore spans
+\[
+  L = \frac{W}{R\,\Delta\theta_h} \quad\text{beam spacings.}
+\]
+\textbf{Random grid offset.} Beams sit at $x_j = u + j s$, with the offset $u$ uniform on $[0,s)$
+(the object can be anywhere relative to the grid). The interval $[0,W]$ contains
+$\lfloor L\rfloor + 1$ beams if $u < W - \lfloor L\rfloor s$, otherwise $\lfloor L\rfloor$. Hence
+\[
+  P\big(n_h = \lfloor L\rfloor + 1\big) = \frac{W - \lfloor L\rfloor s}{s} = L - \lfloor L\rfloor = \{L\},
+  \qquad P\big(n_h = \lfloor L\rfloor\big) = 1 - \{L\}.
+\]
+The same holds vertically, independently. So $n = n_h n_v$ takes 4 values with known probabilities
+$w_{ij}$. As a check, $\mathbb{E}[n_h] = L$: on average the count is exactly the geometric value.
+
+\section{Detection probability of one beam}
+
+\textbf{Signal.} For a Lambertian target larger than the laser spot, the lidar equation gives the
+received power
+\[
+  P_r \propto \frac{\rho}{R^2}\, e^{-2\alpha R},
+\]
+where $e^{-2\alpha R}$ is the loss in the air on the way out and back (Beer--Lambert, extinction
+coefficient $\alpha$).
+
+\textbf{From signal to probability.} We model the detected signal events in one beam as Poisson
+with a mean $\lambda$ proportional to the received power, $\lambda = C\rho R^{-2}e^{-2\alpha R}$.
+A beam gives a return if at least one event is detected:
+\[
+  p(R,\rho) = 1 - e^{-\lambda} = 1 - \exp\!\Big(-C\,\frac{\rho}{R^2}\,e^{-2\alpha R}\Big).
+\]
+This is the simplest curve that is $0$ for no signal, tends to $1$ for a strong signal and has
+only one free constant. That matters, because the datasheet gives only one point.
+
+\textbf{Calibration.} The datasheet states $p(R_0,\rho_0) = P_0$ in clear air ($\alpha=0$):
+\[
+  1 - e^{-C\rho_0/R_0^2} = P_0 \;\Longrightarrow\; C = -\ln(1-P_0)\,\frac{R_0^2}{\rho_0}.
+\]
+With $R_0 = 210$\,m, $\rho_0 = 0.1$, $P_0 = 0.9$ this gives
+$C\rho/R^2 = \ln 10 \cdot (R_0/R)^2$ for $\rho = 0.1$, so at $R=250$\,m:
+$p = 1 - e^{-2.303\cdot 0.7056} = 1 - e^{-1.625} = \mathbf{0.803}$.
+
+\section{Number of returns and the requirement}
+
+Given $n$ beams on the object, each returning independently with probability $p$,
+\[
+  K \mid n \sim \mathrm{Binomial}(n,p), \qquad
+  P(K \ge k \mid n) = 1 - \sum_{i=0}^{k-1} \binom{n}{i} p^i (1-p)^{n-i}.
+\]
+Averaging over the four beam counts (law of total probability):
+\[
+  P(K \ge k) = \sum_{i,j\in\{0,1\}} w_{ij}\, P(K \ge k \mid n_{ij}).
+\]
+\textbf{Verdict.} $R_{99} = \max\{R : P(K\ge 5) \ge 0.99\}$; the object passes if $R_{99} \ge 250$\,m.
+
+\textbf{Worked example} (dark pedestrian, $0.5\times1.8$\,m, 250\,m, clear).
+$s_h = 0.436$\,m, $L_h = 1.15$; $s_v = 0.218$\,m, $L_v = 8.25$.
+\begin{center}
+\begin{tabular}{cccc}
+  \toprule
+  $n$ & $w$ & $P(K\ge5\mid n)$ & contribution \\
+  \midrule
+  $1\times 8 = 8$  & $0.85\cdot0.75 = 0.64$ & 0.947 & 0.604 \\
+  $1\times 9 = 9$  & $0.85\cdot0.25 = 0.21$ & 0.982 & 0.209 \\
+  $2\times 8 = 16$ & $0.15\cdot0.75 = 0.11$ & 1.000 & 0.112 \\
+  $2\times 9 = 18$ & $0.15\cdot0.25 = 0.04$ & 1.000 & 0.037 \\
+  \midrule
+  & & & $\mathbf{0.962} < 0.99$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+The mean is $\mathbb{E}[K] = \mathbb{E}[n]\,p = 1.15\cdot 8.25\cdot 0.803 = 7.6 \ge 5$:
+the average passes, the probability fails.
+
+\section{Weather}
+
+Weather reports give the visibility $V$ (meteorological optical range), not $\alpha$. Visibility
+is defined as the distance at which the contrast of a dark object drops to 2\,\%, so
+(Koschmieder)
+\[
+  e^{-\alpha V} = 0.02 \;\Longrightarrow\; \alpha = \frac{-\ln 0.02}{V} = \frac{3.912}{V}.
+\]
+For each condition $c$ we evaluate the model with $\alpha_c$. The share of driving time $\pi_c$
+gives the yearly figure, again by total probability:
+\[
+  P_{\text{weighted}}(K\ge5) = \sum_c \pi_c\, P(K\ge5 \mid \alpha_c)
+  = 0.88\,P_{\text{clear}} + 0.08\,P_{\text{rain}} + 0.04\,P_{\text{fog}}.
+\]
+Pedestrian at 250\,m: $0.88\cdot0.962 + 0.08\cdot0.803 + 0.04\cdot0.047 = 0.913$.
+
+\section{Parameters and why we chose them}
+
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{l l X}
+  \toprule
+  Parameter & Value & Reason / source \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Lidar: InnovizTwo datasheet v3.1 (2024), Condor configuration, region of interest}} \\
+  $\Delta\theta_h \times \Delta\theta_v$ & $0.1^\circ \times 0.05^\circ$ & datasheet, ROI resolution. The ROI ($30^\circ\times9.6^\circ$)
+    is about $130\times40$\,m at 250\,m, so the lane ahead is inside it. \\
+  $R_0,\ \rho_0,\ P_0$ & 210\,m, 10\,\%, 0.90 & datasheet: ``210\,m @ 10\,\% reflectivity'', note 4:
+    ``True Positives = 90\,\% per pixel'' (100\,klx sunlight). This is exactly the per-beam probability the model needs. \\
+  $R_{\max}$, frame rate & 300\,m, 20\,FPS & datasheet; results are capped at 300\,m. \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Requirement and scenario}} \\
+  $R_{\text{req}},\ k_{\min}$ & 250\,m, 5 & given by the task. \\
+  confidence & 99\,\% & our choice: an EBA must not miss an object in more than about 1 frame in 100.
+    Sensitivity: 95\,\% gives 253\,m for the pedestrian, 99.9\,\% gives 219\,m. \\
+  $\rho$ & 10\,\% & the standard worst case in lidar datasheets; dark clothing and tyres are 5--10\,\%.
+    50\,\% (bright clothing) is shown for comparison. \\
+  pedestrian & $0.5\times1.8$\,m & adult shoulder width $\approx 0.5$\,m, height $\approx 1.75$--$1.8$\,m. \\
+  car & $1.8\times1.5$\,m & rear of a typical passenger car (width 1.75--1.85\,m, height 1.45--1.5\,m). \\
+  motorcycle & $0.8\times1.4$\,m & motorcycle with rider seen from behind (handlebar/mirrors, rider's head). \\
+  truck & $2.5\times3.5$\,m & rear of a truck/trailer; EU limits are 2.55\,m wide and 4\,m high. \\
+  tyre / cargo & $0.5\times0.5$\,m & lost load or a car tyre lying on the road (tyre diameter 0.6--0.7\,m, seen partly). \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Weather}} \\
+  clear & $\alpha = 0$ & datasheet conditions; visibility $> 20$\,km gives $\alpha < 0.0002$/m, negligible at 250\,m. \\
+  rain / haze & $V = 5$\,km & moderate rain or haze; $\alpha = 7.8\cdot10^{-4}$/m. \\
+  fog & $V = 1$\,km & the WMO definition of fog is visibility below 1\,km, so this is the mildest fog; $\alpha = 3.9\cdot10^{-3}$/m.
+    Denser fog is worse. \\
+  shares $\pi_c$ & 88 / 8 / 4\,\% & our estimate, not official: Budapest has about 80 days per year with $\ge 1$\,mm rain,
+    but rain lasts hours, not days; fog is mostly in winter. To be replaced by HungaroMet data. \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Context: stopping distance}} \\
+  speed & 130\,km/h & Hungarian motorway speed limit. \\
+  latency, braking & 0.5\,s, 6\,m/s$^2$ & system reaction; firm but not full braking (dry road allows 8--9\,m/s$^2$).
+    $d = vt + v^2/2a \approx 127$\,m, so 250\,m leaves 68 frames. \\
+  \bottomrule
+\end{tabularx}
+\normalsize
+
+Datasheet PDF: \url{https://levelfivesupplies.com/wp-content/uploads/2023/08/InnovizTwo-GMSL-Series-Production-Datasheet_v3.1-1.pdf}
+
+\section{Main assumptions}
+Flat rectangular targets facing the lidar; beams are points (no partial hits); beams fail
+independently; the shape of $p(R)$ beyond the datasheet point follows from the Poisson model
+(another common shape, the speckle model, gives 248\,m instead of 235\,m for the pedestrian, so ours
+is the cautious one); false positives (1\,\% per pixel) are ignored; one frame is judged on its own.
+
+\end{document}
