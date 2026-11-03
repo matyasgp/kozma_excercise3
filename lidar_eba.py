@@ -9,6 +9,8 @@ Model, one function per step:
                   c is calibrated so that p(R0, rho0) = P0, the datasheet range spec.
   3. Statistics - beams are independent, so returns K ~ Binomial(n, p); P(K >= 5) = 1 - P(K <= 4).
   4. Verdict    - the largest R where P(K >= 5) >= 99 %, compared with the 250 m requirement.
+  5. Weather    - alpha from visibility V (Koschmieder: alpha = 3.912/V) for clear, rain and fog;
+                  the yearly figure is the time-weighted average P = sum_w share_w * P_w.
 
 Datasheet (InnovizTwo GMSL Series Production Datasheet v3.1, 2024, Condor configuration):
 ROI (central 30 x 9.6 deg, where the lane ahead is) 0.1 x 0.05 deg, 210 m @ 10 % reflectivity
@@ -36,7 +38,17 @@ OBJECTS = {                         # name: (width, height) [m], front view
     "truck":      (2.5, 3.5),
     "tyre/cargo": (0.5, 0.5),
 }
-ALPHA = 0.0                         # atmospheric extinction [1/m]; ~0.001-0.003 light rain, ~0.01+ fog
+ALPHA = 0.0                         # atmospheric extinction [1/m]; 0 = clear air (datasheet conditions)
+
+# --- weather: name: (visibility [m], share of driving time in Hungary) ---
+# alpha = 3.912 / visibility (Koschmieder). Shares are our rough estimate, not official statistics
+# (Budapest: ~80 days/year with >= 1 mm rain, but rain lasts only a few hours; fog mostly in winter).
+WEATHER = {
+    "clear": (np.inf, 0.88),
+    "rain":  (5000.0, 0.08),
+    "fog":   (1000.0, 0.04),
+}
+ALPHAS = {name: 3.912 / vis for name, (vis, _) in WEATHER.items()}
 
 C = -np.log(1 - P0) * R0**2 / RHO0  # calibration of step 2
 
@@ -59,21 +71,26 @@ def p_at_least(k, n, p):
     return 1 - sum(comb(n, i) * p**i * (1 - p)**(n - i) for i in range(min(k, n + 1)))
 
 
-def p_detect(w, h, R, rho, k=K_MIN):
+def p_detect(w, h, R, rho, alpha=ALPHA, k=K_MIN):
     """Step 3: P(K >= k), averaged over the 2 x 2 possible beam counts."""
     (nh, ph), (nv, pv) = beam_counts(w, R, DTH), beam_counts(h, R, DTV)
-    p = p_beam(R, rho)
+    p = p_beam(R, rho, alpha)
     return sum(ph[i] * pv[j] * p_at_least(k, nh[i] * nv[j], p) for i in range(2) for j in range(2))
 
 
-def expected_returns(w, h, R, rho):
-    return w / (R * DTH) * h / (R * DTV) * p_beam(R, rho)
+def expected_returns(w, h, R, rho, alpha=ALPHA):
+    return w / (R * DTH) * h / (R * DTV) * p_beam(R, rho, alpha)
 
 
-def max_range(w, h, rho, R=np.arange(10, R_MAX + 1)):
+def max_range(w, h, rho, alpha=ALPHA, R=np.arange(10, R_MAX + 1)):
     """Step 4: largest distance where the object is still detected with probability >= CONF."""
-    ok = np.array([p_detect(w, h, r, rho) >= CONF for r in R])
+    ok = np.array([p_detect(w, h, r, rho, alpha) >= CONF for r in R])
     return R[ok].max() if ok.any() else 0
+
+
+def p_weighted(w, h, R, rho):
+    """Step 5: P(K >= 5) averaged over the weather, weighted by its share of driving time."""
+    return sum(share * p_detect(w, h, R, rho, ALPHAS[name]) for name, (_, share) in WEATHER.items())
 
 
 if __name__ == "__main__":
@@ -92,22 +109,30 @@ if __name__ == "__main__":
     print(f"\nstopping distance @130 km/h: {d_stop:.0f} m -> from {R_REQ:.0f} m there are "
           f"{(R_REQ - d_stop) / v * FPS:.0f} frames before braking must start")
 
-    R = np.arange(50, R_MAX + 1)
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
+    print(f"\nweather, {RHO0:.0%} reflectivity (per-beam p at {R_REQ:.0f} m: "
+          + ", ".join(f"{n} {p_beam(R_REQ, RHO0, a):.2f}" for n, a in ALPHAS.items()) + ")")
+    print(f"{'object':12s}" + "".join(f" {'P@250 ' + n:>11s}" for n in WEATHER) + f" {'weighted':>9s}"
+          + "".join(f" {'R99 ' + n:>9s}" for n in WEATHER))
     for name, (w, h) in OBJECTS.items():
-        line, = ax1.plot(R, [p_detect(w, h, r, 0.10) for r in R], label=name)
-        ax2.semilogy(R, expected_returns(w, h, R, 0.10), color=line.get_color(), label=name)
-    for ax in (ax1, ax2):
+        print(f"{name:12s}" + "".join(f" {p_detect(w, h, R_REQ, RHO0, a):11.3f}" for a in ALPHAS.values())
+              + f" {p_weighted(w, h, R_REQ, RHO0):9.3f}"
+              + "".join(f" {max_range(w, h, RHO0, a):8d}m" for a in ALPHAS.values()))
+
+    # plot: P(K >= 5) vs distance, one panel per weather condition
+    R = np.arange(50, R_MAX + 1)
+    fig, axes = plt.subplots(1, len(WEATHER), figsize=(13, 4.2), sharey=True)
+    for ax, (wname, (vis, share)) in zip(axes, WEATHER.items()):
+        for name, (w, h) in OBJECTS.items():
+            ax.plot(R, [p_detect(w, h, r, RHO0, ALPHAS[wname]) for r in R], label=name)
         ax.axvline(R_REQ, color="k", ls="--", lw=1)
+        ax.axhline(CONF, color="gray", ls=":", lw=1)
         ax.set_xlabel("distance R [m]")
         ax.grid(alpha=0.3)
-    ax1.axhline(CONF, color="gray", ls=":", lw=1)
-    ax1.set_ylabel(f"P(K >= {K_MIN})")
-    ax1.set_title(f"{LIDAR}, 10 % reflectivity: P(at least 5 returns)")
-    ax2.axhline(K_MIN, color="gray", ls=":", lw=1)
-    ax2.set_ylabel("expected returns E[K]")
-    ax2.set_title("expected returns per frame")
-    ax1.legend()
+        vis_txt = "visibility > 20 km" if np.isinf(vis) else f"visibility {vis / 1000:.0f} km"
+        ax.set_title(f"{wname} ({vis_txt}, {share:.0%} of time)")
+    axes[0].set_ylabel(f"P(K >= {K_MIN})")
+    axes[0].legend(loc="lower left")
+    fig.suptitle(f"{LIDAR}, {RHO0:.0%} reflectivity: probability of at least {K_MIN} returns")
     plt.tight_layout()
     plt.savefig("lidar_eba.png", dpi=150)
     plt.show()

@@ -32,7 +32,8 @@ FPS = 20
 - **Lidar block**: the only lidar-specific part. To change the lidar, change these lines and rerun both scripts.
 - `R0, RHO0, P0` is the datasheet sentence "210 m @ 10 % reflectivity, 90 % true positives per pixel" turned into three numbers.
 - **Scenario block** (`R_REQ = 250`, `K_MIN = 5`, `CONF = 0.99`, `OBJECTS`): the requirement and the objects as flat W × H rectangles.
-- `ALPHA = 0`: weather. 0 means clear air; a positive value adds fog/rain loss.
+- `ALPHA = 0`: default weather, clear air (the datasheet conditions).
+- `WEATHER`: three conditions, each as (visibility, share of driving time). `ALPHAS` turns the visibility into α (step 5).
 - `C = -ln(1 - P0) · R0² / RHO0`: the one calibrated constant, explained in step 2.
 
 ### Step 1: `beam_counts(size, R, dth)` – how many beams hit one side of the object
@@ -90,11 +91,32 @@ That's the probability of at least k successes in n independent coin flips with 
 
 The function walks R from 10 m to `R_MAX` in 1 m steps, keeps the distances where `p_detect ≥ CONF` (99 %), and returns the largest one. If that distance is at least 250 m, the object passes.
 
+### Step 5: weather, `ALPHAS` and `p_weighted`
+
+Rain and fog scatter the light on its way to the object and back, so the echo is multiplied by exp(−2αR). We don't know α directly, but weather reports give the **visibility** V, and the standard conversion is
+
+  α = 3.912 / V  (Koschmieder; 3.912 = −ln 0.02, the 2 % contrast a human eye still sees)
+
+| Condition | Visibility | α [1/m] | Share of time (our estimate) | p per beam at 250 m, 10 % |
+| --- | --- | --- | --- | --- |
+| clear | > 20 km (α = 0) | 0 | 88 % | 0.80 |
+| rain / haze | 5 km | 0.00078 | 8 % | 0.67 |
+| fog | 1 km | 0.0039 | 4 % | 0.21 |
+
+All functions take `alpha` as an argument, so every result can be computed per condition. `p_weighted` averages P(K ≥ 5) over the three conditions with the shares as weights (the law of total probability again):
+
+  P_weighted = 0.88 · P_clear + 0.08 · P_rain + 0.04 · P_fog
+
+> Pedestrian at 250 m: 0.88 · 0.962 + 0.08 · 0.803 + 0.04 · 0.047 = **0.913**
+
+Simplifications: 905 nm light is treated like visible light (the Koschmieder formula is for visible light; the difference is small next to our other uncertainties); wet roads, spray and a wet sensor window are ignored; the shares are rough estimates, not HungaroMet statistics.
+
 ### `__main__`
 
 1. Prints p at 250 m, then for each object and two reflectivities (10 %, 50 %): E[K] at 250 m, P(K ≥ 5) at 250 m, the 99 % range, and PASS/FAIL.
 2. Prints the stopping distance at 130 km/h (0.5 s latency, 6 m/s² braking): v·t + v²/2a ≈ 127 m. It also prints how many frames are left between 250 m and that point.
-3. Plots P(K ≥ 5) and E[K] versus distance, saved as `lidar_eba.png`.
+3. Prints P(K ≥ 5) at 250 m and the 99 % range for each weather condition, plus the weighted P.
+4. Plots P(K ≥ 5) versus distance, one panel per weather condition, saved as `lidar_eba.png`.
 
 ---
 
@@ -119,7 +141,7 @@ It imports the model functions, so the figures always match the numbers.
 | 5 | **Shape of the detection curve** p = 1 − exp(−Cρ/R²) | `p_beam` | **high for the pedestrian** (see below) |
 | 6 | Extrapolation from the 210 m datasheet point to 250 m | `C` | follows from 4 + 5 |
 | 7 | Beams succeed or fail independently → binomial | `p_at_least` | medium; rain or a dirty window make failures correlated |
-| 8 | Clear weather, datasheet conditions (100 klx sunlight) | `ALPHA = 0` | as specified |
+| 8 | Weather only through visibility (exp(−2αR)); shares 88/8/4 % are our estimate | `WEATHER` | high in fog; the weighted number depends on the shares |
 | 9 | False positives (1 % per pixel) ignored | – | low for this question |
 | 10 | Verdict per single frame, with a 99 % threshold (our choice); 5 returns is from the task | `CONF`, `K_MIN` | **high for the pedestrian** |
 
@@ -143,6 +165,8 @@ How much the pedestrian verdict (dark, 250 m) moves when we change things:
 | threshold 95 % instead of 99 % | – | – | 253 m |
 | threshold 99.9 % | – | – | 219 m |
 | naive: "p = 90 % up to 210 m, 0 beyond" | 0 | 0 % | 210 m |
+
+**Our choice:** we keep p = 1 − exp(−Cρ/R²). It has one constant, the datasheet fixes it, and it is the more cautious of the two shapes. The datasheet can't settle the shape: it has only one usable point. Its other numbers (side regions: 140 m @ 10 %, 175 m @ 50 %) don't follow ρ/R², so the 50 % results are probably optimistic; the 10 % results are anchored at 10 % and not affected.
 
 **Reading:** cars and trucks pass and the tyre fails under every variant, so those verdicts are robust. The pedestrian (and motorcycle) sits **right at the edge**, so its verdict depends on modelling choices. The honest statement is: "dark pedestrians are borderline at 250 m; in our model they reach 99 % up to about 235 m".
 

@@ -1,6 +1,6 @@
 """Slide figures, built from the model in lidar_eba.py.
 
-fig_beams_250m.png   - the AT512 beam grid at 250 m over the objects (lidar slide)
+fig_beams_250m.png   - the InnovizTwo beam grid at 250 m over the objects (lidar slide)
 fig_k_distribution.png - distribution of returns K, pedestrian at 250 m (model slide)
 fig_ranges.png       - 99 % detection range per object vs. the 250 m requirement (conclusion slide)
 """
@@ -90,7 +90,7 @@ def fig_ranges(rho=0.10):
     ax.set_xlim(0, R_MAX + 10)
     ax.set_ylim(-0.8, len(names) - 0.2)
     ax.set_xlabel(f"distance with P(K ≥ {K_MIN}) ≥ 99%  [m]")
-    ax.set_title(f"99% detection range, {rho:.0%} reflectivity", fontsize=13)
+    ax.set_title(f"99% detection range, {rho:.0%} reflectivity, clear weather", fontsize=13)
     fig.tight_layout()
     fig.savefig("fig_ranges.png", dpi=200)
 

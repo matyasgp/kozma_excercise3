@@ -44,15 +44,21 @@ One section per slide in `presentation.pdf`: **what to say** (paste into the Goo
 
 ---
 
-## Slide 4: Results, 10 % reflectivity (~1 min 15 s)
+## Slide 4: Results, 10 % reflectivity, three weather conditions (~1 min 15 s)
 
 **Say:**
-> Left: the probability of at least 5 returns over distance, for five objects, all dark. The dashed line is 250 m. Cars and trucks stay at 100 %. Pedestrians and motorcycles start dropping at about 235 m: at 250 m they are at 96 %, below our 99 %. The tyre is hopeless beyond 140 m.
-> Right: the expected number of returns. Pedestrian and motorcycle are still well above 5 at 250 m on average. So looking at averages alone, you would call them a pass; the statistics show they're not reliable enough.
+> The probability of at least 5 returns over distance, for five dark objects, in three weather conditions. The dashed line is 250 m, the dotted line our 99 %.
+> In clear weather, the datasheet conditions, cars and trucks stay at 100 %. Pedestrians and motorcycles drop below 99 % at about 235 m; at 250 m they are at 96 %. The tyre is hopeless beyond 140 m.
+> Rain costs about 20 m. Fog with 1 km visibility is the real problem: even a car reaches 99 % only up to 221 m, and a pedestrian only up to 167 m.
+> Weighted with how often each weather occurs in Hungary, by our estimate, a dark pedestrian at 250 m is detected in 91 % of the frames.
 
 **Background:**
-- At 250 m, 10 %: car E[K] = 22.8, truck 73.8, motorcycle 9.4, pedestrian 7.6, tyre 2.1.
-- At 50 % reflectivity (bright clothing, a light motorcycle), pedestrians pass up to 289 m and motorcycles to ≥ 300 m.
+- *How weather enters:* the light travels to the object and back through the air, so the echo is multiplied by exp(−2αR). We get α from the visibility V with the standard formula α = 3.912 / V (Koschmieder): rain/haze V = 5 km, fog V = 1 km. Clear: α = 0, as in the datasheet.
+- *Per-beam p at 250 m, dark target:* clear 0.80, rain 0.67, fog 0.21.
+- *Weights 88 / 8 / 4 %:* our rough estimate, not an official statistic. Budapest has about 80 days a year with at least 1 mm of rain, but rain lasts a few hours, not all day; dense fog is mostly a winter thing. For real numbers: HungaroMet (met.hu) climate data.
+- *Weighted P* = 0.88 · P_clear + 0.08 · P_rain + 0.04 · P_fog (law of total probability over the weather).
+- Expected returns at 250 m (clear): car 22.8, truck 73.8, motorcycle 9.4, pedestrian 7.6, tyre 2.1.
+- At 50 % reflectivity (bright clothing), pedestrians pass up to 289 m in clear weather.
 - *Kinks in the curves* come from the beam count jumping between whole numbers as R changes.
 
 ---
@@ -60,7 +66,7 @@ One section per slide in `presentation.pdf`: **what to say** (paste into the Goo
 ## Slide 5: Conclusion (~1 min)
 
 **Say:**
-> Our verdict: InnovizTwo fulfils the EBA requirement for vehicles, but not for dark pedestrians and motorcycles. Those reach 99 % only up to about 235 m, 15 m short of 250 m. Small debris is reliable only to about 140 m.
+> Our verdict: InnovizTwo fulfils the EBA requirement for vehicles, but not for dark pedestrians and motorcycles. Those reach 99 % only up to about 235 m, 15 m short of 250 m. Small debris is reliable only to about 140 m. In dense fog not even a car is seen reliably at 250 m, so there the system has to slow down, just like a human driver.
 > The bottleneck is not sensitivity but the 0.1-degree horizontal resolution: a narrow object only gets one or two beam columns.
 > Limitations: we model objects as flat rectangles, assume beams fail independently, ignore false positives, and judge a single frame. At 130 km/h the car needs about 127 m to stop, so between 250 m and that point there are still 68 frames at 20 FPS. In practice the system gets many chances, but frames are correlated, so we don't count that as extra probability.
 
@@ -75,5 +81,6 @@ One section per slide in `presentation.pdf`: **what to say** (paste into the Goo
 - **"250 m is beyond the 210 m datasheet range, isn't that extrapolation?"** Yes: we calibrate at 210 m and extend with the ρ/R² law. We say so; the ranges we report are model estimates.
 - **"Why 5 returns?"** It's the requirement from the task: a perception stack needs a few points to form a cluster and classify it.
 - **"What about the side regions?"** Coarser (0.2° × 0.05°) and only 140 m @ 10 %. For EBA in our lane the ROI is what matters.
-- **"What about rain or fog?"** `ALPHA` in `lidar_eba.py` adds atmospheric attenuation exp(−2αR). We left it at 0 (clear weather). The datasheet values are for clear weather too.
+- **"Why this curve shape for p?"** It's the simplest one with a single constant, fitted to the datasheet point. Another common shape (speckle model) gives 248 m instead of 235 m for the pedestrian, so ours is on the cautious side. The datasheet alone can't decide between them.
+- **"Where do the weather weights come from?"** Our estimate, shown as such. The method doesn't depend on them: put in official HungaroMet numbers and rerun.
 - **"Could another configuration fix the pedestrian?"** The datasheet says up to 0.05° × 0.05° can be configured (at the cost of frame rate or FoV). That doubles the columns; worth a sentence if asked.

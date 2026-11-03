@@ -67,25 +67,37 @@
 \end{frame}
 
 % ---------------------------------------------------------------
-\begin{frame}{Results (10\,\% reflectivity)}
+\begin{frame}{Results: 10\,\% reflectivity, three weather conditions}
   \centering
-  \includegraphics[width=0.95\textwidth]{lidar_eba.png}\\[0.3em]
-  \small
-  $P(K \ge 5)$ at 250\,m: car, truck $> 99.99\,\%$ \quad
-  pedestrian \textcolor{red!70!black}{\textbf{96.2\,\%}}, motorcycle \textcolor{red!70!black}{\textbf{95.7\,\%}},
-  tyre \textcolor{red!70!black}{\textbf{3\,\%}}
+  \includegraphics[width=0.88\textwidth]{lidar_eba.png}\\[0.1em]
+  \footnotesize
+  \newcommand{\fail}[1]{\textcolor{red!70!black}{\textbf{#1}}}
+  \begin{tabular}{l ccc c ccc}
+    \toprule
+    & \multicolumn{4}{c}{$P(K \ge 5)$ at 250\,m} & \multicolumn{3}{c}{99\,\% range [m]} \\
+    \cmidrule(lr){2-5}\cmidrule(lr){6-8}
+    & clear & rain & fog & \textbf{weighted} & clear & rain & fog \\
+    \midrule
+    car        & 100\,\% & 100\,\% & \fail{71\,\%} & 98.8\,\% & $\ge$300 & 296 & \fail{221} \\
+    pedestrian & \fail{96.2\,\%} & \fail{80\,\%} & \fail{5\,\%} & \fail{91.3\,\%} & \fail{235} & \fail{215} & \fail{167} \\
+    motorcycle & \fail{95.7\,\%} & \fail{90\,\%} & \fail{9\,\%} & \fail{91.8\,\%} & \fail{237} & \fail{232} & \fail{184} \\
+    \bottomrule
+  \end{tabular}\\[0.2em]
+  \scriptsize truck passes in all three, tyre fails in all.
+  Weighted: 88\,\% clear, 8\,\% rain, 4\,\% fog (our estimate for Hungary).
 \end{frame}
 
 % ---------------------------------------------------------------
 \begin{frame}{Conclusion: EBA met for vehicles, not for dark road users}
   \begin{columns}[c]
     \column{0.42\textwidth}
-    \small
+    \footnotesize
     \begin{itemize}
       \item cars and trucks: pass at 250\,m even at 10\,\% reflectivity
       \item dark pedestrians / motorcycles: 99\,\% only up to $\approx$ 235\,m -- 15\,m short
         (bright ones pass)
       \item small debris: $\approx$ 140\,m -- only 2--3 beams hit
+      \item fog (1\,km visibility): even cars only to 221\,m $\rightarrow$ adapt speed
       \item bottleneck: 0.1$^\circ$ horizontal resolution $\rightarrow$ narrow objects get 1--2 columns
     \end{itemize}
     \vspace{0.4em}
