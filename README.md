@@ -2,7 +2,9 @@
 
 3DSSF (Kozma) Exercise 3: lidar performance, statistical modelling.
 
-Does the **Hesai AT512** fulfil the Emergency Brake Assist requirements (250 m detection range, at least 5 returns per object)?
+Does the **InnovizTwo** fulfil the Emergency Brake Assist requirements (250 m detection range, at least 5 returns per object)?
+
+**Result:** yes for cars and trucks; no for dark (10 %) pedestrians and motorcycles, which reach P(at least 5 returns) >= 99 % only up to about 235 m; small debris (0.5 m) only up to about 140 m.
 
 - `lidar_eba.py`: the model (beam geometry, per-beam detection probability, binomial P(K >= 5)). Run `python lidar_eba.py`; needs numpy and matplotlib.
 - `lidar_eba.png`: the results plot produced by the script.
@@ -10,16 +12,18 @@ Does the **Hesai AT512** fulfil the Emergency Brake Assist requirements (250 m d
 - `speaker_notes.md`: what to say on each slide, background, likely questions.
 - `presentation.tex` / `presentation.pdf`: beamer draft of the 5-minute pitch (the final version will be in Google Slides).
 
-## AT512 specs used, and where they come from
-No official datasheet PDF found yet; Hesai does not publish one openly.
+## InnovizTwo specs used
 
-| Value | Used | Source / status |
+Source: **InnovizTwo GMSL Series Production Datasheet v3.1** (© Innoviz Technologies, 2024), [PDF](https://levelfivesupplies.com/wp-content/uploads/2023/08/InnovizTwo-GMSL-Series-Production-Datasheet_v3.1-1.pdf). Values for the **Condor** configuration (front-facing consumer vehicles), region of interest.
+
+| Value | Used | Datasheet |
 | --- | --- | --- |
-| Range | 300 m @ 10 % reflectivity, > 400 m max | [Hesai press release, Jan 2024](https://www.hesaitech.com/hesai-announces-two-revolutionary-new-adas-lidar-products-and-completion-of-its-state-of-the-art-rd-center-for-manufacturing/) |
-| Resolution | 2400 x 512 points, 120° x 25.6° FoV | same press release |
-| Point rate | 12.3 M pts/s | same press release |
-| Angular resolution | 0.05° x 0.05° | Hesai web listing + [Gasgoo](https://autonews.gasgoo.com/articles/news/hesai-technology-launches-at512-high-performance-lidar-product-70030518); consistent with 120°/2400 |
-| Frame rate | 10 Hz | **derived**: 12.288 M / (2400 x 512) = 10 |
-| Detection probability behind the 300 m figure | 90 % | **assumed**, not published |
+| Angular resolution (ROI, 30° x 9.6°) | 0.1° x 0.05° | "0.1°x0.05° in ROI" |
+| Range at 10 % reflectivity (ROI) | 210 m | "0.1°x0.05°: 210m @ 10% Reflectivity" |
+| Detection probability at that range | 90 % per beam | note 4: "True Positives = 90% per pixel and False Positives = 1% per pixel", 100 klx sunlight, 10 % Lambertian target |
+| Max range | 300 m | "Detection Range 0.3m-300m" |
+| Frame rate | 20 FPS | Condor configuration |
 
-One hesaitech.com listing shows 0.1° x 0.1°, 250 m @ 10 % and 3.7 M pts/s for the AT512 (an older spec?). Not used. Ask Hesai or the lecturer if it matters.
+The model extrapolates from the 210 m datasheet point to 250 m with the ρ/R² law. False positives are not modelled.
+
+Earlier draft used the Hesai AT512 (git history); it was dropped because no official datasheet is published.

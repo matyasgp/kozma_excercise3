@@ -1,4 +1,4 @@
-"""Does the Hesai AT512 meet the EBA requirements (>= 5 returns per object at 250 m)?
+"""Does the InnovizTwo meet the EBA requirements (>= 5 returns per object at 250 m)?
 
 Model, one function per step:
   1. Geometry   - a flat W x H object at distance R covers W/(R*dth) x H/(R*dtv) grid cells.
@@ -10,8 +10,9 @@ Model, one function per step:
   3. Statistics - beams are independent, so returns K ~ Binomial(n, p); P(K >= 5) = 1 - P(K <= 4).
   4. Verdict    - the largest R where P(K >= 5) >= 99 %, compared with the 250 m requirement.
 
-Datasheet (Hesai AT512): 0.05 x 0.05 deg, 120 x 25.6 deg FoV, 300 m @ 10 % reflectivity,
-12.288 Mpts/s = 2400 x 512 x 10 Hz. P0 = 90 % is an assumption (not stated by Hesai).
+Datasheet (InnovizTwo GMSL Series Production Datasheet v3.1, 2024, Condor configuration):
+ROI (central 30 x 9.6 deg, where the lane ahead is) 0.1 x 0.05 deg, 210 m @ 10 % reflectivity
+with True Positives = 90 % per pixel (100 klx sunlight); 20 FPS; detection range 0.3-300 m.
 """
 from math import comb
 
@@ -19,11 +20,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # --- lidar (datasheet) ---
-DTH = np.radians(0.05)              # horizontal angular resolution [rad]
+LIDAR = "InnovizTwo (ROI)"
+DTH = np.radians(0.1)               # horizontal angular resolution [rad]
 DTV = np.radians(0.05)              # vertical angular resolution [rad]
-R0, RHO0, P0 = 300.0, 0.10, 0.90    # range spec: R0 at RHO0 with detection probability P0
-R_MAX = 400                         # max range [m]; model not trusted beyond it
-FPS = 10
+R0, RHO0, P0 = 210.0, 0.10, 0.90    # range spec: R0 at RHO0 with detection probability P0
+R_MAX = 300                         # max range [m]; model not trusted beyond it
+FPS = 20
 
 # --- requirement / scenario ---
 R_REQ, K_MIN, CONF = 250.0, 5, 0.99
@@ -90,7 +92,7 @@ if __name__ == "__main__":
     print(f"\nstopping distance @130 km/h: {d_stop:.0f} m -> from {R_REQ:.0f} m there are "
           f"{(R_REQ - d_stop) / v * FPS:.0f} frames before braking must start")
 
-    R = np.arange(50, 351)
+    R = np.arange(50, R_MAX + 1)
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
     for name, (w, h) in OBJECTS.items():
         line, = ax1.plot(R, [p_detect(w, h, r, 0.10) for r in R], label=name)
@@ -101,7 +103,7 @@ if __name__ == "__main__":
         ax.grid(alpha=0.3)
     ax1.axhline(CONF, color="gray", ls=":", lw=1)
     ax1.set_ylabel(f"P(K >= {K_MIN})")
-    ax1.set_title("Hesai AT512, 10 % reflectivity: P(at least 5 returns)")
+    ax1.set_title(f"{LIDAR}, 10 % reflectivity: P(at least 5 returns)")
     ax2.axhline(K_MIN, color="gray", ls=":", lw=1)
     ax2.set_ylabel("expected returns E[K]")
     ax2.set_title("expected returns per frame")

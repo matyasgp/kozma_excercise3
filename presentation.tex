@@ -7,7 +7,7 @@
 \setbeamertemplate{footline}[frame number]
 \usepackage{booktabs}
 
-\title{Hesai AT512 for Emergency Brake Assist}
+\title{InnovizTwo for Emergency Brake Assist}
 \subtitle{Lidar performance -- statistical modelling (Exercise 3)}
 \author{Team: \textit{names TBD}}
 \date{3DSSF -- Kozma}
@@ -19,22 +19,24 @@
 \end{frame}
 
 % ---------------------------------------------------------------
-\begin{frame}{The lidar: Hesai AT512}
+\begin{frame}{The lidar: InnovizTwo (Innoviz)}
   \begin{columns}[c]
-    \column{0.4\textwidth}
+    \column{0.42\textwidth}
     \small
     \begin{itemize}
-      \item 300\,m @ 10\,\% reflectivity\\(400\,m max)
-      \item 0.05$^\circ$ $\times$ 0.05$^\circ$ resolution\\2400 $\times$ 512 points @ 10\,Hz
-      \item 120$^\circ$ $\times$ 25.6$^\circ$ field of view\\$\rightarrow$ covers adjacent lanes
-      \item automotive-grade series product
+      \item automotive-grade, for mass production (L2--L5)
+      \item forward ROI 30$^\circ$ $\times$ 9.6$^\circ$:\\
+        \textbf{0.1$^\circ$ $\times$ 0.05$^\circ$} resolution
+      \item \textbf{210\,m @ 10\,\%} reflectivity,\\
+        \textbf{90\,\% true positives per pixel} (100\,klx sun)
+      \item 120$^\circ$ $\times$ 28.8$^\circ$ FoV, 20\,FPS, 905\,nm
     \end{itemize}
     \vspace{0.5em}
-    \textbf{Fine grid $\Rightarrow$ many beams on small, far objects}
+    \textbf{The datasheet gives the per-beam detection probability} -- the key input of our model
 
-    \vspace{0.8em}
-    \scriptsize\textit{Assumption: the 300\,m spec means 90\,\% detection probability (not stated by Hesai).}
-    \column{0.58\textwidth}
+    \vspace{0.6em}
+    \scriptsize\textit{Source: InnovizTwo Series Production Datasheet v3.1 (2024), Condor configuration.}
+    \column{0.56\textwidth}
     \includegraphics[width=\textwidth]{fig_beams_250m.png}
   \end{columns}
 \end{frame}
@@ -52,14 +54,14 @@
     \vspace{0.4em}
     \textbf{2. Each beam returns with prob.}
     \[
-      p = 1 - e^{-C\rho/R^2}, \quad p(300\,\text{m}, 10\,\%) = 0.9
+      p = 1 - e^{-C\rho/R^2}, \quad p(210\,\text{m}, 10\,\%) = 0.9
     \]
 
     \textbf{3. Returns:} $K \sim \mathrm{Binomial}(n, p)$\\[0.2em]
     \textbf{Requirement:} $P(K \ge 5) \ge 99\,\%$ at 250\,m
     \column{0.51\textwidth}
     \includegraphics[width=\textwidth]{fig_k_distribution.png}\\
-    \small average 7.9 $\ge$ 5, but 12\,\% of frames fail\\
+    \small average 7.6 $\ge$ 5, but $P(K \ge 5) = 96.2\,\% < 99\,\%$\\
     $\Rightarrow$ \textbf{the average passes, the probability fails}
   \end{columns}
 \end{frame}
@@ -69,23 +71,27 @@
   \centering
   \includegraphics[width=0.95\textwidth]{lidar_eba.png}\\[0.3em]
   \small
-  $P(K \ge 5)$ at 250\,m: pedestrian and all vehicles $> 99.99\,\%$, \quad
-  tyre (0.5\,m) \textcolor{red!70!black}{\textbf{49\,\%}}
+  $P(K \ge 5)$ at 250\,m: car, truck $> 99.99\,\%$ \quad
+  pedestrian \textcolor{red!70!black}{\textbf{96.2\,\%}}, motorcycle \textcolor{red!70!black}{\textbf{95.7\,\%}},
+  tyre \textcolor{red!70!black}{\textbf{3\,\%}}
 \end{frame}
 
 % ---------------------------------------------------------------
-\begin{frame}{Conclusion: the AT512 fulfils EBA}
+\begin{frame}{Conclusion: EBA met for vehicles, not for dark road users}
   \begin{columns}[c]
-    \column{0.4\textwidth}
+    \column{0.42\textwidth}
+    \small
     \begin{itemize}
-      \item all vehicles and pedestrians pass at 250\,m, even at 10\,\% reflectivity
-      \item small debris ($\sim$0.5\,m): only up to $\approx$ 200\,m\\
-        too few beams hit -- a \textbf{resolution} limit, not reflectivity
+      \item cars and trucks: pass at 250\,m even at 10\,\% reflectivity
+      \item dark pedestrians / motorcycles: 99\,\% only up to $\approx$ 235\,m -- 15\,m short
+        (bright ones pass)
+      \item small debris: $\approx$ 140\,m -- only 2--3 beams hit
+      \item bottleneck: 0.1$^\circ$ horizontal resolution $\rightarrow$ narrow objects get 1--2 columns
     \end{itemize}
-    \vspace{0.6em}
-    \scriptsize\textbf{Limitations:} flat frontal targets; independent beams (optimistic in rain / dirty sensor);
-    90\,\% behind the range spec assumed; single frame -- 34 more frames before braking must start.
-    \column{0.58\textwidth}
+    \vspace{0.4em}
+    \scriptsize\textbf{Limitations:} flat frontal targets; independent beams; false positives (1\,\%/pixel) ignored;
+    single frame -- at 130\,km/h, 68 more frames before braking must start.
+    \column{0.56\textwidth}
     \includegraphics[width=\textwidth]{fig_ranges.png}
   \end{columns}
 \end{frame}

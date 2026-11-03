@@ -1,7 +1,7 @@
 """Slide figures, built from the model in lidar_eba.py.
 
 fig_beams_250m.png   - the AT512 beam grid at 250 m over the objects (lidar slide)
-fig_k_distribution.png - distribution of returns K, pedestrian at 350 m (model slide)
+fig_k_distribution.png - distribution of returns K, pedestrian at 250 m (model slide)
 fig_ranges.png       - 99 % detection range per object vs. the 250 m requirement (conclusion slide)
 """
 from math import comb
@@ -46,26 +46,26 @@ def fig_beams(R=250.0):
     ax.set_xlim(-0.35, 5.35)
     ax.set_ylim(-0.6, 2.15)
     ax.axis("off")
-    ax.set_title(f"Beam grid at {R:.0f} m: one dot every {s_h * 100:.0f} cm\n"
+    ax.set_title(f"Beam grid at {R:.0f} m: {s_h * 100:.0f} cm x {s_v * 100:.0f} cm\n"
                  "(counts change by ±1 row/column with the grid position)", fontsize=12)
     fig.tight_layout()
     fig.savefig("fig_beams_250m.png", dpi=200)
 
 
-def fig_k(name="pedestrian", R=350.0, rho=0.10):
+def fig_k(name="pedestrian", R=250.0, rho=0.10):
     dist = k_distribution(*OBJECTS[name], R, rho)
     k = np.arange(len(dist))
     fig, ax = plt.subplots(figsize=(5.2, 3.6))
     ax.bar(k, dist * 100, color=np.where(k < K_MIN, "#c0392b", "#27ae60"))
     ax.axvline(K_MIN - 0.5, color="k", ls="--", lw=1)
     ax.axvline((k * dist).sum(), color="0.4", ls=":", lw=1.5)
-    ax.text(K_MIN - 0.7, max(dist) * 100, f"< {K_MIN} returns\n{dist[:K_MIN].sum():.0%} of frames",
+    ax.text(K_MIN - 0.7, max(dist) * 100 * 0.5, f"< {K_MIN} returns\n{dist[:K_MIN].sum():.1%}\nof frames",
             ha="right", va="top", color="#c0392b")
-    ax.text((k * dist).sum() - 0.15, max(dist) * 100 * 0.97, f"average\n{(k * dist).sum():.1f}",
-            ha="right", va="top", color="0.3")
+    ax.text((k * dist).sum() + 0.4, max(dist) * 100, f"average {(k * dist).sum():.1f}",
+            ha="left", va="top", color="0.3")
     ax.set_xlabel("returns K in one frame")
     ax.set_ylabel("probability [%]")
-    ax.set_xticks(k)
+    ax.set_xticks(k[::2])
     ax.set_title(f"{name}, {rho:.0%} reflectivity, {R:.0f} m", fontsize=13)
     fig.tight_layout()
     fig.savefig("fig_k_distribution.png", dpi=200)
@@ -83,10 +83,10 @@ def fig_ranges(rho=0.10):
     for i, r in enumerate(r99):
         label = f"≥ {R_MAX} m" if r >= R_MAX else f"{r} m"
         ok = r >= R_REQ
-        ax.text(min(r, R_MAX) - 5, i, f"{label}  {'✔' if ok else '✘'}", ha="right", va="center",
+        ax.text((R_REQ if ok else r) - 5, i, f"{label}  {'✔' if ok else '✘'}", ha="right", va="center",
                 color="white", fontweight="bold")
     ax.axvline(R_REQ, color="k", ls="--", lw=1.5)
-    ax.text(R_REQ + 4, -0.65, f"requirement {R_REQ:.0f} m", fontsize=10)
+    ax.text(R_REQ - 4, -0.65, f"requirement {R_REQ:.0f} m", ha="right", fontsize=10)
     ax.set_xlim(0, R_MAX + 10)
     ax.set_ylim(-0.8, len(names) - 0.2)
     ax.set_xlabel(f"distance with P(K ≥ {K_MIN}) ≥ 99%  [m]")
