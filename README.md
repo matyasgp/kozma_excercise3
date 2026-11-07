@@ -15,6 +15,7 @@ Does the **InnovizTwo** fulfil the Emergency Brake Assist requirements (250 m de
 - `slides/presentation.pdf`: beamer draft of the 5-minute pitch (the final version will be in Google Slides).
 - `slides/backup_slides.pdf`: 10 backup slides (B1–B10) for the Q&A.
 - `docs/speaker_notes.md`: what to say on each slide, background, likely questions.
+- `docs/qa_cheatsheet.md`: one page to hold during the Q&A (numbers, top 10 questions, traps).
 - `docs/qa_guide.md`: answers to every question we expect, with pointers to the backup slides.
 - `docs/derivation.pdf`: short math derivation of the model, with the reasons for every parameter.
 - `docs/code_explained.md`: walk-through of the code, list of assumptions, how robust the results are, alternative approaches.

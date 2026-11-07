@@ -1,6 +1,6 @@
 # Q&A guide: everything you might be asked
 
-For whoever answers questions after the pitch. Backup slides for showing on screen: `slides/backup_slides.pdf` (B1–B10, referenced below as **→ B#**).
+For whoever answers questions after the pitch. The short version to keep in hand is `docs/qa_cheatsheet.md`. The numbers are the same whatever the final deck looks like. If you can show a screen, the backup slides are in `slides/backup_slides.pdf` (B1–B10, referenced below as **→ B#**).
 
 ---
 
