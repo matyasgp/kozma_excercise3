@@ -1,6 +1,6 @@
 # Q&A cheat sheet (for the answerer)
 
-One page to have in hand during the Q&A. It does not assume any particular slide deck: the team's final slides may look different, but the numbers below come from the same model (`lidar_eba.py`). Longer answers: `docs/qa_guide.md`.
+One page to have in hand during the Q&A. It does not assume any particular slide deck: the team's final slides may look different, but the numbers below come from the same model (`lidar_eba.py`). Longer answers: `docs/qa_guide.md`. Everything, in reading order: `docs/full_report.md`.
 
 ## Before the session
 - **Get the final deck** from the team and check that its numbers match the table below. If it rounds differently (e.g. "96 %" instead of "96.2 %"), quote the deck's version so you don't contradict it.
