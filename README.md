@@ -15,6 +15,7 @@ Does the **InnovizTwo** fulfil the Emergency Brake Assist requirements (250 m de
 - `slides/presentation.pdf`: beamer draft of the 5-minute pitch (the final version will be in Google Slides).
 - `slides/backup_slides.pdf`: 10 backup slides (B1–B10) for the Q&A.
 - `docs/speaker_notes.md`: what to say on each slide, background, likely questions.
+- `docs/qa_final_deck.md`: Q&A guide for the team's final 6-slide deck (InnovizTwo_EBA.pptx): slide-by-slide questions, answers and traps.
 - `docs/full_report.md`: the complete record: how the work went, every decision, the full model with worked examples, all results, checks, assumptions and open issues.
 - `docs/qa_cheatsheet.md`: one page to hold during the Q&A (numbers, top 10 questions, traps).
 - `docs/qa_guide.md`: answers to every question we expect, with pointers to the backup slides.
