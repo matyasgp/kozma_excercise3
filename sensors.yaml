@@ -1,0 +1,245 @@
+# Sensor suite for Exercise 4 (generic private car, city + highway, lidar-heavy).
+# None of these products appears in the earlier groups' slides (see PLAN.md, Originality).
+#
+# Vehicle frame: origin at the car's centre on the ground, x forward, y left, z up [m]; yaw in deg (0 = forward, +90 = left).
+# Car body: 4.8 m long x 1.9 m wide x 1.5 m high.
+# Each entry has an official source. "source_kind" says what that source is:
+#   datasheet = manufacturer datasheet, product_brief = manufacturer brief, product_page = manufacturer web page,
+#   whitepaper = manufacturer whitepaper.
+# All prices are rough estimates for the BOM step, not quotes.
+
+vehicle: {length: 4.8, width: 1.9, height: 1.5}
+
+models:
+  # ---------------- lidar ----------------
+  innoviz_two:
+    modality: lidar
+    name: Innoviz InnovizTwo (Condor configuration)
+    source: InnovizTwo GMSL Series Production Datasheet v3.1 (2024), also used in Exercise 3
+    source_kind: datasheet
+    wavelength_nm: 905
+    hfov: 120
+    vfov: 28.8            # active vertical FOV (43 addressable)
+    res_h: 0.1            # ROI (central 30 x 9.6 deg); 0.2 x 0.05 in side FOV
+    res_v: 0.05
+    range_10pct: 210      # ROI, 90 % true positives per pixel, 100 klx
+    range_max: 300
+    range_min: 0.3
+    range_accuracy: 0.10  # long-range bias
+    fps: 20
+    price_usd_est: 1000
+  aeva_atlas:
+    modality: lidar
+    name: Aeva Atlas (FMCW 4D lidar, per-point radial velocity)
+    source: https://www.aeva.com/atlas/  (no public datasheet; only the product page)
+    source_kind: product_page
+    wavelength_nm: 1550   # Aeva FMCW platform; not stated on the Atlas page
+    hfov: 120
+    vfov: 30
+    range_10pct: 250
+    velocity: direct_doppler
+    price_usd_est: 2000
+  seyond_falcon_k2_pro:
+    modality: lidar
+    name: Seyond Falcon K2 Pro
+    source: Seyond Falcon K2 Pro LiDAR datasheet, REV 24/06/27; seyond.com/products/falcon-k
+    source_kind: datasheet
+    wavelength_nm: 1550
+    hfov: 120
+    vfov: 25
+    res_h: 0.1            # ROI 120 x 9.6 deg: 0.1 x 0.15 / 0.1 x 0.1; non-ROI 0.2 x 0.24
+    res_v: 0.1
+    range_10pct: 250      # 100 klx, POD > 90 %
+    range_max: 500
+    range_min: 1.5
+    range_precision: 0.02
+    fps: 10
+    points_per_s: 1370000
+    power_w: 20
+    price_usd_est: 5000
+  valeo_scala3:
+    modality: lidar
+    name: Valeo SCALA 3 (Gen 3)
+    source: https://www.valeo.com/en/catalogue/cda/long-range-lidar-sensors-valeo-scala-gen-3/ (updated 16 Sep 2024)
+    source_kind: product_page
+    hfov: 120
+    vfov: 26
+    res_h: 0.05
+    res_v: 0.05
+    range_10pct: 200
+    fps: 10
+    points_per_s: 12500000
+    price_usd_est: 1500
+  seyond_robin_w1g:
+    modality: lidar
+    name: Seyond Robin W1G (wide near-field)
+    source: Seyond Robin W1G LiDAR datasheet, REV 24/12/30; seyond.com/products/robin-w
+    source_kind: datasheet
+    wavelength_nm: 905
+    hfov: 120
+    vfov: 70
+    res_h: 0.15
+    res_v: 0.36
+    range_10pct: 70
+    range_max: 150
+    range_min: 0.1
+    range_precision: 0.03
+    range_accuracy: 0.05
+    fps: 10
+    points_per_s: 1280000
+    power_w: 7.2
+    price_usd_est: 1500
+
+  # ---------------- radar ----------------
+  smartmicro_drvegrd171:
+    modality: radar
+    name: smartmicro DRVEGRD 171 (4D/PxHD, 76-77 GHz)
+    source: DRVEGRD 171 Automotive Datasheet, 22 January 2024 (s.m.s smart microwave sensors GmbH)
+    source_kind: datasheet
+    freq_ghz: 76.5
+    hfov: 100             # -50..+50 deg
+    vfov: 20              # -10..+10 deg
+    modes:                # [max range m, range accuracy m, speed accuracy m/s]
+      extra_long:   [240, 0.6,  0.07]
+      extra_medium: [100, 0.25, 0.07]
+      short:        [40,  0.1,  0.14]
+    az_accuracy: 0.25
+    el_accuracy: 0.5
+    az_separation: 2.0    # "not available yet" per datasheet footnote 8
+    cycle_ms: 55
+    price_usd_est: 400
+
+  # ---------------- camera ----------------
+  supertek_ox08b40_h30:
+    modality: camera
+    name: Supertek STC-OX08BC-5300-GMSL2-H30S1 (OmniVision OX08B40, 8.3 MP)
+    source: supertekmodule.com 8MP GMSL2 camera page + datasheet; OX08B40 product brief v1.1 (OmniVision)
+    source_kind: datasheet
+    sensor: OX08B40
+    resolution: [3840, 2160]
+    pixel_um: 2.1
+    hdr_db: 140           # sensor product brief
+    hfov: 30
+    vfov: 16
+    focal_mm: 15.3
+    fps: 30
+    price_usd_est: 300
+  supertek_ox08b40_h60:
+    modality: camera
+    name: Supertek STC-OX08BC-5300-GMSL2-H60S (OX08B40)
+    source: as above
+    source_kind: datasheet
+    sensor: OX08B40
+    resolution: [3840, 2160]
+    pixel_um: 2.1
+    hdr_db: 140
+    hfov: 60
+    vfov: 33
+    focal_mm: 7.87
+    fps: 30
+    price_usd_est: 300
+  supertek_ox08b40_h120:
+    modality: camera
+    name: Supertek STC-OX08BC-5300-GMSL2-H120YA (OX08B40)
+    source: as above
+    source_kind: datasheet
+    sensor: OX08B40
+    resolution: [3840, 2160]
+    pixel_um: 2.1
+    hdr_db: 140
+    hfov: 120
+    vfov: 66
+    focal_mm: 4.01
+    fps: 30
+    price_usd_est: 300
+  ox03f10_fisheye:
+    modality: camera
+    name: OmniVision OX03F10 3 MP surround-view sensor, ~195 deg fisheye module (module vendor open, not Leopard)
+    source: OX03F10 product brief v1.3 (OmniVision, 2026)
+    source_kind: product_brief
+    sensor: OX03F10
+    resolution: [1920, 1536]
+    pixel_um: 3.0         # derived from the 1/2.44" format, not stated in the brief
+    hdr_db: 140
+    hfov: 195
+    vfov: 150
+    fps: 30
+    price_usd_est: 150
+
+  # ---------------- thermal ----------------
+  adasky_viper_17:
+    modality: thermal
+    name: AdaSky Viper FIR, 17 x 13 deg lens
+    source: AdaSky whitepaper 2018 "How FIR technology enables 24/7 autonomous driving" (no public datasheet)
+    source_kind: whitepaper
+    band_um: [8, 14]
+    resolution: [640, 480]
+    sensitivity_k: 0.05
+    hfov: 17
+    vfov: 13
+    fps: 60
+    pedestrian_detect_m: 200
+    price_usd_est: 1000
+  adasky_viper_30:
+    modality: thermal
+    name: AdaSky Viper FIR, 30 x 24 deg lens
+    source: as above
+    source_kind: whitepaper
+    band_um: [8, 14]
+    resolution: [640, 480]
+    sensitivity_k: 0.05
+    hfov: 30
+    vfov: 24
+    fps: 60
+    pedestrian_detect_m: 120
+    price_usd_est: 1000
+
+  # ---------------- localisation ----------------
+  oxts_rt3000v4:
+    modality: gnss_ins
+    name: OxTS RT3000 v4 GNSS/INS (+ HD map)
+    source: https://www.oxts.com/products/rt3000v4/
+    source_kind: product_page
+    position_m: 0.01      # RTK
+    heading_deg: 0.04
+    drift_60s_outage_m: 0.5
+    rate_hz: 100
+    price_usd_est: 20000  # survey-grade; a series car would use a cheaper automotive INS
+
+# Mounts: id, model, x, y, z, yaw. 9 lidars + 6 radars + 12 cameras + 2 thermal + 1 GNSS/INS = 30 sensors.
+mounts:
+  # lidar: front long-range, roof ring (front FMCW / left / right / rear), 4 corner near-field
+  - [L_front,      innoviz_two,           2.35,  0.00, 0.60,    0]
+  - [L_roof_front, aeva_atlas,            0.60,  0.00, 1.65,    0]
+  - [L_roof_left,  seyond_falcon_k2_pro,  0.00,  0.45, 1.65,   90]
+  - [L_roof_right, seyond_falcon_k2_pro,  0.00, -0.45, 1.65,  -90]
+  - [L_roof_rear,  valeo_scala3,         -0.60,  0.00, 1.65,  180]
+  - [L_fl,         seyond_robin_w1g,      2.20,  0.85, 0.50,   45]
+  - [L_fr,         seyond_robin_w1g,      2.20, -0.85, 0.50,  -45]
+  - [L_rl,         seyond_robin_w1g,     -2.20,  0.85, 0.50,  135]
+  - [L_rr,         seyond_robin_w1g,     -2.20, -0.85, 0.50, -135]
+  # radar: front, rear, 4 corners
+  - [R_front,      smartmicro_drvegrd171, 2.40,  0.00, 0.45,    0]
+  - [R_rear,       smartmicro_drvegrd171,-2.40,  0.00, 0.45,  180]
+  - [R_fl,         smartmicro_drvegrd171, 2.15,  0.85, 0.45,   50]
+  - [R_fr,         smartmicro_drvegrd171, 2.15, -0.85, 0.45,  -50]
+  - [R_rl,         smartmicro_drvegrd171,-2.15,  0.85, 0.45,  130]
+  - [R_rr,         smartmicro_drvegrd171,-2.15, -0.85, 0.45, -130]
+  # camera: front tele / main / wide, 4 side, rear, 4 fisheyes
+  - [C_front_tele, supertek_ox08b40_h30,  0.90,  0.00, 1.40,    0]
+  - [C_front_main, supertek_ox08b40_h60,  0.90,  0.10, 1.40,    0]
+  - [C_front_wide, supertek_ox08b40_h120, 0.90, -0.10, 1.40,    0]
+  - [C_side_lf,    supertek_ox08b40_h120, 0.80,  0.95, 1.10,   70]
+  - [C_side_rf,    supertek_ox08b40_h120, 0.80, -0.95, 1.10,  -70]
+  - [C_side_lr,    supertek_ox08b40_h120, 0.80,  0.95, 1.10,  140]
+  - [C_side_rr,    supertek_ox08b40_h120, 0.80, -0.95, 1.10, -140]
+  - [C_rear,       supertek_ox08b40_h60, -2.30,  0.00, 1.00,  180]
+  - [F_front,      ox03f10_fisheye,       2.40,  0.00, 0.60,    0]
+  - [F_left,       ox03f10_fisheye,       0.90,  0.95, 1.00,   90]
+  - [F_right,      ox03f10_fisheye,       0.90, -0.95, 1.00,  -90]
+  - [F_rear,       ox03f10_fisheye,      -2.40,  0.00, 0.90,  180]
+  # thermal: two forward (highway 17 deg, city 30 deg)
+  - [T_front_17,   adasky_viper_17,       2.35,  0.25, 0.70,    0]
+  - [T_front_30,   adasky_viper_30,       2.35, -0.25, 0.70,    0]
+  # localisation
+  - [G_ins,        oxts_rt3000v4,         0.00,  0.00, 0.50,    0]
