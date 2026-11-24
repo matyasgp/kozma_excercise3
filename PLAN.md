@@ -29,7 +29,7 @@ possible today?"; pitch in 5 minutes, team of 3–5.
 1. **Repo setup** – `git init` in Excercise4, add a `.gitignore` (the .pptx, `sources/`, LaTeX build), create
    github.com/matyasgp/kozma_excercise3 (the Ex3 repo, reused; Ex3 files removed, still in its history), and push.
 2. **Sensor selection** (`sensors.yaml`: model, datasheet URL, mount x/y/z, yaw, HFOV/VFOV, range,
-   resolution, wavelength/frequency, HDR dB / NETD, price). **Done**: 30 sensors, none on the excluded list below:
+   resolution, wavelength/frequency, HDR dB / NETD, price). **Done**: 30 sensors, none used by earlier groups:
    - Lidar (9): front InnovizTwo (our Ex3 work); roof ring of 3 × Seyond Falcon K2 Pro (front, left, right)
      + Valeo SCALA 3 (rear); 4 × Seyond Robin W1G near-field corners.
    - Radar (6): smartmicro DRVEGRD 171 4D radar, front, rear and 4 corners (mode chosen per position).
@@ -67,7 +67,10 @@ possible today?"; pitch in 5 minutes, team of 3–5.
 
 Checked against slides 3–172 of the deck (seven earlier groups) on 2026-11-21.
 
-**Excluded products** (already used by earlier groups):
+Rule (relaxed on 2026-11-24): reusing a few of these products is fine where it helps, but the suite as a whole,
+the layout and the method must not copy any earlier group. The current suite uses none of them.
+
+**Products earlier groups used** (avoid by default; reuse only a few, on purpose):
 - Lidar: Hesai AT128/OT128, RoboSense M1/Airy, AEye Apollo, Luminar Iris/Hydra, Ouster, Quanergy M8, Velodyne, Cepton
 - Radar: Continental ARS540/ARS640/ARS5xx/SRR52x/SRR308/SRR620, Bosch, Arbe, Aptiv
 - Camera: Sony IMX490/IMX390/IMX424/IMX291/IMX219, onsemi AR0231/AR0233/AR0234, Leopard Imaging,
