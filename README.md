@@ -54,10 +54,10 @@ The course deck and datasheet PDFs stay local in `sources/` (gitignored).
 |---|---|---|
 | 1 | Innoviz InnovizTwo lidar (Condor configuration) | InnovizTwo GMSL Series Production Datasheet v3.1 (2024) |
 | 1 | Hesai OT128 lidar | OT128 User Manual O01-en-260110: 1.6 Specifications and the Appendix A.1 per-channel table (`hesai_ot128_channels.csv`) |
-| 5 | smartmicro DRVEGRD 171 4D radar | DRVEGRD 171 Automotive Datasheet, 22 January 2024 |
+| 5 | smartmicro DRVEGRD 171 4D radar | DRVEGRD 171 Automotive Datasheet, 2 June 2026, and the DRVEGRD 152 & 171 product sheet (car range 240 m; the datasheet's "180 m" cell contradicts its own 787.4 ft) |
 | 1 + 2 + 4 | Supertek STC-OX08BC-5300-GMSL2 camera (OmniVision OX08B40, 8.3 MP), lens versions H30S1 / H60S / H120YA | Supertek module datasheet; OmniVision OX08B40 product brief v1.1 (140 dB HDR) |
 | 4 | SENSING SG3S-ISX031C-GMSL2F-H190XA fisheye (Sony ISX031, 3 MP) | SENSING datasheet (Seeed SKU 101090101). Its "HDR support" has no figure, so the 120 dB is the Sony ISX031 sensor value; no result depends on it |
-| 1 | Raytron Horus640-D LWIR module, 13.5 mm F1.0 | Horus640-D Automotive Product Manual V1.1 (2024) |
+| 1 | Raytron Horus640-D LWIR module, 13.5 mm F1.0 | Horus640-D Automotive Product Manual V1.1 (2024); the 13.5 mm lens is a listed compatible lens, built on request (the pre-configured model HRS-D640I03123048F11C2 has the 9.1 mm, 48° lens) |
 | 1 | u-blox ZED-F9K-01A RTK GNSS + IMU | ZED-F9K-01A Data Sheet UBX-21045820 |
 
 Prices are estimates, except the fisheye's listed price.
@@ -124,7 +124,7 @@ GNSS/INS 250). Only the fisheye price is listed by its seller; the rest are our 
 | LWIR in fog | 0.4 × visible extinction | depends on droplet size (literature ~0.2–1); `odd.py` also shows 1.0 |
 | Radar | 77 GHz rain attenuation from ITU-R P.838-3; pedestrian RCS 0.3 m², car 10 m² | |
 | Radar off boresight | one-way gain −3 (φ/40°)² dB, so range × 0.58 at the ±50° FOV edge | datasheet: the 3 dB FOV is narrower than ±50° |
-| Radar modes | every radar interleaves extra-long-range (240 m) and short-range (0.2–40 m) cycles | modes switch at runtime (datasheet) |
+| Radar modes | every radar interleaves extra-long-range (240 m) and short-range (0.2–42 m) cycles | modes switch at runtime (datasheet) |
 | InnovizTwo outside the ROI | 140 m at 10 %, 0.2° × 0.05° | datasheet side FOV; ROI is the central 30° |
 | Low-sun glare | veiling glare 3 × background on forward cameras | |
 | Tunnel exit | 125 dB scene dynamic range vs camera HDR (140 dB OX08B40, 120 dB ISX031) | |

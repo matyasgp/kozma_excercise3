@@ -55,15 +55,18 @@ models:
   smartmicro_drvegrd171:
     modality: radar
     name: smartmicro DRVEGRD 171 (4D/PxHD, 76-77 GHz)
-    source: DRVEGRD 171 Automotive Datasheet, 22 January 2024 (s.m.s smart microwave sensors GmbH)
+    source: DRVEGRD 171 Automotive Datasheet, 2 June 2026 (s.m.s smart microwave sensors GmbH) + DRVEGRD 152 & 171 product sheet
     source_kind: datasheet
     freq_ghz: 76.5
     hfov: 100             # -50..+50 deg
     vfov: 20              # -10..+10 deg
+    # Extra-long-range car range: 240 m (product sheet "Detection Range Passenger Car 240 m / 787.40 ft"; datasheet text
+    # "up to 240m"). The June 2026 datasheet table cell reads "180m | 787.4ft", which contradicts its own 787.4 ft
+    # (= 240 m); 180 m is the DRVEGRD 152's figure, so we read it as a copy error.
     modes:                # [max range m (passenger car, boresight), range accuracy m, speed accuracy m/s, min range m]
       extra_long:   [240, 0.6,  0.07, 1.2]
-      extra_medium: [100, 0.25, 0.07, 0.5]
-      short:        [40,  0.1,  0.14, 0.2]
+      extra_medium: [98,  0.25, 0.07, 0.5]
+      short:        [42,  0.1,  0.14, 0.2]
     operating_modes: [extra_long, short]   # our choice: interleaved cycles (55 + 40 ms); modes switch at runtime
     az_accuracy: 0.25
     el_accuracy: 0.5
@@ -134,6 +137,8 @@ models:
     name: Raytron Horus640-D automotive LWIR module, 13.5 mm F1.0 lens
     source: Horus640-D Automotive Thermal Imaging Product Manual V1.1 (Raytron, 21 Nov 2024)
     source_kind: datasheet
+    # Lens: the 13.5 mm F1.0 is in the manual's Table 2-2 (compatible lenses). Raytron's one pre-configured model,
+    # HRS-D640I03123048F11C2, carries the 9.1 mm F1.1 lens (48 x 37 deg); other combinations are built on request.
     band_um: [8, 14]
     resolution: [640, 512]
     pixel_um: 12

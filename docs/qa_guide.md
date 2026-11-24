@@ -90,6 +90,16 @@ The one value not from the product's own document is the fisheye's 120 dB HDR: S
 support", so we use the Sony ISX031 sensor figure. It changes no result, because the fisheye's range is set by
 its pixels. Prices are estimates except the fisheye's.
 
+**"Can you buy them today?"** (checked 2026-11-24)
+All are current products:
+- **InnovizTwo:** in volume production since 2025 (Fabrinet line), sold to OEM programmes rather than retail.
+- **Hesai OT128:** in mass production; its manual was revised January 2026.
+- **smartmicro DRVEGRD 171:** listed on smartmicro's site; its datasheet was revised June 2026.
+- **Supertek and SENSING cameras:** on the makers' sites; the SENSING fisheye sells at Seeed for 459 USD.
+- **u-blox ZED-F9K-01A:** "mass production" in its datasheet; a newer ZED-F9K-02A firmware variant exists.
+- **Raytron Horus640-D:** current product. Our 13.5 mm lens is in its manual's lens table but is built on request;
+  the stock model has the 9.1 mm lens.
+
 **"Why two lidars?"**
 The front InnovizTwo has a 30° high-resolution ROI that sees a dark car at 300 m; that is the only lidar
 reaching the 253 m requirement. The roof OT128 sees 360° for the sides and the rear (a car at 214 m against
