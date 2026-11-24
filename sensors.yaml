@@ -36,16 +36,16 @@ models:
     source_kind: product_page
     wavelength_nm: 905
     hfov: 360
-    vfov: 40              # -25 .. +15 deg
-    vfov_down: 25
+    vfov: 40              # page: 360 x 40 deg
+    vfov_down: 25         # ASSUMED split -25 .. +15 deg (the page gives only the 40 deg total)
     res_h: 0.1
     res_v: 0.125          # finest, in the central band
-    range_10pct: 200
+    range_10pct: 200      # page: 200 m @10 %, 100 klux
     range_max: 230
-    range_accuracy: 0.03  # +-3 cm typical (Hesai spec page); to re-check when citing
+    range_accuracy: 0.10  # NOT on the page; we use the InnovizTwo datasheet's 10 cm (conservative)
     points_per_s: 3456000 # single return
     power_w: 29
-    fps: 10
+    fps: 10               # ASSUMED (not on the page; typical for a mechanical lidar)
     price_usd_est: 3000
 
   # ---------------- radar ----------------
