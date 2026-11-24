@@ -21,26 +21,24 @@ possible today?"; pitch in 5 minutes, team of 3–5.
 | Layout figure | Python top-down FOV map built from a sensor config, with overlap counts per zone |
 | Budget | Rough BOM: price per sensor and a total |
 | L5 answer | Conditional yes: within the task's "general use" (city + highway) the suite suffices; true "anywhere, anytime" L5 does not |
-| Workflow | As in Ex3: Python + figures in a GitHub repo (kozma_excercise4, push after every change), beamer draft, final pitch in Google Slides |
+| Workflow | As in Ex3: Python + figures in the Ex3 GitHub repo (kozma_excercise3, reused; push after every change), beamer draft, final pitch in Google Slides |
 | Team | Same as Ex3; the names are still "TBD" there too, so fill them in |
 
 ## Steps
 
 1. **Repo setup** – `git init` in Excercise4, add a `.gitignore` (the .pptx, `sources/`, LaTeX build), create
-   github.com/matyasgp/kozma_excercise4 (public, like Ex3), and push.
+   github.com/matyasgp/kozma_excercise3 (the Ex3 repo, reused; Ex3 files removed, still in its history), and push.
 2. **Sensor selection** (`sensors.yaml`: model, datasheet URL, mount x/y/z, yaw, HFOV/VFOV, range,
-   resolution, wavelength/frequency, HDR dB / NETD, price). Candidates still to be verified against datasheets:
-   Nothing on the excluded list below is used. Candidates still to be verified against datasheets:
-   - Lidar (~6): front InnovizTwo (our own Ex3 work); an FMCW lidar (e.g. Aeva Atlas), which gives per-point
-     Doppler velocity, so the lidar velocity axis is measured instead of estimated from frame differences;
-     360° roof and near-field units from vendors no earlier group used (e.g. Seyond, Valeo SCALA 3, Livox HAP).
-   - Radar (~6–8): 4D imaging radars from vendors no earlier group used (e.g. ZF, smartmicro DRVEGRD,
-     Uhnder digital radar), front, rear and corners.
-   - Camera (~13): front tele / main / wide, 4 side, rear, 4 surround fisheyes. The image sensors are not
-     Sony IMX490/390 or onsemi AR0231/0233 (e.g. OmniVision OX08B40, onsemi AR0823AT), in modules
-     not from Leopard, Sekonix or Edge.Auto.
-   - Thermal (2): not Teledyne FLIR (e.g. Adasky Viper, Owl AI Thermal Ranger).
-   - GNSS/IMU + HD map (no FOV; listed in the BOM and the localization argument).
+   resolution, wavelength/frequency, HDR dB / NETD, price). **Done**: 30 sensors, none on the excluded list below:
+   - Lidar (9): front InnovizTwo (our Ex3 work); roof ring of 3 × Seyond Falcon K2 Pro (front, left, right)
+     + Valeo SCALA 3 (rear); 4 × Seyond Robin W1G near-field corners.
+   - Radar (6): smartmicro DRVEGRD 171 4D radar, front, rear and 4 corners (mode chosen per position).
+   - Camera (12): Supertek OX08B40 8 MP modules (30°/60°/120° lenses): front tele/main/wide, 4 side, rear;
+     4 × SENSING ISX031 196° fisheyes.
+   - Thermal (2): Raytron Horus640-D, 32° (highway) and 48° (city) lenses, both forward.
+   - GNSS/INS: OxTS RT3000 v4 + HD map (no FOV; listed in the BOM and the localization argument).
+   - Dropped on 2026-11-24 because they have no public datasheet: Aeva Atlas, AdaSky Viper, and OX03F10
+     fisheyes (only Leopard modules exist). Valeo SCALA 3 and OxTS have official spec pages, not PDFs.
 3. **Physics scoring model** (`spider.py`). Each axis is normalised 0–1 against a requirement
    (e.g. range against the 250 m EBA / braking distance at 130 km/h):
    - Range: lidar/radar from the datasheet at 10 % reflectivity / pedestrian RCS; camera/thermal from
@@ -80,13 +78,12 @@ Checked against slides 3–172 of the deck (seven earlier groups) on 2026-11-21.
 **Ideas no earlier group used, which we make central:**
 - Physics-derived scores. Every earlier spider chart was hand-scored, and none modelled attenuation,
   pixels-on-target or Doppler.
-- An FMCW lidar with direct velocity measurement.
 - An auto-generated coverage map with an overlap count per sector, instead of a hand-drawn diagram.
 - The L5 answer framed as "yes, if L5 = city + highway", backed by our own numbers. Earlier groups said "No",
   "Well yes, but actually no", or gave generic feasibility lists.
 
 **Overlaps we keep but must argue differently:**
-- Thermal cameras (several groups used FLIR ADK): we use a different product and justify it with LWIR fog
+- Thermal cameras (several groups used FLIR ADK): we use Raytron Horus640-D and justify it with LWIR fog
   transmission and pedestrian contrast numbers.
 - Roof 360° lidar + corner lidars (group 6): the layout must come out of the coverage check, not a stock picture.
 
