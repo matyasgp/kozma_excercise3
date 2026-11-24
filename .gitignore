@@ -13,3 +13,9 @@ build/
 *.snm
 *.toc
 *.synctex.gz
+
+# node (slides/build_pptx.js)
+node_modules/
+package-lock.json
+# the pitch deck we build is kept; course decks stay out
+!slides/pitch.pptx
