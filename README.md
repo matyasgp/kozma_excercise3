@@ -43,6 +43,7 @@ Figures are sized for a 10-inch-wide slide (the Google Slides default); `*_detai
 | `odd.py` | highest speed with two modalities covering the stopping distance; fog visibility sweep | `safe_speed.csv`, `figures/safe_speed_fog.png/pdf` |
 | `layout.py` | mounting layout, reach per modality, requirement contour | `figures/suite_layout.png`, `figures/reach_by_modality.png`, `figures/requirements.png` |
 | `bom.py` | count × unit price per model | `bom.csv` |
+| `style.py` | shared figure colors and markers (no calculation) | |
 | `slides/` | the pitch as beamer (`presentation.tex`) and as PowerPoint for Google Slides (`build_pptx.js` → `pitch.pptx`, with speaker notes); backup slides B1–B13 (`backup.tex`) | PDFs, `pitch.pptx` |
 | `docs/` | `speaker_notes.md` (5-minute script, suggested split), `qa_guide.md` (likely questions → backup slide) | |
 

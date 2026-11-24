@@ -12,13 +12,14 @@ from model import load_suite
 
 
 def bom(path="sensors.yaml"):
+    """One row per sensor model: how many are mounted, unit price, subtotal."""
     models, mounts = load_suite(path)
-    n = Counter(model for _, model, *_ in mounts)
+    n = Counter(model for _, model, *_ in mounts)       # count the mounts per model (e.g. 5 radars)
     rows = []
     for key, cnt in n.items():
         m = models[key]
-        listed = "price_usd" in m
-        unit = m["price_usd"] if listed else m["price_usd_est"]
+        listed = "price_usd" in m                       # a seller's price exists (only the fisheye)
+        unit = m["price_usd"] if listed else m["price_usd_est"]   # otherwise our estimate
         rows.append(dict(model=key, name=m["name"], modality=m["modality"], count=cnt, unit=unit,
                          listed=listed, subtotal=cnt * unit))
     return rows

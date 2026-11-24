@@ -15,6 +15,10 @@ Status: >= 2 modalities = redundant, 1 = single point of failure, 0 = gap.
 
 Run `python coverage.py`: prints the summary, writes coverage.csv and figures/coverage_conditions.{png,pdf}
 and figures/coverage_detail_1.png and _2.png.
+
+How to read the file: the calculation is load() .. summary(); from "Drawing" on it only draws the figures.
+Coordinates: the vehicle frame of sensors.yaml (origin at the car's centre on the ground, x forward,
+y left, z up, metres); a bearing is the angle from ahead, counter-clockwise (+90 = left).
 """
 import os
 
@@ -30,17 +34,20 @@ from style import GRID, INK, INK2, MOD_COLOR, MUTED
 MODS = ("camera", "lidar", "radar", "thermal")
 RINGS = ("car", "pedestrian", "near")
 RING_NAME = {"car": "Car", "pedestrian": "Pedestrian", "near": "Near field"}
-BEARINGS = np.arange(-180, 180)                     # deg
-NEAR_STEPS = np.round(np.arange(NEAR[0], NEAR[1] + 1e-9, 0.1), 2)
+BEARINGS = np.arange(-180, 180)                     # deg, the 360 directions we check
+NEAR_STEPS = np.round(np.arange(NEAR[0], NEAR[1] + 1e-9, 0.1), 2)   # near field: every 10 cm from 0.1 to 5 m
 STATUS = {2: ("#0ca30c", "2 or more modalities"), 1: ("#fab219", "1 modality (no redundancy)"),
           0: ("#d03b3b", "0 (gap)")}
 
 
 def wrap(a):
+    """Angle in deg folded into -180..180 (so 270 becomes -90)."""
     return (a + 180) % 360 - 180
 
 
 def load():
+    """One dict per mounted perception sensor: its model, position, heading, vertical FOV limits
+    (after pitch, in deg from the horizon) and minimum range. Also returns the car body size."""
     models, mounts = load_suite()
     with open("sensors.yaml", encoding="utf-8") as f:
         d = yaml.safe_load(f)
@@ -50,8 +57,8 @@ def load():
         m = models[model]
         if m["modality"] not in MODS:
             continue
-        down = m.get("vfov_down", m["vfov"] / 2)
-        if m["modality"] == "radar":
+        down = m.get("vfov_down", m["vfov"] / 2)     # how far the FOV reaches below the sensor's axis
+        if m["modality"] == "radar":                  # radar: the shortest minimum range of the modes it runs
             rmin = min(m["modes"][k][3] for k in m.get("operating_modes", ["extra_long"]))
         else:
             rmin = m.get("range_min", 0.0)
@@ -68,8 +75,8 @@ def body_edge(theta, veh):
 
 def seen_long(sen, px, py, target, sub):
     """Is a target at (px, py) inside the sensor's horizontal FOV and its effective range?"""
-    dx, dy = px - sen["x"], py - sen["y"]
-    phi = wrap(np.degrees(np.arctan2(dy, dx)) - sen["yaw"])
+    dx, dy = px - sen["x"], py - sen["y"]                    # target as seen from the sensor
+    phi = wrap(np.degrees(np.arctan2(dy, dx)) - sen["yaw"])  # angle off the sensor's boresight
     if abs(phi) > sen["m"]["hfov"] / 2:
         return False
     if (sen["mod"] == "camera" and target == "pedestrian" and SUBCASES[sub]["night"]
@@ -80,7 +87,10 @@ def seen_long(sen, px, py, target, sub):
 
 def blocked_by_body(sen, p, veh):
     """Does the straight line from a sensor above the roof to point p pass through the car body (a box)?"""
-    if sen["z"] <= veh["height"]:
+    # Slab method: the line s0 + t d (t from 0 to 1) is inside the box for t in [t0, t1], where for each
+    # axis k we intersect with the two faces lo[k] and hi[k]. If the intervals of the three axes overlap,
+    # the line passes through the box.
+    if sen["z"] <= veh["height"]:                    # only the roof lidar sits above the body
         return False
     s0 = np.array([sen["x"], sen["y"], sen["z"]])
     d = np.asarray(p) - s0
@@ -105,7 +115,8 @@ def seen_near(sen, px, py, veh):
     phi = wrap(np.degrees(np.arctan2(dy, dx)) - sen["yaw"])
     if abs(phi) > sen["m"]["hfov"] / 2:
         return False
-    dh = np.hypot(dx, dy)
+    dh = np.hypot(dx, dy)                              # horizontal distance sensor -> object
+    # elevation of the object's foot and top as seen from the sensor; part of it must lie in the vertical FOV
     el_bot, el_top = np.degrees(np.arctan2(0 - sen["z"], dh)), np.degrees(np.arctan2(NEAR_H - sen["z"], dh))
     lo, hi = max(el_bot, sen["lo"]), min(el_top, sen["hi"])
     if lo > hi:
@@ -124,6 +135,7 @@ def near_field(sensors, veh):
         c, s, e = np.cos(np.radians(th)), np.sin(np.radians(th)), body_edge(th, veh)
         for mod in MODS:
             ss = [x for x in sensors if x["mod"] == mod]
+            # covered = at EVERY distance d from the body edge, at least ONE sensor of this modality sees it
             out[mod][i] = all(any(seen_near(x, (e + d) * c, (e + d) * s, veh) for x in ss) for d in NEAR_STEPS)
     return out
 
@@ -132,9 +144,9 @@ def long_range(sensors, veh, target, sub):
     """{modality: bool[bearing]} for a target at the required range in one sub-case."""
     out = {mod: np.zeros(len(BEARINGS), bool) for mod in MODS}
     for i, th in enumerate(BEARINGS):
-        r = body_edge(th, veh) + required_range(th, target)
+        r = body_edge(th, veh) + required_range(th, target)          # place the target at the required range
         px, py = r * np.cos(np.radians(th)), r * np.sin(np.radians(th))
-        for x in sensors:
+        for x in sensors:                                            # a modality counts if any of its sensors sees it
             if not out[x["mod"]][i] and seen_long(x, px, py, target, sub):
                 out[x["mod"]][i] = True
     return out
@@ -147,11 +159,11 @@ def coverage(sensors, veh):
     for g, subs in GROUPS.items():
         res[g] = {}
         for ring in ("car", "pedestrian"):
-            per = [long_range(sensors, veh, ring, s) for s in subs]
-            counts = np.min([sum(p[m].astype(int) for m in MODS) for p in per], axis=0)
-            mods = {m: np.all([p[m] for p in per], axis=0) for m in MODS}
+            per = [long_range(sensors, veh, ring, s) for s in subs]                     # one result per sub-case
+            counts = np.min([sum(p[m].astype(int) for m in MODS) for p in per], axis=0)  # modalities, worst sub-case
+            mods = {m: np.all([p[m] for p in per], axis=0) for m in MODS}               # covered in every sub-case
             res[g][ring] = dict(count=counts, mods=mods)
-        res[g]["near"] = dict(count=sum(near[m].astype(int) for m in MODS), mods=near)
+        res[g]["near"] = dict(count=sum(near[m].astype(int) for m in MODS), mods=near)  # geometry: same in all
     return res
 
 
@@ -187,6 +199,8 @@ def where(a, b):
 
 
 def summary(res):
+    """Per condition and ring: the fewest modalities on any bearing, how many bearings have 2+, and where
+    the weakest bearings are (the table printed by main and quoted on the slides)."""
     lines = []
     for g, rings in res.items():
         for ring in RINGS:
@@ -197,6 +211,9 @@ def summary(res):
     return lines
 
 
+# ------------------------------------------------------------------------------------------------------
+# Drawing (no calculation from here on, except main(), which runs it all and writes coverage.csv)
+# ------------------------------------------------------------------------------------------------------
 def status(c):
     return np.minimum(c, 2)
 

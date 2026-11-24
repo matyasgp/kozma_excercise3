@@ -7,6 +7,12 @@ still fits inside the range of at least two independent modalities straight ahea
   v1 = safe_speed(best modality range ahead)            (no redundancy)
 for a car and a pedestrian, per condition (worst sub-case), and as a sweep over fog visibility.
 
+Why the second-best: our design rule asks for two independent modalities, so the car may only drive as fast
+as the second-best modality allows. Example, fog (V = 200 m), car ahead: radar 239 m, lidar 114 m, so the
+second-best range is 114 m and safe_speed(114 m) = 84 km/h. The slides' "Level 4 inside a speed envelope"
+comes from this table.
+
+How to read the file: the calculation is ahead_ranges() .. fog_sweep(); figure() only draws.
 Run `python odd.py`: prints the table, writes safe_speed.csv and figures/safe_speed_fog.{png,pdf}.
 """
 import os
@@ -24,23 +30,25 @@ def ahead_ranges(sensors, target, sub):
     """Best range straight ahead per modality [m] (sensors whose FOV contains the forward direction)."""
     best = {m: 0.0 for m in MODS}
     for x in sensors:
-        phi = -x["yaw"]
-        if abs((phi + 180) % 360 - 180) <= x["m"]["hfov"] / 2:
+        phi = -x["yaw"]                                  # straight ahead (bearing 0) seen from this sensor
+        if abs((phi + 180) % 360 - 180) <= x["m"]["hfov"] / 2:   # ahead is inside its horizontal FOV
             best[x["mod"]] = max(best[x["mod"]], effective_range(x["m"], target, sub, x["forward"], phi))
     return best
 
 
 def speeds(sensors, target, sub):
-    r = sorted(ahead_ranges(sensors, target, sub).values(), reverse=True)
+    """(speed with the best modality, speed with the second-best, best range, second-best range)."""
+    r = sorted(ahead_ranges(sensors, target, sub).values(), reverse=True)   # modality ranges, longest first
     return safe_speed(r[0]), safe_speed(r[1]), r[0], r[1]
 
 
 def table(sensors):
+    """One row per condition group and target, from the group's worst sub-case (lowest two-modality speed)."""
     rows = []
     for g, subs in GROUPS.items():
         for target in ("car", "pedestrian"):
             per = {s: speeds(sensors, target, s) for s in subs}
-            worst = min(per, key=lambda s: per[s][1])
+            worst = min(per, key=lambda s: per[s][1])    # the sub-case that forces the lowest speed
             v1, v2, r1, r2 = per[worst]
             best = ahead_ranges(sensors, target, worst)
             rows.append(dict(condition=g, target=target, worst_case=worst, range_best=r1, range_second=r2,
@@ -50,9 +58,9 @@ def table(sensors):
 
 def fog_sweep(sensors, V, lwir_ratio=SUBCASES["fog"]["lwir"]):
     """Safe speeds over fog visibility; lwir_ratio = LWIR / visible extinction (1.0 for the sensitivity case)."""
-    out = {"car": ([], []), "pedestrian": ([], [])}
+    out = {"car": ([], []), "pedestrian": ([], [])}     # target: (best-modality speeds, two-modality speeds)
     for v in V:
-        sc = dict(SUBCASES["fog"], V=float(v), lwir=lwir_ratio)
+        sc = dict(SUBCASES["fog"], V=float(v), lwir=lwir_ratio)   # the fog case with another visibility
         for target in out:
             v1, v2, _, _ = speeds(sensors, target, sc)
             out[target][0].append(v1)
@@ -60,6 +68,7 @@ def fog_sweep(sensors, V, lwir_ratio=SUBCASES["fog"]["lwir"]):
     return {k: (np.array(a), np.array(b)) for k, (a, b) in out.items()}
 
 
+# ---------------- drawing (no calculation) ----------------
 def figure(V, sw, sw_bad):
     fig, ax = plt.subplots(figsize=(6.4, 4.0))
     ax.axhline(130, color=GRID, lw=1.0, zorder=0)
@@ -114,9 +123,9 @@ def main():
     for r in rows:
         print(f"{r['condition']:24s}{r['target']:12s}{r['worst_case']:15s}{r['range_second']:8.0f} m"
               f"{r['v2']:9.0f} km/h{r['v1']:7.0f} km/h")
-    V = np.geomspace(20, 23000, 120)
-    sw = fog_sweep(sensors, V)
-    sw_bad = fog_sweep(sensors, V, lwir_ratio=1.0)
+    V = np.geomspace(20, 23000, 120)                     # 120 visibilities from 20 m to clear air, log-spaced
+    sw = fog_sweep(sensors, V)                           # our assumption: LWIR extinction = 0.4 x visible
+    sw_bad = fog_sweep(sensors, V, lwir_ratio=1.0)       # sensitivity: thermal sees no further than visible
     for v in (50, 100, 200, 500, 1000):
         i = int(np.argmin(abs(V - v)))
         print(f"fog V = {V[i]:6.0f} m: car {sw['car'][1][i]:4.0f} km/h, pedestrian {sw['pedestrian'][1][i]:4.0f} km/h"
