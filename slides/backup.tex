@@ -10,7 +10,7 @@
 % ---------------------------------------------------------------
 \begin{frame}{Sensors and their official sources}
   \scriptsize
-  \renewcommand{\arraystretch}{1.12}
+  \renewcommand{\arraystretch}{1.0}
   \setlength{\tabcolsep}{3pt}
   \begin{tabular}{@{}L{3.2cm} L{7.3cm} L{3.9cm}@{}}
     \toprule
@@ -19,13 +19,16 @@
     Innoviz InnovizTwo (Condor) & 120$^\circ$\,$\times$\,28.8$^\circ$; ROI 30$^\circ$\,$\times$\,9.6$^\circ$ at 0.1$^\circ$\,$\times$\,0.05$^\circ$, 210\,m @\,10\,\%
       (90\,\% per pixel, 100\,klx); side FOV 0.2$^\circ$\,$\times$\,0.05$^\circ$, 140\,m @\,10\,\%; 300\,m max; 10\,cm bias; 905\,nm; 20\,FPS
       & datasheet v3.1 (2024) \\
-    Hesai OT128 & 360$^\circ$\,$\times$\,40$^\circ$; 0.1$^\circ$\,$\times$\,0.125$^\circ$; 200\,m @\,10\,\% (230\,m max); 3.46\,M pts/s; 29\,W
-      & hesaitech.com spec page (accuracy, split, FPS: our assumptions) \\
+    Hesai OT128 & 360$^\circ$\,$\times$\,40$^\circ$ ($-$25 to +15$^\circ$); 128 channels, each with its own elevation and
+      10\,\% range (200\,m on ch.\ 33--64, 30--140\,m on the others, PoD 70\,\%); 0.1$^\circ$ / 0.2$^\circ$ at 10\,Hz;
+      0.3--230\,m; $\pm$3\,cm; 3.46\,M pts/s; 29\,W
+      & user manual O01-en-260110: 1.6 specifications, appendix A.1 channel table \\
     smartmicro DRVEGRD 171 & 76--77\,GHz; $\pm$50$^\circ$\,$\times$\,$\pm$10$^\circ$; car range 240 / 100 / 40\,m (1.2 / 0.5 / 0.2\,m min);
       range acc.\ 0.6 / 0.25 / 0.1\,m; speed acc.\ 0.07\,m/s; az.\ 0.25$^\circ$; 55\,ms cycle & datasheet 22 Jan 2024 \\
     Supertek OX08B40 GMSL2 (H30/H60/H120) & 3840\,$\times$\,2160, 2.1\,$\mu$m, 140\,dB HDR; 30$^\circ$\,$\times$\,16$^\circ$ / 60$^\circ$\,$\times$\,33$^\circ$ /
       120$^\circ$\,$\times$\,66$^\circ$; 30\,FPS & module datasheet + OmniVision brief \\
-    SENSING SG3S-ISX031C H190 & 1920\,$\times$\,1536, 3\,$\mu$m, 196$^\circ$\,$\times$\,154$^\circ$, 120\,dB (sensor); 459\,USD listed & SENSING datasheet (Seeed) \\
+    SENSING SG3S-ISX031C H190 & 1920\,$\times$\,1536, 3\,$\mu$m, 196$^\circ$\,$\times$\,154$^\circ$, 30\,FPS; 459\,USD listed;
+      120\,dB HDR is the Sony ISX031 sensor figure (SENSING only says ``HDR'') & SENSING datasheet (Seeed) \\
     Raytron Horus640-D, 13.5\,mm & 640\,$\times$\,512, 12\,$\mu$m, NETD 35\,mK, 32$^\circ$\,$\times$\,26$^\circ$, 0.8\,mrad, AEC-Q100;
       pedestrian identified at 169\,m (Johnson) & product manual V1.1 (2024) \\
     u-blox ZED-F9K-01A & RTK $<$\,0.2\,m CEP; IMU dead reckoning without GNSS & data sheet UBX-21045820 \\
@@ -33,7 +36,8 @@
   \end{tabular}
 
   \vspace{0.4em}
-  \smallnote{Reused on purpose from earlier groups: only the Hesai OT128. Everything else is new to the course.}
+  \smallnote{Every sensor is a specific, buyable product; all numbers above are from its maker's own document.
+  Reused on purpose from earlier groups: only the Hesai OT128.}
 \end{frame}
 
 % ---------------------------------------------------------------
@@ -45,9 +49,11 @@
     \[ \alpha = \frac{3.912}{V}, \qquad \alpha_\text{rain} = 0.365\,R^{0.63}\,\text{km}^{-1} \]
     \smallnote{Koschmieder, fog and snow, same at 550 and 905\,nm (Kim 2001); rain $R$ in mm/h}\par\medskip
     \textbf{Lidar} (Exercise 3 model)
-    \[ p = 1 - \exp\!\Big(-c\,\frac{\rho}{R^2}\,e^{-2\alpha R}\Big), \quad p(R_{10\%}, 10\,\%) = 0.9 \]
+    \[ p = 1 - \exp\!\Big(-c\,\frac{\rho}{R^2}\,e^{-2\alpha R}\Big), \quad p(R_{10\%}, 10\,\%) = p_0 \]
     detected if $P(K \ge 5) \ge 99\,\%$, $K \sim \mathrm{Bin}(n, p)$, $n$ = beams on the target
-    (grid offset: $n$ rounds up or down)\par\medskip
+    (grid offset: $n$ rounds up or down)
+    \smallnote{InnovizTwo: $p_0$ = 0.9 (datasheet). OT128: $K$ sums the channels that hit the target from 1.75\,m,
+    each with its own $R_{10\%}$, $p_0$ = 0.7 (manual A.1)}\par\medskip
 
     \textbf{Radar}
     \[ R^4\, 10^{2\gamma R/10} = R_0^4\, g(\varphi)^4\, \frac{\sigma}{\sigma_\text{car}} \]
@@ -79,13 +85,13 @@
     pedestrian / car [m] & clear & night & fog 200\,m & rain 25\,mm/h & snow & low sun & tunnel exit \\
     \midrule
     InnovizTwo lidar & 231 / 300 & 231 / 300 & 98 / 114 & 178 / 240 & 150 / 197 & 231 / 300 & 231 / 300 \\
-    Hesai OT128 lidar & 153 / 230 & 153 / 230 & 86 / 100 & 145 / 193 & 126 / 162 & 153 / 230 & 153 / 230 \\
-    DRVEGRD 171 radar & 100 / 240 & 100 / 240 & 100 / 239 & 89 / 190 & 98 / 234 & 100 / 240 & 100 / 240 \\
-    8\,MP camera 30$^\circ$ & 557 / 464 & \textbf{63} / 464 & 92 / 106 & 557 / 464 & 458 / 464 & 557 / 464 & 557 / 464 \\
-    8\,MP camera 60$^\circ$ & 270 / 225 & \textbf{63} / 225 & 92 / 106 & 270 / 225 & 270 / 225 & 270 / 225 & 270 / 225 \\
-    8\,MP camera 120$^\circ$ & 135 / 113 & \textbf{63} / 113 & 92 / 106 & 135 / 113 & 135 / 113 & 135 / 113 & 135 / 113 \\
-    3\,MP fisheye & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 \\
-    Raytron LWIR & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 \\
+    Hesai OT128 lidar & 160 / 214 & 160 / 214 & 80 / 92 & 136 / 176 & 114 / 147 & 160 / 214 & 160 / 214 \\
+    smartmicro DRVEGRD 171 radar & 100 / 240 & 100 / 240 & 100 / 239 & 89 / 190 & 98 / 234 & 100 / 240 & 100 / 240 \\
+    Supertek OX08B40 30$^\circ$ & 557 / 464 & \textbf{63} / 464 & 92 / 106 & 557 / 464 & 458 / 464 & 557 / 464 & 557 / 464 \\
+    Supertek OX08B40 60$^\circ$ & 270 / 225 & \textbf{63} / 225 & 92 / 106 & 270 / 225 & 270 / 225 & 270 / 225 & 270 / 225 \\
+    Supertek OX08B40 120$^\circ$ & 135 / 113 & \textbf{63} / 113 & 92 / 106 & 135 / 113 & 135 / 113 & 135 / 113 & 135 / 113 \\
+    SENSING ISX031 fisheye & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 & 41 / 34 \\
+    Raytron Horus640-D LWIR & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 & 90 / 75 \\
     \bottomrule
   \end{tabular}
 
@@ -228,8 +234,7 @@
     \column{0.5\textwidth}
     \textbf{Assumptions (not from datasheets)}
     \begin{itemize}
-      \item Lidar: $\ge$5 returns with 99\,\%; 90\,\% per beam at the 10\,\% range (InnovizTwo, also used for OT128)
-      \item OT128: 10\,cm accuracy, $-$25/+15$^\circ$ split, 10\,FPS (not on Hesai's page)
+      \item Lidar: $\ge$5 returns with 99\,\%; flat road (OT128 channels hit the target by geometry)
       \item Camera: 25\,px, contrast 0.05, pedestrian 0.3, car 0.4; glare $G$ = 3; tunnel exit 125\,dB
       \item Night: unlit road; low beam 4000\,cd, $\pm$30$^\circ$, 1\,lux needed
       \item Weather: clear 23\,km, fog 200\,m, snow 1\,km + 50\,\% lidar clutter, rain 25\,mm/h
@@ -296,8 +301,8 @@
       a ring of 12 ultrasonic parking sensors (they reach a few metres), a few USD each \\
     Fog / snow ahead: $<$\,2 modalities at 253\,m & radar 239\,m is 6\,\% short; optical sensors halve &
       longer-range imaging radar, or slow down (84\,km/h at 200\,m fog) \\
-    Night, straight behind: lidar only (5$^\circ$) & unlit; corner radars end at $\pm$50$^\circ$ off their axis &
-      rear thermal camera or a rear radar \\
+    Straight behind: lidar only at night (5$^\circ$), camera only in fog (1$^\circ$) & corner radars end at $\pm$50$^\circ$ off their
+      axis; unlit at night; OT128 reaches 92\,m in fog, 96\,m needed & a rear radar (or a rear thermal camera) \\
     Blocked sensors & snow, ice, spray &
       cleaning (washers, heaters) + detect blockage + safe stop \\
     \bottomrule

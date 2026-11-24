@@ -111,7 +111,7 @@ Don't open the old slides for structure or wording while building ours.
 | 1 Requirements | `requirements.py`, `figures/requirements*.png` | ahead 253 m car / 82 m pedestrian, sides 81 m, rear 96 m, 15 m pedestrians around, near field 0.1–5 m; front/rear cones from road curvature |
 | 2 Physics model | `model.py` | ranges and spider scores; camera speed from image-height change; radar antenna pattern and interleaved modes; InnovizTwo side FOV |
 | 3 Spider charts | `spider.py` | one chart per condition, modalities overlaid + whole suite (validated colorblind-safe palette) |
-| 4 Coverage map | `coverage.py` | three rings (car, pedestrian, near field) per condition; gaps: fog ahead (none), snow ahead (camera only), near field (cameras only), 5° behind at night |
+| 4 Coverage map | `coverage.py` | three rings (car, pedestrian, near field) per condition; gaps: fog ahead (none), snow ahead (camera only), near field (cameras only), straight behind (5° at night, 1° in fog) |
 | 5 Cost | `bom.py` | 10,986 USD |
 | 6 L5 slide | `odd.py` | safe speed with two modalities: 142 clear, 78 night with pedestrians, 84 fog (200 m), 124 snow; fog sweep with LWIR sensitivity band |
 | 7 Pitch | `slides/`, `docs/` | beamer pitch + backup (B1–B13), `pitch.pptx` for Google Slides, speaker notes, Q&A guide |
@@ -122,8 +122,10 @@ Changes against the plan above, and why:
   had produced a false 1° gap at the edge of the InnovizTwo ROI.
 - Rear requirement 96 m (scenario-derived) instead of the ~100 m estimate; side 81 m instead of ~80 m.
 - Added: safe speed per condition (`odd.py`) as the quantitative L4/L5 argument.
-- Hesai's OT128 page gives no range accuracy, vertical split or frame rate: we use the InnovizTwo's 10 cm and
-  mark the rest as assumptions.
+- Teacher's direction (2026-11-24): use the specs of a specific, existing model. Every sensor now cites its maker's
+  own document. The Hesai OT128 moved from the spec web page to the full user manual (O01-en-260110): ±3 cm, the
+  −25°/+15° split, 10 Hz, 70 % detection probability, and the per-channel table, modelled channel by channel
+  (car 214 m instead of 230 m). The slides name every camera model (Supertek STC-OX08BC, SENSING SG3S-ISX031C).
 
 ## Open items
 - Team names (missing in Ex3 too).

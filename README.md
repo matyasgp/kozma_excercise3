@@ -48,6 +48,20 @@ Figures are sized for a 10-inch-wide slide (the Google Slides default); `*_detai
 
 The course deck and datasheet PDFs stay local in `sources/` (gitignored).
 
+## Sensors: specific products, the maker's own document
+
+| # | Product | Document the numbers come from |
+|---|---|---|
+| 1 | Innoviz InnovizTwo lidar (Condor configuration) | InnovizTwo GMSL Series Production Datasheet v3.1 (2024) |
+| 1 | Hesai OT128 lidar | OT128 User Manual O01-en-260110: 1.6 Specifications and the Appendix A.1 per-channel table (`hesai_ot128_channels.csv`) |
+| 5 | smartmicro DRVEGRD 171 4D radar | DRVEGRD 171 Automotive Datasheet, 22 January 2024 |
+| 1 + 2 + 4 | Supertek STC-OX08BC-5300-GMSL2 camera (OmniVision OX08B40, 8.3 MP), lens versions H30S1 / H60S / H120YA | Supertek module datasheet; OmniVision OX08B40 product brief v1.1 (140 dB HDR) |
+| 4 | SENSING SG3S-ISX031C-GMSL2F-H190XA fisheye (Sony ISX031, 3 MP) | SENSING datasheet (Seeed SKU 101090101). Its "HDR support" has no figure, so the 120 dB is the Sony ISX031 sensor value; no result depends on it |
+| 1 | Raytron Horus640-D LWIR module, 13.5 mm F1.0 | Horus640-D Automotive Product Manual V1.1 (2024) |
+| 1 | u-blox ZED-F9K-01A RTK GNSS + IMU | ZED-F9K-01A Data Sheet UBX-21045820 |
+
+Prices are estimates, except the fisheye's listed price.
+
 ## Requirements (`requirements.py`)
 
 Detection-to-action time 1 s, comfortable braking 3 m/s² (an automated car should plan to stop without
@@ -74,10 +88,10 @@ Detection range ahead (pedestrian / car, metres, `ranges.csv`):
 | Sensor | Clear | Night | Fog 200 m | Rain 25 mm/h | Snow |
 |---|---|---|---|---|---|
 | InnovizTwo lidar | 231 / 300 | 231 / 300 | 98 / 114 | 178 / 240 | 150 / 197 |
-| Hesai OT128 lidar | 153 / 230 | 153 / 230 | 86 / 100 | 145 / 193 | 126 / 162 |
-| DRVEGRD 171 radar | 100 / 240 | 100 / 240 | 100 / 239 | 89 / 190 | 98 / 234 |
-| 8 MP camera, 30° | 557 / 464 | 63 / 464 | 92 / 106 | 557 / 464 | 458 / 464 |
-| Raytron LWIR | 90 / 75 | 90 / 75 | 90 / 75 | 90 / 75 | 90 / 75 |
+| Hesai OT128 lidar | 160 / 214 | 160 / 214 | 80 / 92 | 136 / 176 | 114 / 147 |
+| smartmicro DRVEGRD 171 radar | 100 / 240 | 100 / 240 | 100 / 239 | 89 / 190 | 98 / 234 |
+| Supertek STC-OX08BC (OX08B40) camera, 30° | 557 / 464 | 63 / 464 | 92 / 106 | 557 / 464 | 458 / 464 |
+| Raytron Horus640-D LWIR | 90 / 75 | 90 / 75 | 90 / 75 | 90 / 75 | 90 / 75 |
 
 Coverage (`coverage.py`, worst sub-case of each condition):
 
@@ -85,7 +99,7 @@ Coverage (`coverage.py`, worst sub-case of each condition):
 |---|---|---|---|
 | Clear day | 2+ everywhere | 2+ everywhere | cameras only on 340° |
 | Night (unlit) | 2+ everywhere | 2+ except 5° straight behind (lidar only) | cameras only on 340° |
-| Fog / heavy rain | **gap ahead (±11°)**: radar 239 m, lidar 114 m < 253 m | 2+ everywhere | cameras only on 340° |
+| Fog / heavy rain | **gap ahead (±11°)**: radar 239 m, lidar 114 m < 253 m; 1° straight behind camera only (OT128 92 m < 96 m) | 2+ everywhere | cameras only on 340° |
 | Snow / glare / tunnel | camera only ahead (±11°) | 2+ everywhere | cameras only on 340° |
 
 Highest safe speed with two modalities over the stopping distance (`odd.py`): clear 142 km/h, night with
@@ -100,8 +114,7 @@ GNSS/INS 250). Only the fisheye price is listed by its seller; the rest are our 
 | Assumption | Value | Why |
 |---|---|---|
 | Lidar detection rule | ≥ 5 returns with 99 % probability | EBA rule from Exercise 3 |
-| Lidar per-beam probability at the 10 % datasheet range | 90 % | InnovizTwo datasheet; assumed for OT128 too |
-| OT128 range accuracy, vertical split, frame rate | 10 cm (InnovizTwo datasheet value), −25°/+15°, 10 FPS | not on Hesai's spec page |
+| Flat road for the OT128 channel model | target on the ground, lidar at 1.75 m | which of the 128 channels (manual Appendix A.1) hit the target follows from geometry |
 | Camera/thermal detection rule | object ≥ 25 px high | KITTI "moderate" minimum box height |
 | Minimum usable camera contrast | 0.05 | pedestrian 0.3, car 0.4 at zero range |
 | Night | unlit road; low beam 4000 cd, ±30° spread, 1 lux needed on a pedestrian; cars carry their own lights | worst case for "general use" |

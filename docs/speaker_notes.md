@@ -35,12 +35,14 @@ all four."
 
 ## 3. Design (50 s)
 
-"So the suite has **20 sensors**, and every one is there because a number asks for it. An InnovizTwo lidar
-in the bumper sees a dark car at **300 m**: it covers the 253 m requirement day and night. A 360-degree lidar
-on the roof covers the sides and the rear. Five 4D radars, front and corners, measure speed and still reach
-**239 m** in fog. Seven 8-megapixel cameras give color, signs and lights; the tele camera sees a car at
-464 m. Four fisheyes cover the near field. One thermal camera is there because at night the camera only
-reaches **63 m** but we need 82. GNSS with RTK and an HD map give lane-level position.
+"So the suite has **20 sensors**. Each is a real product with its maker's datasheet, and each is there
+because a number asks for it. An Innoviz InnovizTwo lidar in the bumper sees a dark car at **300 m**: it
+covers the 253 m requirement day and night. A Hesai OT128 on the roof covers the sides and the rear. Five
+smartmicro DRVEGRD 171 4D radars, front and corners, measure speed and still reach **239 m** in fog. Seven
+Supertek cameras with OmniVision's 8-megapixel OX08B40 give color, signs and lights; the 30-degree tele sees
+a car at 464 m. Four SENSING fisheyes with Sony's ISX031 cover the near field. One Raytron Horus640 thermal
+camera is there because at night the camera only reaches **63 m** but we need 82. A u-blox ZED-F9K with RTK
+and an HD map gives lane-level position.
 
 Total: about **11,000 USD** for the sensors."
 
@@ -51,7 +53,8 @@ required range. Green is two or more, amber one, red none. Outer ring cars, midd
 ring the near field.
 
 In clear weather and at night it's green all round. In dense fog, **nothing reaches 253 m ahead**: the radar
-gets 239 m, the lidar 114 m. In snow only the camera does. And the near field is amber everywhere: below
+gets 239 m, the lidar 114 m, and straight behind only the rear camera reaches 96 m. In snow only the camera
+does. And the near field is amber everywhere: below
 about 30 cm and beside the doors only the cameras see, because lidar and radar have a minimum range. That's
 our first thing to fix."
 
@@ -71,7 +74,7 @@ defined operating domains."
 "To sum up: **20 sensors, 11,000 dollars, two modalities on every bearing in clear weather and at night, and
 84 km/h in dense fog.** Our answer: Level 4 in city and highway inside a speed envelope, yes. True Level 5,
 anywhere and in any weather, is not possible today. The next gaps to close are an ultrasonic ring for the
-near field, a rear thermal camera, and longer-range imaging radar for fog. Thank you."
+near field, a rear radar for straight behind, and longer-range imaging radar for fog. Thank you."
 
 ## Suggested split (team of 3)
 

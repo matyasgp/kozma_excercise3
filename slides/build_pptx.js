@@ -35,10 +35,10 @@ const notes = {
   title: "Our question was: what does a normal private car need to see to drive itself in the city and on the highway, and is Level 5 possible today? One physics model, fed by official datasheets, answers both.",
   req: "We started from what the car must see, not from the sensors. Each number is one driving scenario and one formula. To stop for a car from 130 km/h with one second to react and comfortable braking, the car must see 253 m ahead. For a pedestrian on a 70 km/h city road, 82 m. At the sides, cross traffic at 60 km/h needs 81 m so we can pull out. Behind, a lane change with a faster car coming needs 96 m. Around the car, 15 m for pedestrians and the near field down to 10 cm. Our design rule: on every bearing, at least two independent modalities must reach that range, so one can fail or be fooled.",
   spider: "Here are the four modalities on the professor's six axes, under four conditions. The scores are not hand-set: each one comes from datasheet numbers and one physics law per effect, for example Koschmieder for fog or the radar equation with rain attenuation. The camera wins on detail and color in daylight, but at night its contrast falls to 0.16, because only the low beam lights a pedestrian. In fog the optical sensors lose about half their range; radar keeps 0.75 and owns speed measurement with 0.07 m/s Doppler. Lidar gives the best 3D, day and night. Thermal sees living objects in the dark. The gray area is the whole suite: the best modality on each axis. No single modality covers it, so we need all four.",
-  design: "So the suite has 20 sensors, and every one is there because a number asks for it. An InnovizTwo lidar in the bumper sees a dark car at 300 m: it covers the 253 m requirement day and night. A 360-degree lidar on the roof covers the sides and the rear. Five 4D radars, front and corners, measure speed and still reach 239 m in fog. Seven 8-megapixel cameras give color, signs and lights; the tele camera sees a car at 464 m. Four fisheyes cover the near field. One thermal camera is there because at night the camera only reaches 63 m but we need 82. GNSS with RTK and an HD map give lane-level position. Total: about 11,000 USD for the sensors.",
-  coverage: "This is the core result. For every direction and condition we count how many modalities still reach the required range. Green is two or more, amber one, red none. Outer ring cars, middle ring pedestrians, inner ring the near field. In clear weather and at night it's green all round. In dense fog, nothing reaches 253 m ahead: the radar gets 239 m, the lidar 114 m. In snow only the camera does. And the near field is amber everywhere: below about 30 cm and beside the doors only the cameras see, because lidar and radar have a minimum range. That's our first thing to fix.",
+  design: "So the suite has 20 sensors. Each is a real product with its maker's datasheet, and each is there because a number asks for it. An Innoviz InnovizTwo lidar in the bumper sees a dark car at 300 m: it covers the 253 m requirement day and night. A Hesai OT128 on the roof covers the sides and the rear. Five smartmicro DRVEGRD 171 4D radars, front and corners, measure speed and still reach 239 m in fog. Seven Supertek cameras with OmniVision's 8-megapixel OX08B40 give color, signs and lights; the 30-degree tele sees a car at 464 m. Four SENSING fisheyes with Sony's ISX031 cover the near field. One Raytron Horus640 thermal camera is there because at night the camera only reaches 63 m but we need 82. A u-blox ZED-F9K with RTK and an HD map gives lane-level position. Total: about 11,000 USD for the sensors.",
+  coverage: "This is the core result. For every direction and condition we count how many modalities still reach the required range. Green is two or more, amber one, red none. Outer ring cars, middle ring pedestrians, inner ring the near field. In clear weather and at night it's green all round. In dense fog, nothing reaches 253 m ahead: the radar gets 239 m, the lidar 114 m, and straight behind only the rear camera reaches 96 m. In snow only the camera does. And the near field is amber everywhere: below about 30 cm and beside the doors only the cameras see, because lidar and radar have a minimum range. That's our first thing to fix.",
   l5: "Level 5 means no limit at all on roads or weather. So we asked: how fast may our car drive so that two modalities still cover its stopping distance? In clear weather, 142 km/h. At night with pedestrians around, 78. In fog with 200 m visibility, 84 for cars and 77 with pedestrians. Below 50 m visibility, roughly 35 to 65, close to the 50 km/h a German driver is allowed. So the car can drive, but it has to slow down like a careful human. On top of that, no datasheet covers a sensor blocked by snow or ice, rare events need billions of test kilometres, and the law approves only defined operating domains.",
-  summary: "To sum up: 20 sensors, 11,000 dollars, two modalities on every bearing in clear weather and at night, and 84 km/h in dense fog. Our answer: Level 4 in city and highway inside a speed envelope, yes. True Level 5, anywhere and in any weather, is not possible today. The next gaps to close are an ultrasonic ring for the near field, a rear thermal camera, and longer-range imaging radar for fog. Thank you.",
+  summary: "To sum up: 20 sensors, 11,000 dollars, two modalities on every bearing in clear weather and at night, and 84 km/h in dense fog. Our answer: Level 4 in city and highway inside a speed envelope, yes. True Level 5, anywhere and in any weather, is not possible today. The next gaps to close are an ultrasonic ring for the near field, a rear radar for straight behind, and longer-range imaging radar for fog. Thank you.",
 };
 
 const body = (extra) => Object.assign({ fontFace: FONT, color: INK, isTextBox: true, margin: 0, valign: "top" }, extra);
@@ -111,18 +111,18 @@ s.addImage({ path: FIG("suite_layout.png"), x: 0.15, y: 0.95, w: 4.0, h: 4.0, al
 const D = (n, sensor, why, usd) => [cell(n, { align: "right" }), cell(sensor), cell(why), cell(usd, { align: "right" })];
 s.addTable(table([
   [head("#", { align: "right" }), head("sensor"), head("why: the number from our model"), head("USD", { align: "right" })],
-  D("1", "InnovizTwo lidar, bumper", "dark car at 300 m, dark pedestrian at 231 m, day or night", "1,000"),
-  D("1", "Hesai OT128 lidar, roof", "360° 3D: cars at 230 m, sides need 81 m", "3,000"),
-  D("5", "DRVEGRD 171 4D radar", "Doppler 0.07 m/s; 239 m in fog; corners = 2nd modality sideways", "2,000"),
-  D("3", "8 MP camera 30°/60°, rear 60°", "color, signs, lights; tele: car at 464 m; 140 dB HDR", "900"),
-  D("4", "8 MP camera 120°, mirrors", "cross traffic: 113 m > 81 m needed", "1,200"),
-  D("4", "3 MP fisheye", "near field 0.1–5 m all round", "1,836"),
-  D("1", "Raytron LWIR thermal", "night pedestrians: camera reaches 63 m, 82 m needed", "800"),
+  D("1", "Innoviz InnovizTwo lidar, bumper", "dark car at 300 m, dark pedestrian at 231 m, day or night", "1,000"),
+  D("1", "Hesai OT128 lidar, roof", "360° 3D: cars at 214 m, sides need 81 m", "3,000"),
+  D("5", "smartmicro DRVEGRD 171 radar", "Doppler 0.07 m/s; 239 m in fog; corners = 2nd modality sideways", "2,000"),
+  D("3", "Supertek OX08B40 8 MP camera, 30°/60°, rear 60°", "color, signs, lights; tele: car at 464 m; 140 dB HDR", "900"),
+  D("4", "Supertek OX08B40 camera 120°, mirrors", "cross traffic: 113 m > 81 m needed", "1,200"),
+  D("4", "SENSING ISX031 3 MP fisheye", "near field 0.1–5 m all round", "1,836"),
+  D("1", "Raytron Horus640-D thermal", "night pedestrians: camera reaches 63 m, 82 m needed", "800"),
   D("1", "u-blox ZED-F9K + HD map", "lane-level position (< 0.2 m RTK)", "250"),
-  [cell("20", { bold: true, align: "right" }), cell(""), cell("sensors only; prices mostly our estimates", { bold: true }),
+  [cell("20", { bold: true, align: "right" }), cell(""), cell("sensors only; prices mostly estimates", { bold: true }),
     cell("10,986", { bold: true, align: "right" })],
-]).map((r) => r.map((c) => ({ text: c.text, options: Object.assign({}, c.options, { fontSize: 12 }) }))),
-{ x: 4.2, y: 0.95, w: 5.55, colW: [0.35, 1.8, 2.75, 0.65] });
+]).map((r) => r.map((c) => ({ text: c.text, options: Object.assign({}, c.options, { fontSize: 11 }) }))),
+{ x: 4.2, y: 0.95, w: 5.55, colW: [0.3, 2.1, 2.55, 0.6] });
 s.addNotes(notes.design);
 
 // ---- 4. coverage
@@ -136,7 +136,7 @@ s.addText([
   { text: " (night: 5° straight behind on lidar alone)", options: { breakLine: true } },
   { text: "Fog: ", options: { bold: true } },
   { text: "nothing reaches 253 m ahead", options: { bold: true, color: BAD } },
-  { text: " (radar 239 m, lidar 114 m). Snow: the camera alone does", options: { breakLine: true } },
+  { text: " (radar 239 m, lidar 114 m); 1° behind on the camera alone. Snow: the camera alone ahead", options: { breakLine: true } },
   { text: "Near field: ", options: { bold: true } },
   { text: "cameras alone", options: { bold: true, color: WARN } },
   { text: "; lidar and radar are blind below 0.2–0.3 m and beside the doors" },
@@ -182,7 +182,7 @@ s.addText([
   { text: "Verdict: ", options: { bold: true, bullet: true } },
   { text: "Level 4 in city + highway inside a speed envelope. True Level 5 is not possible today.", options: { breakLine: true } },
   { text: "Next: ", options: { bold: true, bullet: true } },
-  { text: "ultrasonic ring (near field), rear thermal (night, behind), longer-range imaging radar (fog ahead)." },
+  { text: "ultrasonic ring (near field), a rear radar (straight behind), longer-range imaging radar (fog ahead)." },
 ], body({ x: 0.6, y: 2.95, w: 8.8, h: 2.3, fontSize: 14, color: "FFFFFF", paraSpaceAfter: 6 }));
 s.addNotes(notes.summary);
 

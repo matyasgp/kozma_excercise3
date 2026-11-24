@@ -78,20 +78,20 @@
     \scriptsize
     \renewcommand{\arraystretch}{1.15}
     \setlength{\tabcolsep}{3pt}
-    \begin{tabular}{@{}r L{2.75cm} L{5.0cm} r@{}}
+    \begin{tabular}{@{}r L{3.1cm} L{4.65cm} r@{}}
       \toprule
       & sensor & why: the number from our model & USD \\
       \midrule
-      1 & InnovizTwo lidar, bumper & dark car at 300\,m, dark pedestrian at 231\,m, day or night & 1,000 \\
-      1 & Hesai OT128 lidar, roof & 360$^\circ$ 3D: cars at 230\,m, sides need 81\,m & 3,000 \\
-      5 & DRVEGRD 171 4D radar & Doppler 0.07\,m/s; still 239\,m in fog; corners give a 2nd modality sideways & 2,000 \\
-      3 & 8\,MP camera 30$^\circ$/60$^\circ$, rear 60$^\circ$ & color, signs, lights; tele: car at 464\,m; 140\,dB HDR & 900 \\
-      4 & 8\,MP camera 120$^\circ$, mirrors & cross traffic: 113\,m $>$ 81\,m needed & 1,200 \\
-      4 & 3\,MP fisheye & near field 0.1--5\,m all round & 1,836 \\
-      1 & Raytron LWIR thermal & night pedestrians: camera reaches 63\,m, 82\,m needed & 800 \\
+      1 & Innoviz InnovizTwo lidar, bumper & dark car at 300\,m, dark pedestrian at 231\,m, day or night & 1,000 \\
+      1 & Hesai OT128 lidar, roof & 360$^\circ$ 3D: cars at 214\,m, sides need 81\,m & 3,000 \\
+      5 & smartmicro DRVEGRD 171 radar & Doppler 0.07\,m/s; still 239\,m in fog; corners: 2nd modality sideways & 2,000 \\
+      3 & Supertek OX08B40 8\,MP camera, 30$^\circ$/60$^\circ$, rear 60$^\circ$ & color, signs, lights; tele: car at 464\,m; 140\,dB HDR & 900 \\
+      4 & Supertek OX08B40 camera 120$^\circ$, mirrors & cross traffic: 113\,m $>$ 81\,m needed & 1,200 \\
+      4 & SENSING ISX031 3\,MP fisheye & near field 0.1--5\,m all round & 1,836 \\
+      1 & Raytron Horus640-D thermal & night pedestrians: camera reaches 63\,m, 82\,m needed & 800 \\
       1 & u-blox ZED-F9K + HD map & lane-level position ($<$\,0.2\,m RTK) & 250 \\
       \midrule
-      \textbf{20} & & \textbf{sensors only; prices mostly our estimates} & \textbf{10,986} \\
+      \textbf{20} & & \textbf{sensors only; prices mostly estimates} & \textbf{10,986} \\
       \bottomrule
     \end{tabular}
   \end{columns}
@@ -107,7 +107,8 @@
   \begin{itemize}
     \item Clear day and night: \textcolor{good}{\textbf{2+ modalities on every bearing}} for cars and pedestrians
       (night: 5$^\circ$ straight behind on lidar alone)
-    \item Fog: \textcolor{bad}{\textbf{nothing reaches 253\,m ahead}} (radar 239\,m, lidar 114\,m). Snow: the camera alone does
+    \item Fog: \textcolor{bad}{\textbf{nothing reaches 253\,m ahead}} (radar 239\,m, lidar 114\,m); 1$^\circ$ behind on the camera alone.
+      Snow: the camera alone ahead
     \item Near field: \textcolor{warn}{\textbf{cameras alone}}; lidar and radar are blind below 0.2--0.3\,m and beside the doors
   \end{itemize}
 \end{frame}
@@ -167,7 +168,7 @@
     \item \textbf{Compare:} each modality has a blind axis; the spider charts come from one physics model, not opinion.
     \item \textbf{Design:} every sensor is there because a required range asks for it.
     \item \textbf{Verdict:} Level 4 in city + highway inside a speed envelope. True Level 5 is not possible today.
-    \item \textbf{Next gaps to close:} ultrasonic ring (near field), rear thermal (night, behind),
+    \item \textbf{Next gaps to close:} ultrasonic ring (near field), a rear radar (straight behind),
       longer-range imaging radar (fog ahead).
   \end{itemize}
 \end{frame}

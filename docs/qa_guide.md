@@ -18,8 +18,8 @@ events: showing a system is safer than humans needs hundreds of millions to bill
 2016), and the law approves only defined domains (UNECE R157 for L3, the German 2021 L4 law).
 
 **"What would close your gaps?"**
-An ultrasonic ring for the near field, a rear thermal camera (night, behind), and a slightly longer-range
-imaging radar (ours reaches 240 m, 5 % short of 253 m). (B13)
+An ultrasonic ring for the near field, a rear radar (straight behind: lidar only at night, camera only in
+fog), and a slightly longer-range imaging radar (ours reaches 240 m, 5 % short of 253 m). (B13)
 
 ## Requirements
 
@@ -75,15 +75,35 @@ them at full range. (B3)
 
 ## The design
 
+**"Are these real sensors? Are the cameras a general type or a specific model?"**
+All 20 are specific products, and every number we use is from the maker's own document (B1, `sensors.yaml`):
+- Innoviz InnovizTwo (datasheet v3.1)
+- Hesai OT128 (user manual O01-en-260110, including its per-channel table)
+- smartmicro DRVEGRD 171 (datasheet, January 2024)
+- Supertek STC-OX08BC-5300-GMSL2 cameras with the OmniVision OX08B40 sensor, in the H30S1, H60S and H120YA lens
+  versions (module datasheet + OmniVision brief)
+- SENSING SG3S-ISX031C-GMSL2F-H190XA fisheye with the Sony ISX031 sensor (SENSING datasheet)
+- Raytron Horus640-D with the 13.5 mm lens (product manual V1.1)
+- u-blox ZED-F9K-01A (data sheet UBX-21045820)
+
+The one value not from the product's own document is the fisheye's 120 dB HDR: SENSING only writes "HDR
+support", so we use the Sony ISX031 sensor figure. It changes no result, because the fisheye's range is set by
+its pixels. Prices are estimates except the fisheye's.
+
 **"Why two lidars?"**
 The front InnovizTwo has a 30° high-resolution ROI that sees a dark car at 300 m; that is the only lidar
-reaching the 253 m requirement. The roof OT128 sees 360° for the sides and the rear (a car at 230 m against
+reaching the 253 m requirement. The roof OT128 sees 360° for the sides and the rear (a car at 214 m against
 81–96 m needed). (Slide 3, B7)
+
+**"Why does the OT128 reach a car at only 214 m when Hesai says 200 m at 10 % and 230 m maximum?"**
+We model it channel by channel from the manual's table: only channels 33–64 (+1° to −2.9°) reach 200 m at
+10 % with a 70 % detection probability. The others reach 30–140 m. From the 1.75 m roof, a car at 214 m is
+hit by just three far-field channels, and we need five returns with 99 % probability. (B1, B2)
 
 **"Why only one thermal camera?"**
 The thermal case is pedestrians at night ahead, where the camera reaches only 63 m of the 82 m needed. At the
-sides and behind, lidar and radar already give two modalities at 15 m. The one exception is 5° straight
-behind at night, which is why a rear thermal camera is on our list. (B8, B13)
+sides and behind, lidar and radar already give two modalities at 15 m. The one exception is straight behind
+(5° at night on the lidar alone, 1° in fog on the camera alone), which a rear radar would close. (B8, B13)
 
 **"Why no ultrasonic sensors? Every car has them."**
 Our coverage map found exactly that: the near field rests on the fisheye cameras alone on 340°, because lidar
@@ -99,9 +119,9 @@ Order of magnitude only. The fisheye price is listed by its seller; the rest are
 no compute, cleaning, wiring or calibration. (B12)
 
 **"Didn't an earlier group use the OT128?"**
-Yes, one group did, and we reused it on purpose: it is a sourced 360° lidar. Its spec page does not give range
-accuracy, the vertical split or the frame rate, so we use the InnovizTwo's 10 cm (conservative) and mark the
-rest as assumptions. Everything else in the suite is new to the course. (B1, B11)
+Yes, one group did, and we reused it on purpose: it is a well-documented 360° lidar. We use its full user
+manual, down to the per-channel elevation and range table. Everything else in
+the suite is new to the course. (B1)
 
 ## The model
 

@@ -12,7 +12,10 @@ from datasheet numbers plus one small physics law per effect. One function per e
   lidar        per-beam return probability p = 1 - exp(-c rho/R^2 exp(-2 alpha R)), c calibrated to the
                datasheet range at 10 %; the object is detected when P(>= 5 returns) >= 99 %
                (the Exercise 3 model, here for every lidar and condition). Outside the InnovizTwo ROI the
-               datasheet's side-FOV numbers apply (140 m at 10 %, 0.2 deg horizontal).
+               datasheet's side-FOV numbers apply (140 m at 10 %, 0.2 deg horizontal). The Hesai OT128 is
+               modelled channel by channel from its user manual (Appendix A.1, hesai_ot128_channels.csv):
+               the channels that hit the target from the mounting height, each with its own 10 % range
+               (detection probability 70 %) and horizontal resolution, sum their returns.
   radar        radar equation with attenuation: R^4 10^(2 gamma R/10) = R0^4 sigma/sigma_car,
                R0 = datasheet range on a passenger car, reduced off boresight by the antenna pattern.
   camera       range = min(geometry, contrast, light):
@@ -118,6 +121,36 @@ def lidar_p_detect(m, t, R, sc):
     return sum(ph[i] * pv[j] * p_at_least(K_MIN, nh[i] * nv[j], p) for i in range(2) for j in range(2))
 
 
+def binom_pmf(n, p):
+    n = int(n)
+    return np.array([comb(n, k) * p**k * (1 - p) ** (n - k) for k in range(n + 1)])
+
+
+def channels_on_target(m, t, R):
+    """Channels of a per-channel lidar whose elevation hits a target standing on flat ground R m away,
+    and that are inside their instrumented range."""
+    ch, z = m["ch"], m["mount_z"]
+    lo, hi = np.degrees(np.arctan2(-z, R)), np.degrees(np.arctan2(t["h"] - z, R))
+    return (ch["elevation_deg"] >= lo) & (ch["elevation_deg"] <= hi) & (R >= ch["range_min_m"]) & (R <= ch["range_max_m"])
+
+
+def lidar_channels_p_detect(m, t, R, sc):
+    """P(>= K_MIN returns) for a lidar with a per-channel table (Hesai OT128, manual Appendix A.1): each channel
+    that hits the target has its own 10 % range and horizontal resolution; the number of returns is the sum of
+    the channels' binomials (the horizontal grid offset of each channel averaged as in beam_counts)."""
+    ch, a = m["ch"], alpha("nir", sc)
+    dist = np.array([1.0])
+    for r10, resh in zip(ch["range_10pct_m"][channels_on_target(m, t, R)], ch["res_h_deg"][channels_on_target(m, t, R)]):
+        c = -np.log(1 - m["p0"]) * r10**2 / 0.10 * sc["clutter"]
+        p = 1 - np.exp(-c * t["rho"] / R**2 * np.exp(-2 * a * R))
+        (n0, n1), (w0, w1) = beam_counts(t["w"], R, np.radians(resh))
+        pmf = np.zeros(int(n1) + 1)
+        pmf[: int(n0) + 1] += w0 * binom_pmf(n0, p)
+        pmf += w1 * binom_pmf(n1, p)
+        dist = np.convolve(dist, pmf)
+    return float(1 - dist[:K_MIN].sum())
+
+
 def lidar_at(m, phi):
     """The lidar's parameters at phi deg off boresight (InnovizTwo: side FOV outside the central ROI)."""
     if "side_fov" in m and abs(phi) > m["roi_hfov"] / 2:
@@ -130,10 +163,11 @@ _LIDAR_CACHE = {}
 
 def lidar_range(m, t, sc):
     """Largest R with P(>= 5 returns) >= 99 %, capped at the datasheet maximum range."""
-    key = (m["name"], m["res_h"], m["range_10pct"], t["w"], t["h"], tuple(sorted(sc.items())))
+    key = (m["name"], m["res_h"], m["range_10pct"], m.get("mount_z"), t["w"], t["h"], tuple(sorted(sc.items())))
     if key not in _LIDAR_CACHE:
         R = np.arange(1, int(m.get("range_max", m["range_10pct"])) + 1)
-        ok = [r for r in R if lidar_p_detect(m, t, r, sc) >= CONF]
+        p_detect = lidar_channels_p_detect if "ch" in m else lidar_p_detect
+        ok = [r for r in R if p_detect(m, t, r, sc) >= CONF]
         _LIDAR_CACHE[key] = int(max(ok)) if ok else 0
     return _LIDAR_CACHE[key]
 
@@ -216,6 +250,8 @@ def pixel_angle(m):
 def samples_on_pedestrian(m, R=50.0):
     """Pixels / points / radar cells on a pedestrian at R (before weather)."""
     t = TARGETS["pedestrian"]
+    if m["modality"] == "lidar" and "ch" in m:
+        return float(sum(t["w"] / (R * np.radians(r)) for r in m["ch"]["res_h_deg"][channels_on_target(m, t, R)]))
     if m["modality"] == "lidar":
         return t["w"] / (R * np.radians(m["res_h"])) * t["h"] / (R * np.radians(m["res_v"]))
     if m["modality"] == "radar":
@@ -292,7 +328,15 @@ def sensor_scores(m, sub):
 def load_suite(path="sensors.yaml"):
     with open(path, encoding="utf-8") as f:
         d = yaml.safe_load(f)
-    return d["models"], d["mounts"]
+    models, mounts = d["models"], d["mounts"]
+    for _, model, _, _, z, _ in mounts:          # per-channel lidars need their table and mounting height
+        m = models[model]
+        if "channels" in m and "ch" not in m:
+            with open(m["channels"], encoding="utf-8") as f:
+                rows = [line.strip().split(",") for line in f if line.strip() and not line.startswith("#")]
+            m["ch"] = {k: np.array([float(r[i]) for r in rows[1:]]) for i, k in enumerate(rows[0])}
+            m["mount_z"] = z
+    return models, mounts
 
 
 def spider_scores(models, mounts):
