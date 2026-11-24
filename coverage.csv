@@ -1,0 +1,4321 @@
+condition,ring,bearing_deg,count,camera,lidar,radar,thermal
+Clear day,car,-180,2,1,1,0,0
+Clear day,car,-179,3,1,1,1,0
+Clear day,car,-178,3,1,1,1,0
+Clear day,car,-177,3,1,1,1,0
+Clear day,car,-176,3,1,1,1,0
+Clear day,car,-175,3,1,1,1,0
+Clear day,car,-174,3,1,1,1,0
+Clear day,car,-173,3,1,1,1,0
+Clear day,car,-172,3,1,1,1,0
+Clear day,car,-171,3,1,1,1,0
+Clear day,car,-170,3,1,1,1,0
+Clear day,car,-169,3,1,1,1,0
+Clear day,car,-168,3,1,1,1,0
+Clear day,car,-167,3,1,1,1,0
+Clear day,car,-166,3,1,1,1,0
+Clear day,car,-165,3,1,1,1,0
+Clear day,car,-164,3,1,1,1,0
+Clear day,car,-163,3,1,1,1,0
+Clear day,car,-162,3,1,1,1,0
+Clear day,car,-161,3,1,1,1,0
+Clear day,car,-160,3,1,1,1,0
+Clear day,car,-159,3,1,1,1,0
+Clear day,car,-158,3,1,1,1,0
+Clear day,car,-157,3,1,1,1,0
+Clear day,car,-156,3,1,1,1,0
+Clear day,car,-155,3,1,1,1,0
+Clear day,car,-154,3,1,1,1,0
+Clear day,car,-153,3,1,1,1,0
+Clear day,car,-152,3,1,1,1,0
+Clear day,car,-151,3,1,1,1,0
+Clear day,car,-150,3,1,1,1,0
+Clear day,car,-149,3,1,1,1,0
+Clear day,car,-148,3,1,1,1,0
+Clear day,car,-147,3,1,1,1,0
+Clear day,car,-146,3,1,1,1,0
+Clear day,car,-145,3,1,1,1,0
+Clear day,car,-144,3,1,1,1,0
+Clear day,car,-143,3,1,1,1,0
+Clear day,car,-142,3,1,1,1,0
+Clear day,car,-141,3,1,1,1,0
+Clear day,car,-140,3,1,1,1,0
+Clear day,car,-139,3,1,1,1,0
+Clear day,car,-138,3,1,1,1,0
+Clear day,car,-137,3,1,1,1,0
+Clear day,car,-136,3,1,1,1,0
+Clear day,car,-135,3,1,1,1,0
+Clear day,car,-134,3,1,1,1,0
+Clear day,car,-133,3,1,1,1,0
+Clear day,car,-132,3,1,1,1,0
+Clear day,car,-131,3,1,1,1,0
+Clear day,car,-130,3,1,1,1,0
+Clear day,car,-129,3,1,1,1,0
+Clear day,car,-128,3,1,1,1,0
+Clear day,car,-127,3,1,1,1,0
+Clear day,car,-126,3,1,1,1,0
+Clear day,car,-125,3,1,1,1,0
+Clear day,car,-124,3,1,1,1,0
+Clear day,car,-123,3,1,1,1,0
+Clear day,car,-122,3,1,1,1,0
+Clear day,car,-121,3,1,1,1,0
+Clear day,car,-120,3,1,1,1,0
+Clear day,car,-119,3,1,1,1,0
+Clear day,car,-118,3,1,1,1,0
+Clear day,car,-117,3,1,1,1,0
+Clear day,car,-116,3,1,1,1,0
+Clear day,car,-115,3,1,1,1,0
+Clear day,car,-114,3,1,1,1,0
+Clear day,car,-113,3,1,1,1,0
+Clear day,car,-112,3,1,1,1,0
+Clear day,car,-111,3,1,1,1,0
+Clear day,car,-110,3,1,1,1,0
+Clear day,car,-109,3,1,1,1,0
+Clear day,car,-108,3,1,1,1,0
+Clear day,car,-107,3,1,1,1,0
+Clear day,car,-106,3,1,1,1,0
+Clear day,car,-105,3,1,1,1,0
+Clear day,car,-104,3,1,1,1,0
+Clear day,car,-103,3,1,1,1,0
+Clear day,car,-102,3,1,1,1,0
+Clear day,car,-101,3,1,1,1,0
+Clear day,car,-100,3,1,1,1,0
+Clear day,car,-99,3,1,1,1,0
+Clear day,car,-98,3,1,1,1,0
+Clear day,car,-97,3,1,1,1,0
+Clear day,car,-96,3,1,1,1,0
+Clear day,car,-95,3,1,1,1,0
+Clear day,car,-94,3,1,1,1,0
+Clear day,car,-93,3,1,1,1,0
+Clear day,car,-92,3,1,1,1,0
+Clear day,car,-91,3,1,1,1,0
+Clear day,car,-90,3,1,1,1,0
+Clear day,car,-89,3,1,1,1,0
+Clear day,car,-88,3,1,1,1,0
+Clear day,car,-87,3,1,1,1,0
+Clear day,car,-86,3,1,1,1,0
+Clear day,car,-85,3,1,1,1,0
+Clear day,car,-84,3,1,1,1,0
+Clear day,car,-83,3,1,1,1,0
+Clear day,car,-82,3,1,1,1,0
+Clear day,car,-81,3,1,1,1,0
+Clear day,car,-80,3,1,1,1,0
+Clear day,car,-79,3,1,1,1,0
+Clear day,car,-78,3,1,1,1,0
+Clear day,car,-77,3,1,1,1,0
+Clear day,car,-76,3,1,1,1,0
+Clear day,car,-75,3,1,1,1,0
+Clear day,car,-74,3,1,1,1,0
+Clear day,car,-73,3,1,1,1,0
+Clear day,car,-72,3,1,1,1,0
+Clear day,car,-71,3,1,1,1,0
+Clear day,car,-70,3,1,1,1,0
+Clear day,car,-69,3,1,1,1,0
+Clear day,car,-68,3,1,1,1,0
+Clear day,car,-67,3,1,1,1,0
+Clear day,car,-66,3,1,1,1,0
+Clear day,car,-65,3,1,1,1,0
+Clear day,car,-64,3,1,1,1,0
+Clear day,car,-63,3,1,1,1,0
+Clear day,car,-62,3,1,1,1,0
+Clear day,car,-61,3,1,1,1,0
+Clear day,car,-60,3,1,1,1,0
+Clear day,car,-59,3,1,1,1,0
+Clear day,car,-58,3,1,1,1,0
+Clear day,car,-57,3,1,1,1,0
+Clear day,car,-56,3,1,1,1,0
+Clear day,car,-55,3,1,1,1,0
+Clear day,car,-54,3,1,1,1,0
+Clear day,car,-53,3,1,1,1,0
+Clear day,car,-52,3,1,1,1,0
+Clear day,car,-51,3,1,1,1,0
+Clear day,car,-50,3,1,1,1,0
+Clear day,car,-49,3,1,1,1,0
+Clear day,car,-48,3,1,1,1,0
+Clear day,car,-47,3,1,1,1,0
+Clear day,car,-46,3,1,1,1,0
+Clear day,car,-45,3,1,1,1,0
+Clear day,car,-44,3,1,1,1,0
+Clear day,car,-43,3,1,1,1,0
+Clear day,car,-42,3,1,1,1,0
+Clear day,car,-41,3,1,1,1,0
+Clear day,car,-40,3,1,1,1,0
+Clear day,car,-39,3,1,1,1,0
+Clear day,car,-38,3,1,1,1,0
+Clear day,car,-37,3,1,1,1,0
+Clear day,car,-36,3,1,1,1,0
+Clear day,car,-35,3,1,1,1,0
+Clear day,car,-34,3,1,1,1,0
+Clear day,car,-33,3,1,1,1,0
+Clear day,car,-32,3,1,1,1,0
+Clear day,car,-31,3,1,1,1,0
+Clear day,car,-30,3,1,1,1,0
+Clear day,car,-29,3,1,1,1,0
+Clear day,car,-28,3,1,1,1,0
+Clear day,car,-27,3,1,1,1,0
+Clear day,car,-26,3,1,1,1,0
+Clear day,car,-25,3,1,1,1,0
+Clear day,car,-24,3,1,1,1,0
+Clear day,car,-23,3,1,1,1,0
+Clear day,car,-22,3,1,1,1,0
+Clear day,car,-21,3,1,1,1,0
+Clear day,car,-20,3,1,1,1,0
+Clear day,car,-19,3,1,1,1,0
+Clear day,car,-18,3,1,1,1,0
+Clear day,car,-17,3,1,1,1,0
+Clear day,car,-16,3,1,1,1,0
+Clear day,car,-15,3,1,1,1,0
+Clear day,car,-14,3,1,1,1,0
+Clear day,car,-13,3,1,1,1,0
+Clear day,car,-12,3,1,1,1,0
+Clear day,car,-11,3,1,1,1,0
+Clear day,car,-10,2,1,1,0,0
+Clear day,car,-9,2,1,1,0,0
+Clear day,car,-8,2,1,1,0,0
+Clear day,car,-7,2,1,1,0,0
+Clear day,car,-6,2,1,1,0,0
+Clear day,car,-5,2,1,1,0,0
+Clear day,car,-4,2,1,1,0,0
+Clear day,car,-3,2,1,1,0,0
+Clear day,car,-2,2,1,1,0,0
+Clear day,car,-1,2,1,1,0,0
+Clear day,car,0,2,1,1,0,0
+Clear day,car,1,2,1,1,0,0
+Clear day,car,2,2,1,1,0,0
+Clear day,car,3,2,1,1,0,0
+Clear day,car,4,2,1,1,0,0
+Clear day,car,5,2,1,1,0,0
+Clear day,car,6,2,1,1,0,0
+Clear day,car,7,2,1,1,0,0
+Clear day,car,8,2,1,1,0,0
+Clear day,car,9,2,1,1,0,0
+Clear day,car,10,2,1,1,0,0
+Clear day,car,11,3,1,1,1,0
+Clear day,car,12,3,1,1,1,0
+Clear day,car,13,3,1,1,1,0
+Clear day,car,14,3,1,1,1,0
+Clear day,car,15,3,1,1,1,0
+Clear day,car,16,3,1,1,1,0
+Clear day,car,17,3,1,1,1,0
+Clear day,car,18,3,1,1,1,0
+Clear day,car,19,3,1,1,1,0
+Clear day,car,20,3,1,1,1,0
+Clear day,car,21,3,1,1,1,0
+Clear day,car,22,3,1,1,1,0
+Clear day,car,23,3,1,1,1,0
+Clear day,car,24,3,1,1,1,0
+Clear day,car,25,3,1,1,1,0
+Clear day,car,26,3,1,1,1,0
+Clear day,car,27,3,1,1,1,0
+Clear day,car,28,3,1,1,1,0
+Clear day,car,29,3,1,1,1,0
+Clear day,car,30,3,1,1,1,0
+Clear day,car,31,3,1,1,1,0
+Clear day,car,32,3,1,1,1,0
+Clear day,car,33,3,1,1,1,0
+Clear day,car,34,3,1,1,1,0
+Clear day,car,35,3,1,1,1,0
+Clear day,car,36,3,1,1,1,0
+Clear day,car,37,3,1,1,1,0
+Clear day,car,38,3,1,1,1,0
+Clear day,car,39,3,1,1,1,0
+Clear day,car,40,3,1,1,1,0
+Clear day,car,41,3,1,1,1,0
+Clear day,car,42,3,1,1,1,0
+Clear day,car,43,3,1,1,1,0
+Clear day,car,44,3,1,1,1,0
+Clear day,car,45,3,1,1,1,0
+Clear day,car,46,3,1,1,1,0
+Clear day,car,47,3,1,1,1,0
+Clear day,car,48,3,1,1,1,0
+Clear day,car,49,3,1,1,1,0
+Clear day,car,50,3,1,1,1,0
+Clear day,car,51,3,1,1,1,0
+Clear day,car,52,3,1,1,1,0
+Clear day,car,53,3,1,1,1,0
+Clear day,car,54,3,1,1,1,0
+Clear day,car,55,3,1,1,1,0
+Clear day,car,56,3,1,1,1,0
+Clear day,car,57,3,1,1,1,0
+Clear day,car,58,3,1,1,1,0
+Clear day,car,59,3,1,1,1,0
+Clear day,car,60,3,1,1,1,0
+Clear day,car,61,3,1,1,1,0
+Clear day,car,62,3,1,1,1,0
+Clear day,car,63,3,1,1,1,0
+Clear day,car,64,3,1,1,1,0
+Clear day,car,65,3,1,1,1,0
+Clear day,car,66,3,1,1,1,0
+Clear day,car,67,3,1,1,1,0
+Clear day,car,68,3,1,1,1,0
+Clear day,car,69,3,1,1,1,0
+Clear day,car,70,3,1,1,1,0
+Clear day,car,71,3,1,1,1,0
+Clear day,car,72,3,1,1,1,0
+Clear day,car,73,3,1,1,1,0
+Clear day,car,74,3,1,1,1,0
+Clear day,car,75,3,1,1,1,0
+Clear day,car,76,3,1,1,1,0
+Clear day,car,77,3,1,1,1,0
+Clear day,car,78,3,1,1,1,0
+Clear day,car,79,3,1,1,1,0
+Clear day,car,80,3,1,1,1,0
+Clear day,car,81,3,1,1,1,0
+Clear day,car,82,3,1,1,1,0
+Clear day,car,83,3,1,1,1,0
+Clear day,car,84,3,1,1,1,0
+Clear day,car,85,3,1,1,1,0
+Clear day,car,86,3,1,1,1,0
+Clear day,car,87,3,1,1,1,0
+Clear day,car,88,3,1,1,1,0
+Clear day,car,89,3,1,1,1,0
+Clear day,car,90,3,1,1,1,0
+Clear day,car,91,3,1,1,1,0
+Clear day,car,92,3,1,1,1,0
+Clear day,car,93,3,1,1,1,0
+Clear day,car,94,3,1,1,1,0
+Clear day,car,95,3,1,1,1,0
+Clear day,car,96,3,1,1,1,0
+Clear day,car,97,3,1,1,1,0
+Clear day,car,98,3,1,1,1,0
+Clear day,car,99,3,1,1,1,0
+Clear day,car,100,3,1,1,1,0
+Clear day,car,101,3,1,1,1,0
+Clear day,car,102,3,1,1,1,0
+Clear day,car,103,3,1,1,1,0
+Clear day,car,104,3,1,1,1,0
+Clear day,car,105,3,1,1,1,0
+Clear day,car,106,3,1,1,1,0
+Clear day,car,107,3,1,1,1,0
+Clear day,car,108,3,1,1,1,0
+Clear day,car,109,3,1,1,1,0
+Clear day,car,110,3,1,1,1,0
+Clear day,car,111,3,1,1,1,0
+Clear day,car,112,3,1,1,1,0
+Clear day,car,113,3,1,1,1,0
+Clear day,car,114,3,1,1,1,0
+Clear day,car,115,3,1,1,1,0
+Clear day,car,116,3,1,1,1,0
+Clear day,car,117,3,1,1,1,0
+Clear day,car,118,3,1,1,1,0
+Clear day,car,119,3,1,1,1,0
+Clear day,car,120,3,1,1,1,0
+Clear day,car,121,3,1,1,1,0
+Clear day,car,122,3,1,1,1,0
+Clear day,car,123,3,1,1,1,0
+Clear day,car,124,3,1,1,1,0
+Clear day,car,125,3,1,1,1,0
+Clear day,car,126,3,1,1,1,0
+Clear day,car,127,3,1,1,1,0
+Clear day,car,128,3,1,1,1,0
+Clear day,car,129,3,1,1,1,0
+Clear day,car,130,3,1,1,1,0
+Clear day,car,131,3,1,1,1,0
+Clear day,car,132,3,1,1,1,0
+Clear day,car,133,3,1,1,1,0
+Clear day,car,134,3,1,1,1,0
+Clear day,car,135,3,1,1,1,0
+Clear day,car,136,3,1,1,1,0
+Clear day,car,137,3,1,1,1,0
+Clear day,car,138,3,1,1,1,0
+Clear day,car,139,3,1,1,1,0
+Clear day,car,140,3,1,1,1,0
+Clear day,car,141,3,1,1,1,0
+Clear day,car,142,3,1,1,1,0
+Clear day,car,143,3,1,1,1,0
+Clear day,car,144,3,1,1,1,0
+Clear day,car,145,3,1,1,1,0
+Clear day,car,146,3,1,1,1,0
+Clear day,car,147,3,1,1,1,0
+Clear day,car,148,3,1,1,1,0
+Clear day,car,149,3,1,1,1,0
+Clear day,car,150,3,1,1,1,0
+Clear day,car,151,3,1,1,1,0
+Clear day,car,152,3,1,1,1,0
+Clear day,car,153,3,1,1,1,0
+Clear day,car,154,3,1,1,1,0
+Clear day,car,155,3,1,1,1,0
+Clear day,car,156,3,1,1,1,0
+Clear day,car,157,3,1,1,1,0
+Clear day,car,158,3,1,1,1,0
+Clear day,car,159,3,1,1,1,0
+Clear day,car,160,3,1,1,1,0
+Clear day,car,161,3,1,1,1,0
+Clear day,car,162,3,1,1,1,0
+Clear day,car,163,3,1,1,1,0
+Clear day,car,164,3,1,1,1,0
+Clear day,car,165,3,1,1,1,0
+Clear day,car,166,3,1,1,1,0
+Clear day,car,167,3,1,1,1,0
+Clear day,car,168,3,1,1,1,0
+Clear day,car,169,3,1,1,1,0
+Clear day,car,170,3,1,1,1,0
+Clear day,car,171,3,1,1,1,0
+Clear day,car,172,3,1,1,1,0
+Clear day,car,173,3,1,1,1,0
+Clear day,car,174,3,1,1,1,0
+Clear day,car,175,3,1,1,1,0
+Clear day,car,176,3,1,1,1,0
+Clear day,car,177,3,1,1,1,0
+Clear day,car,178,3,1,1,1,0
+Clear day,car,179,3,1,1,1,0
+Clear day,pedestrian,-180,2,1,1,0,0
+Clear day,pedestrian,-179,2,1,1,0,0
+Clear day,pedestrian,-178,2,1,1,0,0
+Clear day,pedestrian,-177,3,1,1,1,0
+Clear day,pedestrian,-176,3,1,1,1,0
+Clear day,pedestrian,-175,3,1,1,1,0
+Clear day,pedestrian,-174,3,1,1,1,0
+Clear day,pedestrian,-173,3,1,1,1,0
+Clear day,pedestrian,-172,3,1,1,1,0
+Clear day,pedestrian,-171,3,1,1,1,0
+Clear day,pedestrian,-170,3,1,1,1,0
+Clear day,pedestrian,-169,3,1,1,1,0
+Clear day,pedestrian,-168,3,1,1,1,0
+Clear day,pedestrian,-167,3,1,1,1,0
+Clear day,pedestrian,-166,3,1,1,1,0
+Clear day,pedestrian,-165,3,1,1,1,0
+Clear day,pedestrian,-164,3,1,1,1,0
+Clear day,pedestrian,-163,3,1,1,1,0
+Clear day,pedestrian,-162,3,1,1,1,0
+Clear day,pedestrian,-161,3,1,1,1,0
+Clear day,pedestrian,-160,3,1,1,1,0
+Clear day,pedestrian,-159,3,1,1,1,0
+Clear day,pedestrian,-158,3,1,1,1,0
+Clear day,pedestrian,-157,3,1,1,1,0
+Clear day,pedestrian,-156,3,1,1,1,0
+Clear day,pedestrian,-155,3,1,1,1,0
+Clear day,pedestrian,-154,3,1,1,1,0
+Clear day,pedestrian,-153,3,1,1,1,0
+Clear day,pedestrian,-152,3,1,1,1,0
+Clear day,pedestrian,-151,3,1,1,1,0
+Clear day,pedestrian,-150,3,1,1,1,0
+Clear day,pedestrian,-149,3,1,1,1,0
+Clear day,pedestrian,-148,3,1,1,1,0
+Clear day,pedestrian,-147,3,1,1,1,0
+Clear day,pedestrian,-146,3,1,1,1,0
+Clear day,pedestrian,-145,3,1,1,1,0
+Clear day,pedestrian,-144,3,1,1,1,0
+Clear day,pedestrian,-143,3,1,1,1,0
+Clear day,pedestrian,-142,3,1,1,1,0
+Clear day,pedestrian,-141,3,1,1,1,0
+Clear day,pedestrian,-140,3,1,1,1,0
+Clear day,pedestrian,-139,3,1,1,1,0
+Clear day,pedestrian,-138,3,1,1,1,0
+Clear day,pedestrian,-137,3,1,1,1,0
+Clear day,pedestrian,-136,3,1,1,1,0
+Clear day,pedestrian,-135,3,1,1,1,0
+Clear day,pedestrian,-134,3,1,1,1,0
+Clear day,pedestrian,-133,3,1,1,1,0
+Clear day,pedestrian,-132,3,1,1,1,0
+Clear day,pedestrian,-131,3,1,1,1,0
+Clear day,pedestrian,-130,3,1,1,1,0
+Clear day,pedestrian,-129,3,1,1,1,0
+Clear day,pedestrian,-128,3,1,1,1,0
+Clear day,pedestrian,-127,3,1,1,1,0
+Clear day,pedestrian,-126,3,1,1,1,0
+Clear day,pedestrian,-125,3,1,1,1,0
+Clear day,pedestrian,-124,3,1,1,1,0
+Clear day,pedestrian,-123,3,1,1,1,0
+Clear day,pedestrian,-122,3,1,1,1,0
+Clear day,pedestrian,-121,3,1,1,1,0
+Clear day,pedestrian,-120,3,1,1,1,0
+Clear day,pedestrian,-119,3,1,1,1,0
+Clear day,pedestrian,-118,3,1,1,1,0
+Clear day,pedestrian,-117,3,1,1,1,0
+Clear day,pedestrian,-116,3,1,1,1,0
+Clear day,pedestrian,-115,3,1,1,1,0
+Clear day,pedestrian,-114,3,1,1,1,0
+Clear day,pedestrian,-113,3,1,1,1,0
+Clear day,pedestrian,-112,3,1,1,1,0
+Clear day,pedestrian,-111,3,1,1,1,0
+Clear day,pedestrian,-110,3,1,1,1,0
+Clear day,pedestrian,-109,3,1,1,1,0
+Clear day,pedestrian,-108,3,1,1,1,0
+Clear day,pedestrian,-107,3,1,1,1,0
+Clear day,pedestrian,-106,3,1,1,1,0
+Clear day,pedestrian,-105,3,1,1,1,0
+Clear day,pedestrian,-104,3,1,1,1,0
+Clear day,pedestrian,-103,3,1,1,1,0
+Clear day,pedestrian,-102,3,1,1,1,0
+Clear day,pedestrian,-101,3,1,1,1,0
+Clear day,pedestrian,-100,3,1,1,1,0
+Clear day,pedestrian,-99,3,1,1,1,0
+Clear day,pedestrian,-98,3,1,1,1,0
+Clear day,pedestrian,-97,3,1,1,1,0
+Clear day,pedestrian,-96,3,1,1,1,0
+Clear day,pedestrian,-95,3,1,1,1,0
+Clear day,pedestrian,-94,3,1,1,1,0
+Clear day,pedestrian,-93,3,1,1,1,0
+Clear day,pedestrian,-92,3,1,1,1,0
+Clear day,pedestrian,-91,3,1,1,1,0
+Clear day,pedestrian,-90,3,1,1,1,0
+Clear day,pedestrian,-89,3,1,1,1,0
+Clear day,pedestrian,-88,3,1,1,1,0
+Clear day,pedestrian,-87,3,1,1,1,0
+Clear day,pedestrian,-86,3,1,1,1,0
+Clear day,pedestrian,-85,3,1,1,1,0
+Clear day,pedestrian,-84,3,1,1,1,0
+Clear day,pedestrian,-83,3,1,1,1,0
+Clear day,pedestrian,-82,3,1,1,1,0
+Clear day,pedestrian,-81,3,1,1,1,0
+Clear day,pedestrian,-80,3,1,1,1,0
+Clear day,pedestrian,-79,3,1,1,1,0
+Clear day,pedestrian,-78,3,1,1,1,0
+Clear day,pedestrian,-77,3,1,1,1,0
+Clear day,pedestrian,-76,3,1,1,1,0
+Clear day,pedestrian,-75,3,1,1,1,0
+Clear day,pedestrian,-74,3,1,1,1,0
+Clear day,pedestrian,-73,3,1,1,1,0
+Clear day,pedestrian,-72,3,1,1,1,0
+Clear day,pedestrian,-71,3,1,1,1,0
+Clear day,pedestrian,-70,3,1,1,1,0
+Clear day,pedestrian,-69,3,1,1,1,0
+Clear day,pedestrian,-68,3,1,1,1,0
+Clear day,pedestrian,-67,3,1,1,1,0
+Clear day,pedestrian,-66,3,1,1,1,0
+Clear day,pedestrian,-65,3,1,1,1,0
+Clear day,pedestrian,-64,3,1,1,1,0
+Clear day,pedestrian,-63,3,1,1,1,0
+Clear day,pedestrian,-62,3,1,1,1,0
+Clear day,pedestrian,-61,3,1,1,1,0
+Clear day,pedestrian,-60,3,1,1,1,0
+Clear day,pedestrian,-59,3,1,1,1,0
+Clear day,pedestrian,-58,3,1,1,1,0
+Clear day,pedestrian,-57,3,1,1,1,0
+Clear day,pedestrian,-56,3,1,1,1,0
+Clear day,pedestrian,-55,3,1,1,1,0
+Clear day,pedestrian,-54,3,1,1,1,0
+Clear day,pedestrian,-53,3,1,1,1,0
+Clear day,pedestrian,-52,3,1,1,1,0
+Clear day,pedestrian,-51,3,1,1,1,0
+Clear day,pedestrian,-50,3,1,1,1,0
+Clear day,pedestrian,-49,3,1,1,1,0
+Clear day,pedestrian,-48,3,1,1,1,0
+Clear day,pedestrian,-47,3,1,1,1,0
+Clear day,pedestrian,-46,3,1,1,1,0
+Clear day,pedestrian,-45,3,1,1,1,0
+Clear day,pedestrian,-44,3,1,1,1,0
+Clear day,pedestrian,-43,3,1,1,1,0
+Clear day,pedestrian,-42,3,1,1,1,0
+Clear day,pedestrian,-41,3,1,1,1,0
+Clear day,pedestrian,-40,3,1,1,1,0
+Clear day,pedestrian,-39,3,1,1,1,0
+Clear day,pedestrian,-38,3,1,1,1,0
+Clear day,pedestrian,-37,3,1,1,1,0
+Clear day,pedestrian,-36,3,1,1,1,0
+Clear day,pedestrian,-35,3,1,1,1,0
+Clear day,pedestrian,-34,3,1,1,1,0
+Clear day,pedestrian,-33,3,1,1,1,0
+Clear day,pedestrian,-32,3,1,1,1,0
+Clear day,pedestrian,-31,3,1,1,1,0
+Clear day,pedestrian,-30,3,1,1,1,0
+Clear day,pedestrian,-29,3,1,1,1,0
+Clear day,pedestrian,-28,3,1,1,1,0
+Clear day,pedestrian,-27,3,1,1,1,0
+Clear day,pedestrian,-26,3,1,1,1,0
+Clear day,pedestrian,-25,3,1,1,1,0
+Clear day,pedestrian,-24,3,1,1,1,0
+Clear day,pedestrian,-23,3,1,1,1,0
+Clear day,pedestrian,-22,3,1,1,1,0
+Clear day,pedestrian,-21,3,1,1,1,0
+Clear day,pedestrian,-20,3,1,1,1,0
+Clear day,pedestrian,-19,3,1,1,1,0
+Clear day,pedestrian,-18,3,1,1,1,0
+Clear day,pedestrian,-17,3,1,1,1,0
+Clear day,pedestrian,-16,3,1,1,1,0
+Clear day,pedestrian,-15,4,1,1,1,1
+Clear day,pedestrian,-14,4,1,1,1,1
+Clear day,pedestrian,-13,4,1,1,1,1
+Clear day,pedestrian,-12,4,1,1,1,1
+Clear day,pedestrian,-11,4,1,1,1,1
+Clear day,pedestrian,-10,4,1,1,1,1
+Clear day,pedestrian,-9,4,1,1,1,1
+Clear day,pedestrian,-8,4,1,1,1,1
+Clear day,pedestrian,-7,4,1,1,1,1
+Clear day,pedestrian,-6,4,1,1,1,1
+Clear day,pedestrian,-5,4,1,1,1,1
+Clear day,pedestrian,-4,4,1,1,1,1
+Clear day,pedestrian,-3,4,1,1,1,1
+Clear day,pedestrian,-2,4,1,1,1,1
+Clear day,pedestrian,-1,4,1,1,1,1
+Clear day,pedestrian,0,4,1,1,1,1
+Clear day,pedestrian,1,4,1,1,1,1
+Clear day,pedestrian,2,4,1,1,1,1
+Clear day,pedestrian,3,4,1,1,1,1
+Clear day,pedestrian,4,4,1,1,1,1
+Clear day,pedestrian,5,4,1,1,1,1
+Clear day,pedestrian,6,4,1,1,1,1
+Clear day,pedestrian,7,4,1,1,1,1
+Clear day,pedestrian,8,4,1,1,1,1
+Clear day,pedestrian,9,4,1,1,1,1
+Clear day,pedestrian,10,4,1,1,1,1
+Clear day,pedestrian,11,4,1,1,1,1
+Clear day,pedestrian,12,4,1,1,1,1
+Clear day,pedestrian,13,4,1,1,1,1
+Clear day,pedestrian,14,4,1,1,1,1
+Clear day,pedestrian,15,4,1,1,1,1
+Clear day,pedestrian,16,3,1,1,1,0
+Clear day,pedestrian,17,3,1,1,1,0
+Clear day,pedestrian,18,3,1,1,1,0
+Clear day,pedestrian,19,3,1,1,1,0
+Clear day,pedestrian,20,3,1,1,1,0
+Clear day,pedestrian,21,3,1,1,1,0
+Clear day,pedestrian,22,3,1,1,1,0
+Clear day,pedestrian,23,3,1,1,1,0
+Clear day,pedestrian,24,3,1,1,1,0
+Clear day,pedestrian,25,3,1,1,1,0
+Clear day,pedestrian,26,3,1,1,1,0
+Clear day,pedestrian,27,3,1,1,1,0
+Clear day,pedestrian,28,3,1,1,1,0
+Clear day,pedestrian,29,3,1,1,1,0
+Clear day,pedestrian,30,3,1,1,1,0
+Clear day,pedestrian,31,3,1,1,1,0
+Clear day,pedestrian,32,3,1,1,1,0
+Clear day,pedestrian,33,3,1,1,1,0
+Clear day,pedestrian,34,3,1,1,1,0
+Clear day,pedestrian,35,3,1,1,1,0
+Clear day,pedestrian,36,3,1,1,1,0
+Clear day,pedestrian,37,3,1,1,1,0
+Clear day,pedestrian,38,3,1,1,1,0
+Clear day,pedestrian,39,3,1,1,1,0
+Clear day,pedestrian,40,3,1,1,1,0
+Clear day,pedestrian,41,3,1,1,1,0
+Clear day,pedestrian,42,3,1,1,1,0
+Clear day,pedestrian,43,3,1,1,1,0
+Clear day,pedestrian,44,3,1,1,1,0
+Clear day,pedestrian,45,3,1,1,1,0
+Clear day,pedestrian,46,3,1,1,1,0
+Clear day,pedestrian,47,3,1,1,1,0
+Clear day,pedestrian,48,3,1,1,1,0
+Clear day,pedestrian,49,3,1,1,1,0
+Clear day,pedestrian,50,3,1,1,1,0
+Clear day,pedestrian,51,3,1,1,1,0
+Clear day,pedestrian,52,3,1,1,1,0
+Clear day,pedestrian,53,3,1,1,1,0
+Clear day,pedestrian,54,3,1,1,1,0
+Clear day,pedestrian,55,3,1,1,1,0
+Clear day,pedestrian,56,3,1,1,1,0
+Clear day,pedestrian,57,3,1,1,1,0
+Clear day,pedestrian,58,3,1,1,1,0
+Clear day,pedestrian,59,3,1,1,1,0
+Clear day,pedestrian,60,3,1,1,1,0
+Clear day,pedestrian,61,3,1,1,1,0
+Clear day,pedestrian,62,3,1,1,1,0
+Clear day,pedestrian,63,3,1,1,1,0
+Clear day,pedestrian,64,3,1,1,1,0
+Clear day,pedestrian,65,3,1,1,1,0
+Clear day,pedestrian,66,3,1,1,1,0
+Clear day,pedestrian,67,3,1,1,1,0
+Clear day,pedestrian,68,3,1,1,1,0
+Clear day,pedestrian,69,3,1,1,1,0
+Clear day,pedestrian,70,3,1,1,1,0
+Clear day,pedestrian,71,3,1,1,1,0
+Clear day,pedestrian,72,3,1,1,1,0
+Clear day,pedestrian,73,3,1,1,1,0
+Clear day,pedestrian,74,3,1,1,1,0
+Clear day,pedestrian,75,3,1,1,1,0
+Clear day,pedestrian,76,3,1,1,1,0
+Clear day,pedestrian,77,3,1,1,1,0
+Clear day,pedestrian,78,3,1,1,1,0
+Clear day,pedestrian,79,3,1,1,1,0
+Clear day,pedestrian,80,3,1,1,1,0
+Clear day,pedestrian,81,3,1,1,1,0
+Clear day,pedestrian,82,3,1,1,1,0
+Clear day,pedestrian,83,3,1,1,1,0
+Clear day,pedestrian,84,3,1,1,1,0
+Clear day,pedestrian,85,3,1,1,1,0
+Clear day,pedestrian,86,3,1,1,1,0
+Clear day,pedestrian,87,3,1,1,1,0
+Clear day,pedestrian,88,3,1,1,1,0
+Clear day,pedestrian,89,3,1,1,1,0
+Clear day,pedestrian,90,3,1,1,1,0
+Clear day,pedestrian,91,3,1,1,1,0
+Clear day,pedestrian,92,3,1,1,1,0
+Clear day,pedestrian,93,3,1,1,1,0
+Clear day,pedestrian,94,3,1,1,1,0
+Clear day,pedestrian,95,3,1,1,1,0
+Clear day,pedestrian,96,3,1,1,1,0
+Clear day,pedestrian,97,3,1,1,1,0
+Clear day,pedestrian,98,3,1,1,1,0
+Clear day,pedestrian,99,3,1,1,1,0
+Clear day,pedestrian,100,3,1,1,1,0
+Clear day,pedestrian,101,3,1,1,1,0
+Clear day,pedestrian,102,3,1,1,1,0
+Clear day,pedestrian,103,3,1,1,1,0
+Clear day,pedestrian,104,3,1,1,1,0
+Clear day,pedestrian,105,3,1,1,1,0
+Clear day,pedestrian,106,3,1,1,1,0
+Clear day,pedestrian,107,3,1,1,1,0
+Clear day,pedestrian,108,3,1,1,1,0
+Clear day,pedestrian,109,3,1,1,1,0
+Clear day,pedestrian,110,3,1,1,1,0
+Clear day,pedestrian,111,3,1,1,1,0
+Clear day,pedestrian,112,3,1,1,1,0
+Clear day,pedestrian,113,3,1,1,1,0
+Clear day,pedestrian,114,3,1,1,1,0
+Clear day,pedestrian,115,3,1,1,1,0
+Clear day,pedestrian,116,3,1,1,1,0
+Clear day,pedestrian,117,3,1,1,1,0
+Clear day,pedestrian,118,3,1,1,1,0
+Clear day,pedestrian,119,3,1,1,1,0
+Clear day,pedestrian,120,3,1,1,1,0
+Clear day,pedestrian,121,3,1,1,1,0
+Clear day,pedestrian,122,3,1,1,1,0
+Clear day,pedestrian,123,3,1,1,1,0
+Clear day,pedestrian,124,3,1,1,1,0
+Clear day,pedestrian,125,3,1,1,1,0
+Clear day,pedestrian,126,3,1,1,1,0
+Clear day,pedestrian,127,3,1,1,1,0
+Clear day,pedestrian,128,3,1,1,1,0
+Clear day,pedestrian,129,3,1,1,1,0
+Clear day,pedestrian,130,3,1,1,1,0
+Clear day,pedestrian,131,3,1,1,1,0
+Clear day,pedestrian,132,3,1,1,1,0
+Clear day,pedestrian,133,3,1,1,1,0
+Clear day,pedestrian,134,3,1,1,1,0
+Clear day,pedestrian,135,3,1,1,1,0
+Clear day,pedestrian,136,3,1,1,1,0
+Clear day,pedestrian,137,3,1,1,1,0
+Clear day,pedestrian,138,3,1,1,1,0
+Clear day,pedestrian,139,3,1,1,1,0
+Clear day,pedestrian,140,3,1,1,1,0
+Clear day,pedestrian,141,3,1,1,1,0
+Clear day,pedestrian,142,3,1,1,1,0
+Clear day,pedestrian,143,3,1,1,1,0
+Clear day,pedestrian,144,3,1,1,1,0
+Clear day,pedestrian,145,3,1,1,1,0
+Clear day,pedestrian,146,3,1,1,1,0
+Clear day,pedestrian,147,3,1,1,1,0
+Clear day,pedestrian,148,3,1,1,1,0
+Clear day,pedestrian,149,3,1,1,1,0
+Clear day,pedestrian,150,3,1,1,1,0
+Clear day,pedestrian,151,3,1,1,1,0
+Clear day,pedestrian,152,3,1,1,1,0
+Clear day,pedestrian,153,3,1,1,1,0
+Clear day,pedestrian,154,3,1,1,1,0
+Clear day,pedestrian,155,3,1,1,1,0
+Clear day,pedestrian,156,3,1,1,1,0
+Clear day,pedestrian,157,3,1,1,1,0
+Clear day,pedestrian,158,3,1,1,1,0
+Clear day,pedestrian,159,3,1,1,1,0
+Clear day,pedestrian,160,3,1,1,1,0
+Clear day,pedestrian,161,3,1,1,1,0
+Clear day,pedestrian,162,3,1,1,1,0
+Clear day,pedestrian,163,3,1,1,1,0
+Clear day,pedestrian,164,3,1,1,1,0
+Clear day,pedestrian,165,3,1,1,1,0
+Clear day,pedestrian,166,3,1,1,1,0
+Clear day,pedestrian,167,3,1,1,1,0
+Clear day,pedestrian,168,3,1,1,1,0
+Clear day,pedestrian,169,3,1,1,1,0
+Clear day,pedestrian,170,3,1,1,1,0
+Clear day,pedestrian,171,3,1,1,1,0
+Clear day,pedestrian,172,3,1,1,1,0
+Clear day,pedestrian,173,3,1,1,1,0
+Clear day,pedestrian,174,3,1,1,1,0
+Clear day,pedestrian,175,3,1,1,1,0
+Clear day,pedestrian,176,3,1,1,1,0
+Clear day,pedestrian,177,3,1,1,1,0
+Clear day,pedestrian,178,2,1,1,0,0
+Clear day,pedestrian,179,2,1,1,0,0
+Clear day,near,-180,1,1,0,0,0
+Clear day,near,-179,1,1,0,0,0
+Clear day,near,-178,1,1,0,0,0
+Clear day,near,-177,1,1,0,0,0
+Clear day,near,-176,1,1,0,0,0
+Clear day,near,-175,1,1,0,0,0
+Clear day,near,-174,1,1,0,0,0
+Clear day,near,-173,1,1,0,0,0
+Clear day,near,-172,1,1,0,0,0
+Clear day,near,-171,1,1,0,0,0
+Clear day,near,-170,1,1,0,0,0
+Clear day,near,-169,1,1,0,0,0
+Clear day,near,-168,1,1,0,0,0
+Clear day,near,-167,1,1,0,0,0
+Clear day,near,-166,1,1,0,0,0
+Clear day,near,-165,1,1,0,0,0
+Clear day,near,-164,1,1,0,0,0
+Clear day,near,-163,1,1,0,0,0
+Clear day,near,-162,1,1,0,0,0
+Clear day,near,-161,2,1,0,1,0
+Clear day,near,-160,2,1,0,1,0
+Clear day,near,-159,2,1,0,1,0
+Clear day,near,-158,2,1,0,1,0
+Clear day,near,-157,2,1,0,1,0
+Clear day,near,-156,1,1,0,0,0
+Clear day,near,-155,1,1,0,0,0
+Clear day,near,-154,1,1,0,0,0
+Clear day,near,-153,1,1,0,0,0
+Clear day,near,-152,1,1,0,0,0
+Clear day,near,-151,1,1,0,0,0
+Clear day,near,-150,1,1,0,0,0
+Clear day,near,-149,1,1,0,0,0
+Clear day,near,-148,1,1,0,0,0
+Clear day,near,-147,1,1,0,0,0
+Clear day,near,-146,1,1,0,0,0
+Clear day,near,-145,1,1,0,0,0
+Clear day,near,-144,1,1,0,0,0
+Clear day,near,-143,1,1,0,0,0
+Clear day,near,-142,1,1,0,0,0
+Clear day,near,-141,1,1,0,0,0
+Clear day,near,-140,1,1,0,0,0
+Clear day,near,-139,1,1,0,0,0
+Clear day,near,-138,1,1,0,0,0
+Clear day,near,-137,1,1,0,0,0
+Clear day,near,-136,1,1,0,0,0
+Clear day,near,-135,1,1,0,0,0
+Clear day,near,-134,1,1,0,0,0
+Clear day,near,-133,1,1,0,0,0
+Clear day,near,-132,1,1,0,0,0
+Clear day,near,-131,1,1,0,0,0
+Clear day,near,-130,1,1,0,0,0
+Clear day,near,-129,1,1,0,0,0
+Clear day,near,-128,1,1,0,0,0
+Clear day,near,-127,1,1,0,0,0
+Clear day,near,-126,1,1,0,0,0
+Clear day,near,-125,1,1,0,0,0
+Clear day,near,-124,1,1,0,0,0
+Clear day,near,-123,1,1,0,0,0
+Clear day,near,-122,1,1,0,0,0
+Clear day,near,-121,1,1,0,0,0
+Clear day,near,-120,1,1,0,0,0
+Clear day,near,-119,1,1,0,0,0
+Clear day,near,-118,1,1,0,0,0
+Clear day,near,-117,1,1,0,0,0
+Clear day,near,-116,1,1,0,0,0
+Clear day,near,-115,1,1,0,0,0
+Clear day,near,-114,1,1,0,0,0
+Clear day,near,-113,1,1,0,0,0
+Clear day,near,-112,1,1,0,0,0
+Clear day,near,-111,1,1,0,0,0
+Clear day,near,-110,1,1,0,0,0
+Clear day,near,-109,1,1,0,0,0
+Clear day,near,-108,1,1,0,0,0
+Clear day,near,-107,1,1,0,0,0
+Clear day,near,-106,1,1,0,0,0
+Clear day,near,-105,1,1,0,0,0
+Clear day,near,-104,1,1,0,0,0
+Clear day,near,-103,1,1,0,0,0
+Clear day,near,-102,1,1,0,0,0
+Clear day,near,-101,1,1,0,0,0
+Clear day,near,-100,1,1,0,0,0
+Clear day,near,-99,1,1,0,0,0
+Clear day,near,-98,1,1,0,0,0
+Clear day,near,-97,1,1,0,0,0
+Clear day,near,-96,1,1,0,0,0
+Clear day,near,-95,1,1,0,0,0
+Clear day,near,-94,1,1,0,0,0
+Clear day,near,-93,1,1,0,0,0
+Clear day,near,-92,1,1,0,0,0
+Clear day,near,-91,1,1,0,0,0
+Clear day,near,-90,1,1,0,0,0
+Clear day,near,-89,1,1,0,0,0
+Clear day,near,-88,1,1,0,0,0
+Clear day,near,-87,1,1,0,0,0
+Clear day,near,-86,1,1,0,0,0
+Clear day,near,-85,1,1,0,0,0
+Clear day,near,-84,1,1,0,0,0
+Clear day,near,-83,1,1,0,0,0
+Clear day,near,-82,1,1,0,0,0
+Clear day,near,-81,1,1,0,0,0
+Clear day,near,-80,1,1,0,0,0
+Clear day,near,-79,1,1,0,0,0
+Clear day,near,-78,1,1,0,0,0
+Clear day,near,-77,1,1,0,0,0
+Clear day,near,-76,1,1,0,0,0
+Clear day,near,-75,1,1,0,0,0
+Clear day,near,-74,1,1,0,0,0
+Clear day,near,-73,1,1,0,0,0
+Clear day,near,-72,1,1,0,0,0
+Clear day,near,-71,1,1,0,0,0
+Clear day,near,-70,1,1,0,0,0
+Clear day,near,-69,1,1,0,0,0
+Clear day,near,-68,1,1,0,0,0
+Clear day,near,-67,1,1,0,0,0
+Clear day,near,-66,1,1,0,0,0
+Clear day,near,-65,1,1,0,0,0
+Clear day,near,-64,1,1,0,0,0
+Clear day,near,-63,1,1,0,0,0
+Clear day,near,-62,1,1,0,0,0
+Clear day,near,-61,1,1,0,0,0
+Clear day,near,-60,1,1,0,0,0
+Clear day,near,-59,1,1,0,0,0
+Clear day,near,-58,1,1,0,0,0
+Clear day,near,-57,1,1,0,0,0
+Clear day,near,-56,1,1,0,0,0
+Clear day,near,-55,1,1,0,0,0
+Clear day,near,-54,1,1,0,0,0
+Clear day,near,-53,1,1,0,0,0
+Clear day,near,-52,1,1,0,0,0
+Clear day,near,-51,1,1,0,0,0
+Clear day,near,-50,1,1,0,0,0
+Clear day,near,-49,1,1,0,0,0
+Clear day,near,-48,1,1,0,0,0
+Clear day,near,-47,1,1,0,0,0
+Clear day,near,-46,1,1,0,0,0
+Clear day,near,-45,1,1,0,0,0
+Clear day,near,-44,1,1,0,0,0
+Clear day,near,-43,1,1,0,0,0
+Clear day,near,-42,1,1,0,0,0
+Clear day,near,-41,1,1,0,0,0
+Clear day,near,-40,1,1,0,0,0
+Clear day,near,-39,1,1,0,0,0
+Clear day,near,-38,1,1,0,0,0
+Clear day,near,-37,1,1,0,0,0
+Clear day,near,-36,1,1,0,0,0
+Clear day,near,-35,1,1,0,0,0
+Clear day,near,-34,1,1,0,0,0
+Clear day,near,-33,1,1,0,0,0
+Clear day,near,-32,1,1,0,0,0
+Clear day,near,-31,1,1,0,0,0
+Clear day,near,-30,1,1,0,0,0
+Clear day,near,-29,1,1,0,0,0
+Clear day,near,-28,1,1,0,0,0
+Clear day,near,-27,1,1,0,0,0
+Clear day,near,-26,1,1,0,0,0
+Clear day,near,-25,1,1,0,0,0
+Clear day,near,-24,1,1,0,0,0
+Clear day,near,-23,2,1,0,1,0
+Clear day,near,-22,2,1,0,1,0
+Clear day,near,-21,2,1,0,1,0
+Clear day,near,-20,2,1,0,1,0
+Clear day,near,-19,2,1,0,1,0
+Clear day,near,-18,1,1,0,0,0
+Clear day,near,-17,1,1,0,0,0
+Clear day,near,-16,1,1,0,0,0
+Clear day,near,-15,1,1,0,0,0
+Clear day,near,-14,1,1,0,0,0
+Clear day,near,-13,1,1,0,0,0
+Clear day,near,-12,1,1,0,0,0
+Clear day,near,-11,1,1,0,0,0
+Clear day,near,-10,1,1,0,0,0
+Clear day,near,-9,1,1,0,0,0
+Clear day,near,-8,1,1,0,0,0
+Clear day,near,-7,1,1,0,0,0
+Clear day,near,-6,1,1,0,0,0
+Clear day,near,-5,1,1,0,0,0
+Clear day,near,-4,1,1,0,0,0
+Clear day,near,-3,1,1,0,0,0
+Clear day,near,-2,1,1,0,0,0
+Clear day,near,-1,1,1,0,0,0
+Clear day,near,0,1,1,0,0,0
+Clear day,near,1,1,1,0,0,0
+Clear day,near,2,1,1,0,0,0
+Clear day,near,3,1,1,0,0,0
+Clear day,near,4,1,1,0,0,0
+Clear day,near,5,1,1,0,0,0
+Clear day,near,6,1,1,0,0,0
+Clear day,near,7,1,1,0,0,0
+Clear day,near,8,1,1,0,0,0
+Clear day,near,9,1,1,0,0,0
+Clear day,near,10,1,1,0,0,0
+Clear day,near,11,1,1,0,0,0
+Clear day,near,12,1,1,0,0,0
+Clear day,near,13,1,1,0,0,0
+Clear day,near,14,1,1,0,0,0
+Clear day,near,15,1,1,0,0,0
+Clear day,near,16,1,1,0,0,0
+Clear day,near,17,1,1,0,0,0
+Clear day,near,18,1,1,0,0,0
+Clear day,near,19,2,1,0,1,0
+Clear day,near,20,2,1,0,1,0
+Clear day,near,21,2,1,0,1,0
+Clear day,near,22,2,1,0,1,0
+Clear day,near,23,2,1,0,1,0
+Clear day,near,24,1,1,0,0,0
+Clear day,near,25,1,1,0,0,0
+Clear day,near,26,1,1,0,0,0
+Clear day,near,27,1,1,0,0,0
+Clear day,near,28,1,1,0,0,0
+Clear day,near,29,1,1,0,0,0
+Clear day,near,30,1,1,0,0,0
+Clear day,near,31,1,1,0,0,0
+Clear day,near,32,1,1,0,0,0
+Clear day,near,33,1,1,0,0,0
+Clear day,near,34,1,1,0,0,0
+Clear day,near,35,1,1,0,0,0
+Clear day,near,36,1,1,0,0,0
+Clear day,near,37,1,1,0,0,0
+Clear day,near,38,1,1,0,0,0
+Clear day,near,39,1,1,0,0,0
+Clear day,near,40,1,1,0,0,0
+Clear day,near,41,1,1,0,0,0
+Clear day,near,42,1,1,0,0,0
+Clear day,near,43,1,1,0,0,0
+Clear day,near,44,1,1,0,0,0
+Clear day,near,45,1,1,0,0,0
+Clear day,near,46,1,1,0,0,0
+Clear day,near,47,1,1,0,0,0
+Clear day,near,48,1,1,0,0,0
+Clear day,near,49,1,1,0,0,0
+Clear day,near,50,1,1,0,0,0
+Clear day,near,51,1,1,0,0,0
+Clear day,near,52,1,1,0,0,0
+Clear day,near,53,1,1,0,0,0
+Clear day,near,54,1,1,0,0,0
+Clear day,near,55,1,1,0,0,0
+Clear day,near,56,1,1,0,0,0
+Clear day,near,57,1,1,0,0,0
+Clear day,near,58,1,1,0,0,0
+Clear day,near,59,1,1,0,0,0
+Clear day,near,60,1,1,0,0,0
+Clear day,near,61,1,1,0,0,0
+Clear day,near,62,1,1,0,0,0
+Clear day,near,63,1,1,0,0,0
+Clear day,near,64,1,1,0,0,0
+Clear day,near,65,1,1,0,0,0
+Clear day,near,66,1,1,0,0,0
+Clear day,near,67,1,1,0,0,0
+Clear day,near,68,1,1,0,0,0
+Clear day,near,69,1,1,0,0,0
+Clear day,near,70,1,1,0,0,0
+Clear day,near,71,1,1,0,0,0
+Clear day,near,72,1,1,0,0,0
+Clear day,near,73,1,1,0,0,0
+Clear day,near,74,1,1,0,0,0
+Clear day,near,75,1,1,0,0,0
+Clear day,near,76,1,1,0,0,0
+Clear day,near,77,1,1,0,0,0
+Clear day,near,78,1,1,0,0,0
+Clear day,near,79,1,1,0,0,0
+Clear day,near,80,1,1,0,0,0
+Clear day,near,81,1,1,0,0,0
+Clear day,near,82,1,1,0,0,0
+Clear day,near,83,1,1,0,0,0
+Clear day,near,84,1,1,0,0,0
+Clear day,near,85,1,1,0,0,0
+Clear day,near,86,1,1,0,0,0
+Clear day,near,87,1,1,0,0,0
+Clear day,near,88,1,1,0,0,0
+Clear day,near,89,1,1,0,0,0
+Clear day,near,90,1,1,0,0,0
+Clear day,near,91,1,1,0,0,0
+Clear day,near,92,1,1,0,0,0
+Clear day,near,93,1,1,0,0,0
+Clear day,near,94,1,1,0,0,0
+Clear day,near,95,1,1,0,0,0
+Clear day,near,96,1,1,0,0,0
+Clear day,near,97,1,1,0,0,0
+Clear day,near,98,1,1,0,0,0
+Clear day,near,99,1,1,0,0,0
+Clear day,near,100,1,1,0,0,0
+Clear day,near,101,1,1,0,0,0
+Clear day,near,102,1,1,0,0,0
+Clear day,near,103,1,1,0,0,0
+Clear day,near,104,1,1,0,0,0
+Clear day,near,105,1,1,0,0,0
+Clear day,near,106,1,1,0,0,0
+Clear day,near,107,1,1,0,0,0
+Clear day,near,108,1,1,0,0,0
+Clear day,near,109,1,1,0,0,0
+Clear day,near,110,1,1,0,0,0
+Clear day,near,111,1,1,0,0,0
+Clear day,near,112,1,1,0,0,0
+Clear day,near,113,1,1,0,0,0
+Clear day,near,114,1,1,0,0,0
+Clear day,near,115,1,1,0,0,0
+Clear day,near,116,1,1,0,0,0
+Clear day,near,117,1,1,0,0,0
+Clear day,near,118,1,1,0,0,0
+Clear day,near,119,1,1,0,0,0
+Clear day,near,120,1,1,0,0,0
+Clear day,near,121,1,1,0,0,0
+Clear day,near,122,1,1,0,0,0
+Clear day,near,123,1,1,0,0,0
+Clear day,near,124,1,1,0,0,0
+Clear day,near,125,1,1,0,0,0
+Clear day,near,126,1,1,0,0,0
+Clear day,near,127,1,1,0,0,0
+Clear day,near,128,1,1,0,0,0
+Clear day,near,129,1,1,0,0,0
+Clear day,near,130,1,1,0,0,0
+Clear day,near,131,1,1,0,0,0
+Clear day,near,132,1,1,0,0,0
+Clear day,near,133,1,1,0,0,0
+Clear day,near,134,1,1,0,0,0
+Clear day,near,135,1,1,0,0,0
+Clear day,near,136,1,1,0,0,0
+Clear day,near,137,1,1,0,0,0
+Clear day,near,138,1,1,0,0,0
+Clear day,near,139,1,1,0,0,0
+Clear day,near,140,1,1,0,0,0
+Clear day,near,141,1,1,0,0,0
+Clear day,near,142,1,1,0,0,0
+Clear day,near,143,1,1,0,0,0
+Clear day,near,144,1,1,0,0,0
+Clear day,near,145,1,1,0,0,0
+Clear day,near,146,1,1,0,0,0
+Clear day,near,147,1,1,0,0,0
+Clear day,near,148,1,1,0,0,0
+Clear day,near,149,1,1,0,0,0
+Clear day,near,150,1,1,0,0,0
+Clear day,near,151,1,1,0,0,0
+Clear day,near,152,1,1,0,0,0
+Clear day,near,153,1,1,0,0,0
+Clear day,near,154,1,1,0,0,0
+Clear day,near,155,1,1,0,0,0
+Clear day,near,156,1,1,0,0,0
+Clear day,near,157,2,1,0,1,0
+Clear day,near,158,2,1,0,1,0
+Clear day,near,159,2,1,0,1,0
+Clear day,near,160,2,1,0,1,0
+Clear day,near,161,2,1,0,1,0
+Clear day,near,162,1,1,0,0,0
+Clear day,near,163,1,1,0,0,0
+Clear day,near,164,1,1,0,0,0
+Clear day,near,165,1,1,0,0,0
+Clear day,near,166,1,1,0,0,0
+Clear day,near,167,1,1,0,0,0
+Clear day,near,168,1,1,0,0,0
+Clear day,near,169,1,1,0,0,0
+Clear day,near,170,1,1,0,0,0
+Clear day,near,171,1,1,0,0,0
+Clear day,near,172,1,1,0,0,0
+Clear day,near,173,1,1,0,0,0
+Clear day,near,174,1,1,0,0,0
+Clear day,near,175,1,1,0,0,0
+Clear day,near,176,1,1,0,0,0
+Clear day,near,177,1,1,0,0,0
+Clear day,near,178,1,1,0,0,0
+Clear day,near,179,1,1,0,0,0
+Night,car,-180,2,1,1,0,0
+Night,car,-179,3,1,1,1,0
+Night,car,-178,3,1,1,1,0
+Night,car,-177,3,1,1,1,0
+Night,car,-176,3,1,1,1,0
+Night,car,-175,3,1,1,1,0
+Night,car,-174,3,1,1,1,0
+Night,car,-173,3,1,1,1,0
+Night,car,-172,3,1,1,1,0
+Night,car,-171,3,1,1,1,0
+Night,car,-170,3,1,1,1,0
+Night,car,-169,3,1,1,1,0
+Night,car,-168,3,1,1,1,0
+Night,car,-167,3,1,1,1,0
+Night,car,-166,3,1,1,1,0
+Night,car,-165,3,1,1,1,0
+Night,car,-164,3,1,1,1,0
+Night,car,-163,3,1,1,1,0
+Night,car,-162,3,1,1,1,0
+Night,car,-161,3,1,1,1,0
+Night,car,-160,3,1,1,1,0
+Night,car,-159,3,1,1,1,0
+Night,car,-158,3,1,1,1,0
+Night,car,-157,3,1,1,1,0
+Night,car,-156,3,1,1,1,0
+Night,car,-155,3,1,1,1,0
+Night,car,-154,3,1,1,1,0
+Night,car,-153,3,1,1,1,0
+Night,car,-152,3,1,1,1,0
+Night,car,-151,3,1,1,1,0
+Night,car,-150,3,1,1,1,0
+Night,car,-149,3,1,1,1,0
+Night,car,-148,3,1,1,1,0
+Night,car,-147,3,1,1,1,0
+Night,car,-146,3,1,1,1,0
+Night,car,-145,3,1,1,1,0
+Night,car,-144,3,1,1,1,0
+Night,car,-143,3,1,1,1,0
+Night,car,-142,3,1,1,1,0
+Night,car,-141,3,1,1,1,0
+Night,car,-140,3,1,1,1,0
+Night,car,-139,3,1,1,1,0
+Night,car,-138,3,1,1,1,0
+Night,car,-137,3,1,1,1,0
+Night,car,-136,3,1,1,1,0
+Night,car,-135,3,1,1,1,0
+Night,car,-134,3,1,1,1,0
+Night,car,-133,3,1,1,1,0
+Night,car,-132,3,1,1,1,0
+Night,car,-131,3,1,1,1,0
+Night,car,-130,3,1,1,1,0
+Night,car,-129,3,1,1,1,0
+Night,car,-128,3,1,1,1,0
+Night,car,-127,3,1,1,1,0
+Night,car,-126,3,1,1,1,0
+Night,car,-125,3,1,1,1,0
+Night,car,-124,3,1,1,1,0
+Night,car,-123,3,1,1,1,0
+Night,car,-122,3,1,1,1,0
+Night,car,-121,3,1,1,1,0
+Night,car,-120,3,1,1,1,0
+Night,car,-119,3,1,1,1,0
+Night,car,-118,3,1,1,1,0
+Night,car,-117,3,1,1,1,0
+Night,car,-116,3,1,1,1,0
+Night,car,-115,3,1,1,1,0
+Night,car,-114,3,1,1,1,0
+Night,car,-113,3,1,1,1,0
+Night,car,-112,3,1,1,1,0
+Night,car,-111,3,1,1,1,0
+Night,car,-110,3,1,1,1,0
+Night,car,-109,3,1,1,1,0
+Night,car,-108,3,1,1,1,0
+Night,car,-107,3,1,1,1,0
+Night,car,-106,3,1,1,1,0
+Night,car,-105,3,1,1,1,0
+Night,car,-104,3,1,1,1,0
+Night,car,-103,3,1,1,1,0
+Night,car,-102,3,1,1,1,0
+Night,car,-101,3,1,1,1,0
+Night,car,-100,3,1,1,1,0
+Night,car,-99,3,1,1,1,0
+Night,car,-98,3,1,1,1,0
+Night,car,-97,3,1,1,1,0
+Night,car,-96,3,1,1,1,0
+Night,car,-95,3,1,1,1,0
+Night,car,-94,3,1,1,1,0
+Night,car,-93,3,1,1,1,0
+Night,car,-92,3,1,1,1,0
+Night,car,-91,3,1,1,1,0
+Night,car,-90,3,1,1,1,0
+Night,car,-89,3,1,1,1,0
+Night,car,-88,3,1,1,1,0
+Night,car,-87,3,1,1,1,0
+Night,car,-86,3,1,1,1,0
+Night,car,-85,3,1,1,1,0
+Night,car,-84,3,1,1,1,0
+Night,car,-83,3,1,1,1,0
+Night,car,-82,3,1,1,1,0
+Night,car,-81,3,1,1,1,0
+Night,car,-80,3,1,1,1,0
+Night,car,-79,3,1,1,1,0
+Night,car,-78,3,1,1,1,0
+Night,car,-77,3,1,1,1,0
+Night,car,-76,3,1,1,1,0
+Night,car,-75,3,1,1,1,0
+Night,car,-74,3,1,1,1,0
+Night,car,-73,3,1,1,1,0
+Night,car,-72,3,1,1,1,0
+Night,car,-71,3,1,1,1,0
+Night,car,-70,3,1,1,1,0
+Night,car,-69,3,1,1,1,0
+Night,car,-68,3,1,1,1,0
+Night,car,-67,3,1,1,1,0
+Night,car,-66,3,1,1,1,0
+Night,car,-65,3,1,1,1,0
+Night,car,-64,3,1,1,1,0
+Night,car,-63,3,1,1,1,0
+Night,car,-62,3,1,1,1,0
+Night,car,-61,3,1,1,1,0
+Night,car,-60,3,1,1,1,0
+Night,car,-59,3,1,1,1,0
+Night,car,-58,3,1,1,1,0
+Night,car,-57,3,1,1,1,0
+Night,car,-56,3,1,1,1,0
+Night,car,-55,3,1,1,1,0
+Night,car,-54,3,1,1,1,0
+Night,car,-53,3,1,1,1,0
+Night,car,-52,3,1,1,1,0
+Night,car,-51,3,1,1,1,0
+Night,car,-50,3,1,1,1,0
+Night,car,-49,3,1,1,1,0
+Night,car,-48,3,1,1,1,0
+Night,car,-47,3,1,1,1,0
+Night,car,-46,3,1,1,1,0
+Night,car,-45,3,1,1,1,0
+Night,car,-44,3,1,1,1,0
+Night,car,-43,3,1,1,1,0
+Night,car,-42,3,1,1,1,0
+Night,car,-41,3,1,1,1,0
+Night,car,-40,3,1,1,1,0
+Night,car,-39,3,1,1,1,0
+Night,car,-38,3,1,1,1,0
+Night,car,-37,3,1,1,1,0
+Night,car,-36,3,1,1,1,0
+Night,car,-35,3,1,1,1,0
+Night,car,-34,3,1,1,1,0
+Night,car,-33,3,1,1,1,0
+Night,car,-32,3,1,1,1,0
+Night,car,-31,3,1,1,1,0
+Night,car,-30,3,1,1,1,0
+Night,car,-29,3,1,1,1,0
+Night,car,-28,3,1,1,1,0
+Night,car,-27,3,1,1,1,0
+Night,car,-26,3,1,1,1,0
+Night,car,-25,3,1,1,1,0
+Night,car,-24,3,1,1,1,0
+Night,car,-23,3,1,1,1,0
+Night,car,-22,3,1,1,1,0
+Night,car,-21,3,1,1,1,0
+Night,car,-20,3,1,1,1,0
+Night,car,-19,3,1,1,1,0
+Night,car,-18,3,1,1,1,0
+Night,car,-17,3,1,1,1,0
+Night,car,-16,3,1,1,1,0
+Night,car,-15,3,1,1,1,0
+Night,car,-14,3,1,1,1,0
+Night,car,-13,3,1,1,1,0
+Night,car,-12,3,1,1,1,0
+Night,car,-11,3,1,1,1,0
+Night,car,-10,2,1,1,0,0
+Night,car,-9,2,1,1,0,0
+Night,car,-8,2,1,1,0,0
+Night,car,-7,2,1,1,0,0
+Night,car,-6,2,1,1,0,0
+Night,car,-5,2,1,1,0,0
+Night,car,-4,2,1,1,0,0
+Night,car,-3,2,1,1,0,0
+Night,car,-2,2,1,1,0,0
+Night,car,-1,2,1,1,0,0
+Night,car,0,2,1,1,0,0
+Night,car,1,2,1,1,0,0
+Night,car,2,2,1,1,0,0
+Night,car,3,2,1,1,0,0
+Night,car,4,2,1,1,0,0
+Night,car,5,2,1,1,0,0
+Night,car,6,2,1,1,0,0
+Night,car,7,2,1,1,0,0
+Night,car,8,2,1,1,0,0
+Night,car,9,2,1,1,0,0
+Night,car,10,2,1,1,0,0
+Night,car,11,3,1,1,1,0
+Night,car,12,3,1,1,1,0
+Night,car,13,3,1,1,1,0
+Night,car,14,3,1,1,1,0
+Night,car,15,3,1,1,1,0
+Night,car,16,3,1,1,1,0
+Night,car,17,3,1,1,1,0
+Night,car,18,3,1,1,1,0
+Night,car,19,3,1,1,1,0
+Night,car,20,3,1,1,1,0
+Night,car,21,3,1,1,1,0
+Night,car,22,3,1,1,1,0
+Night,car,23,3,1,1,1,0
+Night,car,24,3,1,1,1,0
+Night,car,25,3,1,1,1,0
+Night,car,26,3,1,1,1,0
+Night,car,27,3,1,1,1,0
+Night,car,28,3,1,1,1,0
+Night,car,29,3,1,1,1,0
+Night,car,30,3,1,1,1,0
+Night,car,31,3,1,1,1,0
+Night,car,32,3,1,1,1,0
+Night,car,33,3,1,1,1,0
+Night,car,34,3,1,1,1,0
+Night,car,35,3,1,1,1,0
+Night,car,36,3,1,1,1,0
+Night,car,37,3,1,1,1,0
+Night,car,38,3,1,1,1,0
+Night,car,39,3,1,1,1,0
+Night,car,40,3,1,1,1,0
+Night,car,41,3,1,1,1,0
+Night,car,42,3,1,1,1,0
+Night,car,43,3,1,1,1,0
+Night,car,44,3,1,1,1,0
+Night,car,45,3,1,1,1,0
+Night,car,46,3,1,1,1,0
+Night,car,47,3,1,1,1,0
+Night,car,48,3,1,1,1,0
+Night,car,49,3,1,1,1,0
+Night,car,50,3,1,1,1,0
+Night,car,51,3,1,1,1,0
+Night,car,52,3,1,1,1,0
+Night,car,53,3,1,1,1,0
+Night,car,54,3,1,1,1,0
+Night,car,55,3,1,1,1,0
+Night,car,56,3,1,1,1,0
+Night,car,57,3,1,1,1,0
+Night,car,58,3,1,1,1,0
+Night,car,59,3,1,1,1,0
+Night,car,60,3,1,1,1,0
+Night,car,61,3,1,1,1,0
+Night,car,62,3,1,1,1,0
+Night,car,63,3,1,1,1,0
+Night,car,64,3,1,1,1,0
+Night,car,65,3,1,1,1,0
+Night,car,66,3,1,1,1,0
+Night,car,67,3,1,1,1,0
+Night,car,68,3,1,1,1,0
+Night,car,69,3,1,1,1,0
+Night,car,70,3,1,1,1,0
+Night,car,71,3,1,1,1,0
+Night,car,72,3,1,1,1,0
+Night,car,73,3,1,1,1,0
+Night,car,74,3,1,1,1,0
+Night,car,75,3,1,1,1,0
+Night,car,76,3,1,1,1,0
+Night,car,77,3,1,1,1,0
+Night,car,78,3,1,1,1,0
+Night,car,79,3,1,1,1,0
+Night,car,80,3,1,1,1,0
+Night,car,81,3,1,1,1,0
+Night,car,82,3,1,1,1,0
+Night,car,83,3,1,1,1,0
+Night,car,84,3,1,1,1,0
+Night,car,85,3,1,1,1,0
+Night,car,86,3,1,1,1,0
+Night,car,87,3,1,1,1,0
+Night,car,88,3,1,1,1,0
+Night,car,89,3,1,1,1,0
+Night,car,90,3,1,1,1,0
+Night,car,91,3,1,1,1,0
+Night,car,92,3,1,1,1,0
+Night,car,93,3,1,1,1,0
+Night,car,94,3,1,1,1,0
+Night,car,95,3,1,1,1,0
+Night,car,96,3,1,1,1,0
+Night,car,97,3,1,1,1,0
+Night,car,98,3,1,1,1,0
+Night,car,99,3,1,1,1,0
+Night,car,100,3,1,1,1,0
+Night,car,101,3,1,1,1,0
+Night,car,102,3,1,1,1,0
+Night,car,103,3,1,1,1,0
+Night,car,104,3,1,1,1,0
+Night,car,105,3,1,1,1,0
+Night,car,106,3,1,1,1,0
+Night,car,107,3,1,1,1,0
+Night,car,108,3,1,1,1,0
+Night,car,109,3,1,1,1,0
+Night,car,110,3,1,1,1,0
+Night,car,111,3,1,1,1,0
+Night,car,112,3,1,1,1,0
+Night,car,113,3,1,1,1,0
+Night,car,114,3,1,1,1,0
+Night,car,115,3,1,1,1,0
+Night,car,116,3,1,1,1,0
+Night,car,117,3,1,1,1,0
+Night,car,118,3,1,1,1,0
+Night,car,119,3,1,1,1,0
+Night,car,120,3,1,1,1,0
+Night,car,121,3,1,1,1,0
+Night,car,122,3,1,1,1,0
+Night,car,123,3,1,1,1,0
+Night,car,124,3,1,1,1,0
+Night,car,125,3,1,1,1,0
+Night,car,126,3,1,1,1,0
+Night,car,127,3,1,1,1,0
+Night,car,128,3,1,1,1,0
+Night,car,129,3,1,1,1,0
+Night,car,130,3,1,1,1,0
+Night,car,131,3,1,1,1,0
+Night,car,132,3,1,1,1,0
+Night,car,133,3,1,1,1,0
+Night,car,134,3,1,1,1,0
+Night,car,135,3,1,1,1,0
+Night,car,136,3,1,1,1,0
+Night,car,137,3,1,1,1,0
+Night,car,138,3,1,1,1,0
+Night,car,139,3,1,1,1,0
+Night,car,140,3,1,1,1,0
+Night,car,141,3,1,1,1,0
+Night,car,142,3,1,1,1,0
+Night,car,143,3,1,1,1,0
+Night,car,144,3,1,1,1,0
+Night,car,145,3,1,1,1,0
+Night,car,146,3,1,1,1,0
+Night,car,147,3,1,1,1,0
+Night,car,148,3,1,1,1,0
+Night,car,149,3,1,1,1,0
+Night,car,150,3,1,1,1,0
+Night,car,151,3,1,1,1,0
+Night,car,152,3,1,1,1,0
+Night,car,153,3,1,1,1,0
+Night,car,154,3,1,1,1,0
+Night,car,155,3,1,1,1,0
+Night,car,156,3,1,1,1,0
+Night,car,157,3,1,1,1,0
+Night,car,158,3,1,1,1,0
+Night,car,159,3,1,1,1,0
+Night,car,160,3,1,1,1,0
+Night,car,161,3,1,1,1,0
+Night,car,162,3,1,1,1,0
+Night,car,163,3,1,1,1,0
+Night,car,164,3,1,1,1,0
+Night,car,165,3,1,1,1,0
+Night,car,166,3,1,1,1,0
+Night,car,167,3,1,1,1,0
+Night,car,168,3,1,1,1,0
+Night,car,169,3,1,1,1,0
+Night,car,170,3,1,1,1,0
+Night,car,171,3,1,1,1,0
+Night,car,172,3,1,1,1,0
+Night,car,173,3,1,1,1,0
+Night,car,174,3,1,1,1,0
+Night,car,175,3,1,1,1,0
+Night,car,176,3,1,1,1,0
+Night,car,177,3,1,1,1,0
+Night,car,178,3,1,1,1,0
+Night,car,179,3,1,1,1,0
+Night,pedestrian,-180,1,0,1,0,0
+Night,pedestrian,-179,1,0,1,0,0
+Night,pedestrian,-178,1,0,1,0,0
+Night,pedestrian,-177,2,0,1,1,0
+Night,pedestrian,-176,2,0,1,1,0
+Night,pedestrian,-175,2,0,1,1,0
+Night,pedestrian,-174,2,0,1,1,0
+Night,pedestrian,-173,2,0,1,1,0
+Night,pedestrian,-172,2,0,1,1,0
+Night,pedestrian,-171,2,0,1,1,0
+Night,pedestrian,-170,2,0,1,1,0
+Night,pedestrian,-169,2,0,1,1,0
+Night,pedestrian,-168,2,0,1,1,0
+Night,pedestrian,-167,2,0,1,1,0
+Night,pedestrian,-166,2,0,1,1,0
+Night,pedestrian,-165,2,0,1,1,0
+Night,pedestrian,-164,2,0,1,1,0
+Night,pedestrian,-163,2,0,1,1,0
+Night,pedestrian,-162,2,0,1,1,0
+Night,pedestrian,-161,2,0,1,1,0
+Night,pedestrian,-160,2,0,1,1,0
+Night,pedestrian,-159,2,0,1,1,0
+Night,pedestrian,-158,2,0,1,1,0
+Night,pedestrian,-157,2,0,1,1,0
+Night,pedestrian,-156,2,0,1,1,0
+Night,pedestrian,-155,2,0,1,1,0
+Night,pedestrian,-154,2,0,1,1,0
+Night,pedestrian,-153,2,0,1,1,0
+Night,pedestrian,-152,2,0,1,1,0
+Night,pedestrian,-151,2,0,1,1,0
+Night,pedestrian,-150,2,0,1,1,0
+Night,pedestrian,-149,2,0,1,1,0
+Night,pedestrian,-148,2,0,1,1,0
+Night,pedestrian,-147,2,0,1,1,0
+Night,pedestrian,-146,2,0,1,1,0
+Night,pedestrian,-145,2,0,1,1,0
+Night,pedestrian,-144,2,0,1,1,0
+Night,pedestrian,-143,2,0,1,1,0
+Night,pedestrian,-142,2,0,1,1,0
+Night,pedestrian,-141,2,0,1,1,0
+Night,pedestrian,-140,2,0,1,1,0
+Night,pedestrian,-139,2,0,1,1,0
+Night,pedestrian,-138,2,0,1,1,0
+Night,pedestrian,-137,2,0,1,1,0
+Night,pedestrian,-136,2,0,1,1,0
+Night,pedestrian,-135,2,0,1,1,0
+Night,pedestrian,-134,2,0,1,1,0
+Night,pedestrian,-133,2,0,1,1,0
+Night,pedestrian,-132,2,0,1,1,0
+Night,pedestrian,-131,2,0,1,1,0
+Night,pedestrian,-130,2,0,1,1,0
+Night,pedestrian,-129,2,0,1,1,0
+Night,pedestrian,-128,2,0,1,1,0
+Night,pedestrian,-127,2,0,1,1,0
+Night,pedestrian,-126,2,0,1,1,0
+Night,pedestrian,-125,2,0,1,1,0
+Night,pedestrian,-124,2,0,1,1,0
+Night,pedestrian,-123,2,0,1,1,0
+Night,pedestrian,-122,2,0,1,1,0
+Night,pedestrian,-121,2,0,1,1,0
+Night,pedestrian,-120,2,0,1,1,0
+Night,pedestrian,-119,2,0,1,1,0
+Night,pedestrian,-118,2,0,1,1,0
+Night,pedestrian,-117,2,0,1,1,0
+Night,pedestrian,-116,2,0,1,1,0
+Night,pedestrian,-115,2,0,1,1,0
+Night,pedestrian,-114,2,0,1,1,0
+Night,pedestrian,-113,2,0,1,1,0
+Night,pedestrian,-112,2,0,1,1,0
+Night,pedestrian,-111,2,0,1,1,0
+Night,pedestrian,-110,2,0,1,1,0
+Night,pedestrian,-109,2,0,1,1,0
+Night,pedestrian,-108,2,0,1,1,0
+Night,pedestrian,-107,2,0,1,1,0
+Night,pedestrian,-106,2,0,1,1,0
+Night,pedestrian,-105,2,0,1,1,0
+Night,pedestrian,-104,2,0,1,1,0
+Night,pedestrian,-103,2,0,1,1,0
+Night,pedestrian,-102,2,0,1,1,0
+Night,pedestrian,-101,2,0,1,1,0
+Night,pedestrian,-100,2,0,1,1,0
+Night,pedestrian,-99,2,0,1,1,0
+Night,pedestrian,-98,2,0,1,1,0
+Night,pedestrian,-97,2,0,1,1,0
+Night,pedestrian,-96,2,0,1,1,0
+Night,pedestrian,-95,2,0,1,1,0
+Night,pedestrian,-94,2,0,1,1,0
+Night,pedestrian,-93,2,0,1,1,0
+Night,pedestrian,-92,2,0,1,1,0
+Night,pedestrian,-91,2,0,1,1,0
+Night,pedestrian,-90,2,0,1,1,0
+Night,pedestrian,-89,2,0,1,1,0
+Night,pedestrian,-88,2,0,1,1,0
+Night,pedestrian,-87,2,0,1,1,0
+Night,pedestrian,-86,2,0,1,1,0
+Night,pedestrian,-85,2,0,1,1,0
+Night,pedestrian,-84,2,0,1,1,0
+Night,pedestrian,-83,2,0,1,1,0
+Night,pedestrian,-82,2,0,1,1,0
+Night,pedestrian,-81,2,0,1,1,0
+Night,pedestrian,-80,2,0,1,1,0
+Night,pedestrian,-79,2,0,1,1,0
+Night,pedestrian,-78,2,0,1,1,0
+Night,pedestrian,-77,2,0,1,1,0
+Night,pedestrian,-76,2,0,1,1,0
+Night,pedestrian,-75,2,0,1,1,0
+Night,pedestrian,-74,2,0,1,1,0
+Night,pedestrian,-73,2,0,1,1,0
+Night,pedestrian,-72,2,0,1,1,0
+Night,pedestrian,-71,2,0,1,1,0
+Night,pedestrian,-70,2,0,1,1,0
+Night,pedestrian,-69,2,0,1,1,0
+Night,pedestrian,-68,2,0,1,1,0
+Night,pedestrian,-67,2,0,1,1,0
+Night,pedestrian,-66,2,0,1,1,0
+Night,pedestrian,-65,2,0,1,1,0
+Night,pedestrian,-64,2,0,1,1,0
+Night,pedestrian,-63,2,0,1,1,0
+Night,pedestrian,-62,2,0,1,1,0
+Night,pedestrian,-61,2,0,1,1,0
+Night,pedestrian,-60,2,0,1,1,0
+Night,pedestrian,-59,2,0,1,1,0
+Night,pedestrian,-58,2,0,1,1,0
+Night,pedestrian,-57,2,0,1,1,0
+Night,pedestrian,-56,2,0,1,1,0
+Night,pedestrian,-55,2,0,1,1,0
+Night,pedestrian,-54,2,0,1,1,0
+Night,pedestrian,-53,2,0,1,1,0
+Night,pedestrian,-52,2,0,1,1,0
+Night,pedestrian,-51,2,0,1,1,0
+Night,pedestrian,-50,2,0,1,1,0
+Night,pedestrian,-49,2,0,1,1,0
+Night,pedestrian,-48,2,0,1,1,0
+Night,pedestrian,-47,2,0,1,1,0
+Night,pedestrian,-46,2,0,1,1,0
+Night,pedestrian,-45,2,0,1,1,0
+Night,pedestrian,-44,2,0,1,1,0
+Night,pedestrian,-43,2,0,1,1,0
+Night,pedestrian,-42,2,0,1,1,0
+Night,pedestrian,-41,2,0,1,1,0
+Night,pedestrian,-40,2,0,1,1,0
+Night,pedestrian,-39,2,0,1,1,0
+Night,pedestrian,-38,2,0,1,1,0
+Night,pedestrian,-37,2,0,1,1,0
+Night,pedestrian,-36,2,0,1,1,0
+Night,pedestrian,-35,2,0,1,1,0
+Night,pedestrian,-34,2,0,1,1,0
+Night,pedestrian,-33,2,0,1,1,0
+Night,pedestrian,-32,2,0,1,1,0
+Night,pedestrian,-31,2,0,1,1,0
+Night,pedestrian,-30,3,1,1,1,0
+Night,pedestrian,-29,3,1,1,1,0
+Night,pedestrian,-28,3,1,1,1,0
+Night,pedestrian,-27,3,1,1,1,0
+Night,pedestrian,-26,3,1,1,1,0
+Night,pedestrian,-25,3,1,1,1,0
+Night,pedestrian,-24,3,1,1,1,0
+Night,pedestrian,-23,2,0,1,1,0
+Night,pedestrian,-22,2,0,1,1,0
+Night,pedestrian,-21,2,0,1,1,0
+Night,pedestrian,-20,2,0,1,1,0
+Night,pedestrian,-19,2,0,1,1,0
+Night,pedestrian,-18,2,0,1,1,0
+Night,pedestrian,-17,2,0,1,1,0
+Night,pedestrian,-16,2,0,1,1,0
+Night,pedestrian,-15,3,0,1,1,1
+Night,pedestrian,-14,3,0,1,1,1
+Night,pedestrian,-13,3,0,1,1,1
+Night,pedestrian,-12,3,0,1,1,1
+Night,pedestrian,-11,3,0,1,1,1
+Night,pedestrian,-10,3,0,1,1,1
+Night,pedestrian,-9,3,0,1,1,1
+Night,pedestrian,-8,3,0,1,1,1
+Night,pedestrian,-7,3,0,1,1,1
+Night,pedestrian,-6,3,0,1,1,1
+Night,pedestrian,-5,3,0,1,1,1
+Night,pedestrian,-4,3,0,1,1,1
+Night,pedestrian,-3,3,0,1,1,1
+Night,pedestrian,-2,3,0,1,1,1
+Night,pedestrian,-1,3,0,1,1,1
+Night,pedestrian,0,3,0,1,1,1
+Night,pedestrian,1,3,0,1,1,1
+Night,pedestrian,2,3,0,1,1,1
+Night,pedestrian,3,3,0,1,1,1
+Night,pedestrian,4,3,0,1,1,1
+Night,pedestrian,5,3,0,1,1,1
+Night,pedestrian,6,3,0,1,1,1
+Night,pedestrian,7,3,0,1,1,1
+Night,pedestrian,8,3,0,1,1,1
+Night,pedestrian,9,3,0,1,1,1
+Night,pedestrian,10,3,0,1,1,1
+Night,pedestrian,11,3,0,1,1,1
+Night,pedestrian,12,3,0,1,1,1
+Night,pedestrian,13,3,0,1,1,1
+Night,pedestrian,14,3,0,1,1,1
+Night,pedestrian,15,3,0,1,1,1
+Night,pedestrian,16,2,0,1,1,0
+Night,pedestrian,17,2,0,1,1,0
+Night,pedestrian,18,2,0,1,1,0
+Night,pedestrian,19,2,0,1,1,0
+Night,pedestrian,20,2,0,1,1,0
+Night,pedestrian,21,2,0,1,1,0
+Night,pedestrian,22,2,0,1,1,0
+Night,pedestrian,23,2,0,1,1,0
+Night,pedestrian,24,3,1,1,1,0
+Night,pedestrian,25,3,1,1,1,0
+Night,pedestrian,26,3,1,1,1,0
+Night,pedestrian,27,3,1,1,1,0
+Night,pedestrian,28,3,1,1,1,0
+Night,pedestrian,29,3,1,1,1,0
+Night,pedestrian,30,3,1,1,1,0
+Night,pedestrian,31,2,0,1,1,0
+Night,pedestrian,32,2,0,1,1,0
+Night,pedestrian,33,2,0,1,1,0
+Night,pedestrian,34,2,0,1,1,0
+Night,pedestrian,35,2,0,1,1,0
+Night,pedestrian,36,2,0,1,1,0
+Night,pedestrian,37,2,0,1,1,0
+Night,pedestrian,38,2,0,1,1,0
+Night,pedestrian,39,2,0,1,1,0
+Night,pedestrian,40,2,0,1,1,0
+Night,pedestrian,41,2,0,1,1,0
+Night,pedestrian,42,2,0,1,1,0
+Night,pedestrian,43,2,0,1,1,0
+Night,pedestrian,44,2,0,1,1,0
+Night,pedestrian,45,2,0,1,1,0
+Night,pedestrian,46,2,0,1,1,0
+Night,pedestrian,47,2,0,1,1,0
+Night,pedestrian,48,2,0,1,1,0
+Night,pedestrian,49,2,0,1,1,0
+Night,pedestrian,50,2,0,1,1,0
+Night,pedestrian,51,2,0,1,1,0
+Night,pedestrian,52,2,0,1,1,0
+Night,pedestrian,53,2,0,1,1,0
+Night,pedestrian,54,2,0,1,1,0
+Night,pedestrian,55,2,0,1,1,0
+Night,pedestrian,56,2,0,1,1,0
+Night,pedestrian,57,2,0,1,1,0
+Night,pedestrian,58,2,0,1,1,0
+Night,pedestrian,59,2,0,1,1,0
+Night,pedestrian,60,2,0,1,1,0
+Night,pedestrian,61,2,0,1,1,0
+Night,pedestrian,62,2,0,1,1,0
+Night,pedestrian,63,2,0,1,1,0
+Night,pedestrian,64,2,0,1,1,0
+Night,pedestrian,65,2,0,1,1,0
+Night,pedestrian,66,2,0,1,1,0
+Night,pedestrian,67,2,0,1,1,0
+Night,pedestrian,68,2,0,1,1,0
+Night,pedestrian,69,2,0,1,1,0
+Night,pedestrian,70,2,0,1,1,0
+Night,pedestrian,71,2,0,1,1,0
+Night,pedestrian,72,2,0,1,1,0
+Night,pedestrian,73,2,0,1,1,0
+Night,pedestrian,74,2,0,1,1,0
+Night,pedestrian,75,2,0,1,1,0
+Night,pedestrian,76,2,0,1,1,0
+Night,pedestrian,77,2,0,1,1,0
+Night,pedestrian,78,2,0,1,1,0
+Night,pedestrian,79,2,0,1,1,0
+Night,pedestrian,80,2,0,1,1,0
+Night,pedestrian,81,2,0,1,1,0
+Night,pedestrian,82,2,0,1,1,0
+Night,pedestrian,83,2,0,1,1,0
+Night,pedestrian,84,2,0,1,1,0
+Night,pedestrian,85,2,0,1,1,0
+Night,pedestrian,86,2,0,1,1,0
+Night,pedestrian,87,2,0,1,1,0
+Night,pedestrian,88,2,0,1,1,0
+Night,pedestrian,89,2,0,1,1,0
+Night,pedestrian,90,2,0,1,1,0
+Night,pedestrian,91,2,0,1,1,0
+Night,pedestrian,92,2,0,1,1,0
+Night,pedestrian,93,2,0,1,1,0
+Night,pedestrian,94,2,0,1,1,0
+Night,pedestrian,95,2,0,1,1,0
+Night,pedestrian,96,2,0,1,1,0
+Night,pedestrian,97,2,0,1,1,0
+Night,pedestrian,98,2,0,1,1,0
+Night,pedestrian,99,2,0,1,1,0
+Night,pedestrian,100,2,0,1,1,0
+Night,pedestrian,101,2,0,1,1,0
+Night,pedestrian,102,2,0,1,1,0
+Night,pedestrian,103,2,0,1,1,0
+Night,pedestrian,104,2,0,1,1,0
+Night,pedestrian,105,2,0,1,1,0
+Night,pedestrian,106,2,0,1,1,0
+Night,pedestrian,107,2,0,1,1,0
+Night,pedestrian,108,2,0,1,1,0
+Night,pedestrian,109,2,0,1,1,0
+Night,pedestrian,110,2,0,1,1,0
+Night,pedestrian,111,2,0,1,1,0
+Night,pedestrian,112,2,0,1,1,0
+Night,pedestrian,113,2,0,1,1,0
+Night,pedestrian,114,2,0,1,1,0
+Night,pedestrian,115,2,0,1,1,0
+Night,pedestrian,116,2,0,1,1,0
+Night,pedestrian,117,2,0,1,1,0
+Night,pedestrian,118,2,0,1,1,0
+Night,pedestrian,119,2,0,1,1,0
+Night,pedestrian,120,2,0,1,1,0
+Night,pedestrian,121,2,0,1,1,0
+Night,pedestrian,122,2,0,1,1,0
+Night,pedestrian,123,2,0,1,1,0
+Night,pedestrian,124,2,0,1,1,0
+Night,pedestrian,125,2,0,1,1,0
+Night,pedestrian,126,2,0,1,1,0
+Night,pedestrian,127,2,0,1,1,0
+Night,pedestrian,128,2,0,1,1,0
+Night,pedestrian,129,2,0,1,1,0
+Night,pedestrian,130,2,0,1,1,0
+Night,pedestrian,131,2,0,1,1,0
+Night,pedestrian,132,2,0,1,1,0
+Night,pedestrian,133,2,0,1,1,0
+Night,pedestrian,134,2,0,1,1,0
+Night,pedestrian,135,2,0,1,1,0
+Night,pedestrian,136,2,0,1,1,0
+Night,pedestrian,137,2,0,1,1,0
+Night,pedestrian,138,2,0,1,1,0
+Night,pedestrian,139,2,0,1,1,0
+Night,pedestrian,140,2,0,1,1,0
+Night,pedestrian,141,2,0,1,1,0
+Night,pedestrian,142,2,0,1,1,0
+Night,pedestrian,143,2,0,1,1,0
+Night,pedestrian,144,2,0,1,1,0
+Night,pedestrian,145,2,0,1,1,0
+Night,pedestrian,146,2,0,1,1,0
+Night,pedestrian,147,2,0,1,1,0
+Night,pedestrian,148,2,0,1,1,0
+Night,pedestrian,149,2,0,1,1,0
+Night,pedestrian,150,2,0,1,1,0
+Night,pedestrian,151,2,0,1,1,0
+Night,pedestrian,152,2,0,1,1,0
+Night,pedestrian,153,2,0,1,1,0
+Night,pedestrian,154,2,0,1,1,0
+Night,pedestrian,155,2,0,1,1,0
+Night,pedestrian,156,2,0,1,1,0
+Night,pedestrian,157,2,0,1,1,0
+Night,pedestrian,158,2,0,1,1,0
+Night,pedestrian,159,2,0,1,1,0
+Night,pedestrian,160,2,0,1,1,0
+Night,pedestrian,161,2,0,1,1,0
+Night,pedestrian,162,2,0,1,1,0
+Night,pedestrian,163,2,0,1,1,0
+Night,pedestrian,164,2,0,1,1,0
+Night,pedestrian,165,2,0,1,1,0
+Night,pedestrian,166,2,0,1,1,0
+Night,pedestrian,167,2,0,1,1,0
+Night,pedestrian,168,2,0,1,1,0
+Night,pedestrian,169,2,0,1,1,0
+Night,pedestrian,170,2,0,1,1,0
+Night,pedestrian,171,2,0,1,1,0
+Night,pedestrian,172,2,0,1,1,0
+Night,pedestrian,173,2,0,1,1,0
+Night,pedestrian,174,2,0,1,1,0
+Night,pedestrian,175,2,0,1,1,0
+Night,pedestrian,176,2,0,1,1,0
+Night,pedestrian,177,2,0,1,1,0
+Night,pedestrian,178,1,0,1,0,0
+Night,pedestrian,179,1,0,1,0,0
+Night,near,-180,1,1,0,0,0
+Night,near,-179,1,1,0,0,0
+Night,near,-178,1,1,0,0,0
+Night,near,-177,1,1,0,0,0
+Night,near,-176,1,1,0,0,0
+Night,near,-175,1,1,0,0,0
+Night,near,-174,1,1,0,0,0
+Night,near,-173,1,1,0,0,0
+Night,near,-172,1,1,0,0,0
+Night,near,-171,1,1,0,0,0
+Night,near,-170,1,1,0,0,0
+Night,near,-169,1,1,0,0,0
+Night,near,-168,1,1,0,0,0
+Night,near,-167,1,1,0,0,0
+Night,near,-166,1,1,0,0,0
+Night,near,-165,1,1,0,0,0
+Night,near,-164,1,1,0,0,0
+Night,near,-163,1,1,0,0,0
+Night,near,-162,1,1,0,0,0
+Night,near,-161,2,1,0,1,0
+Night,near,-160,2,1,0,1,0
+Night,near,-159,2,1,0,1,0
+Night,near,-158,2,1,0,1,0
+Night,near,-157,2,1,0,1,0
+Night,near,-156,1,1,0,0,0
+Night,near,-155,1,1,0,0,0
+Night,near,-154,1,1,0,0,0
+Night,near,-153,1,1,0,0,0
+Night,near,-152,1,1,0,0,0
+Night,near,-151,1,1,0,0,0
+Night,near,-150,1,1,0,0,0
+Night,near,-149,1,1,0,0,0
+Night,near,-148,1,1,0,0,0
+Night,near,-147,1,1,0,0,0
+Night,near,-146,1,1,0,0,0
+Night,near,-145,1,1,0,0,0
+Night,near,-144,1,1,0,0,0
+Night,near,-143,1,1,0,0,0
+Night,near,-142,1,1,0,0,0
+Night,near,-141,1,1,0,0,0
+Night,near,-140,1,1,0,0,0
+Night,near,-139,1,1,0,0,0
+Night,near,-138,1,1,0,0,0
+Night,near,-137,1,1,0,0,0
+Night,near,-136,1,1,0,0,0
+Night,near,-135,1,1,0,0,0
+Night,near,-134,1,1,0,0,0
+Night,near,-133,1,1,0,0,0
+Night,near,-132,1,1,0,0,0
+Night,near,-131,1,1,0,0,0
+Night,near,-130,1,1,0,0,0
+Night,near,-129,1,1,0,0,0
+Night,near,-128,1,1,0,0,0
+Night,near,-127,1,1,0,0,0
+Night,near,-126,1,1,0,0,0
+Night,near,-125,1,1,0,0,0
+Night,near,-124,1,1,0,0,0
+Night,near,-123,1,1,0,0,0
+Night,near,-122,1,1,0,0,0
+Night,near,-121,1,1,0,0,0
+Night,near,-120,1,1,0,0,0
+Night,near,-119,1,1,0,0,0
+Night,near,-118,1,1,0,0,0
+Night,near,-117,1,1,0,0,0
+Night,near,-116,1,1,0,0,0
+Night,near,-115,1,1,0,0,0
+Night,near,-114,1,1,0,0,0
+Night,near,-113,1,1,0,0,0
+Night,near,-112,1,1,0,0,0
+Night,near,-111,1,1,0,0,0
+Night,near,-110,1,1,0,0,0
+Night,near,-109,1,1,0,0,0
+Night,near,-108,1,1,0,0,0
+Night,near,-107,1,1,0,0,0
+Night,near,-106,1,1,0,0,0
+Night,near,-105,1,1,0,0,0
+Night,near,-104,1,1,0,0,0
+Night,near,-103,1,1,0,0,0
+Night,near,-102,1,1,0,0,0
+Night,near,-101,1,1,0,0,0
+Night,near,-100,1,1,0,0,0
+Night,near,-99,1,1,0,0,0
+Night,near,-98,1,1,0,0,0
+Night,near,-97,1,1,0,0,0
+Night,near,-96,1,1,0,0,0
+Night,near,-95,1,1,0,0,0
+Night,near,-94,1,1,0,0,0
+Night,near,-93,1,1,0,0,0
+Night,near,-92,1,1,0,0,0
+Night,near,-91,1,1,0,0,0
+Night,near,-90,1,1,0,0,0
+Night,near,-89,1,1,0,0,0
+Night,near,-88,1,1,0,0,0
+Night,near,-87,1,1,0,0,0
+Night,near,-86,1,1,0,0,0
+Night,near,-85,1,1,0,0,0
+Night,near,-84,1,1,0,0,0
+Night,near,-83,1,1,0,0,0
+Night,near,-82,1,1,0,0,0
+Night,near,-81,1,1,0,0,0
+Night,near,-80,1,1,0,0,0
+Night,near,-79,1,1,0,0,0
+Night,near,-78,1,1,0,0,0
+Night,near,-77,1,1,0,0,0
+Night,near,-76,1,1,0,0,0
+Night,near,-75,1,1,0,0,0
+Night,near,-74,1,1,0,0,0
+Night,near,-73,1,1,0,0,0
+Night,near,-72,1,1,0,0,0
+Night,near,-71,1,1,0,0,0
+Night,near,-70,1,1,0,0,0
+Night,near,-69,1,1,0,0,0
+Night,near,-68,1,1,0,0,0
+Night,near,-67,1,1,0,0,0
+Night,near,-66,1,1,0,0,0
+Night,near,-65,1,1,0,0,0
+Night,near,-64,1,1,0,0,0
+Night,near,-63,1,1,0,0,0
+Night,near,-62,1,1,0,0,0
+Night,near,-61,1,1,0,0,0
+Night,near,-60,1,1,0,0,0
+Night,near,-59,1,1,0,0,0
+Night,near,-58,1,1,0,0,0
+Night,near,-57,1,1,0,0,0
+Night,near,-56,1,1,0,0,0
+Night,near,-55,1,1,0,0,0
+Night,near,-54,1,1,0,0,0
+Night,near,-53,1,1,0,0,0
+Night,near,-52,1,1,0,0,0
+Night,near,-51,1,1,0,0,0
+Night,near,-50,1,1,0,0,0
+Night,near,-49,1,1,0,0,0
+Night,near,-48,1,1,0,0,0
+Night,near,-47,1,1,0,0,0
+Night,near,-46,1,1,0,0,0
+Night,near,-45,1,1,0,0,0
+Night,near,-44,1,1,0,0,0
+Night,near,-43,1,1,0,0,0
+Night,near,-42,1,1,0,0,0
+Night,near,-41,1,1,0,0,0
+Night,near,-40,1,1,0,0,0
+Night,near,-39,1,1,0,0,0
+Night,near,-38,1,1,0,0,0
+Night,near,-37,1,1,0,0,0
+Night,near,-36,1,1,0,0,0
+Night,near,-35,1,1,0,0,0
+Night,near,-34,1,1,0,0,0
+Night,near,-33,1,1,0,0,0
+Night,near,-32,1,1,0,0,0
+Night,near,-31,1,1,0,0,0
+Night,near,-30,1,1,0,0,0
+Night,near,-29,1,1,0,0,0
+Night,near,-28,1,1,0,0,0
+Night,near,-27,1,1,0,0,0
+Night,near,-26,1,1,0,0,0
+Night,near,-25,1,1,0,0,0
+Night,near,-24,1,1,0,0,0
+Night,near,-23,2,1,0,1,0
+Night,near,-22,2,1,0,1,0
+Night,near,-21,2,1,0,1,0
+Night,near,-20,2,1,0,1,0
+Night,near,-19,2,1,0,1,0
+Night,near,-18,1,1,0,0,0
+Night,near,-17,1,1,0,0,0
+Night,near,-16,1,1,0,0,0
+Night,near,-15,1,1,0,0,0
+Night,near,-14,1,1,0,0,0
+Night,near,-13,1,1,0,0,0
+Night,near,-12,1,1,0,0,0
+Night,near,-11,1,1,0,0,0
+Night,near,-10,1,1,0,0,0
+Night,near,-9,1,1,0,0,0
+Night,near,-8,1,1,0,0,0
+Night,near,-7,1,1,0,0,0
+Night,near,-6,1,1,0,0,0
+Night,near,-5,1,1,0,0,0
+Night,near,-4,1,1,0,0,0
+Night,near,-3,1,1,0,0,0
+Night,near,-2,1,1,0,0,0
+Night,near,-1,1,1,0,0,0
+Night,near,0,1,1,0,0,0
+Night,near,1,1,1,0,0,0
+Night,near,2,1,1,0,0,0
+Night,near,3,1,1,0,0,0
+Night,near,4,1,1,0,0,0
+Night,near,5,1,1,0,0,0
+Night,near,6,1,1,0,0,0
+Night,near,7,1,1,0,0,0
+Night,near,8,1,1,0,0,0
+Night,near,9,1,1,0,0,0
+Night,near,10,1,1,0,0,0
+Night,near,11,1,1,0,0,0
+Night,near,12,1,1,0,0,0
+Night,near,13,1,1,0,0,0
+Night,near,14,1,1,0,0,0
+Night,near,15,1,1,0,0,0
+Night,near,16,1,1,0,0,0
+Night,near,17,1,1,0,0,0
+Night,near,18,1,1,0,0,0
+Night,near,19,2,1,0,1,0
+Night,near,20,2,1,0,1,0
+Night,near,21,2,1,0,1,0
+Night,near,22,2,1,0,1,0
+Night,near,23,2,1,0,1,0
+Night,near,24,1,1,0,0,0
+Night,near,25,1,1,0,0,0
+Night,near,26,1,1,0,0,0
+Night,near,27,1,1,0,0,0
+Night,near,28,1,1,0,0,0
+Night,near,29,1,1,0,0,0
+Night,near,30,1,1,0,0,0
+Night,near,31,1,1,0,0,0
+Night,near,32,1,1,0,0,0
+Night,near,33,1,1,0,0,0
+Night,near,34,1,1,0,0,0
+Night,near,35,1,1,0,0,0
+Night,near,36,1,1,0,0,0
+Night,near,37,1,1,0,0,0
+Night,near,38,1,1,0,0,0
+Night,near,39,1,1,0,0,0
+Night,near,40,1,1,0,0,0
+Night,near,41,1,1,0,0,0
+Night,near,42,1,1,0,0,0
+Night,near,43,1,1,0,0,0
+Night,near,44,1,1,0,0,0
+Night,near,45,1,1,0,0,0
+Night,near,46,1,1,0,0,0
+Night,near,47,1,1,0,0,0
+Night,near,48,1,1,0,0,0
+Night,near,49,1,1,0,0,0
+Night,near,50,1,1,0,0,0
+Night,near,51,1,1,0,0,0
+Night,near,52,1,1,0,0,0
+Night,near,53,1,1,0,0,0
+Night,near,54,1,1,0,0,0
+Night,near,55,1,1,0,0,0
+Night,near,56,1,1,0,0,0
+Night,near,57,1,1,0,0,0
+Night,near,58,1,1,0,0,0
+Night,near,59,1,1,0,0,0
+Night,near,60,1,1,0,0,0
+Night,near,61,1,1,0,0,0
+Night,near,62,1,1,0,0,0
+Night,near,63,1,1,0,0,0
+Night,near,64,1,1,0,0,0
+Night,near,65,1,1,0,0,0
+Night,near,66,1,1,0,0,0
+Night,near,67,1,1,0,0,0
+Night,near,68,1,1,0,0,0
+Night,near,69,1,1,0,0,0
+Night,near,70,1,1,0,0,0
+Night,near,71,1,1,0,0,0
+Night,near,72,1,1,0,0,0
+Night,near,73,1,1,0,0,0
+Night,near,74,1,1,0,0,0
+Night,near,75,1,1,0,0,0
+Night,near,76,1,1,0,0,0
+Night,near,77,1,1,0,0,0
+Night,near,78,1,1,0,0,0
+Night,near,79,1,1,0,0,0
+Night,near,80,1,1,0,0,0
+Night,near,81,1,1,0,0,0
+Night,near,82,1,1,0,0,0
+Night,near,83,1,1,0,0,0
+Night,near,84,1,1,0,0,0
+Night,near,85,1,1,0,0,0
+Night,near,86,1,1,0,0,0
+Night,near,87,1,1,0,0,0
+Night,near,88,1,1,0,0,0
+Night,near,89,1,1,0,0,0
+Night,near,90,1,1,0,0,0
+Night,near,91,1,1,0,0,0
+Night,near,92,1,1,0,0,0
+Night,near,93,1,1,0,0,0
+Night,near,94,1,1,0,0,0
+Night,near,95,1,1,0,0,0
+Night,near,96,1,1,0,0,0
+Night,near,97,1,1,0,0,0
+Night,near,98,1,1,0,0,0
+Night,near,99,1,1,0,0,0
+Night,near,100,1,1,0,0,0
+Night,near,101,1,1,0,0,0
+Night,near,102,1,1,0,0,0
+Night,near,103,1,1,0,0,0
+Night,near,104,1,1,0,0,0
+Night,near,105,1,1,0,0,0
+Night,near,106,1,1,0,0,0
+Night,near,107,1,1,0,0,0
+Night,near,108,1,1,0,0,0
+Night,near,109,1,1,0,0,0
+Night,near,110,1,1,0,0,0
+Night,near,111,1,1,0,0,0
+Night,near,112,1,1,0,0,0
+Night,near,113,1,1,0,0,0
+Night,near,114,1,1,0,0,0
+Night,near,115,1,1,0,0,0
+Night,near,116,1,1,0,0,0
+Night,near,117,1,1,0,0,0
+Night,near,118,1,1,0,0,0
+Night,near,119,1,1,0,0,0
+Night,near,120,1,1,0,0,0
+Night,near,121,1,1,0,0,0
+Night,near,122,1,1,0,0,0
+Night,near,123,1,1,0,0,0
+Night,near,124,1,1,0,0,0
+Night,near,125,1,1,0,0,0
+Night,near,126,1,1,0,0,0
+Night,near,127,1,1,0,0,0
+Night,near,128,1,1,0,0,0
+Night,near,129,1,1,0,0,0
+Night,near,130,1,1,0,0,0
+Night,near,131,1,1,0,0,0
+Night,near,132,1,1,0,0,0
+Night,near,133,1,1,0,0,0
+Night,near,134,1,1,0,0,0
+Night,near,135,1,1,0,0,0
+Night,near,136,1,1,0,0,0
+Night,near,137,1,1,0,0,0
+Night,near,138,1,1,0,0,0
+Night,near,139,1,1,0,0,0
+Night,near,140,1,1,0,0,0
+Night,near,141,1,1,0,0,0
+Night,near,142,1,1,0,0,0
+Night,near,143,1,1,0,0,0
+Night,near,144,1,1,0,0,0
+Night,near,145,1,1,0,0,0
+Night,near,146,1,1,0,0,0
+Night,near,147,1,1,0,0,0
+Night,near,148,1,1,0,0,0
+Night,near,149,1,1,0,0,0
+Night,near,150,1,1,0,0,0
+Night,near,151,1,1,0,0,0
+Night,near,152,1,1,0,0,0
+Night,near,153,1,1,0,0,0
+Night,near,154,1,1,0,0,0
+Night,near,155,1,1,0,0,0
+Night,near,156,1,1,0,0,0
+Night,near,157,2,1,0,1,0
+Night,near,158,2,1,0,1,0
+Night,near,159,2,1,0,1,0
+Night,near,160,2,1,0,1,0
+Night,near,161,2,1,0,1,0
+Night,near,162,1,1,0,0,0
+Night,near,163,1,1,0,0,0
+Night,near,164,1,1,0,0,0
+Night,near,165,1,1,0,0,0
+Night,near,166,1,1,0,0,0
+Night,near,167,1,1,0,0,0
+Night,near,168,1,1,0,0,0
+Night,near,169,1,1,0,0,0
+Night,near,170,1,1,0,0,0
+Night,near,171,1,1,0,0,0
+Night,near,172,1,1,0,0,0
+Night,near,173,1,1,0,0,0
+Night,near,174,1,1,0,0,0
+Night,near,175,1,1,0,0,0
+Night,near,176,1,1,0,0,0
+Night,near,177,1,1,0,0,0
+Night,near,178,1,1,0,0,0
+Night,near,179,1,1,0,0,0
+Fog / heavy rain,car,-180,2,1,1,0,0
+Fog / heavy rain,car,-179,3,1,1,1,0
+Fog / heavy rain,car,-178,3,1,1,1,0
+Fog / heavy rain,car,-177,3,1,1,1,0
+Fog / heavy rain,car,-176,3,1,1,1,0
+Fog / heavy rain,car,-175,3,1,1,1,0
+Fog / heavy rain,car,-174,3,1,1,1,0
+Fog / heavy rain,car,-173,3,1,1,1,0
+Fog / heavy rain,car,-172,3,1,1,1,0
+Fog / heavy rain,car,-171,3,1,1,1,0
+Fog / heavy rain,car,-170,3,1,1,1,0
+Fog / heavy rain,car,-169,3,1,1,1,0
+Fog / heavy rain,car,-168,3,1,1,1,0
+Fog / heavy rain,car,-167,3,1,1,1,0
+Fog / heavy rain,car,-166,3,1,1,1,0
+Fog / heavy rain,car,-165,3,1,1,1,0
+Fog / heavy rain,car,-164,3,1,1,1,0
+Fog / heavy rain,car,-163,3,1,1,1,0
+Fog / heavy rain,car,-162,3,1,1,1,0
+Fog / heavy rain,car,-161,3,1,1,1,0
+Fog / heavy rain,car,-160,3,1,1,1,0
+Fog / heavy rain,car,-159,3,1,1,1,0
+Fog / heavy rain,car,-158,3,1,1,1,0
+Fog / heavy rain,car,-157,3,1,1,1,0
+Fog / heavy rain,car,-156,3,1,1,1,0
+Fog / heavy rain,car,-155,3,1,1,1,0
+Fog / heavy rain,car,-154,3,1,1,1,0
+Fog / heavy rain,car,-153,3,1,1,1,0
+Fog / heavy rain,car,-152,3,1,1,1,0
+Fog / heavy rain,car,-151,3,1,1,1,0
+Fog / heavy rain,car,-150,3,1,1,1,0
+Fog / heavy rain,car,-149,3,1,1,1,0
+Fog / heavy rain,car,-148,3,1,1,1,0
+Fog / heavy rain,car,-147,3,1,1,1,0
+Fog / heavy rain,car,-146,3,1,1,1,0
+Fog / heavy rain,car,-145,3,1,1,1,0
+Fog / heavy rain,car,-144,3,1,1,1,0
+Fog / heavy rain,car,-143,3,1,1,1,0
+Fog / heavy rain,car,-142,3,1,1,1,0
+Fog / heavy rain,car,-141,3,1,1,1,0
+Fog / heavy rain,car,-140,3,1,1,1,0
+Fog / heavy rain,car,-139,3,1,1,1,0
+Fog / heavy rain,car,-138,3,1,1,1,0
+Fog / heavy rain,car,-137,3,1,1,1,0
+Fog / heavy rain,car,-136,3,1,1,1,0
+Fog / heavy rain,car,-135,3,1,1,1,0
+Fog / heavy rain,car,-134,3,1,1,1,0
+Fog / heavy rain,car,-133,3,1,1,1,0
+Fog / heavy rain,car,-132,3,1,1,1,0
+Fog / heavy rain,car,-131,3,1,1,1,0
+Fog / heavy rain,car,-130,3,1,1,1,0
+Fog / heavy rain,car,-129,3,1,1,1,0
+Fog / heavy rain,car,-128,3,1,1,1,0
+Fog / heavy rain,car,-127,3,1,1,1,0
+Fog / heavy rain,car,-126,3,1,1,1,0
+Fog / heavy rain,car,-125,3,1,1,1,0
+Fog / heavy rain,car,-124,3,1,1,1,0
+Fog / heavy rain,car,-123,3,1,1,1,0
+Fog / heavy rain,car,-122,3,1,1,1,0
+Fog / heavy rain,car,-121,3,1,1,1,0
+Fog / heavy rain,car,-120,3,1,1,1,0
+Fog / heavy rain,car,-119,3,1,1,1,0
+Fog / heavy rain,car,-118,3,1,1,1,0
+Fog / heavy rain,car,-117,3,1,1,1,0
+Fog / heavy rain,car,-116,3,1,1,1,0
+Fog / heavy rain,car,-115,3,1,1,1,0
+Fog / heavy rain,car,-114,3,1,1,1,0
+Fog / heavy rain,car,-113,3,1,1,1,0
+Fog / heavy rain,car,-112,3,1,1,1,0
+Fog / heavy rain,car,-111,3,1,1,1,0
+Fog / heavy rain,car,-110,3,1,1,1,0
+Fog / heavy rain,car,-109,3,1,1,1,0
+Fog / heavy rain,car,-108,3,1,1,1,0
+Fog / heavy rain,car,-107,3,1,1,1,0
+Fog / heavy rain,car,-106,3,1,1,1,0
+Fog / heavy rain,car,-105,3,1,1,1,0
+Fog / heavy rain,car,-104,3,1,1,1,0
+Fog / heavy rain,car,-103,3,1,1,1,0
+Fog / heavy rain,car,-102,3,1,1,1,0
+Fog / heavy rain,car,-101,3,1,1,1,0
+Fog / heavy rain,car,-100,3,1,1,1,0
+Fog / heavy rain,car,-99,3,1,1,1,0
+Fog / heavy rain,car,-98,3,1,1,1,0
+Fog / heavy rain,car,-97,3,1,1,1,0
+Fog / heavy rain,car,-96,3,1,1,1,0
+Fog / heavy rain,car,-95,3,1,1,1,0
+Fog / heavy rain,car,-94,3,1,1,1,0
+Fog / heavy rain,car,-93,3,1,1,1,0
+Fog / heavy rain,car,-92,3,1,1,1,0
+Fog / heavy rain,car,-91,3,1,1,1,0
+Fog / heavy rain,car,-90,3,1,1,1,0
+Fog / heavy rain,car,-89,3,1,1,1,0
+Fog / heavy rain,car,-88,3,1,1,1,0
+Fog / heavy rain,car,-87,3,1,1,1,0
+Fog / heavy rain,car,-86,3,1,1,1,0
+Fog / heavy rain,car,-85,3,1,1,1,0
+Fog / heavy rain,car,-84,3,1,1,1,0
+Fog / heavy rain,car,-83,3,1,1,1,0
+Fog / heavy rain,car,-82,3,1,1,1,0
+Fog / heavy rain,car,-81,3,1,1,1,0
+Fog / heavy rain,car,-80,3,1,1,1,0
+Fog / heavy rain,car,-79,3,1,1,1,0
+Fog / heavy rain,car,-78,3,1,1,1,0
+Fog / heavy rain,car,-77,3,1,1,1,0
+Fog / heavy rain,car,-76,3,1,1,1,0
+Fog / heavy rain,car,-75,3,1,1,1,0
+Fog / heavy rain,car,-74,3,1,1,1,0
+Fog / heavy rain,car,-73,3,1,1,1,0
+Fog / heavy rain,car,-72,3,1,1,1,0
+Fog / heavy rain,car,-71,3,1,1,1,0
+Fog / heavy rain,car,-70,3,1,1,1,0
+Fog / heavy rain,car,-69,3,1,1,1,0
+Fog / heavy rain,car,-68,3,1,1,1,0
+Fog / heavy rain,car,-67,3,1,1,1,0
+Fog / heavy rain,car,-66,3,1,1,1,0
+Fog / heavy rain,car,-65,3,1,1,1,0
+Fog / heavy rain,car,-64,3,1,1,1,0
+Fog / heavy rain,car,-63,3,1,1,1,0
+Fog / heavy rain,car,-62,3,1,1,1,0
+Fog / heavy rain,car,-61,3,1,1,1,0
+Fog / heavy rain,car,-60,3,1,1,1,0
+Fog / heavy rain,car,-59,3,1,1,1,0
+Fog / heavy rain,car,-58,3,1,1,1,0
+Fog / heavy rain,car,-57,3,1,1,1,0
+Fog / heavy rain,car,-56,3,1,1,1,0
+Fog / heavy rain,car,-55,3,1,1,1,0
+Fog / heavy rain,car,-54,3,1,1,1,0
+Fog / heavy rain,car,-53,3,1,1,1,0
+Fog / heavy rain,car,-52,3,1,1,1,0
+Fog / heavy rain,car,-51,3,1,1,1,0
+Fog / heavy rain,car,-50,3,1,1,1,0
+Fog / heavy rain,car,-49,3,1,1,1,0
+Fog / heavy rain,car,-48,3,1,1,1,0
+Fog / heavy rain,car,-47,3,1,1,1,0
+Fog / heavy rain,car,-46,3,1,1,1,0
+Fog / heavy rain,car,-45,3,1,1,1,0
+Fog / heavy rain,car,-44,3,1,1,1,0
+Fog / heavy rain,car,-43,3,1,1,1,0
+Fog / heavy rain,car,-42,3,1,1,1,0
+Fog / heavy rain,car,-41,3,1,1,1,0
+Fog / heavy rain,car,-40,3,1,1,1,0
+Fog / heavy rain,car,-39,3,1,1,1,0
+Fog / heavy rain,car,-38,3,1,1,1,0
+Fog / heavy rain,car,-37,3,1,1,1,0
+Fog / heavy rain,car,-36,3,1,1,1,0
+Fog / heavy rain,car,-35,3,1,1,1,0
+Fog / heavy rain,car,-34,3,1,1,1,0
+Fog / heavy rain,car,-33,3,1,1,1,0
+Fog / heavy rain,car,-32,3,1,1,1,0
+Fog / heavy rain,car,-31,3,1,1,1,0
+Fog / heavy rain,car,-30,3,1,1,1,0
+Fog / heavy rain,car,-29,3,1,1,1,0
+Fog / heavy rain,car,-28,3,1,1,1,0
+Fog / heavy rain,car,-27,3,1,1,1,0
+Fog / heavy rain,car,-26,3,1,1,1,0
+Fog / heavy rain,car,-25,3,1,1,1,0
+Fog / heavy rain,car,-24,3,1,1,1,0
+Fog / heavy rain,car,-23,3,1,1,1,0
+Fog / heavy rain,car,-22,3,1,1,1,0
+Fog / heavy rain,car,-21,3,1,1,1,0
+Fog / heavy rain,car,-20,3,1,1,1,0
+Fog / heavy rain,car,-19,3,1,1,1,0
+Fog / heavy rain,car,-18,3,1,1,1,0
+Fog / heavy rain,car,-17,3,1,1,1,0
+Fog / heavy rain,car,-16,3,1,1,1,0
+Fog / heavy rain,car,-15,3,1,1,1,0
+Fog / heavy rain,car,-14,3,1,1,1,0
+Fog / heavy rain,car,-13,3,1,1,1,0
+Fog / heavy rain,car,-12,3,1,1,1,0
+Fog / heavy rain,car,-11,3,1,1,1,0
+Fog / heavy rain,car,-10,0,0,0,0,0
+Fog / heavy rain,car,-9,0,0,0,0,0
+Fog / heavy rain,car,-8,0,0,0,0,0
+Fog / heavy rain,car,-7,0,0,0,0,0
+Fog / heavy rain,car,-6,0,0,0,0,0
+Fog / heavy rain,car,-5,0,0,0,0,0
+Fog / heavy rain,car,-4,0,0,0,0,0
+Fog / heavy rain,car,-3,0,0,0,0,0
+Fog / heavy rain,car,-2,0,0,0,0,0
+Fog / heavy rain,car,-1,0,0,0,0,0
+Fog / heavy rain,car,0,0,0,0,0,0
+Fog / heavy rain,car,1,0,0,0,0,0
+Fog / heavy rain,car,2,0,0,0,0,0
+Fog / heavy rain,car,3,0,0,0,0,0
+Fog / heavy rain,car,4,0,0,0,0,0
+Fog / heavy rain,car,5,0,0,0,0,0
+Fog / heavy rain,car,6,0,0,0,0,0
+Fog / heavy rain,car,7,0,0,0,0,0
+Fog / heavy rain,car,8,0,0,0,0,0
+Fog / heavy rain,car,9,0,0,0,0,0
+Fog / heavy rain,car,10,0,0,0,0,0
+Fog / heavy rain,car,11,3,1,1,1,0
+Fog / heavy rain,car,12,3,1,1,1,0
+Fog / heavy rain,car,13,3,1,1,1,0
+Fog / heavy rain,car,14,3,1,1,1,0
+Fog / heavy rain,car,15,3,1,1,1,0
+Fog / heavy rain,car,16,3,1,1,1,0
+Fog / heavy rain,car,17,3,1,1,1,0
+Fog / heavy rain,car,18,3,1,1,1,0
+Fog / heavy rain,car,19,3,1,1,1,0
+Fog / heavy rain,car,20,3,1,1,1,0
+Fog / heavy rain,car,21,3,1,1,1,0
+Fog / heavy rain,car,22,3,1,1,1,0
+Fog / heavy rain,car,23,3,1,1,1,0
+Fog / heavy rain,car,24,3,1,1,1,0
+Fog / heavy rain,car,25,3,1,1,1,0
+Fog / heavy rain,car,26,3,1,1,1,0
+Fog / heavy rain,car,27,3,1,1,1,0
+Fog / heavy rain,car,28,3,1,1,1,0
+Fog / heavy rain,car,29,3,1,1,1,0
+Fog / heavy rain,car,30,3,1,1,1,0
+Fog / heavy rain,car,31,3,1,1,1,0
+Fog / heavy rain,car,32,3,1,1,1,0
+Fog / heavy rain,car,33,3,1,1,1,0
+Fog / heavy rain,car,34,3,1,1,1,0
+Fog / heavy rain,car,35,3,1,1,1,0
+Fog / heavy rain,car,36,3,1,1,1,0
+Fog / heavy rain,car,37,3,1,1,1,0
+Fog / heavy rain,car,38,3,1,1,1,0
+Fog / heavy rain,car,39,3,1,1,1,0
+Fog / heavy rain,car,40,3,1,1,1,0
+Fog / heavy rain,car,41,3,1,1,1,0
+Fog / heavy rain,car,42,3,1,1,1,0
+Fog / heavy rain,car,43,3,1,1,1,0
+Fog / heavy rain,car,44,3,1,1,1,0
+Fog / heavy rain,car,45,3,1,1,1,0
+Fog / heavy rain,car,46,3,1,1,1,0
+Fog / heavy rain,car,47,3,1,1,1,0
+Fog / heavy rain,car,48,3,1,1,1,0
+Fog / heavy rain,car,49,3,1,1,1,0
+Fog / heavy rain,car,50,3,1,1,1,0
+Fog / heavy rain,car,51,3,1,1,1,0
+Fog / heavy rain,car,52,3,1,1,1,0
+Fog / heavy rain,car,53,3,1,1,1,0
+Fog / heavy rain,car,54,3,1,1,1,0
+Fog / heavy rain,car,55,3,1,1,1,0
+Fog / heavy rain,car,56,3,1,1,1,0
+Fog / heavy rain,car,57,3,1,1,1,0
+Fog / heavy rain,car,58,3,1,1,1,0
+Fog / heavy rain,car,59,3,1,1,1,0
+Fog / heavy rain,car,60,3,1,1,1,0
+Fog / heavy rain,car,61,3,1,1,1,0
+Fog / heavy rain,car,62,3,1,1,1,0
+Fog / heavy rain,car,63,3,1,1,1,0
+Fog / heavy rain,car,64,3,1,1,1,0
+Fog / heavy rain,car,65,3,1,1,1,0
+Fog / heavy rain,car,66,3,1,1,1,0
+Fog / heavy rain,car,67,3,1,1,1,0
+Fog / heavy rain,car,68,3,1,1,1,0
+Fog / heavy rain,car,69,3,1,1,1,0
+Fog / heavy rain,car,70,3,1,1,1,0
+Fog / heavy rain,car,71,3,1,1,1,0
+Fog / heavy rain,car,72,3,1,1,1,0
+Fog / heavy rain,car,73,3,1,1,1,0
+Fog / heavy rain,car,74,3,1,1,1,0
+Fog / heavy rain,car,75,3,1,1,1,0
+Fog / heavy rain,car,76,3,1,1,1,0
+Fog / heavy rain,car,77,3,1,1,1,0
+Fog / heavy rain,car,78,3,1,1,1,0
+Fog / heavy rain,car,79,3,1,1,1,0
+Fog / heavy rain,car,80,3,1,1,1,0
+Fog / heavy rain,car,81,3,1,1,1,0
+Fog / heavy rain,car,82,3,1,1,1,0
+Fog / heavy rain,car,83,3,1,1,1,0
+Fog / heavy rain,car,84,3,1,1,1,0
+Fog / heavy rain,car,85,3,1,1,1,0
+Fog / heavy rain,car,86,3,1,1,1,0
+Fog / heavy rain,car,87,3,1,1,1,0
+Fog / heavy rain,car,88,3,1,1,1,0
+Fog / heavy rain,car,89,3,1,1,1,0
+Fog / heavy rain,car,90,3,1,1,1,0
+Fog / heavy rain,car,91,3,1,1,1,0
+Fog / heavy rain,car,92,3,1,1,1,0
+Fog / heavy rain,car,93,3,1,1,1,0
+Fog / heavy rain,car,94,3,1,1,1,0
+Fog / heavy rain,car,95,3,1,1,1,0
+Fog / heavy rain,car,96,3,1,1,1,0
+Fog / heavy rain,car,97,3,1,1,1,0
+Fog / heavy rain,car,98,3,1,1,1,0
+Fog / heavy rain,car,99,3,1,1,1,0
+Fog / heavy rain,car,100,3,1,1,1,0
+Fog / heavy rain,car,101,3,1,1,1,0
+Fog / heavy rain,car,102,3,1,1,1,0
+Fog / heavy rain,car,103,3,1,1,1,0
+Fog / heavy rain,car,104,3,1,1,1,0
+Fog / heavy rain,car,105,3,1,1,1,0
+Fog / heavy rain,car,106,3,1,1,1,0
+Fog / heavy rain,car,107,3,1,1,1,0
+Fog / heavy rain,car,108,3,1,1,1,0
+Fog / heavy rain,car,109,3,1,1,1,0
+Fog / heavy rain,car,110,3,1,1,1,0
+Fog / heavy rain,car,111,3,1,1,1,0
+Fog / heavy rain,car,112,3,1,1,1,0
+Fog / heavy rain,car,113,3,1,1,1,0
+Fog / heavy rain,car,114,3,1,1,1,0
+Fog / heavy rain,car,115,3,1,1,1,0
+Fog / heavy rain,car,116,3,1,1,1,0
+Fog / heavy rain,car,117,3,1,1,1,0
+Fog / heavy rain,car,118,3,1,1,1,0
+Fog / heavy rain,car,119,3,1,1,1,0
+Fog / heavy rain,car,120,3,1,1,1,0
+Fog / heavy rain,car,121,3,1,1,1,0
+Fog / heavy rain,car,122,3,1,1,1,0
+Fog / heavy rain,car,123,3,1,1,1,0
+Fog / heavy rain,car,124,3,1,1,1,0
+Fog / heavy rain,car,125,3,1,1,1,0
+Fog / heavy rain,car,126,3,1,1,1,0
+Fog / heavy rain,car,127,3,1,1,1,0
+Fog / heavy rain,car,128,3,1,1,1,0
+Fog / heavy rain,car,129,3,1,1,1,0
+Fog / heavy rain,car,130,3,1,1,1,0
+Fog / heavy rain,car,131,3,1,1,1,0
+Fog / heavy rain,car,132,3,1,1,1,0
+Fog / heavy rain,car,133,3,1,1,1,0
+Fog / heavy rain,car,134,3,1,1,1,0
+Fog / heavy rain,car,135,3,1,1,1,0
+Fog / heavy rain,car,136,3,1,1,1,0
+Fog / heavy rain,car,137,3,1,1,1,0
+Fog / heavy rain,car,138,3,1,1,1,0
+Fog / heavy rain,car,139,3,1,1,1,0
+Fog / heavy rain,car,140,3,1,1,1,0
+Fog / heavy rain,car,141,3,1,1,1,0
+Fog / heavy rain,car,142,3,1,1,1,0
+Fog / heavy rain,car,143,3,1,1,1,0
+Fog / heavy rain,car,144,3,1,1,1,0
+Fog / heavy rain,car,145,3,1,1,1,0
+Fog / heavy rain,car,146,3,1,1,1,0
+Fog / heavy rain,car,147,3,1,1,1,0
+Fog / heavy rain,car,148,3,1,1,1,0
+Fog / heavy rain,car,149,3,1,1,1,0
+Fog / heavy rain,car,150,3,1,1,1,0
+Fog / heavy rain,car,151,3,1,1,1,0
+Fog / heavy rain,car,152,3,1,1,1,0
+Fog / heavy rain,car,153,3,1,1,1,0
+Fog / heavy rain,car,154,3,1,1,1,0
+Fog / heavy rain,car,155,3,1,1,1,0
+Fog / heavy rain,car,156,3,1,1,1,0
+Fog / heavy rain,car,157,3,1,1,1,0
+Fog / heavy rain,car,158,3,1,1,1,0
+Fog / heavy rain,car,159,3,1,1,1,0
+Fog / heavy rain,car,160,3,1,1,1,0
+Fog / heavy rain,car,161,3,1,1,1,0
+Fog / heavy rain,car,162,3,1,1,1,0
+Fog / heavy rain,car,163,3,1,1,1,0
+Fog / heavy rain,car,164,3,1,1,1,0
+Fog / heavy rain,car,165,3,1,1,1,0
+Fog / heavy rain,car,166,3,1,1,1,0
+Fog / heavy rain,car,167,3,1,1,1,0
+Fog / heavy rain,car,168,3,1,1,1,0
+Fog / heavy rain,car,169,3,1,1,1,0
+Fog / heavy rain,car,170,3,1,1,1,0
+Fog / heavy rain,car,171,3,1,1,1,0
+Fog / heavy rain,car,172,3,1,1,1,0
+Fog / heavy rain,car,173,3,1,1,1,0
+Fog / heavy rain,car,174,3,1,1,1,0
+Fog / heavy rain,car,175,3,1,1,1,0
+Fog / heavy rain,car,176,3,1,1,1,0
+Fog / heavy rain,car,177,3,1,1,1,0
+Fog / heavy rain,car,178,3,1,1,1,0
+Fog / heavy rain,car,179,3,1,1,1,0
+Fog / heavy rain,pedestrian,-180,2,1,1,0,0
+Fog / heavy rain,pedestrian,-179,2,1,1,0,0
+Fog / heavy rain,pedestrian,-178,2,1,1,0,0
+Fog / heavy rain,pedestrian,-177,3,1,1,1,0
+Fog / heavy rain,pedestrian,-176,3,1,1,1,0
+Fog / heavy rain,pedestrian,-175,3,1,1,1,0
+Fog / heavy rain,pedestrian,-174,3,1,1,1,0
+Fog / heavy rain,pedestrian,-173,3,1,1,1,0
+Fog / heavy rain,pedestrian,-172,3,1,1,1,0
+Fog / heavy rain,pedestrian,-171,3,1,1,1,0
+Fog / heavy rain,pedestrian,-170,3,1,1,1,0
+Fog / heavy rain,pedestrian,-169,3,1,1,1,0
+Fog / heavy rain,pedestrian,-168,3,1,1,1,0
+Fog / heavy rain,pedestrian,-167,3,1,1,1,0
+Fog / heavy rain,pedestrian,-166,3,1,1,1,0
+Fog / heavy rain,pedestrian,-165,3,1,1,1,0
+Fog / heavy rain,pedestrian,-164,3,1,1,1,0
+Fog / heavy rain,pedestrian,-163,3,1,1,1,0
+Fog / heavy rain,pedestrian,-162,3,1,1,1,0
+Fog / heavy rain,pedestrian,-161,3,1,1,1,0
+Fog / heavy rain,pedestrian,-160,3,1,1,1,0
+Fog / heavy rain,pedestrian,-159,3,1,1,1,0
+Fog / heavy rain,pedestrian,-158,3,1,1,1,0
+Fog / heavy rain,pedestrian,-157,3,1,1,1,0
+Fog / heavy rain,pedestrian,-156,3,1,1,1,0
+Fog / heavy rain,pedestrian,-155,3,1,1,1,0
+Fog / heavy rain,pedestrian,-154,3,1,1,1,0
+Fog / heavy rain,pedestrian,-153,3,1,1,1,0
+Fog / heavy rain,pedestrian,-152,3,1,1,1,0
+Fog / heavy rain,pedestrian,-151,3,1,1,1,0
+Fog / heavy rain,pedestrian,-150,3,1,1,1,0
+Fog / heavy rain,pedestrian,-149,3,1,1,1,0
+Fog / heavy rain,pedestrian,-148,3,1,1,1,0
+Fog / heavy rain,pedestrian,-147,3,1,1,1,0
+Fog / heavy rain,pedestrian,-146,3,1,1,1,0
+Fog / heavy rain,pedestrian,-145,3,1,1,1,0
+Fog / heavy rain,pedestrian,-144,3,1,1,1,0
+Fog / heavy rain,pedestrian,-143,3,1,1,1,0
+Fog / heavy rain,pedestrian,-142,3,1,1,1,0
+Fog / heavy rain,pedestrian,-141,3,1,1,1,0
+Fog / heavy rain,pedestrian,-140,3,1,1,1,0
+Fog / heavy rain,pedestrian,-139,3,1,1,1,0
+Fog / heavy rain,pedestrian,-138,3,1,1,1,0
+Fog / heavy rain,pedestrian,-137,3,1,1,1,0
+Fog / heavy rain,pedestrian,-136,3,1,1,1,0
+Fog / heavy rain,pedestrian,-135,3,1,1,1,0
+Fog / heavy rain,pedestrian,-134,3,1,1,1,0
+Fog / heavy rain,pedestrian,-133,3,1,1,1,0
+Fog / heavy rain,pedestrian,-132,3,1,1,1,0
+Fog / heavy rain,pedestrian,-131,3,1,1,1,0
+Fog / heavy rain,pedestrian,-130,3,1,1,1,0
+Fog / heavy rain,pedestrian,-129,3,1,1,1,0
+Fog / heavy rain,pedestrian,-128,3,1,1,1,0
+Fog / heavy rain,pedestrian,-127,3,1,1,1,0
+Fog / heavy rain,pedestrian,-126,3,1,1,1,0
+Fog / heavy rain,pedestrian,-125,3,1,1,1,0
+Fog / heavy rain,pedestrian,-124,3,1,1,1,0
+Fog / heavy rain,pedestrian,-123,3,1,1,1,0
+Fog / heavy rain,pedestrian,-122,3,1,1,1,0
+Fog / heavy rain,pedestrian,-121,3,1,1,1,0
+Fog / heavy rain,pedestrian,-120,3,1,1,1,0
+Fog / heavy rain,pedestrian,-119,3,1,1,1,0
+Fog / heavy rain,pedestrian,-118,3,1,1,1,0
+Fog / heavy rain,pedestrian,-117,3,1,1,1,0
+Fog / heavy rain,pedestrian,-116,3,1,1,1,0
+Fog / heavy rain,pedestrian,-115,3,1,1,1,0
+Fog / heavy rain,pedestrian,-114,3,1,1,1,0
+Fog / heavy rain,pedestrian,-113,3,1,1,1,0
+Fog / heavy rain,pedestrian,-112,3,1,1,1,0
+Fog / heavy rain,pedestrian,-111,3,1,1,1,0
+Fog / heavy rain,pedestrian,-110,3,1,1,1,0
+Fog / heavy rain,pedestrian,-109,3,1,1,1,0
+Fog / heavy rain,pedestrian,-108,3,1,1,1,0
+Fog / heavy rain,pedestrian,-107,3,1,1,1,0
+Fog / heavy rain,pedestrian,-106,3,1,1,1,0
+Fog / heavy rain,pedestrian,-105,3,1,1,1,0
+Fog / heavy rain,pedestrian,-104,3,1,1,1,0
+Fog / heavy rain,pedestrian,-103,3,1,1,1,0
+Fog / heavy rain,pedestrian,-102,3,1,1,1,0
+Fog / heavy rain,pedestrian,-101,3,1,1,1,0
+Fog / heavy rain,pedestrian,-100,3,1,1,1,0
+Fog / heavy rain,pedestrian,-99,3,1,1,1,0
+Fog / heavy rain,pedestrian,-98,3,1,1,1,0
+Fog / heavy rain,pedestrian,-97,3,1,1,1,0
+Fog / heavy rain,pedestrian,-96,3,1,1,1,0
+Fog / heavy rain,pedestrian,-95,3,1,1,1,0
+Fog / heavy rain,pedestrian,-94,3,1,1,1,0
+Fog / heavy rain,pedestrian,-93,3,1,1,1,0
+Fog / heavy rain,pedestrian,-92,3,1,1,1,0
+Fog / heavy rain,pedestrian,-91,3,1,1,1,0
+Fog / heavy rain,pedestrian,-90,3,1,1,1,0
+Fog / heavy rain,pedestrian,-89,3,1,1,1,0
+Fog / heavy rain,pedestrian,-88,3,1,1,1,0
+Fog / heavy rain,pedestrian,-87,3,1,1,1,0
+Fog / heavy rain,pedestrian,-86,3,1,1,1,0
+Fog / heavy rain,pedestrian,-85,3,1,1,1,0
+Fog / heavy rain,pedestrian,-84,3,1,1,1,0
+Fog / heavy rain,pedestrian,-83,3,1,1,1,0
+Fog / heavy rain,pedestrian,-82,3,1,1,1,0
+Fog / heavy rain,pedestrian,-81,3,1,1,1,0
+Fog / heavy rain,pedestrian,-80,3,1,1,1,0
+Fog / heavy rain,pedestrian,-79,3,1,1,1,0
+Fog / heavy rain,pedestrian,-78,3,1,1,1,0
+Fog / heavy rain,pedestrian,-77,3,1,1,1,0
+Fog / heavy rain,pedestrian,-76,3,1,1,1,0
+Fog / heavy rain,pedestrian,-75,3,1,1,1,0
+Fog / heavy rain,pedestrian,-74,3,1,1,1,0
+Fog / heavy rain,pedestrian,-73,3,1,1,1,0
+Fog / heavy rain,pedestrian,-72,3,1,1,1,0
+Fog / heavy rain,pedestrian,-71,3,1,1,1,0
+Fog / heavy rain,pedestrian,-70,3,1,1,1,0
+Fog / heavy rain,pedestrian,-69,3,1,1,1,0
+Fog / heavy rain,pedestrian,-68,3,1,1,1,0
+Fog / heavy rain,pedestrian,-67,3,1,1,1,0
+Fog / heavy rain,pedestrian,-66,3,1,1,1,0
+Fog / heavy rain,pedestrian,-65,3,1,1,1,0
+Fog / heavy rain,pedestrian,-64,3,1,1,1,0
+Fog / heavy rain,pedestrian,-63,3,1,1,1,0
+Fog / heavy rain,pedestrian,-62,3,1,1,1,0
+Fog / heavy rain,pedestrian,-61,3,1,1,1,0
+Fog / heavy rain,pedestrian,-60,3,1,1,1,0
+Fog / heavy rain,pedestrian,-59,3,1,1,1,0
+Fog / heavy rain,pedestrian,-58,3,1,1,1,0
+Fog / heavy rain,pedestrian,-57,3,1,1,1,0
+Fog / heavy rain,pedestrian,-56,3,1,1,1,0
+Fog / heavy rain,pedestrian,-55,3,1,1,1,0
+Fog / heavy rain,pedestrian,-54,3,1,1,1,0
+Fog / heavy rain,pedestrian,-53,3,1,1,1,0
+Fog / heavy rain,pedestrian,-52,3,1,1,1,0
+Fog / heavy rain,pedestrian,-51,3,1,1,1,0
+Fog / heavy rain,pedestrian,-50,3,1,1,1,0
+Fog / heavy rain,pedestrian,-49,3,1,1,1,0
+Fog / heavy rain,pedestrian,-48,3,1,1,1,0
+Fog / heavy rain,pedestrian,-47,3,1,1,1,0
+Fog / heavy rain,pedestrian,-46,3,1,1,1,0
+Fog / heavy rain,pedestrian,-45,3,1,1,1,0
+Fog / heavy rain,pedestrian,-44,3,1,1,1,0
+Fog / heavy rain,pedestrian,-43,3,1,1,1,0
+Fog / heavy rain,pedestrian,-42,3,1,1,1,0
+Fog / heavy rain,pedestrian,-41,3,1,1,1,0
+Fog / heavy rain,pedestrian,-40,3,1,1,1,0
+Fog / heavy rain,pedestrian,-39,3,1,1,1,0
+Fog / heavy rain,pedestrian,-38,3,1,1,1,0
+Fog / heavy rain,pedestrian,-37,3,1,1,1,0
+Fog / heavy rain,pedestrian,-36,3,1,1,1,0
+Fog / heavy rain,pedestrian,-35,3,1,1,1,0
+Fog / heavy rain,pedestrian,-34,3,1,1,1,0
+Fog / heavy rain,pedestrian,-33,3,1,1,1,0
+Fog / heavy rain,pedestrian,-32,3,1,1,1,0
+Fog / heavy rain,pedestrian,-31,3,1,1,1,0
+Fog / heavy rain,pedestrian,-30,3,1,1,1,0
+Fog / heavy rain,pedestrian,-29,3,1,1,1,0
+Fog / heavy rain,pedestrian,-28,3,1,1,1,0
+Fog / heavy rain,pedestrian,-27,3,1,1,1,0
+Fog / heavy rain,pedestrian,-26,3,1,1,1,0
+Fog / heavy rain,pedestrian,-25,3,1,1,1,0
+Fog / heavy rain,pedestrian,-24,3,1,1,1,0
+Fog / heavy rain,pedestrian,-23,2,1,1,0,0
+Fog / heavy rain,pedestrian,-22,2,1,1,0,0
+Fog / heavy rain,pedestrian,-21,2,1,1,0,0
+Fog / heavy rain,pedestrian,-20,2,1,1,0,0
+Fog / heavy rain,pedestrian,-19,3,1,1,1,0
+Fog / heavy rain,pedestrian,-18,3,1,1,1,0
+Fog / heavy rain,pedestrian,-17,3,1,1,1,0
+Fog / heavy rain,pedestrian,-16,3,1,1,1,0
+Fog / heavy rain,pedestrian,-15,4,1,1,1,1
+Fog / heavy rain,pedestrian,-14,4,1,1,1,1
+Fog / heavy rain,pedestrian,-13,4,1,1,1,1
+Fog / heavy rain,pedestrian,-12,4,1,1,1,1
+Fog / heavy rain,pedestrian,-11,4,1,1,1,1
+Fog / heavy rain,pedestrian,-10,4,1,1,1,1
+Fog / heavy rain,pedestrian,-9,4,1,1,1,1
+Fog / heavy rain,pedestrian,-8,4,1,1,1,1
+Fog / heavy rain,pedestrian,-7,4,1,1,1,1
+Fog / heavy rain,pedestrian,-6,4,1,1,1,1
+Fog / heavy rain,pedestrian,-5,4,1,1,1,1
+Fog / heavy rain,pedestrian,-4,4,1,1,1,1
+Fog / heavy rain,pedestrian,-3,4,1,1,1,1
+Fog / heavy rain,pedestrian,-2,4,1,1,1,1
+Fog / heavy rain,pedestrian,-1,4,1,1,1,1
+Fog / heavy rain,pedestrian,0,4,1,1,1,1
+Fog / heavy rain,pedestrian,1,4,1,1,1,1
+Fog / heavy rain,pedestrian,2,4,1,1,1,1
+Fog / heavy rain,pedestrian,3,4,1,1,1,1
+Fog / heavy rain,pedestrian,4,4,1,1,1,1
+Fog / heavy rain,pedestrian,5,4,1,1,1,1
+Fog / heavy rain,pedestrian,6,4,1,1,1,1
+Fog / heavy rain,pedestrian,7,4,1,1,1,1
+Fog / heavy rain,pedestrian,8,4,1,1,1,1
+Fog / heavy rain,pedestrian,9,4,1,1,1,1
+Fog / heavy rain,pedestrian,10,4,1,1,1,1
+Fog / heavy rain,pedestrian,11,4,1,1,1,1
+Fog / heavy rain,pedestrian,12,4,1,1,1,1
+Fog / heavy rain,pedestrian,13,4,1,1,1,1
+Fog / heavy rain,pedestrian,14,4,1,1,1,1
+Fog / heavy rain,pedestrian,15,4,1,1,1,1
+Fog / heavy rain,pedestrian,16,3,1,1,1,0
+Fog / heavy rain,pedestrian,17,3,1,1,1,0
+Fog / heavy rain,pedestrian,18,3,1,1,1,0
+Fog / heavy rain,pedestrian,19,3,1,1,1,0
+Fog / heavy rain,pedestrian,20,2,1,1,0,0
+Fog / heavy rain,pedestrian,21,2,1,1,0,0
+Fog / heavy rain,pedestrian,22,2,1,1,0,0
+Fog / heavy rain,pedestrian,23,2,1,1,0,0
+Fog / heavy rain,pedestrian,24,3,1,1,1,0
+Fog / heavy rain,pedestrian,25,3,1,1,1,0
+Fog / heavy rain,pedestrian,26,3,1,1,1,0
+Fog / heavy rain,pedestrian,27,3,1,1,1,0
+Fog / heavy rain,pedestrian,28,3,1,1,1,0
+Fog / heavy rain,pedestrian,29,3,1,1,1,0
+Fog / heavy rain,pedestrian,30,3,1,1,1,0
+Fog / heavy rain,pedestrian,31,3,1,1,1,0
+Fog / heavy rain,pedestrian,32,3,1,1,1,0
+Fog / heavy rain,pedestrian,33,3,1,1,1,0
+Fog / heavy rain,pedestrian,34,3,1,1,1,0
+Fog / heavy rain,pedestrian,35,3,1,1,1,0
+Fog / heavy rain,pedestrian,36,3,1,1,1,0
+Fog / heavy rain,pedestrian,37,3,1,1,1,0
+Fog / heavy rain,pedestrian,38,3,1,1,1,0
+Fog / heavy rain,pedestrian,39,3,1,1,1,0
+Fog / heavy rain,pedestrian,40,3,1,1,1,0
+Fog / heavy rain,pedestrian,41,3,1,1,1,0
+Fog / heavy rain,pedestrian,42,3,1,1,1,0
+Fog / heavy rain,pedestrian,43,3,1,1,1,0
+Fog / heavy rain,pedestrian,44,3,1,1,1,0
+Fog / heavy rain,pedestrian,45,3,1,1,1,0
+Fog / heavy rain,pedestrian,46,3,1,1,1,0
+Fog / heavy rain,pedestrian,47,3,1,1,1,0
+Fog / heavy rain,pedestrian,48,3,1,1,1,0
+Fog / heavy rain,pedestrian,49,3,1,1,1,0
+Fog / heavy rain,pedestrian,50,3,1,1,1,0
+Fog / heavy rain,pedestrian,51,3,1,1,1,0
+Fog / heavy rain,pedestrian,52,3,1,1,1,0
+Fog / heavy rain,pedestrian,53,3,1,1,1,0
+Fog / heavy rain,pedestrian,54,3,1,1,1,0
+Fog / heavy rain,pedestrian,55,3,1,1,1,0
+Fog / heavy rain,pedestrian,56,3,1,1,1,0
+Fog / heavy rain,pedestrian,57,3,1,1,1,0
+Fog / heavy rain,pedestrian,58,3,1,1,1,0
+Fog / heavy rain,pedestrian,59,3,1,1,1,0
+Fog / heavy rain,pedestrian,60,3,1,1,1,0
+Fog / heavy rain,pedestrian,61,3,1,1,1,0
+Fog / heavy rain,pedestrian,62,3,1,1,1,0
+Fog / heavy rain,pedestrian,63,3,1,1,1,0
+Fog / heavy rain,pedestrian,64,3,1,1,1,0
+Fog / heavy rain,pedestrian,65,3,1,1,1,0
+Fog / heavy rain,pedestrian,66,3,1,1,1,0
+Fog / heavy rain,pedestrian,67,3,1,1,1,0
+Fog / heavy rain,pedestrian,68,3,1,1,1,0
+Fog / heavy rain,pedestrian,69,3,1,1,1,0
+Fog / heavy rain,pedestrian,70,3,1,1,1,0
+Fog / heavy rain,pedestrian,71,3,1,1,1,0
+Fog / heavy rain,pedestrian,72,3,1,1,1,0
+Fog / heavy rain,pedestrian,73,3,1,1,1,0
+Fog / heavy rain,pedestrian,74,3,1,1,1,0
+Fog / heavy rain,pedestrian,75,3,1,1,1,0
+Fog / heavy rain,pedestrian,76,3,1,1,1,0
+Fog / heavy rain,pedestrian,77,3,1,1,1,0
+Fog / heavy rain,pedestrian,78,3,1,1,1,0
+Fog / heavy rain,pedestrian,79,3,1,1,1,0
+Fog / heavy rain,pedestrian,80,3,1,1,1,0
+Fog / heavy rain,pedestrian,81,3,1,1,1,0
+Fog / heavy rain,pedestrian,82,3,1,1,1,0
+Fog / heavy rain,pedestrian,83,3,1,1,1,0
+Fog / heavy rain,pedestrian,84,3,1,1,1,0
+Fog / heavy rain,pedestrian,85,3,1,1,1,0
+Fog / heavy rain,pedestrian,86,3,1,1,1,0
+Fog / heavy rain,pedestrian,87,3,1,1,1,0
+Fog / heavy rain,pedestrian,88,3,1,1,1,0
+Fog / heavy rain,pedestrian,89,3,1,1,1,0
+Fog / heavy rain,pedestrian,90,3,1,1,1,0
+Fog / heavy rain,pedestrian,91,3,1,1,1,0
+Fog / heavy rain,pedestrian,92,3,1,1,1,0
+Fog / heavy rain,pedestrian,93,3,1,1,1,0
+Fog / heavy rain,pedestrian,94,3,1,1,1,0
+Fog / heavy rain,pedestrian,95,3,1,1,1,0
+Fog / heavy rain,pedestrian,96,3,1,1,1,0
+Fog / heavy rain,pedestrian,97,3,1,1,1,0
+Fog / heavy rain,pedestrian,98,3,1,1,1,0
+Fog / heavy rain,pedestrian,99,3,1,1,1,0
+Fog / heavy rain,pedestrian,100,3,1,1,1,0
+Fog / heavy rain,pedestrian,101,3,1,1,1,0
+Fog / heavy rain,pedestrian,102,3,1,1,1,0
+Fog / heavy rain,pedestrian,103,3,1,1,1,0
+Fog / heavy rain,pedestrian,104,3,1,1,1,0
+Fog / heavy rain,pedestrian,105,3,1,1,1,0
+Fog / heavy rain,pedestrian,106,3,1,1,1,0
+Fog / heavy rain,pedestrian,107,3,1,1,1,0
+Fog / heavy rain,pedestrian,108,3,1,1,1,0
+Fog / heavy rain,pedestrian,109,3,1,1,1,0
+Fog / heavy rain,pedestrian,110,3,1,1,1,0
+Fog / heavy rain,pedestrian,111,3,1,1,1,0
+Fog / heavy rain,pedestrian,112,3,1,1,1,0
+Fog / heavy rain,pedestrian,113,3,1,1,1,0
+Fog / heavy rain,pedestrian,114,3,1,1,1,0
+Fog / heavy rain,pedestrian,115,3,1,1,1,0
+Fog / heavy rain,pedestrian,116,3,1,1,1,0
+Fog / heavy rain,pedestrian,117,3,1,1,1,0
+Fog / heavy rain,pedestrian,118,3,1,1,1,0
+Fog / heavy rain,pedestrian,119,3,1,1,1,0
+Fog / heavy rain,pedestrian,120,3,1,1,1,0
+Fog / heavy rain,pedestrian,121,3,1,1,1,0
+Fog / heavy rain,pedestrian,122,3,1,1,1,0
+Fog / heavy rain,pedestrian,123,3,1,1,1,0
+Fog / heavy rain,pedestrian,124,3,1,1,1,0
+Fog / heavy rain,pedestrian,125,3,1,1,1,0
+Fog / heavy rain,pedestrian,126,3,1,1,1,0
+Fog / heavy rain,pedestrian,127,3,1,1,1,0
+Fog / heavy rain,pedestrian,128,3,1,1,1,0
+Fog / heavy rain,pedestrian,129,3,1,1,1,0
+Fog / heavy rain,pedestrian,130,3,1,1,1,0
+Fog / heavy rain,pedestrian,131,3,1,1,1,0
+Fog / heavy rain,pedestrian,132,3,1,1,1,0
+Fog / heavy rain,pedestrian,133,3,1,1,1,0
+Fog / heavy rain,pedestrian,134,3,1,1,1,0
+Fog / heavy rain,pedestrian,135,3,1,1,1,0
+Fog / heavy rain,pedestrian,136,3,1,1,1,0
+Fog / heavy rain,pedestrian,137,3,1,1,1,0
+Fog / heavy rain,pedestrian,138,3,1,1,1,0
+Fog / heavy rain,pedestrian,139,3,1,1,1,0
+Fog / heavy rain,pedestrian,140,3,1,1,1,0
+Fog / heavy rain,pedestrian,141,3,1,1,1,0
+Fog / heavy rain,pedestrian,142,3,1,1,1,0
+Fog / heavy rain,pedestrian,143,3,1,1,1,0
+Fog / heavy rain,pedestrian,144,3,1,1,1,0
+Fog / heavy rain,pedestrian,145,3,1,1,1,0
+Fog / heavy rain,pedestrian,146,3,1,1,1,0
+Fog / heavy rain,pedestrian,147,3,1,1,1,0
+Fog / heavy rain,pedestrian,148,3,1,1,1,0
+Fog / heavy rain,pedestrian,149,3,1,1,1,0
+Fog / heavy rain,pedestrian,150,3,1,1,1,0
+Fog / heavy rain,pedestrian,151,3,1,1,1,0
+Fog / heavy rain,pedestrian,152,3,1,1,1,0
+Fog / heavy rain,pedestrian,153,3,1,1,1,0
+Fog / heavy rain,pedestrian,154,3,1,1,1,0
+Fog / heavy rain,pedestrian,155,3,1,1,1,0
+Fog / heavy rain,pedestrian,156,3,1,1,1,0
+Fog / heavy rain,pedestrian,157,3,1,1,1,0
+Fog / heavy rain,pedestrian,158,3,1,1,1,0
+Fog / heavy rain,pedestrian,159,3,1,1,1,0
+Fog / heavy rain,pedestrian,160,3,1,1,1,0
+Fog / heavy rain,pedestrian,161,3,1,1,1,0
+Fog / heavy rain,pedestrian,162,3,1,1,1,0
+Fog / heavy rain,pedestrian,163,3,1,1,1,0
+Fog / heavy rain,pedestrian,164,3,1,1,1,0
+Fog / heavy rain,pedestrian,165,3,1,1,1,0
+Fog / heavy rain,pedestrian,166,3,1,1,1,0
+Fog / heavy rain,pedestrian,167,3,1,1,1,0
+Fog / heavy rain,pedestrian,168,3,1,1,1,0
+Fog / heavy rain,pedestrian,169,3,1,1,1,0
+Fog / heavy rain,pedestrian,170,3,1,1,1,0
+Fog / heavy rain,pedestrian,171,3,1,1,1,0
+Fog / heavy rain,pedestrian,172,3,1,1,1,0
+Fog / heavy rain,pedestrian,173,3,1,1,1,0
+Fog / heavy rain,pedestrian,174,3,1,1,1,0
+Fog / heavy rain,pedestrian,175,3,1,1,1,0
+Fog / heavy rain,pedestrian,176,3,1,1,1,0
+Fog / heavy rain,pedestrian,177,3,1,1,1,0
+Fog / heavy rain,pedestrian,178,2,1,1,0,0
+Fog / heavy rain,pedestrian,179,2,1,1,0,0
+Fog / heavy rain,near,-180,1,1,0,0,0
+Fog / heavy rain,near,-179,1,1,0,0,0
+Fog / heavy rain,near,-178,1,1,0,0,0
+Fog / heavy rain,near,-177,1,1,0,0,0
+Fog / heavy rain,near,-176,1,1,0,0,0
+Fog / heavy rain,near,-175,1,1,0,0,0
+Fog / heavy rain,near,-174,1,1,0,0,0
+Fog / heavy rain,near,-173,1,1,0,0,0
+Fog / heavy rain,near,-172,1,1,0,0,0
+Fog / heavy rain,near,-171,1,1,0,0,0
+Fog / heavy rain,near,-170,1,1,0,0,0
+Fog / heavy rain,near,-169,1,1,0,0,0
+Fog / heavy rain,near,-168,1,1,0,0,0
+Fog / heavy rain,near,-167,1,1,0,0,0
+Fog / heavy rain,near,-166,1,1,0,0,0
+Fog / heavy rain,near,-165,1,1,0,0,0
+Fog / heavy rain,near,-164,1,1,0,0,0
+Fog / heavy rain,near,-163,1,1,0,0,0
+Fog / heavy rain,near,-162,1,1,0,0,0
+Fog / heavy rain,near,-161,2,1,0,1,0
+Fog / heavy rain,near,-160,2,1,0,1,0
+Fog / heavy rain,near,-159,2,1,0,1,0
+Fog / heavy rain,near,-158,2,1,0,1,0
+Fog / heavy rain,near,-157,2,1,0,1,0
+Fog / heavy rain,near,-156,1,1,0,0,0
+Fog / heavy rain,near,-155,1,1,0,0,0
+Fog / heavy rain,near,-154,1,1,0,0,0
+Fog / heavy rain,near,-153,1,1,0,0,0
+Fog / heavy rain,near,-152,1,1,0,0,0
+Fog / heavy rain,near,-151,1,1,0,0,0
+Fog / heavy rain,near,-150,1,1,0,0,0
+Fog / heavy rain,near,-149,1,1,0,0,0
+Fog / heavy rain,near,-148,1,1,0,0,0
+Fog / heavy rain,near,-147,1,1,0,0,0
+Fog / heavy rain,near,-146,1,1,0,0,0
+Fog / heavy rain,near,-145,1,1,0,0,0
+Fog / heavy rain,near,-144,1,1,0,0,0
+Fog / heavy rain,near,-143,1,1,0,0,0
+Fog / heavy rain,near,-142,1,1,0,0,0
+Fog / heavy rain,near,-141,1,1,0,0,0
+Fog / heavy rain,near,-140,1,1,0,0,0
+Fog / heavy rain,near,-139,1,1,0,0,0
+Fog / heavy rain,near,-138,1,1,0,0,0
+Fog / heavy rain,near,-137,1,1,0,0,0
+Fog / heavy rain,near,-136,1,1,0,0,0
+Fog / heavy rain,near,-135,1,1,0,0,0
+Fog / heavy rain,near,-134,1,1,0,0,0
+Fog / heavy rain,near,-133,1,1,0,0,0
+Fog / heavy rain,near,-132,1,1,0,0,0
+Fog / heavy rain,near,-131,1,1,0,0,0
+Fog / heavy rain,near,-130,1,1,0,0,0
+Fog / heavy rain,near,-129,1,1,0,0,0
+Fog / heavy rain,near,-128,1,1,0,0,0
+Fog / heavy rain,near,-127,1,1,0,0,0
+Fog / heavy rain,near,-126,1,1,0,0,0
+Fog / heavy rain,near,-125,1,1,0,0,0
+Fog / heavy rain,near,-124,1,1,0,0,0
+Fog / heavy rain,near,-123,1,1,0,0,0
+Fog / heavy rain,near,-122,1,1,0,0,0
+Fog / heavy rain,near,-121,1,1,0,0,0
+Fog / heavy rain,near,-120,1,1,0,0,0
+Fog / heavy rain,near,-119,1,1,0,0,0
+Fog / heavy rain,near,-118,1,1,0,0,0
+Fog / heavy rain,near,-117,1,1,0,0,0
+Fog / heavy rain,near,-116,1,1,0,0,0
+Fog / heavy rain,near,-115,1,1,0,0,0
+Fog / heavy rain,near,-114,1,1,0,0,0
+Fog / heavy rain,near,-113,1,1,0,0,0
+Fog / heavy rain,near,-112,1,1,0,0,0
+Fog / heavy rain,near,-111,1,1,0,0,0
+Fog / heavy rain,near,-110,1,1,0,0,0
+Fog / heavy rain,near,-109,1,1,0,0,0
+Fog / heavy rain,near,-108,1,1,0,0,0
+Fog / heavy rain,near,-107,1,1,0,0,0
+Fog / heavy rain,near,-106,1,1,0,0,0
+Fog / heavy rain,near,-105,1,1,0,0,0
+Fog / heavy rain,near,-104,1,1,0,0,0
+Fog / heavy rain,near,-103,1,1,0,0,0
+Fog / heavy rain,near,-102,1,1,0,0,0
+Fog / heavy rain,near,-101,1,1,0,0,0
+Fog / heavy rain,near,-100,1,1,0,0,0
+Fog / heavy rain,near,-99,1,1,0,0,0
+Fog / heavy rain,near,-98,1,1,0,0,0
+Fog / heavy rain,near,-97,1,1,0,0,0
+Fog / heavy rain,near,-96,1,1,0,0,0
+Fog / heavy rain,near,-95,1,1,0,0,0
+Fog / heavy rain,near,-94,1,1,0,0,0
+Fog / heavy rain,near,-93,1,1,0,0,0
+Fog / heavy rain,near,-92,1,1,0,0,0
+Fog / heavy rain,near,-91,1,1,0,0,0
+Fog / heavy rain,near,-90,1,1,0,0,0
+Fog / heavy rain,near,-89,1,1,0,0,0
+Fog / heavy rain,near,-88,1,1,0,0,0
+Fog / heavy rain,near,-87,1,1,0,0,0
+Fog / heavy rain,near,-86,1,1,0,0,0
+Fog / heavy rain,near,-85,1,1,0,0,0
+Fog / heavy rain,near,-84,1,1,0,0,0
+Fog / heavy rain,near,-83,1,1,0,0,0
+Fog / heavy rain,near,-82,1,1,0,0,0
+Fog / heavy rain,near,-81,1,1,0,0,0
+Fog / heavy rain,near,-80,1,1,0,0,0
+Fog / heavy rain,near,-79,1,1,0,0,0
+Fog / heavy rain,near,-78,1,1,0,0,0
+Fog / heavy rain,near,-77,1,1,0,0,0
+Fog / heavy rain,near,-76,1,1,0,0,0
+Fog / heavy rain,near,-75,1,1,0,0,0
+Fog / heavy rain,near,-74,1,1,0,0,0
+Fog / heavy rain,near,-73,1,1,0,0,0
+Fog / heavy rain,near,-72,1,1,0,0,0
+Fog / heavy rain,near,-71,1,1,0,0,0
+Fog / heavy rain,near,-70,1,1,0,0,0
+Fog / heavy rain,near,-69,1,1,0,0,0
+Fog / heavy rain,near,-68,1,1,0,0,0
+Fog / heavy rain,near,-67,1,1,0,0,0
+Fog / heavy rain,near,-66,1,1,0,0,0
+Fog / heavy rain,near,-65,1,1,0,0,0
+Fog / heavy rain,near,-64,1,1,0,0,0
+Fog / heavy rain,near,-63,1,1,0,0,0
+Fog / heavy rain,near,-62,1,1,0,0,0
+Fog / heavy rain,near,-61,1,1,0,0,0
+Fog / heavy rain,near,-60,1,1,0,0,0
+Fog / heavy rain,near,-59,1,1,0,0,0
+Fog / heavy rain,near,-58,1,1,0,0,0
+Fog / heavy rain,near,-57,1,1,0,0,0
+Fog / heavy rain,near,-56,1,1,0,0,0
+Fog / heavy rain,near,-55,1,1,0,0,0
+Fog / heavy rain,near,-54,1,1,0,0,0
+Fog / heavy rain,near,-53,1,1,0,0,0
+Fog / heavy rain,near,-52,1,1,0,0,0
+Fog / heavy rain,near,-51,1,1,0,0,0
+Fog / heavy rain,near,-50,1,1,0,0,0
+Fog / heavy rain,near,-49,1,1,0,0,0
+Fog / heavy rain,near,-48,1,1,0,0,0
+Fog / heavy rain,near,-47,1,1,0,0,0
+Fog / heavy rain,near,-46,1,1,0,0,0
+Fog / heavy rain,near,-45,1,1,0,0,0
+Fog / heavy rain,near,-44,1,1,0,0,0
+Fog / heavy rain,near,-43,1,1,0,0,0
+Fog / heavy rain,near,-42,1,1,0,0,0
+Fog / heavy rain,near,-41,1,1,0,0,0
+Fog / heavy rain,near,-40,1,1,0,0,0
+Fog / heavy rain,near,-39,1,1,0,0,0
+Fog / heavy rain,near,-38,1,1,0,0,0
+Fog / heavy rain,near,-37,1,1,0,0,0
+Fog / heavy rain,near,-36,1,1,0,0,0
+Fog / heavy rain,near,-35,1,1,0,0,0
+Fog / heavy rain,near,-34,1,1,0,0,0
+Fog / heavy rain,near,-33,1,1,0,0,0
+Fog / heavy rain,near,-32,1,1,0,0,0
+Fog / heavy rain,near,-31,1,1,0,0,0
+Fog / heavy rain,near,-30,1,1,0,0,0
+Fog / heavy rain,near,-29,1,1,0,0,0
+Fog / heavy rain,near,-28,1,1,0,0,0
+Fog / heavy rain,near,-27,1,1,0,0,0
+Fog / heavy rain,near,-26,1,1,0,0,0
+Fog / heavy rain,near,-25,1,1,0,0,0
+Fog / heavy rain,near,-24,1,1,0,0,0
+Fog / heavy rain,near,-23,2,1,0,1,0
+Fog / heavy rain,near,-22,2,1,0,1,0
+Fog / heavy rain,near,-21,2,1,0,1,0
+Fog / heavy rain,near,-20,2,1,0,1,0
+Fog / heavy rain,near,-19,2,1,0,1,0
+Fog / heavy rain,near,-18,1,1,0,0,0
+Fog / heavy rain,near,-17,1,1,0,0,0
+Fog / heavy rain,near,-16,1,1,0,0,0
+Fog / heavy rain,near,-15,1,1,0,0,0
+Fog / heavy rain,near,-14,1,1,0,0,0
+Fog / heavy rain,near,-13,1,1,0,0,0
+Fog / heavy rain,near,-12,1,1,0,0,0
+Fog / heavy rain,near,-11,1,1,0,0,0
+Fog / heavy rain,near,-10,1,1,0,0,0
+Fog / heavy rain,near,-9,1,1,0,0,0
+Fog / heavy rain,near,-8,1,1,0,0,0
+Fog / heavy rain,near,-7,1,1,0,0,0
+Fog / heavy rain,near,-6,1,1,0,0,0
+Fog / heavy rain,near,-5,1,1,0,0,0
+Fog / heavy rain,near,-4,1,1,0,0,0
+Fog / heavy rain,near,-3,1,1,0,0,0
+Fog / heavy rain,near,-2,1,1,0,0,0
+Fog / heavy rain,near,-1,1,1,0,0,0
+Fog / heavy rain,near,0,1,1,0,0,0
+Fog / heavy rain,near,1,1,1,0,0,0
+Fog / heavy rain,near,2,1,1,0,0,0
+Fog / heavy rain,near,3,1,1,0,0,0
+Fog / heavy rain,near,4,1,1,0,0,0
+Fog / heavy rain,near,5,1,1,0,0,0
+Fog / heavy rain,near,6,1,1,0,0,0
+Fog / heavy rain,near,7,1,1,0,0,0
+Fog / heavy rain,near,8,1,1,0,0,0
+Fog / heavy rain,near,9,1,1,0,0,0
+Fog / heavy rain,near,10,1,1,0,0,0
+Fog / heavy rain,near,11,1,1,0,0,0
+Fog / heavy rain,near,12,1,1,0,0,0
+Fog / heavy rain,near,13,1,1,0,0,0
+Fog / heavy rain,near,14,1,1,0,0,0
+Fog / heavy rain,near,15,1,1,0,0,0
+Fog / heavy rain,near,16,1,1,0,0,0
+Fog / heavy rain,near,17,1,1,0,0,0
+Fog / heavy rain,near,18,1,1,0,0,0
+Fog / heavy rain,near,19,2,1,0,1,0
+Fog / heavy rain,near,20,2,1,0,1,0
+Fog / heavy rain,near,21,2,1,0,1,0
+Fog / heavy rain,near,22,2,1,0,1,0
+Fog / heavy rain,near,23,2,1,0,1,0
+Fog / heavy rain,near,24,1,1,0,0,0
+Fog / heavy rain,near,25,1,1,0,0,0
+Fog / heavy rain,near,26,1,1,0,0,0
+Fog / heavy rain,near,27,1,1,0,0,0
+Fog / heavy rain,near,28,1,1,0,0,0
+Fog / heavy rain,near,29,1,1,0,0,0
+Fog / heavy rain,near,30,1,1,0,0,0
+Fog / heavy rain,near,31,1,1,0,0,0
+Fog / heavy rain,near,32,1,1,0,0,0
+Fog / heavy rain,near,33,1,1,0,0,0
+Fog / heavy rain,near,34,1,1,0,0,0
+Fog / heavy rain,near,35,1,1,0,0,0
+Fog / heavy rain,near,36,1,1,0,0,0
+Fog / heavy rain,near,37,1,1,0,0,0
+Fog / heavy rain,near,38,1,1,0,0,0
+Fog / heavy rain,near,39,1,1,0,0,0
+Fog / heavy rain,near,40,1,1,0,0,0
+Fog / heavy rain,near,41,1,1,0,0,0
+Fog / heavy rain,near,42,1,1,0,0,0
+Fog / heavy rain,near,43,1,1,0,0,0
+Fog / heavy rain,near,44,1,1,0,0,0
+Fog / heavy rain,near,45,1,1,0,0,0
+Fog / heavy rain,near,46,1,1,0,0,0
+Fog / heavy rain,near,47,1,1,0,0,0
+Fog / heavy rain,near,48,1,1,0,0,0
+Fog / heavy rain,near,49,1,1,0,0,0
+Fog / heavy rain,near,50,1,1,0,0,0
+Fog / heavy rain,near,51,1,1,0,0,0
+Fog / heavy rain,near,52,1,1,0,0,0
+Fog / heavy rain,near,53,1,1,0,0,0
+Fog / heavy rain,near,54,1,1,0,0,0
+Fog / heavy rain,near,55,1,1,0,0,0
+Fog / heavy rain,near,56,1,1,0,0,0
+Fog / heavy rain,near,57,1,1,0,0,0
+Fog / heavy rain,near,58,1,1,0,0,0
+Fog / heavy rain,near,59,1,1,0,0,0
+Fog / heavy rain,near,60,1,1,0,0,0
+Fog / heavy rain,near,61,1,1,0,0,0
+Fog / heavy rain,near,62,1,1,0,0,0
+Fog / heavy rain,near,63,1,1,0,0,0
+Fog / heavy rain,near,64,1,1,0,0,0
+Fog / heavy rain,near,65,1,1,0,0,0
+Fog / heavy rain,near,66,1,1,0,0,0
+Fog / heavy rain,near,67,1,1,0,0,0
+Fog / heavy rain,near,68,1,1,0,0,0
+Fog / heavy rain,near,69,1,1,0,0,0
+Fog / heavy rain,near,70,1,1,0,0,0
+Fog / heavy rain,near,71,1,1,0,0,0
+Fog / heavy rain,near,72,1,1,0,0,0
+Fog / heavy rain,near,73,1,1,0,0,0
+Fog / heavy rain,near,74,1,1,0,0,0
+Fog / heavy rain,near,75,1,1,0,0,0
+Fog / heavy rain,near,76,1,1,0,0,0
+Fog / heavy rain,near,77,1,1,0,0,0
+Fog / heavy rain,near,78,1,1,0,0,0
+Fog / heavy rain,near,79,1,1,0,0,0
+Fog / heavy rain,near,80,1,1,0,0,0
+Fog / heavy rain,near,81,1,1,0,0,0
+Fog / heavy rain,near,82,1,1,0,0,0
+Fog / heavy rain,near,83,1,1,0,0,0
+Fog / heavy rain,near,84,1,1,0,0,0
+Fog / heavy rain,near,85,1,1,0,0,0
+Fog / heavy rain,near,86,1,1,0,0,0
+Fog / heavy rain,near,87,1,1,0,0,0
+Fog / heavy rain,near,88,1,1,0,0,0
+Fog / heavy rain,near,89,1,1,0,0,0
+Fog / heavy rain,near,90,1,1,0,0,0
+Fog / heavy rain,near,91,1,1,0,0,0
+Fog / heavy rain,near,92,1,1,0,0,0
+Fog / heavy rain,near,93,1,1,0,0,0
+Fog / heavy rain,near,94,1,1,0,0,0
+Fog / heavy rain,near,95,1,1,0,0,0
+Fog / heavy rain,near,96,1,1,0,0,0
+Fog / heavy rain,near,97,1,1,0,0,0
+Fog / heavy rain,near,98,1,1,0,0,0
+Fog / heavy rain,near,99,1,1,0,0,0
+Fog / heavy rain,near,100,1,1,0,0,0
+Fog / heavy rain,near,101,1,1,0,0,0
+Fog / heavy rain,near,102,1,1,0,0,0
+Fog / heavy rain,near,103,1,1,0,0,0
+Fog / heavy rain,near,104,1,1,0,0,0
+Fog / heavy rain,near,105,1,1,0,0,0
+Fog / heavy rain,near,106,1,1,0,0,0
+Fog / heavy rain,near,107,1,1,0,0,0
+Fog / heavy rain,near,108,1,1,0,0,0
+Fog / heavy rain,near,109,1,1,0,0,0
+Fog / heavy rain,near,110,1,1,0,0,0
+Fog / heavy rain,near,111,1,1,0,0,0
+Fog / heavy rain,near,112,1,1,0,0,0
+Fog / heavy rain,near,113,1,1,0,0,0
+Fog / heavy rain,near,114,1,1,0,0,0
+Fog / heavy rain,near,115,1,1,0,0,0
+Fog / heavy rain,near,116,1,1,0,0,0
+Fog / heavy rain,near,117,1,1,0,0,0
+Fog / heavy rain,near,118,1,1,0,0,0
+Fog / heavy rain,near,119,1,1,0,0,0
+Fog / heavy rain,near,120,1,1,0,0,0
+Fog / heavy rain,near,121,1,1,0,0,0
+Fog / heavy rain,near,122,1,1,0,0,0
+Fog / heavy rain,near,123,1,1,0,0,0
+Fog / heavy rain,near,124,1,1,0,0,0
+Fog / heavy rain,near,125,1,1,0,0,0
+Fog / heavy rain,near,126,1,1,0,0,0
+Fog / heavy rain,near,127,1,1,0,0,0
+Fog / heavy rain,near,128,1,1,0,0,0
+Fog / heavy rain,near,129,1,1,0,0,0
+Fog / heavy rain,near,130,1,1,0,0,0
+Fog / heavy rain,near,131,1,1,0,0,0
+Fog / heavy rain,near,132,1,1,0,0,0
+Fog / heavy rain,near,133,1,1,0,0,0
+Fog / heavy rain,near,134,1,1,0,0,0
+Fog / heavy rain,near,135,1,1,0,0,0
+Fog / heavy rain,near,136,1,1,0,0,0
+Fog / heavy rain,near,137,1,1,0,0,0
+Fog / heavy rain,near,138,1,1,0,0,0
+Fog / heavy rain,near,139,1,1,0,0,0
+Fog / heavy rain,near,140,1,1,0,0,0
+Fog / heavy rain,near,141,1,1,0,0,0
+Fog / heavy rain,near,142,1,1,0,0,0
+Fog / heavy rain,near,143,1,1,0,0,0
+Fog / heavy rain,near,144,1,1,0,0,0
+Fog / heavy rain,near,145,1,1,0,0,0
+Fog / heavy rain,near,146,1,1,0,0,0
+Fog / heavy rain,near,147,1,1,0,0,0
+Fog / heavy rain,near,148,1,1,0,0,0
+Fog / heavy rain,near,149,1,1,0,0,0
+Fog / heavy rain,near,150,1,1,0,0,0
+Fog / heavy rain,near,151,1,1,0,0,0
+Fog / heavy rain,near,152,1,1,0,0,0
+Fog / heavy rain,near,153,1,1,0,0,0
+Fog / heavy rain,near,154,1,1,0,0,0
+Fog / heavy rain,near,155,1,1,0,0,0
+Fog / heavy rain,near,156,1,1,0,0,0
+Fog / heavy rain,near,157,2,1,0,1,0
+Fog / heavy rain,near,158,2,1,0,1,0
+Fog / heavy rain,near,159,2,1,0,1,0
+Fog / heavy rain,near,160,2,1,0,1,0
+Fog / heavy rain,near,161,2,1,0,1,0
+Fog / heavy rain,near,162,1,1,0,0,0
+Fog / heavy rain,near,163,1,1,0,0,0
+Fog / heavy rain,near,164,1,1,0,0,0
+Fog / heavy rain,near,165,1,1,0,0,0
+Fog / heavy rain,near,166,1,1,0,0,0
+Fog / heavy rain,near,167,1,1,0,0,0
+Fog / heavy rain,near,168,1,1,0,0,0
+Fog / heavy rain,near,169,1,1,0,0,0
+Fog / heavy rain,near,170,1,1,0,0,0
+Fog / heavy rain,near,171,1,1,0,0,0
+Fog / heavy rain,near,172,1,1,0,0,0
+Fog / heavy rain,near,173,1,1,0,0,0
+Fog / heavy rain,near,174,1,1,0,0,0
+Fog / heavy rain,near,175,1,1,0,0,0
+Fog / heavy rain,near,176,1,1,0,0,0
+Fog / heavy rain,near,177,1,1,0,0,0
+Fog / heavy rain,near,178,1,1,0,0,0
+Fog / heavy rain,near,179,1,1,0,0,0
+Snow / glare / tunnel,car,-180,2,1,1,0,0
+Snow / glare / tunnel,car,-179,3,1,1,1,0
+Snow / glare / tunnel,car,-178,3,1,1,1,0
+Snow / glare / tunnel,car,-177,3,1,1,1,0
+Snow / glare / tunnel,car,-176,3,1,1,1,0
+Snow / glare / tunnel,car,-175,3,1,1,1,0
+Snow / glare / tunnel,car,-174,3,1,1,1,0
+Snow / glare / tunnel,car,-173,3,1,1,1,0
+Snow / glare / tunnel,car,-172,3,1,1,1,0
+Snow / glare / tunnel,car,-171,3,1,1,1,0
+Snow / glare / tunnel,car,-170,3,1,1,1,0
+Snow / glare / tunnel,car,-169,3,1,1,1,0
+Snow / glare / tunnel,car,-168,3,1,1,1,0
+Snow / glare / tunnel,car,-167,3,1,1,1,0
+Snow / glare / tunnel,car,-166,3,1,1,1,0
+Snow / glare / tunnel,car,-165,3,1,1,1,0
+Snow / glare / tunnel,car,-164,3,1,1,1,0
+Snow / glare / tunnel,car,-163,3,1,1,1,0
+Snow / glare / tunnel,car,-162,3,1,1,1,0
+Snow / glare / tunnel,car,-161,3,1,1,1,0
+Snow / glare / tunnel,car,-160,3,1,1,1,0
+Snow / glare / tunnel,car,-159,3,1,1,1,0
+Snow / glare / tunnel,car,-158,3,1,1,1,0
+Snow / glare / tunnel,car,-157,3,1,1,1,0
+Snow / glare / tunnel,car,-156,3,1,1,1,0
+Snow / glare / tunnel,car,-155,3,1,1,1,0
+Snow / glare / tunnel,car,-154,3,1,1,1,0
+Snow / glare / tunnel,car,-153,3,1,1,1,0
+Snow / glare / tunnel,car,-152,3,1,1,1,0
+Snow / glare / tunnel,car,-151,3,1,1,1,0
+Snow / glare / tunnel,car,-150,3,1,1,1,0
+Snow / glare / tunnel,car,-149,3,1,1,1,0
+Snow / glare / tunnel,car,-148,3,1,1,1,0
+Snow / glare / tunnel,car,-147,3,1,1,1,0
+Snow / glare / tunnel,car,-146,3,1,1,1,0
+Snow / glare / tunnel,car,-145,3,1,1,1,0
+Snow / glare / tunnel,car,-144,3,1,1,1,0
+Snow / glare / tunnel,car,-143,3,1,1,1,0
+Snow / glare / tunnel,car,-142,3,1,1,1,0
+Snow / glare / tunnel,car,-141,3,1,1,1,0
+Snow / glare / tunnel,car,-140,3,1,1,1,0
+Snow / glare / tunnel,car,-139,3,1,1,1,0
+Snow / glare / tunnel,car,-138,3,1,1,1,0
+Snow / glare / tunnel,car,-137,3,1,1,1,0
+Snow / glare / tunnel,car,-136,3,1,1,1,0
+Snow / glare / tunnel,car,-135,3,1,1,1,0
+Snow / glare / tunnel,car,-134,3,1,1,1,0
+Snow / glare / tunnel,car,-133,3,1,1,1,0
+Snow / glare / tunnel,car,-132,3,1,1,1,0
+Snow / glare / tunnel,car,-131,3,1,1,1,0
+Snow / glare / tunnel,car,-130,3,1,1,1,0
+Snow / glare / tunnel,car,-129,3,1,1,1,0
+Snow / glare / tunnel,car,-128,3,1,1,1,0
+Snow / glare / tunnel,car,-127,3,1,1,1,0
+Snow / glare / tunnel,car,-126,3,1,1,1,0
+Snow / glare / tunnel,car,-125,3,1,1,1,0
+Snow / glare / tunnel,car,-124,3,1,1,1,0
+Snow / glare / tunnel,car,-123,3,1,1,1,0
+Snow / glare / tunnel,car,-122,3,1,1,1,0
+Snow / glare / tunnel,car,-121,3,1,1,1,0
+Snow / glare / tunnel,car,-120,3,1,1,1,0
+Snow / glare / tunnel,car,-119,3,1,1,1,0
+Snow / glare / tunnel,car,-118,3,1,1,1,0
+Snow / glare / tunnel,car,-117,3,1,1,1,0
+Snow / glare / tunnel,car,-116,3,1,1,1,0
+Snow / glare / tunnel,car,-115,3,1,1,1,0
+Snow / glare / tunnel,car,-114,3,1,1,1,0
+Snow / glare / tunnel,car,-113,3,1,1,1,0
+Snow / glare / tunnel,car,-112,3,1,1,1,0
+Snow / glare / tunnel,car,-111,3,1,1,1,0
+Snow / glare / tunnel,car,-110,3,1,1,1,0
+Snow / glare / tunnel,car,-109,3,1,1,1,0
+Snow / glare / tunnel,car,-108,3,1,1,1,0
+Snow / glare / tunnel,car,-107,3,1,1,1,0
+Snow / glare / tunnel,car,-106,3,1,1,1,0
+Snow / glare / tunnel,car,-105,3,1,1,1,0
+Snow / glare / tunnel,car,-104,3,1,1,1,0
+Snow / glare / tunnel,car,-103,3,1,1,1,0
+Snow / glare / tunnel,car,-102,3,1,1,1,0
+Snow / glare / tunnel,car,-101,3,1,1,1,0
+Snow / glare / tunnel,car,-100,3,1,1,1,0
+Snow / glare / tunnel,car,-99,3,1,1,1,0
+Snow / glare / tunnel,car,-98,3,1,1,1,0
+Snow / glare / tunnel,car,-97,3,1,1,1,0
+Snow / glare / tunnel,car,-96,3,1,1,1,0
+Snow / glare / tunnel,car,-95,3,1,1,1,0
+Snow / glare / tunnel,car,-94,3,1,1,1,0
+Snow / glare / tunnel,car,-93,3,1,1,1,0
+Snow / glare / tunnel,car,-92,3,1,1,1,0
+Snow / glare / tunnel,car,-91,3,1,1,1,0
+Snow / glare / tunnel,car,-90,3,1,1,1,0
+Snow / glare / tunnel,car,-89,3,1,1,1,0
+Snow / glare / tunnel,car,-88,3,1,1,1,0
+Snow / glare / tunnel,car,-87,3,1,1,1,0
+Snow / glare / tunnel,car,-86,3,1,1,1,0
+Snow / glare / tunnel,car,-85,3,1,1,1,0
+Snow / glare / tunnel,car,-84,3,1,1,1,0
+Snow / glare / tunnel,car,-83,3,1,1,1,0
+Snow / glare / tunnel,car,-82,3,1,1,1,0
+Snow / glare / tunnel,car,-81,3,1,1,1,0
+Snow / glare / tunnel,car,-80,3,1,1,1,0
+Snow / glare / tunnel,car,-79,3,1,1,1,0
+Snow / glare / tunnel,car,-78,3,1,1,1,0
+Snow / glare / tunnel,car,-77,3,1,1,1,0
+Snow / glare / tunnel,car,-76,3,1,1,1,0
+Snow / glare / tunnel,car,-75,3,1,1,1,0
+Snow / glare / tunnel,car,-74,3,1,1,1,0
+Snow / glare / tunnel,car,-73,3,1,1,1,0
+Snow / glare / tunnel,car,-72,3,1,1,1,0
+Snow / glare / tunnel,car,-71,3,1,1,1,0
+Snow / glare / tunnel,car,-70,3,1,1,1,0
+Snow / glare / tunnel,car,-69,3,1,1,1,0
+Snow / glare / tunnel,car,-68,3,1,1,1,0
+Snow / glare / tunnel,car,-67,3,1,1,1,0
+Snow / glare / tunnel,car,-66,3,1,1,1,0
+Snow / glare / tunnel,car,-65,3,1,1,1,0
+Snow / glare / tunnel,car,-64,3,1,1,1,0
+Snow / glare / tunnel,car,-63,3,1,1,1,0
+Snow / glare / tunnel,car,-62,3,1,1,1,0
+Snow / glare / tunnel,car,-61,3,1,1,1,0
+Snow / glare / tunnel,car,-60,3,1,1,1,0
+Snow / glare / tunnel,car,-59,3,1,1,1,0
+Snow / glare / tunnel,car,-58,3,1,1,1,0
+Snow / glare / tunnel,car,-57,3,1,1,1,0
+Snow / glare / tunnel,car,-56,3,1,1,1,0
+Snow / glare / tunnel,car,-55,3,1,1,1,0
+Snow / glare / tunnel,car,-54,3,1,1,1,0
+Snow / glare / tunnel,car,-53,3,1,1,1,0
+Snow / glare / tunnel,car,-52,3,1,1,1,0
+Snow / glare / tunnel,car,-51,3,1,1,1,0
+Snow / glare / tunnel,car,-50,3,1,1,1,0
+Snow / glare / tunnel,car,-49,3,1,1,1,0
+Snow / glare / tunnel,car,-48,3,1,1,1,0
+Snow / glare / tunnel,car,-47,3,1,1,1,0
+Snow / glare / tunnel,car,-46,3,1,1,1,0
+Snow / glare / tunnel,car,-45,3,1,1,1,0
+Snow / glare / tunnel,car,-44,3,1,1,1,0
+Snow / glare / tunnel,car,-43,3,1,1,1,0
+Snow / glare / tunnel,car,-42,3,1,1,1,0
+Snow / glare / tunnel,car,-41,3,1,1,1,0
+Snow / glare / tunnel,car,-40,3,1,1,1,0
+Snow / glare / tunnel,car,-39,3,1,1,1,0
+Snow / glare / tunnel,car,-38,3,1,1,1,0
+Snow / glare / tunnel,car,-37,3,1,1,1,0
+Snow / glare / tunnel,car,-36,3,1,1,1,0
+Snow / glare / tunnel,car,-35,3,1,1,1,0
+Snow / glare / tunnel,car,-34,3,1,1,1,0
+Snow / glare / tunnel,car,-33,3,1,1,1,0
+Snow / glare / tunnel,car,-32,3,1,1,1,0
+Snow / glare / tunnel,car,-31,3,1,1,1,0
+Snow / glare / tunnel,car,-30,3,1,1,1,0
+Snow / glare / tunnel,car,-29,3,1,1,1,0
+Snow / glare / tunnel,car,-28,3,1,1,1,0
+Snow / glare / tunnel,car,-27,3,1,1,1,0
+Snow / glare / tunnel,car,-26,3,1,1,1,0
+Snow / glare / tunnel,car,-25,3,1,1,1,0
+Snow / glare / tunnel,car,-24,3,1,1,1,0
+Snow / glare / tunnel,car,-23,3,1,1,1,0
+Snow / glare / tunnel,car,-22,3,1,1,1,0
+Snow / glare / tunnel,car,-21,3,1,1,1,0
+Snow / glare / tunnel,car,-20,3,1,1,1,0
+Snow / glare / tunnel,car,-19,3,1,1,1,0
+Snow / glare / tunnel,car,-18,3,1,1,1,0
+Snow / glare / tunnel,car,-17,3,1,1,1,0
+Snow / glare / tunnel,car,-16,3,1,1,1,0
+Snow / glare / tunnel,car,-15,3,1,1,1,0
+Snow / glare / tunnel,car,-14,3,1,1,1,0
+Snow / glare / tunnel,car,-13,3,1,1,1,0
+Snow / glare / tunnel,car,-12,3,1,1,1,0
+Snow / glare / tunnel,car,-11,3,1,1,1,0
+Snow / glare / tunnel,car,-10,1,1,0,0,0
+Snow / glare / tunnel,car,-9,1,1,0,0,0
+Snow / glare / tunnel,car,-8,1,1,0,0,0
+Snow / glare / tunnel,car,-7,1,1,0,0,0
+Snow / glare / tunnel,car,-6,1,1,0,0,0
+Snow / glare / tunnel,car,-5,1,1,0,0,0
+Snow / glare / tunnel,car,-4,1,1,0,0,0
+Snow / glare / tunnel,car,-3,1,1,0,0,0
+Snow / glare / tunnel,car,-2,1,1,0,0,0
+Snow / glare / tunnel,car,-1,1,1,0,0,0
+Snow / glare / tunnel,car,0,1,1,0,0,0
+Snow / glare / tunnel,car,1,1,1,0,0,0
+Snow / glare / tunnel,car,2,1,1,0,0,0
+Snow / glare / tunnel,car,3,1,1,0,0,0
+Snow / glare / tunnel,car,4,1,1,0,0,0
+Snow / glare / tunnel,car,5,1,1,0,0,0
+Snow / glare / tunnel,car,6,1,1,0,0,0
+Snow / glare / tunnel,car,7,1,1,0,0,0
+Snow / glare / tunnel,car,8,1,1,0,0,0
+Snow / glare / tunnel,car,9,1,1,0,0,0
+Snow / glare / tunnel,car,10,1,1,0,0,0
+Snow / glare / tunnel,car,11,3,1,1,1,0
+Snow / glare / tunnel,car,12,3,1,1,1,0
+Snow / glare / tunnel,car,13,3,1,1,1,0
+Snow / glare / tunnel,car,14,3,1,1,1,0
+Snow / glare / tunnel,car,15,3,1,1,1,0
+Snow / glare / tunnel,car,16,3,1,1,1,0
+Snow / glare / tunnel,car,17,3,1,1,1,0
+Snow / glare / tunnel,car,18,3,1,1,1,0
+Snow / glare / tunnel,car,19,3,1,1,1,0
+Snow / glare / tunnel,car,20,3,1,1,1,0
+Snow / glare / tunnel,car,21,3,1,1,1,0
+Snow / glare / tunnel,car,22,3,1,1,1,0
+Snow / glare / tunnel,car,23,3,1,1,1,0
+Snow / glare / tunnel,car,24,3,1,1,1,0
+Snow / glare / tunnel,car,25,3,1,1,1,0
+Snow / glare / tunnel,car,26,3,1,1,1,0
+Snow / glare / tunnel,car,27,3,1,1,1,0
+Snow / glare / tunnel,car,28,3,1,1,1,0
+Snow / glare / tunnel,car,29,3,1,1,1,0
+Snow / glare / tunnel,car,30,3,1,1,1,0
+Snow / glare / tunnel,car,31,3,1,1,1,0
+Snow / glare / tunnel,car,32,3,1,1,1,0
+Snow / glare / tunnel,car,33,3,1,1,1,0
+Snow / glare / tunnel,car,34,3,1,1,1,0
+Snow / glare / tunnel,car,35,3,1,1,1,0
+Snow / glare / tunnel,car,36,3,1,1,1,0
+Snow / glare / tunnel,car,37,3,1,1,1,0
+Snow / glare / tunnel,car,38,3,1,1,1,0
+Snow / glare / tunnel,car,39,3,1,1,1,0
+Snow / glare / tunnel,car,40,3,1,1,1,0
+Snow / glare / tunnel,car,41,3,1,1,1,0
+Snow / glare / tunnel,car,42,3,1,1,1,0
+Snow / glare / tunnel,car,43,3,1,1,1,0
+Snow / glare / tunnel,car,44,3,1,1,1,0
+Snow / glare / tunnel,car,45,3,1,1,1,0
+Snow / glare / tunnel,car,46,3,1,1,1,0
+Snow / glare / tunnel,car,47,3,1,1,1,0
+Snow / glare / tunnel,car,48,3,1,1,1,0
+Snow / glare / tunnel,car,49,3,1,1,1,0
+Snow / glare / tunnel,car,50,3,1,1,1,0
+Snow / glare / tunnel,car,51,3,1,1,1,0
+Snow / glare / tunnel,car,52,3,1,1,1,0
+Snow / glare / tunnel,car,53,3,1,1,1,0
+Snow / glare / tunnel,car,54,3,1,1,1,0
+Snow / glare / tunnel,car,55,3,1,1,1,0
+Snow / glare / tunnel,car,56,3,1,1,1,0
+Snow / glare / tunnel,car,57,3,1,1,1,0
+Snow / glare / tunnel,car,58,3,1,1,1,0
+Snow / glare / tunnel,car,59,3,1,1,1,0
+Snow / glare / tunnel,car,60,3,1,1,1,0
+Snow / glare / tunnel,car,61,3,1,1,1,0
+Snow / glare / tunnel,car,62,3,1,1,1,0
+Snow / glare / tunnel,car,63,3,1,1,1,0
+Snow / glare / tunnel,car,64,3,1,1,1,0
+Snow / glare / tunnel,car,65,3,1,1,1,0
+Snow / glare / tunnel,car,66,3,1,1,1,0
+Snow / glare / tunnel,car,67,3,1,1,1,0
+Snow / glare / tunnel,car,68,3,1,1,1,0
+Snow / glare / tunnel,car,69,3,1,1,1,0
+Snow / glare / tunnel,car,70,3,1,1,1,0
+Snow / glare / tunnel,car,71,3,1,1,1,0
+Snow / glare / tunnel,car,72,3,1,1,1,0
+Snow / glare / tunnel,car,73,3,1,1,1,0
+Snow / glare / tunnel,car,74,3,1,1,1,0
+Snow / glare / tunnel,car,75,3,1,1,1,0
+Snow / glare / tunnel,car,76,3,1,1,1,0
+Snow / glare / tunnel,car,77,3,1,1,1,0
+Snow / glare / tunnel,car,78,3,1,1,1,0
+Snow / glare / tunnel,car,79,3,1,1,1,0
+Snow / glare / tunnel,car,80,3,1,1,1,0
+Snow / glare / tunnel,car,81,3,1,1,1,0
+Snow / glare / tunnel,car,82,3,1,1,1,0
+Snow / glare / tunnel,car,83,3,1,1,1,0
+Snow / glare / tunnel,car,84,3,1,1,1,0
+Snow / glare / tunnel,car,85,3,1,1,1,0
+Snow / glare / tunnel,car,86,3,1,1,1,0
+Snow / glare / tunnel,car,87,3,1,1,1,0
+Snow / glare / tunnel,car,88,3,1,1,1,0
+Snow / glare / tunnel,car,89,3,1,1,1,0
+Snow / glare / tunnel,car,90,3,1,1,1,0
+Snow / glare / tunnel,car,91,3,1,1,1,0
+Snow / glare / tunnel,car,92,3,1,1,1,0
+Snow / glare / tunnel,car,93,3,1,1,1,0
+Snow / glare / tunnel,car,94,3,1,1,1,0
+Snow / glare / tunnel,car,95,3,1,1,1,0
+Snow / glare / tunnel,car,96,3,1,1,1,0
+Snow / glare / tunnel,car,97,3,1,1,1,0
+Snow / glare / tunnel,car,98,3,1,1,1,0
+Snow / glare / tunnel,car,99,3,1,1,1,0
+Snow / glare / tunnel,car,100,3,1,1,1,0
+Snow / glare / tunnel,car,101,3,1,1,1,0
+Snow / glare / tunnel,car,102,3,1,1,1,0
+Snow / glare / tunnel,car,103,3,1,1,1,0
+Snow / glare / tunnel,car,104,3,1,1,1,0
+Snow / glare / tunnel,car,105,3,1,1,1,0
+Snow / glare / tunnel,car,106,3,1,1,1,0
+Snow / glare / tunnel,car,107,3,1,1,1,0
+Snow / glare / tunnel,car,108,3,1,1,1,0
+Snow / glare / tunnel,car,109,3,1,1,1,0
+Snow / glare / tunnel,car,110,3,1,1,1,0
+Snow / glare / tunnel,car,111,3,1,1,1,0
+Snow / glare / tunnel,car,112,3,1,1,1,0
+Snow / glare / tunnel,car,113,3,1,1,1,0
+Snow / glare / tunnel,car,114,3,1,1,1,0
+Snow / glare / tunnel,car,115,3,1,1,1,0
+Snow / glare / tunnel,car,116,3,1,1,1,0
+Snow / glare / tunnel,car,117,3,1,1,1,0
+Snow / glare / tunnel,car,118,3,1,1,1,0
+Snow / glare / tunnel,car,119,3,1,1,1,0
+Snow / glare / tunnel,car,120,3,1,1,1,0
+Snow / glare / tunnel,car,121,3,1,1,1,0
+Snow / glare / tunnel,car,122,3,1,1,1,0
+Snow / glare / tunnel,car,123,3,1,1,1,0
+Snow / glare / tunnel,car,124,3,1,1,1,0
+Snow / glare / tunnel,car,125,3,1,1,1,0
+Snow / glare / tunnel,car,126,3,1,1,1,0
+Snow / glare / tunnel,car,127,3,1,1,1,0
+Snow / glare / tunnel,car,128,3,1,1,1,0
+Snow / glare / tunnel,car,129,3,1,1,1,0
+Snow / glare / tunnel,car,130,3,1,1,1,0
+Snow / glare / tunnel,car,131,3,1,1,1,0
+Snow / glare / tunnel,car,132,3,1,1,1,0
+Snow / glare / tunnel,car,133,3,1,1,1,0
+Snow / glare / tunnel,car,134,3,1,1,1,0
+Snow / glare / tunnel,car,135,3,1,1,1,0
+Snow / glare / tunnel,car,136,3,1,1,1,0
+Snow / glare / tunnel,car,137,3,1,1,1,0
+Snow / glare / tunnel,car,138,3,1,1,1,0
+Snow / glare / tunnel,car,139,3,1,1,1,0
+Snow / glare / tunnel,car,140,3,1,1,1,0
+Snow / glare / tunnel,car,141,3,1,1,1,0
+Snow / glare / tunnel,car,142,3,1,1,1,0
+Snow / glare / tunnel,car,143,3,1,1,1,0
+Snow / glare / tunnel,car,144,3,1,1,1,0
+Snow / glare / tunnel,car,145,3,1,1,1,0
+Snow / glare / tunnel,car,146,3,1,1,1,0
+Snow / glare / tunnel,car,147,3,1,1,1,0
+Snow / glare / tunnel,car,148,3,1,1,1,0
+Snow / glare / tunnel,car,149,3,1,1,1,0
+Snow / glare / tunnel,car,150,3,1,1,1,0
+Snow / glare / tunnel,car,151,3,1,1,1,0
+Snow / glare / tunnel,car,152,3,1,1,1,0
+Snow / glare / tunnel,car,153,3,1,1,1,0
+Snow / glare / tunnel,car,154,3,1,1,1,0
+Snow / glare / tunnel,car,155,3,1,1,1,0
+Snow / glare / tunnel,car,156,3,1,1,1,0
+Snow / glare / tunnel,car,157,3,1,1,1,0
+Snow / glare / tunnel,car,158,3,1,1,1,0
+Snow / glare / tunnel,car,159,3,1,1,1,0
+Snow / glare / tunnel,car,160,3,1,1,1,0
+Snow / glare / tunnel,car,161,3,1,1,1,0
+Snow / glare / tunnel,car,162,3,1,1,1,0
+Snow / glare / tunnel,car,163,3,1,1,1,0
+Snow / glare / tunnel,car,164,3,1,1,1,0
+Snow / glare / tunnel,car,165,3,1,1,1,0
+Snow / glare / tunnel,car,166,3,1,1,1,0
+Snow / glare / tunnel,car,167,3,1,1,1,0
+Snow / glare / tunnel,car,168,3,1,1,1,0
+Snow / glare / tunnel,car,169,3,1,1,1,0
+Snow / glare / tunnel,car,170,3,1,1,1,0
+Snow / glare / tunnel,car,171,3,1,1,1,0
+Snow / glare / tunnel,car,172,3,1,1,1,0
+Snow / glare / tunnel,car,173,3,1,1,1,0
+Snow / glare / tunnel,car,174,3,1,1,1,0
+Snow / glare / tunnel,car,175,3,1,1,1,0
+Snow / glare / tunnel,car,176,3,1,1,1,0
+Snow / glare / tunnel,car,177,3,1,1,1,0
+Snow / glare / tunnel,car,178,3,1,1,1,0
+Snow / glare / tunnel,car,179,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-180,2,1,1,0,0
+Snow / glare / tunnel,pedestrian,-179,2,1,1,0,0
+Snow / glare / tunnel,pedestrian,-178,2,1,1,0,0
+Snow / glare / tunnel,pedestrian,-177,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-176,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-175,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-174,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-173,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-172,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-171,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-170,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-169,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-168,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-167,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-166,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-165,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-164,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-163,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-162,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-161,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-160,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-159,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-158,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-157,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-156,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-155,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-154,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-153,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-152,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-151,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-150,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-149,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-148,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-147,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-146,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-145,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-144,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-143,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-142,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-141,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-140,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-139,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-138,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-137,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-136,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-135,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-134,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-133,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-132,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-131,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-130,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-129,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-128,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-127,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-126,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-125,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-124,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-123,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-122,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-121,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-120,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-119,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-118,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-117,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-116,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-115,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-114,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-113,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-112,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-111,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-110,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-109,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-108,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-107,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-106,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-105,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-104,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-103,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-102,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-101,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-100,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-99,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-98,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-97,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-96,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-95,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-94,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-93,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-92,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-91,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-90,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-89,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-88,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-87,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-86,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-85,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-84,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-83,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-82,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-81,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-80,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-79,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-78,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-77,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-76,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-75,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-74,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-73,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-72,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-71,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-70,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-69,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-68,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-67,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-66,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-65,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-64,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-63,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-62,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-61,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-60,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-59,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-58,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-57,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-56,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-55,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-54,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-53,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-52,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-51,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-50,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-49,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-48,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-47,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-46,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-45,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-44,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-43,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-42,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-41,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-40,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-39,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-38,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-37,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-36,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-35,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-34,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-33,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-32,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-31,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-30,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-29,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-28,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-27,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-26,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-25,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-24,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-23,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-22,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-21,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-20,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-19,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-18,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-17,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-16,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,-15,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-14,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-13,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-12,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-11,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-10,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-9,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-8,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-7,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-6,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-5,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-4,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-3,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-2,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,-1,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,0,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,1,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,2,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,3,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,4,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,5,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,6,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,7,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,8,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,9,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,10,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,11,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,12,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,13,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,14,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,15,4,1,1,1,1
+Snow / glare / tunnel,pedestrian,16,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,17,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,18,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,19,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,20,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,21,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,22,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,23,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,24,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,25,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,26,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,27,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,28,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,29,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,30,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,31,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,32,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,33,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,34,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,35,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,36,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,37,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,38,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,39,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,40,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,41,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,42,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,43,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,44,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,45,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,46,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,47,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,48,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,49,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,50,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,51,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,52,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,53,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,54,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,55,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,56,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,57,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,58,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,59,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,60,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,61,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,62,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,63,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,64,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,65,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,66,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,67,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,68,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,69,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,70,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,71,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,72,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,73,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,74,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,75,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,76,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,77,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,78,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,79,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,80,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,81,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,82,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,83,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,84,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,85,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,86,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,87,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,88,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,89,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,90,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,91,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,92,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,93,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,94,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,95,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,96,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,97,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,98,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,99,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,100,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,101,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,102,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,103,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,104,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,105,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,106,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,107,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,108,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,109,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,110,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,111,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,112,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,113,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,114,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,115,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,116,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,117,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,118,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,119,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,120,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,121,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,122,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,123,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,124,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,125,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,126,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,127,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,128,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,129,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,130,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,131,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,132,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,133,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,134,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,135,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,136,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,137,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,138,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,139,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,140,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,141,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,142,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,143,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,144,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,145,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,146,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,147,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,148,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,149,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,150,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,151,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,152,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,153,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,154,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,155,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,156,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,157,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,158,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,159,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,160,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,161,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,162,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,163,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,164,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,165,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,166,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,167,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,168,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,169,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,170,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,171,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,172,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,173,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,174,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,175,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,176,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,177,3,1,1,1,0
+Snow / glare / tunnel,pedestrian,178,2,1,1,0,0
+Snow / glare / tunnel,pedestrian,179,2,1,1,0,0
+Snow / glare / tunnel,near,-180,1,1,0,0,0
+Snow / glare / tunnel,near,-179,1,1,0,0,0
+Snow / glare / tunnel,near,-178,1,1,0,0,0
+Snow / glare / tunnel,near,-177,1,1,0,0,0
+Snow / glare / tunnel,near,-176,1,1,0,0,0
+Snow / glare / tunnel,near,-175,1,1,0,0,0
+Snow / glare / tunnel,near,-174,1,1,0,0,0
+Snow / glare / tunnel,near,-173,1,1,0,0,0
+Snow / glare / tunnel,near,-172,1,1,0,0,0
+Snow / glare / tunnel,near,-171,1,1,0,0,0
+Snow / glare / tunnel,near,-170,1,1,0,0,0
+Snow / glare / tunnel,near,-169,1,1,0,0,0
+Snow / glare / tunnel,near,-168,1,1,0,0,0
+Snow / glare / tunnel,near,-167,1,1,0,0,0
+Snow / glare / tunnel,near,-166,1,1,0,0,0
+Snow / glare / tunnel,near,-165,1,1,0,0,0
+Snow / glare / tunnel,near,-164,1,1,0,0,0
+Snow / glare / tunnel,near,-163,1,1,0,0,0
+Snow / glare / tunnel,near,-162,1,1,0,0,0
+Snow / glare / tunnel,near,-161,2,1,0,1,0
+Snow / glare / tunnel,near,-160,2,1,0,1,0
+Snow / glare / tunnel,near,-159,2,1,0,1,0
+Snow / glare / tunnel,near,-158,2,1,0,1,0
+Snow / glare / tunnel,near,-157,2,1,0,1,0
+Snow / glare / tunnel,near,-156,1,1,0,0,0
+Snow / glare / tunnel,near,-155,1,1,0,0,0
+Snow / glare / tunnel,near,-154,1,1,0,0,0
+Snow / glare / tunnel,near,-153,1,1,0,0,0
+Snow / glare / tunnel,near,-152,1,1,0,0,0
+Snow / glare / tunnel,near,-151,1,1,0,0,0
+Snow / glare / tunnel,near,-150,1,1,0,0,0
+Snow / glare / tunnel,near,-149,1,1,0,0,0
+Snow / glare / tunnel,near,-148,1,1,0,0,0
+Snow / glare / tunnel,near,-147,1,1,0,0,0
+Snow / glare / tunnel,near,-146,1,1,0,0,0
+Snow / glare / tunnel,near,-145,1,1,0,0,0
+Snow / glare / tunnel,near,-144,1,1,0,0,0
+Snow / glare / tunnel,near,-143,1,1,0,0,0
+Snow / glare / tunnel,near,-142,1,1,0,0,0
+Snow / glare / tunnel,near,-141,1,1,0,0,0
+Snow / glare / tunnel,near,-140,1,1,0,0,0
+Snow / glare / tunnel,near,-139,1,1,0,0,0
+Snow / glare / tunnel,near,-138,1,1,0,0,0
+Snow / glare / tunnel,near,-137,1,1,0,0,0
+Snow / glare / tunnel,near,-136,1,1,0,0,0
+Snow / glare / tunnel,near,-135,1,1,0,0,0
+Snow / glare / tunnel,near,-134,1,1,0,0,0
+Snow / glare / tunnel,near,-133,1,1,0,0,0
+Snow / glare / tunnel,near,-132,1,1,0,0,0
+Snow / glare / tunnel,near,-131,1,1,0,0,0
+Snow / glare / tunnel,near,-130,1,1,0,0,0
+Snow / glare / tunnel,near,-129,1,1,0,0,0
+Snow / glare / tunnel,near,-128,1,1,0,0,0
+Snow / glare / tunnel,near,-127,1,1,0,0,0
+Snow / glare / tunnel,near,-126,1,1,0,0,0
+Snow / glare / tunnel,near,-125,1,1,0,0,0
+Snow / glare / tunnel,near,-124,1,1,0,0,0
+Snow / glare / tunnel,near,-123,1,1,0,0,0
+Snow / glare / tunnel,near,-122,1,1,0,0,0
+Snow / glare / tunnel,near,-121,1,1,0,0,0
+Snow / glare / tunnel,near,-120,1,1,0,0,0
+Snow / glare / tunnel,near,-119,1,1,0,0,0
+Snow / glare / tunnel,near,-118,1,1,0,0,0
+Snow / glare / tunnel,near,-117,1,1,0,0,0
+Snow / glare / tunnel,near,-116,1,1,0,0,0
+Snow / glare / tunnel,near,-115,1,1,0,0,0
+Snow / glare / tunnel,near,-114,1,1,0,0,0
+Snow / glare / tunnel,near,-113,1,1,0,0,0
+Snow / glare / tunnel,near,-112,1,1,0,0,0
+Snow / glare / tunnel,near,-111,1,1,0,0,0
+Snow / glare / tunnel,near,-110,1,1,0,0,0
+Snow / glare / tunnel,near,-109,1,1,0,0,0
+Snow / glare / tunnel,near,-108,1,1,0,0,0
+Snow / glare / tunnel,near,-107,1,1,0,0,0
+Snow / glare / tunnel,near,-106,1,1,0,0,0
+Snow / glare / tunnel,near,-105,1,1,0,0,0
+Snow / glare / tunnel,near,-104,1,1,0,0,0
+Snow / glare / tunnel,near,-103,1,1,0,0,0
+Snow / glare / tunnel,near,-102,1,1,0,0,0
+Snow / glare / tunnel,near,-101,1,1,0,0,0
+Snow / glare / tunnel,near,-100,1,1,0,0,0
+Snow / glare / tunnel,near,-99,1,1,0,0,0
+Snow / glare / tunnel,near,-98,1,1,0,0,0
+Snow / glare / tunnel,near,-97,1,1,0,0,0
+Snow / glare / tunnel,near,-96,1,1,0,0,0
+Snow / glare / tunnel,near,-95,1,1,0,0,0
+Snow / glare / tunnel,near,-94,1,1,0,0,0
+Snow / glare / tunnel,near,-93,1,1,0,0,0
+Snow / glare / tunnel,near,-92,1,1,0,0,0
+Snow / glare / tunnel,near,-91,1,1,0,0,0
+Snow / glare / tunnel,near,-90,1,1,0,0,0
+Snow / glare / tunnel,near,-89,1,1,0,0,0
+Snow / glare / tunnel,near,-88,1,1,0,0,0
+Snow / glare / tunnel,near,-87,1,1,0,0,0
+Snow / glare / tunnel,near,-86,1,1,0,0,0
+Snow / glare / tunnel,near,-85,1,1,0,0,0
+Snow / glare / tunnel,near,-84,1,1,0,0,0
+Snow / glare / tunnel,near,-83,1,1,0,0,0
+Snow / glare / tunnel,near,-82,1,1,0,0,0
+Snow / glare / tunnel,near,-81,1,1,0,0,0
+Snow / glare / tunnel,near,-80,1,1,0,0,0
+Snow / glare / tunnel,near,-79,1,1,0,0,0
+Snow / glare / tunnel,near,-78,1,1,0,0,0
+Snow / glare / tunnel,near,-77,1,1,0,0,0
+Snow / glare / tunnel,near,-76,1,1,0,0,0
+Snow / glare / tunnel,near,-75,1,1,0,0,0
+Snow / glare / tunnel,near,-74,1,1,0,0,0
+Snow / glare / tunnel,near,-73,1,1,0,0,0
+Snow / glare / tunnel,near,-72,1,1,0,0,0
+Snow / glare / tunnel,near,-71,1,1,0,0,0
+Snow / glare / tunnel,near,-70,1,1,0,0,0
+Snow / glare / tunnel,near,-69,1,1,0,0,0
+Snow / glare / tunnel,near,-68,1,1,0,0,0
+Snow / glare / tunnel,near,-67,1,1,0,0,0
+Snow / glare / tunnel,near,-66,1,1,0,0,0
+Snow / glare / tunnel,near,-65,1,1,0,0,0
+Snow / glare / tunnel,near,-64,1,1,0,0,0
+Snow / glare / tunnel,near,-63,1,1,0,0,0
+Snow / glare / tunnel,near,-62,1,1,0,0,0
+Snow / glare / tunnel,near,-61,1,1,0,0,0
+Snow / glare / tunnel,near,-60,1,1,0,0,0
+Snow / glare / tunnel,near,-59,1,1,0,0,0
+Snow / glare / tunnel,near,-58,1,1,0,0,0
+Snow / glare / tunnel,near,-57,1,1,0,0,0
+Snow / glare / tunnel,near,-56,1,1,0,0,0
+Snow / glare / tunnel,near,-55,1,1,0,0,0
+Snow / glare / tunnel,near,-54,1,1,0,0,0
+Snow / glare / tunnel,near,-53,1,1,0,0,0
+Snow / glare / tunnel,near,-52,1,1,0,0,0
+Snow / glare / tunnel,near,-51,1,1,0,0,0
+Snow / glare / tunnel,near,-50,1,1,0,0,0
+Snow / glare / tunnel,near,-49,1,1,0,0,0
+Snow / glare / tunnel,near,-48,1,1,0,0,0
+Snow / glare / tunnel,near,-47,1,1,0,0,0
+Snow / glare / tunnel,near,-46,1,1,0,0,0
+Snow / glare / tunnel,near,-45,1,1,0,0,0
+Snow / glare / tunnel,near,-44,1,1,0,0,0
+Snow / glare / tunnel,near,-43,1,1,0,0,0
+Snow / glare / tunnel,near,-42,1,1,0,0,0
+Snow / glare / tunnel,near,-41,1,1,0,0,0
+Snow / glare / tunnel,near,-40,1,1,0,0,0
+Snow / glare / tunnel,near,-39,1,1,0,0,0
+Snow / glare / tunnel,near,-38,1,1,0,0,0
+Snow / glare / tunnel,near,-37,1,1,0,0,0
+Snow / glare / tunnel,near,-36,1,1,0,0,0
+Snow / glare / tunnel,near,-35,1,1,0,0,0
+Snow / glare / tunnel,near,-34,1,1,0,0,0
+Snow / glare / tunnel,near,-33,1,1,0,0,0
+Snow / glare / tunnel,near,-32,1,1,0,0,0
+Snow / glare / tunnel,near,-31,1,1,0,0,0
+Snow / glare / tunnel,near,-30,1,1,0,0,0
+Snow / glare / tunnel,near,-29,1,1,0,0,0
+Snow / glare / tunnel,near,-28,1,1,0,0,0
+Snow / glare / tunnel,near,-27,1,1,0,0,0
+Snow / glare / tunnel,near,-26,1,1,0,0,0
+Snow / glare / tunnel,near,-25,1,1,0,0,0
+Snow / glare / tunnel,near,-24,1,1,0,0,0
+Snow / glare / tunnel,near,-23,2,1,0,1,0
+Snow / glare / tunnel,near,-22,2,1,0,1,0
+Snow / glare / tunnel,near,-21,2,1,0,1,0
+Snow / glare / tunnel,near,-20,2,1,0,1,0
+Snow / glare / tunnel,near,-19,2,1,0,1,0
+Snow / glare / tunnel,near,-18,1,1,0,0,0
+Snow / glare / tunnel,near,-17,1,1,0,0,0
+Snow / glare / tunnel,near,-16,1,1,0,0,0
+Snow / glare / tunnel,near,-15,1,1,0,0,0
+Snow / glare / tunnel,near,-14,1,1,0,0,0
+Snow / glare / tunnel,near,-13,1,1,0,0,0
+Snow / glare / tunnel,near,-12,1,1,0,0,0
+Snow / glare / tunnel,near,-11,1,1,0,0,0
+Snow / glare / tunnel,near,-10,1,1,0,0,0
+Snow / glare / tunnel,near,-9,1,1,0,0,0
+Snow / glare / tunnel,near,-8,1,1,0,0,0
+Snow / glare / tunnel,near,-7,1,1,0,0,0
+Snow / glare / tunnel,near,-6,1,1,0,0,0
+Snow / glare / tunnel,near,-5,1,1,0,0,0
+Snow / glare / tunnel,near,-4,1,1,0,0,0
+Snow / glare / tunnel,near,-3,1,1,0,0,0
+Snow / glare / tunnel,near,-2,1,1,0,0,0
+Snow / glare / tunnel,near,-1,1,1,0,0,0
+Snow / glare / tunnel,near,0,1,1,0,0,0
+Snow / glare / tunnel,near,1,1,1,0,0,0
+Snow / glare / tunnel,near,2,1,1,0,0,0
+Snow / glare / tunnel,near,3,1,1,0,0,0
+Snow / glare / tunnel,near,4,1,1,0,0,0
+Snow / glare / tunnel,near,5,1,1,0,0,0
+Snow / glare / tunnel,near,6,1,1,0,0,0
+Snow / glare / tunnel,near,7,1,1,0,0,0
+Snow / glare / tunnel,near,8,1,1,0,0,0
+Snow / glare / tunnel,near,9,1,1,0,0,0
+Snow / glare / tunnel,near,10,1,1,0,0,0
+Snow / glare / tunnel,near,11,1,1,0,0,0
+Snow / glare / tunnel,near,12,1,1,0,0,0
+Snow / glare / tunnel,near,13,1,1,0,0,0
+Snow / glare / tunnel,near,14,1,1,0,0,0
+Snow / glare / tunnel,near,15,1,1,0,0,0
+Snow / glare / tunnel,near,16,1,1,0,0,0
+Snow / glare / tunnel,near,17,1,1,0,0,0
+Snow / glare / tunnel,near,18,1,1,0,0,0
+Snow / glare / tunnel,near,19,2,1,0,1,0
+Snow / glare / tunnel,near,20,2,1,0,1,0
+Snow / glare / tunnel,near,21,2,1,0,1,0
+Snow / glare / tunnel,near,22,2,1,0,1,0
+Snow / glare / tunnel,near,23,2,1,0,1,0
+Snow / glare / tunnel,near,24,1,1,0,0,0
+Snow / glare / tunnel,near,25,1,1,0,0,0
+Snow / glare / tunnel,near,26,1,1,0,0,0
+Snow / glare / tunnel,near,27,1,1,0,0,0
+Snow / glare / tunnel,near,28,1,1,0,0,0
+Snow / glare / tunnel,near,29,1,1,0,0,0
+Snow / glare / tunnel,near,30,1,1,0,0,0
+Snow / glare / tunnel,near,31,1,1,0,0,0
+Snow / glare / tunnel,near,32,1,1,0,0,0
+Snow / glare / tunnel,near,33,1,1,0,0,0
+Snow / glare / tunnel,near,34,1,1,0,0,0
+Snow / glare / tunnel,near,35,1,1,0,0,0
+Snow / glare / tunnel,near,36,1,1,0,0,0
+Snow / glare / tunnel,near,37,1,1,0,0,0
+Snow / glare / tunnel,near,38,1,1,0,0,0
+Snow / glare / tunnel,near,39,1,1,0,0,0
+Snow / glare / tunnel,near,40,1,1,0,0,0
+Snow / glare / tunnel,near,41,1,1,0,0,0
+Snow / glare / tunnel,near,42,1,1,0,0,0
+Snow / glare / tunnel,near,43,1,1,0,0,0
+Snow / glare / tunnel,near,44,1,1,0,0,0
+Snow / glare / tunnel,near,45,1,1,0,0,0
+Snow / glare / tunnel,near,46,1,1,0,0,0
+Snow / glare / tunnel,near,47,1,1,0,0,0
+Snow / glare / tunnel,near,48,1,1,0,0,0
+Snow / glare / tunnel,near,49,1,1,0,0,0
+Snow / glare / tunnel,near,50,1,1,0,0,0
+Snow / glare / tunnel,near,51,1,1,0,0,0
+Snow / glare / tunnel,near,52,1,1,0,0,0
+Snow / glare / tunnel,near,53,1,1,0,0,0
+Snow / glare / tunnel,near,54,1,1,0,0,0
+Snow / glare / tunnel,near,55,1,1,0,0,0
+Snow / glare / tunnel,near,56,1,1,0,0,0
+Snow / glare / tunnel,near,57,1,1,0,0,0
+Snow / glare / tunnel,near,58,1,1,0,0,0
+Snow / glare / tunnel,near,59,1,1,0,0,0
+Snow / glare / tunnel,near,60,1,1,0,0,0
+Snow / glare / tunnel,near,61,1,1,0,0,0
+Snow / glare / tunnel,near,62,1,1,0,0,0
+Snow / glare / tunnel,near,63,1,1,0,0,0
+Snow / glare / tunnel,near,64,1,1,0,0,0
+Snow / glare / tunnel,near,65,1,1,0,0,0
+Snow / glare / tunnel,near,66,1,1,0,0,0
+Snow / glare / tunnel,near,67,1,1,0,0,0
+Snow / glare / tunnel,near,68,1,1,0,0,0
+Snow / glare / tunnel,near,69,1,1,0,0,0
+Snow / glare / tunnel,near,70,1,1,0,0,0
+Snow / glare / tunnel,near,71,1,1,0,0,0
+Snow / glare / tunnel,near,72,1,1,0,0,0
+Snow / glare / tunnel,near,73,1,1,0,0,0
+Snow / glare / tunnel,near,74,1,1,0,0,0
+Snow / glare / tunnel,near,75,1,1,0,0,0
+Snow / glare / tunnel,near,76,1,1,0,0,0
+Snow / glare / tunnel,near,77,1,1,0,0,0
+Snow / glare / tunnel,near,78,1,1,0,0,0
+Snow / glare / tunnel,near,79,1,1,0,0,0
+Snow / glare / tunnel,near,80,1,1,0,0,0
+Snow / glare / tunnel,near,81,1,1,0,0,0
+Snow / glare / tunnel,near,82,1,1,0,0,0
+Snow / glare / tunnel,near,83,1,1,0,0,0
+Snow / glare / tunnel,near,84,1,1,0,0,0
+Snow / glare / tunnel,near,85,1,1,0,0,0
+Snow / glare / tunnel,near,86,1,1,0,0,0
+Snow / glare / tunnel,near,87,1,1,0,0,0
+Snow / glare / tunnel,near,88,1,1,0,0,0
+Snow / glare / tunnel,near,89,1,1,0,0,0
+Snow / glare / tunnel,near,90,1,1,0,0,0
+Snow / glare / tunnel,near,91,1,1,0,0,0
+Snow / glare / tunnel,near,92,1,1,0,0,0
+Snow / glare / tunnel,near,93,1,1,0,0,0
+Snow / glare / tunnel,near,94,1,1,0,0,0
+Snow / glare / tunnel,near,95,1,1,0,0,0
+Snow / glare / tunnel,near,96,1,1,0,0,0
+Snow / glare / tunnel,near,97,1,1,0,0,0
+Snow / glare / tunnel,near,98,1,1,0,0,0
+Snow / glare / tunnel,near,99,1,1,0,0,0
+Snow / glare / tunnel,near,100,1,1,0,0,0
+Snow / glare / tunnel,near,101,1,1,0,0,0
+Snow / glare / tunnel,near,102,1,1,0,0,0
+Snow / glare / tunnel,near,103,1,1,0,0,0
+Snow / glare / tunnel,near,104,1,1,0,0,0
+Snow / glare / tunnel,near,105,1,1,0,0,0
+Snow / glare / tunnel,near,106,1,1,0,0,0
+Snow / glare / tunnel,near,107,1,1,0,0,0
+Snow / glare / tunnel,near,108,1,1,0,0,0
+Snow / glare / tunnel,near,109,1,1,0,0,0
+Snow / glare / tunnel,near,110,1,1,0,0,0
+Snow / glare / tunnel,near,111,1,1,0,0,0
+Snow / glare / tunnel,near,112,1,1,0,0,0
+Snow / glare / tunnel,near,113,1,1,0,0,0
+Snow / glare / tunnel,near,114,1,1,0,0,0
+Snow / glare / tunnel,near,115,1,1,0,0,0
+Snow / glare / tunnel,near,116,1,1,0,0,0
+Snow / glare / tunnel,near,117,1,1,0,0,0
+Snow / glare / tunnel,near,118,1,1,0,0,0
+Snow / glare / tunnel,near,119,1,1,0,0,0
+Snow / glare / tunnel,near,120,1,1,0,0,0
+Snow / glare / tunnel,near,121,1,1,0,0,0
+Snow / glare / tunnel,near,122,1,1,0,0,0
+Snow / glare / tunnel,near,123,1,1,0,0,0
+Snow / glare / tunnel,near,124,1,1,0,0,0
+Snow / glare / tunnel,near,125,1,1,0,0,0
+Snow / glare / tunnel,near,126,1,1,0,0,0
+Snow / glare / tunnel,near,127,1,1,0,0,0
+Snow / glare / tunnel,near,128,1,1,0,0,0
+Snow / glare / tunnel,near,129,1,1,0,0,0
+Snow / glare / tunnel,near,130,1,1,0,0,0
+Snow / glare / tunnel,near,131,1,1,0,0,0
+Snow / glare / tunnel,near,132,1,1,0,0,0
+Snow / glare / tunnel,near,133,1,1,0,0,0
+Snow / glare / tunnel,near,134,1,1,0,0,0
+Snow / glare / tunnel,near,135,1,1,0,0,0
+Snow / glare / tunnel,near,136,1,1,0,0,0
+Snow / glare / tunnel,near,137,1,1,0,0,0
+Snow / glare / tunnel,near,138,1,1,0,0,0
+Snow / glare / tunnel,near,139,1,1,0,0,0
+Snow / glare / tunnel,near,140,1,1,0,0,0
+Snow / glare / tunnel,near,141,1,1,0,0,0
+Snow / glare / tunnel,near,142,1,1,0,0,0
+Snow / glare / tunnel,near,143,1,1,0,0,0
+Snow / glare / tunnel,near,144,1,1,0,0,0
+Snow / glare / tunnel,near,145,1,1,0,0,0
+Snow / glare / tunnel,near,146,1,1,0,0,0
+Snow / glare / tunnel,near,147,1,1,0,0,0
+Snow / glare / tunnel,near,148,1,1,0,0,0
+Snow / glare / tunnel,near,149,1,1,0,0,0
+Snow / glare / tunnel,near,150,1,1,0,0,0
+Snow / glare / tunnel,near,151,1,1,0,0,0
+Snow / glare / tunnel,near,152,1,1,0,0,0
+Snow / glare / tunnel,near,153,1,1,0,0,0
+Snow / glare / tunnel,near,154,1,1,0,0,0
+Snow / glare / tunnel,near,155,1,1,0,0,0
+Snow / glare / tunnel,near,156,1,1,0,0,0
+Snow / glare / tunnel,near,157,2,1,0,1,0
+Snow / glare / tunnel,near,158,2,1,0,1,0
+Snow / glare / tunnel,near,159,2,1,0,1,0
+Snow / glare / tunnel,near,160,2,1,0,1,0
+Snow / glare / tunnel,near,161,2,1,0,1,0
+Snow / glare / tunnel,near,162,1,1,0,0,0
+Snow / glare / tunnel,near,163,1,1,0,0,0
+Snow / glare / tunnel,near,164,1,1,0,0,0
+Snow / glare / tunnel,near,165,1,1,0,0,0
+Snow / glare / tunnel,near,166,1,1,0,0,0
+Snow / glare / tunnel,near,167,1,1,0,0,0
+Snow / glare / tunnel,near,168,1,1,0,0,0
+Snow / glare / tunnel,near,169,1,1,0,0,0
+Snow / glare / tunnel,near,170,1,1,0,0,0
+Snow / glare / tunnel,near,171,1,1,0,0,0
+Snow / glare / tunnel,near,172,1,1,0,0,0
+Snow / glare / tunnel,near,173,1,1,0,0,0
+Snow / glare / tunnel,near,174,1,1,0,0,0
+Snow / glare / tunnel,near,175,1,1,0,0,0
+Snow / glare / tunnel,near,176,1,1,0,0,0
+Snow / glare / tunnel,near,177,1,1,0,0,0
+Snow / glare / tunnel,near,178,1,1,0,0,0
+Snow / glare / tunnel,near,179,1,1,0,0,0

@@ -44,6 +44,7 @@ P0_DEFAULT = 0.90       # lidar detection probability behind the datasheet range
 N_PX = 25               # camera/thermal: minimum object height in pixels (KITTI "moderate" minimum)
 EPS = 0.05              # camera: minimum usable contrast
 I_LOW_BEAM = 4000.0     # cd, low beam towards a pedestrian ahead
+LOW_BEAM_HALF = 30.0    # deg, horizontal half-spread of the low beam (pedestrians outside it are unlit at night)
 E_MIN = 1.0             # lux needed on a pedestrian for a usable image
 E_GOOD = 10.0           # lux for full image quality (contrast/resolution axis at night)
 SNR_REQ = 5.0           # thermal: dT must exceed 5 x NETD
@@ -187,8 +188,9 @@ def thermal_range(m, t, sc, name="pedestrian"):
 
 def effective_range(m, target, sub, forward=True, phi=0.0):
     """Detection range [m] of one sensor model for 'pedestrian' or 'car' in one sub-case,
-    phi deg off the sensor's boresight (only lidar ROI and radar antenna pattern depend on it)."""
-    t, sc, mod = TARGETS[target], SUBCASES[sub], m["modality"]
+    phi deg off the sensor's boresight (only lidar ROI and radar antenna pattern depend on it).
+    `sub` is a SUBCASES name or a condition dict of the same form."""
+    t, sc, mod = TARGETS[target], SUBCASES[sub] if isinstance(sub, str) else sub, m["modality"]
     if mod == "lidar":
         return lidar_range(lidar_at(m, phi), t, sc)
     if mod == "radar":

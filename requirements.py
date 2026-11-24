@@ -10,12 +10,13 @@ t_r = 1 s (perception + planning + actuation) and a = 3 m/s^2 (comfortable braki
 should plan to stop without emergency braking. With the Exercise 3 emergency values (0.5 s, 6 m/s^2) the
 130 km/h stopping distance would be only 127 m.
 
-The front requirement holds in a cone whose half-angle comes from road curvature (a lane at distance d on
-a curve of radius Rc is d / (2 Rc) rad off-axis); between the cone and 45 deg it falls linearly to the
-side value, and from 135 to 160 deg it changes linearly to the rear value.
+Where each requirement holds follows from road geometry. A lane that curves with radius Rc is d / (2 Rc) rad
+off-axis at distance d, and a lane offset o adds atan(o / d). So the front requirement holds in a cone of
+d / (2 Rc) + atan(o / d) around ahead, the rear one in the same kind of cone around behind, and the side
+requirement everywhere else (cross traffic can come from any other bearing).
 Run `python requirements.py` to print the table.
 """
-from math import degrees, sqrt
+from math import atan, degrees, sqrt
 
 KMH = 1 / 3.6
 T_R = 1.0            # s, detection to action
@@ -25,6 +26,7 @@ A_GO = 2.0           # m/s^2, moderate acceleration from standstill
 T_LC = 3.0           # s, lane change duration
 JOGGER = 3.0         # m/s, a running pedestrian
 R_CURVE = {"car": 720.0, "pedestrian": 120.0}   # m, tightest curve at highway / urban arterial speed
+OFFSET = {"car": 3.5, "pedestrian": 5.0}        # m, lateral offset: next lane / pedestrian at the kerb
 NEAR = (0.1, 5.0)    # m, near field around the body
 NEAR_H = 0.5         # m, smallest object the near field must see (kerb, bollard, crouching child)
 
@@ -51,31 +53,34 @@ SCENARIOS = {
     ("rear", "pedestrian"): ("a jogger reaches us while we turn or reverse (4.9 s)", JOGGER * T_PULLOUT),
 }
 REQ = {k: v[1] for k, v in SCENARIOS.items()}
-FRONT_CONE = {t: degrees(REQ[("front", t)] / (2 * R_CURVE[t])) for t in ("car", "pedestrian")}
-SIDE_FROM, SIDE_TO, REAR_FROM = 45.0, 135.0, 160.0
+
+
+def cone(direction, target):
+    """Half-angle [deg] of the sector where the front or rear requirement holds."""
+    d = REQ[(direction, target)]
+    return degrees(d / (2 * R_CURVE[target]) + atan(OFFSET[target] / d))
+
+
+FRONT_CONE = {t: cone("front", t) for t in ("car", "pedestrian")}
+REAR_CONE = {t: cone("rear", t) for t in ("car", "pedestrian")}
 
 
 def required_range(bearing_deg, target):
     """Required detection range [m] at a bearing (0 = ahead, +-180 = behind; symmetric left/right)."""
     b = abs((bearing_deg + 180) % 360 - 180)
-    front, side, rear = (REQ[(d, target)] for d in ("front", "side", "rear"))
-    cone = FRONT_CONE[target]
-    if b <= cone:
-        return front
-    if b <= SIDE_FROM:
-        return front + (side - front) * (b - cone) / (SIDE_FROM - cone)
-    if b <= SIDE_TO:
-        return side
-    if b <= REAR_FROM:
-        return side + (rear - side) * (b - SIDE_TO) / (REAR_FROM - SIDE_TO)
-    return rear
+    if b <= FRONT_CONE[target]:
+        return REQ[("front", target)]
+    if b >= 180 - REAR_CONE[target]:
+        return REQ[("rear", target)]
+    return REQ[("side", target)]
 
 
 if __name__ == "__main__":
     print(f"{'direction':10s}{'target':12s}{'required':>10s}   scenario")
     for (d, t), (s, r) in SCENARIOS.items():
         print(f"{d:10s}{t:12s}{r:8.0f} m   {s}")
-    print(f"front cone half-angle: car {FRONT_CONE['car']:.0f} deg (curve {R_CURVE['car']:.0f} m), "
-          f"pedestrian {FRONT_CONE['pedestrian']:.0f} deg (curve {R_CURVE['pedestrian']:.0f} m)")
+    for t in ("car", "pedestrian"):
+        print(f"{t}: front cone +-{FRONT_CONE[t]:.1f} deg, rear cone +-{REAR_CONE[t]:.1f} deg "
+              f"(curve radius {R_CURVE[t]:.0f} m, lateral offset {OFFSET[t]} m)")
     print(f"near field: {NEAR[0]}-{NEAR[1]} m around the body, objects >= {NEAR_H} m tall")
     print(f"emergency stop from 130 km/h (0.5 s, 6 m/s^2, Exercise 3): {stop_distance(130, 0.5, 6):.0f} m")

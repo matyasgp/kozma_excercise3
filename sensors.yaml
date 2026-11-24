@@ -180,3 +180,7 @@ mounts:
   - [T_front,      raytron_horus640d_13,  2.35,  0.25, 0.70,    0]
   # localisation
   - [G_ins,        ublox_zed_f9k,         0.00,  0.00, 0.50,    0]
+
+# Pitch [deg, negative = down] where a sensor is not level. Surround-view fisheyes look down at the ground
+# around the car (typical surround-view mounting); all other sensors are level.
+pitch: {F_front: -20, F_left: -40, F_right: -40, F_rear: -20}
