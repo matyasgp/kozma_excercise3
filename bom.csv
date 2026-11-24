@@ -1,0 +1,10 @@
+modality,model,count,unit_usd,price_source,subtotal_usd
+lidar,Innoviz InnovizTwo (Condor configuration),1,1000,estimate,1000
+lidar,Hesai OT128 (360 deg mechanical, roof),1,3000,estimate,3000
+radar,smartmicro DRVEGRD 171 (4D/PxHD, 76-77 GHz),5,400,estimate,2000
+camera,Supertek STC-OX08BC-5300-GMSL2-H30S1 (OmniVision OX08B40, 8.3 MP),1,300,estimate,300
+camera,Supertek STC-OX08BC-5300-GMSL2-H60S (OX08B40),2,300,estimate,600
+camera,Supertek STC-OX08BC-5300-GMSL2-H120YA (OX08B40),4,300,estimate,1200
+camera,SENSING SG3S-ISX031C-GMSL2F-H190XA fisheye (Sony ISX031, 3 MP),4,459,listed,1836
+thermal,Raytron Horus640-D automotive LWIR module, 13.5 mm F1.0 lens,1,800,estimate,800
+gnss_ins,u-blox ZED-F9K-01A (automotive RTK GNSS + IMU dead reckoning) + HD map,1,250,estimate,250
