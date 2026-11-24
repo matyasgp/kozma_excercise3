@@ -1,3 +1,0 @@
-# keep LaTeX build files out of sight; the PDF stays here
-$aux_dir = 'build';
-$out_dir = '.';
