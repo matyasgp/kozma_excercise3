@@ -1,0 +1,24 @@
+% Shared look for presentation.tex and backup.tex: quiet ink colors, no theme decoration.
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{\hfill\scriptsize\color{gray}\insertframenumber\hspace{1.2em}\vspace{0.6em}}
+\setbeamersize{text margin left=0.6cm, text margin right=0.6cm}
+\definecolor{ink}{HTML}{0B0B0B}
+\definecolor{ink2}{HTML}{52514E}
+\definecolor{muted}{HTML}{898781}
+\definecolor{good}{HTML}{0A8A0A}
+\definecolor{warn}{HTML}{A06E00}
+\definecolor{bad}{HTML}{C03030}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamercolor{title}{fg=ink}
+\setbeamercolor{subtitle}{fg=ink2}
+\setbeamercolor{normal text}{fg=ink}
+\setbeamercolor{structure}{fg=ink2}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamertemplate{itemize items}{\textbullet}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\graphicspath{{../figures/}}
+\newcommand{\smallnote}[1]{{\scriptsize\color{muted}#1}}

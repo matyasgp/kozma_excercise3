@@ -14,7 +14,7 @@ condition group takes the worst of its sub-cases bearing by bearing.
 Status: >= 2 modalities = redundant, 1 = single point of failure, 0 = gap.
 
 Run `python coverage.py`: prints the summary, writes coverage.csv and figures/coverage_conditions.{png,pdf}
-and figures/coverage_detail.png.
+and figures/coverage_detail_1.png and _2.png.
 """
 import logging
 import os
@@ -291,39 +291,33 @@ def figure(res):
     plt.close(fig)
 
 
-def detail_figure(res):
-    """Backup: which modality covers which bearing, per condition and ring."""
-    fig, axs = plt.subplots(4, 1, figsize=(13.33, 9.2), sharex=True)
-    for ax, (g, rings) in zip(axs, res.items()):
-        rows, labels = [], []
-        for ring in RINGS:
-            for mod in MODS:
-                rows.append((ring, mod))
-                labels.append(f"{RING_NAME[ring]} · {mod}")
+def detail_figure(res, groups, path):
+    """Backup: which modality covers which bearing, for some condition groups (one panel each)."""
+    fig, axs = plt.subplots(len(groups), 1, figsize=(10, 2.75 * len(groups) + 0.4), sharex=True, squeeze=False)
+    for ax, g in zip(axs[:, 0], groups):
+        rings = res[g]
+        rows = [(ring, mod) for ring in RINGS for mod in MODS]
         for k, (ring, mod) in enumerate(rows):
-            on = rings[ring]["mods"][mod]
-            for a, b in runs(on):
+            for a, b in runs(rings[ring]["mods"][mod]):
                 spans = [(a, b)] if b >= a else [(a, 179), (-180, b)]
                 for s0, s1 in spans:
                     ax.barh(k, s1 - s0 + 1, left=s0 - 0.5, height=0.72, color=MOD_COLOR[mod], lw=0)
         for k in (3.5, 7.5):
             ax.axhline(k, color=GRID, lw=0.8)
-        ax.set_yticks(range(len(rows)), labels, fontsize=7.5, color=INK2)
+        ax.set_yticks(range(len(rows)), [f"{RING_NAME[r]} · {m}" for r, m in rows], fontsize=8.5, color=INK2)
         ax.invert_yaxis()
         ax.set_title(g, loc="left", color=INK, fontsize=11, fontweight="semibold")
         for sp in ("top", "right", "left"):
             ax.spines[sp].set_visible(False)
         ax.spines["bottom"].set_color(GRID)
         ax.tick_params(axis="y", length=0)
-        ax.tick_params(axis="x", colors=MUTED)
-    axs[-1].set_xticks([-180, -135, -90, -45, 0, 45, 90, 135, 180],
-                       ["behind", "rear-right", "right", "front-right", "ahead", "front-left", "left", "rear-left",
-                        "behind"])
-    axs[-1].set_xlim(-180, 180)
-    fig.suptitle("Which modality reaches the required range, by bearing (worst sub-case of each condition)",
-                 x=0.01, ha="left", color=INK, fontsize=12)
+        ax.tick_params(axis="x", colors=MUTED, labelsize=8.5)
+    ax = axs[-1, 0]
+    ax.set_xticks([-180, -135, -90, -45, 0, 45, 90, 135, 180],
+                  ["behind", "rear-right", "right", "front-right", "ahead", "front-left", "left", "rear-left", "behind"])
+    ax.set_xlim(-180, 180)
     fig.tight_layout()
-    fig.savefig("figures/coverage_detail.png", dpi=170)
+    fig.savefig(path, dpi=220)
     plt.close(fig)
 
 
@@ -342,8 +336,10 @@ def main():
     for g, ring, worst, n2, spans in summary(res):
         print(f"{g:24s}{ring:12s}{worst:4d}{n2:13d}   {spans}")
     figure(res)
-    detail_figure(res)
-    print("wrote coverage.csv, figures/coverage_conditions.png/.pdf, figures/coverage_detail.png")
+    names = list(res)
+    detail_figure(res, names[:2], "figures/coverage_detail_1.png")
+    detail_figure(res, names[2:], "figures/coverage_detail_2.png")
+    print("wrote coverage.csv, figures/coverage_conditions.png/.pdf, figures/coverage_detail_1.png and _2.png")
     return res
 
 
