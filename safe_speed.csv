@@ -1,0 +1,9 @@
+condition,target,worst_case,range_best_m,range_second_m,v_best_kmh,v_two_kmh,camera_m,lidar_m,radar_m,thermal_m
+Clear day,car,clear_day,464,300,179,142,464,300,240,75
+Clear day,pedestrian,clear_day,557,231,198,124,557,231,100,90
+Night,car,night,464,300,179,142,464,300,240,75
+Night,pedestrian,night,231,100,124,78,63,231,100,90
+Fog / heavy rain,car,fog,239,114,126,84,106,114,239,75
+Fog / heavy rain,pedestrian,fog,100,98,78,77,92,98,100,90
+Snow / glare / tunnel,car,snow,464,234,179,124,464,197,234,75
+Snow / glare / tunnel,pedestrian,snow,458,150,178,98,458,150,98,90
