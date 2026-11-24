@@ -1,6 +1,7 @@
 """Suite figures for the design slide (Exercise 4).
 
   figures/suite_layout.png      where the 19 perception sensors sit on the car (to scale) and where they look
+  figures/requirements.png      the required detection range per direction (car, pedestrian, near field)
   figures/reach_by_modality.png per modality, every sensor's field of view out to its clear-day range on a car,
                                 against the required car range (square-root radius, so the near field and
                                 250 m fit on one plot; mount offsets are left out)
@@ -19,7 +20,7 @@ from matplotlib.patches import Polygon, Rectangle
 
 from coverage import BEARINGS, MODS, load
 from model import effective_range
-from requirements import required_range
+from requirements import FRONT_CONE, NEAR, REAR_CONE, REQ, required_range
 
 INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
 STYLE = {"camera": ("#2a78d6", "o"), "lidar": ("#008300", "s"), "radar": ("#eda100", "^"), "thermal": ("#e87ba4", "D")}
@@ -137,12 +138,59 @@ def reach_by_modality(sensors, sub="clear_day", target="car"):
     plt.close(fig)
 
 
+def requirements_figure():
+    fig, ax = plt.subplots(figsize=(6.4, 6.4))
+    for r in (10, 50, 100, 250):
+        t = np.linspace(0, 2 * np.pi, 200)
+        ax.plot(sq(r) * np.cos(t), sq(r) * np.sin(t), color=GRID, lw=0.8, zorder=0)
+        ax.text(sq(r) * np.cos(np.radians(-58)), sq(r) * np.sin(np.radians(-58)), f"{r} m", color=MUTED,
+                fontsize=8, ha="left", va="top")
+    t = np.linspace(0, 2 * np.pi, 200)
+    ax.fill(np.r_[sq(NEAR[1] + 2.4) * np.cos(t)], np.r_[sq(NEAR[1] + 2.4) * np.sin(t)], color=MUTED, alpha=0.18,
+            lw=0, zorder=1)
+    for target, col, lw in (("car", INK, 2.0), ("pedestrian", INK2, 1.6)):
+        req = np.array([required_range(b, target) for b in BEARINGS])
+        x, y = to_plot(sq(req) * np.cos(np.radians(BEARINGS)), sq(req) * np.sin(np.radians(BEARINGS)))
+        ax.plot(np.r_[x, x[0]], np.r_[y, y[0]], color=col, lw=lw, zorder=3)
+    ax.add_patch(Rectangle((-0.35, -0.9), 0.7, 1.8, facecolor=INK2, edgecolor="none", zorder=4))
+    notes = [  # (text, text position, ha, point the leader line goes to) in plot coords
+        (f"car {REQ[('front', 'car')]:.0f} m\nstop from 130 km/h\n(±{FRONT_CONE['car']:.0f}°: 720 m curve)",
+         (4.2, 14.6), "left", (2.9, 15.3)),
+        (f"pedestrian {REQ[('front', 'pedestrian')]:.0f} m\nstop from 70 km/h\n(±{FRONT_CONE['pedestrian']:.0f}°)",
+         (-4.2, 12.2), "right", (-2.3, 8.4)),
+        (f"car {REQ[('side', 'car')]:.0f} m: pull out\nbefore cross traffic\nat 60 km/h", (10.0, 3.2), "left",
+         (8.4, 3.2)),
+        (f"car {REQ[('rear', 'car')]:.0f} m: lane change,\ncar closing at 60 km/h\n(±{REAR_CONE['car']:.0f}°)",
+         (2.2, -12.0), "left", (0.6, -9.7)),
+        (f"pedestrian {REQ[('side', 'pedestrian')]:.0f} m all round:\njogger during\na 4.9 s turn",
+         (-10.0, -4.0), "right", (-3.2, -2.2)),
+        (f"near field {NEAR[0]}–{NEAR[1]:.0f} m\n(gray disc),\n0.5 m objects", (-10.0, 3.6), "right",
+         (-1.9, 1.9)),
+    ]
+    for text, (x, y), ha, (ax_, ay_) in notes:
+        ax.plot([x + (0.2 if ha == "left" else -0.2), ax_], [y, ay_], color=MUTED, lw=0.7, zorder=2)
+        ax.text(x + (0.35 if ha == "left" else -0.35), y, text, ha=ha, va="center", fontsize=8.6, color=INK2,
+                linespacing=1.2, zorder=5)
+    ax.legend(handles=[Line2D([0], [0], color=INK, lw=2.0, label="car"),
+                       Line2D([0], [0], color=INK2, lw=1.6, label="pedestrian")],
+              loc="lower right", frameon=False, labelcolor=INK2, fontsize=9)
+    ax.set_xlim(-17.5, 17.5)
+    ax.set_ylim(-16.5, 17.0)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    ax.set_title("Required detection range per direction (front up, square-root scale)", color=INK, fontsize=10.5)
+    fig.tight_layout()
+    fig.savefig("figures/requirements.png", dpi=200)
+    plt.close(fig)
+
+
 def main():
     sensors, veh = load()
     os.makedirs("figures", exist_ok=True)
     suite_layout(sensors, veh)
     reach_by_modality(sensors)
-    print("wrote figures/suite_layout.png and figures/reach_by_modality.png")
+    requirements_figure()
+    print("wrote figures/suite_layout.png, figures/reach_by_modality.png and figures/requirements.png")
 
 
 if __name__ == "__main__":
