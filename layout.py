@@ -46,14 +46,17 @@ LABELS = [
     ("Rear\n8 MP 60° camera · 3 MP fisheye", (0, -3.5), ["C_rear"], "center"),
 ]
 
+SHORT_LABELS = ["front bumper", "windscreen", "roof", "front corners", "mirrors", "rear corners", "rear"]
+SHORT_NOTES = ["car 253 m", "pedestrian\n82 m", "car\n81 m", "car 96 m", "pedestrian\n15 m", "near field\n0.1–5 m"]
+
 
 def to_plot(x, y):
     """Vehicle frame (x forward, y left) -> plot (front up, left on the left)."""
     return -y, x
 
 
-def suite_layout(sensors, veh):
-    fig, ax = plt.subplots(figsize=(7.4, 7.4))
+def suite_layout(sensors, veh, detail=True):
+    fig, ax = plt.subplots(figsize=(7.4, 7.4) if detail else (4.6, 4.6))
     L, W = veh["length"], veh["width"]
     ax.add_patch(Rectangle((-W / 2, -L / 2), W, L, facecolor="#f0efec", edgecolor=INK2, lw=1.2, zorder=1))
     ax.add_patch(Polygon([(-0.75, 0.45), (0.75, 0.45), (0.65, 1.15), (-0.65, 1.15)], closed=True,
@@ -67,26 +70,32 @@ def suite_layout(sensors, veh):
         dx, dy = to_plot(np.cos(np.radians(sen["yaw"])), np.sin(np.radians(sen["yaw"])))
         ax.plot([px, px + 0.5 * dx], [py, py + 0.5 * dy], color=col, lw=2.0, solid_capstyle="round", zorder=3)
         ax.plot(px, py, marker=mk, ms=8, color=col, mec=SURFACE, mew=1.5, zorder=4)
-    for text, (lx, ly), targets, ha in LABELS:
+    for (text, (lx, ly), targets, ha), short in zip(LABELS, SHORT_LABELS):
+        text = text if detail else short
         for t in targets:
             px, py = pos[t]
             ax.plot([lx, px], [ly, py], color=GRID, lw=0.8, zorder=0)
         va = "center" if ha != "center" else ("bottom" if ly > 0 else "top")
         dx = 0.1 if ha == "left" else -0.1 if ha == "right" else 0
         dy = 0.05 if va == "bottom" else -0.05 if va == "top" else 0
-        ax.text(lx + dx, ly + dy, text, ha=ha, va=va, fontsize=8.6, color=INK2, linespacing=1.25)
+        ax.text(lx + dx, ly + dy, text, ha=ha, va=va, fontsize=8.6 if detail else 10.5, color=INK2, linespacing=1.25)
     handles = [Line2D([0], [0], color=c, marker=m, ls="none", ms=8, mec=SURFACE, mew=1.5, label=k.capitalize())
                for k, (c, m) in STYLE.items()]
     ax.legend(handles=handles, loc="lower center", ncol=4, frameon=False, bbox_to_anchor=(0.5, -0.04),
               labelcolor=INK2)
-    ax.set_xlim(-5.6, 5.6)
-    ax.set_ylim(-5.0, 5.4)
+    if detail:
+        ax.set_xlim(-5.6, 5.6)
+        ax.set_ylim(-5.0, 5.4)
+    else:
+        ax.set_xlim(-4.5, 4.5)
+        ax.set_ylim(-4.3, 4.1)
     ax.set_aspect("equal")
     ax.axis("off")
-    ax.set_title("19 perception sensors on a 4.8 × 1.9 m car (to scale, front up)\n"
-                 "stroke = viewing direction; co-located sensors drawn slightly apart", color=INK, fontsize=10.5)
+    if detail:
+        ax.set_title("19 perception sensors on a 4.8 × 1.9 m car (to scale, front up)\n"
+                     "stroke = viewing direction; co-located sensors drawn slightly apart", color=INK, fontsize=10.5)
     fig.tight_layout()
-    fig.savefig("figures/suite_layout.png", dpi=200)
+    fig.savefig("figures/suite_layout_detail.png" if detail else "figures/suite_layout.png", dpi=250)
     plt.close(fig)
 
 
@@ -138,8 +147,8 @@ def reach_by_modality(sensors, sub="clear_day", target="car"):
     plt.close(fig)
 
 
-def requirements_figure():
-    fig, ax = plt.subplots(figsize=(6.4, 6.4))
+def requirements_figure(detail=True):
+    fig, ax = plt.subplots(figsize=(6.4, 6.4) if detail else (4.6, 4.6))
     for r in (10, 50, 100, 250):
         t = np.linspace(0, 2 * np.pi, 200)
         ax.plot(sq(r) * np.cos(t), sq(r) * np.sin(t), color=GRID, lw=0.8, zorder=0)
@@ -167,20 +176,24 @@ def requirements_figure():
         (f"near field {NEAR[0]}–{NEAR[1]:.0f} m\n(gray disc),\n0.5 m objects", (-10.0, 3.6), "right",
          (-1.9, 1.9)),
     ]
-    for text, (x, y), ha, (ax_, ay_) in notes:
+    for (text, (x, y), ha, (ax_, ay_)), short in zip(notes, SHORT_NOTES):
+        text = text if detail else short
         ax.plot([x + (0.2 if ha == "left" else -0.2), ax_], [y, ay_], color=MUTED, lw=0.7, zorder=2)
-        ax.text(x + (0.35 if ha == "left" else -0.35), y, text, ha=ha, va="center", fontsize=8.6, color=INK2,
+        ax.text(x + (0.35 if ha == "left" else -0.35), y, text, ha=ha, va="center", fontsize=8.6 if detail else 10.5, color=INK2,
                 linespacing=1.2, zorder=5)
-    ax.legend(handles=[Line2D([0], [0], color=INK, lw=2.0, label="car"),
-                       Line2D([0], [0], color=INK2, lw=1.6, label="pedestrian")],
-              loc="lower right", frameon=False, labelcolor=INK2, fontsize=9)
+    if detail:
+        ax.legend(handles=[Line2D([0], [0], color=INK, lw=2.0, label="car"),
+                           Line2D([0], [0], color=INK2, lw=1.6, label="pedestrian")],
+                  loc="lower right", frameon=False, labelcolor=INK2, fontsize=9)
     ax.set_xlim(-17.5, 17.5)
     ax.set_ylim(-16.5, 17.0)
     ax.set_aspect("equal")
     ax.axis("off")
-    ax.set_title("Required detection range per direction (front up, square-root scale)", color=INK, fontsize=10.5)
+    if detail:
+        ax.set_title("Required detection range per direction (front up, square-root scale)", color=INK,
+                     fontsize=10.5)
     fig.tight_layout()
-    fig.savefig("figures/requirements.png", dpi=200)
+    fig.savefig("figures/requirements_detail.png" if detail else "figures/requirements.png", dpi=250)
     plt.close(fig)
 
 
@@ -188,8 +201,10 @@ def main():
     sensors, veh = load()
     os.makedirs("figures", exist_ok=True)
     suite_layout(sensors, veh)
+    suite_layout(sensors, veh, detail=False)
     reach_by_modality(sensors)
     requirements_figure()
+    requirements_figure(detail=False)
     print("wrote figures/suite_layout.png, figures/reach_by_modality.png and figures/requirements.png")
 
 

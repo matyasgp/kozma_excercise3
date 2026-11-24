@@ -190,7 +190,9 @@ def where(a, b):
         side = "front-" + side
     if side in ("left", "right") and abs(mid) > 110:
         side = "rear-" + side
-    return f"{side} ({w} deg)"
+    if side in ("ahead", "behind"):
+        return f"{side} (±{(w - 1) // 2}°)"
+    return f"{side} ({w}°)"
 
 
 def summary(res):
@@ -238,10 +240,10 @@ def draw_donut(ax, rings, first=False):
             st = status(rings[ring]["count"])
             r = (r0 + r1) / 2
             back = {"car": "car  96 m", "pedestrian": "pedestrian  15 m", "near": "near field"}[ring]
-            ax.text(np.pi, r, back, ha="center", va="center", fontsize=8, color=text_on(st[0]))
+            ax.text(np.pi, r, back, ha="center", va="center", fontsize=6.8, color=text_on(st[0]))
             if ring != "near":
                 front = {"car": "253 m", "pedestrian": "82 m"}[ring]
-                ax.text(0, r, front, ha="center", va="center", fontsize=8, color=text_on(st[180]))
+                ax.text(0, r, front, ha="center", va="center", fontsize=6.8, color=text_on(st[180]))
 
 
 def describe(rings):
@@ -257,7 +259,7 @@ def describe(rings):
         who = "no modality" if worst == 0 else f"{' + '.join(left) or 'one modality'} only"
         n = int(mask.sum())
         if n > 180:
-            parts.append(f"{RING_NAME[ring].lower()}: {who} on {n} of 360 deg")
+            parts.append(f"{RING_NAME[ring].lower()}: {who} on {n}° of 360°")
         else:
             spans = runs(mask)
             big = max(spans, key=lambda ab: (ab[1] - ab[0]) % 360)
@@ -266,27 +268,26 @@ def describe(rings):
 
 
 def figure(res):
-    fig = plt.figure(figsize=(13.33, 5.0))
-    W, H, size = 13.33, 5.0, 2.55
+    W, H, size, y0 = 10.0, 3.9, 1.9, 1.05          # sized for a 10 in wide slide (Google Slides default)
+    fig = plt.figure(figsize=(W, H))
     for i, (g, rings) in enumerate(res.items()):
-        xc = 0.3 + (i + 0.5) * (W - 0.6) / 4
-        ax = fig.add_axes([(xc - size / 2) / W, 1.05 / H, size / W, size / H], projection="polar")
+        xc = 0.1 + (i + 0.5) * (W - 0.2) / 4
+        ax = fig.add_axes([(xc - size / 2) / W, y0 / H, size / W, size / H], projection="polar")
         draw_donut(ax, rings, first=(i == 0))
-        top = (1.05 + size) / H
-        fig.text(xc / W, top + 0.55 / H, g, ha="center", color=INK, fontsize=13, fontweight="semibold")
+        top = (y0 + size) / H
+        fig.text(xc / W, top + 0.3 / H, g, ha="center", color=INK, fontsize=12.5, fontweight="semibold")
+        fig.text(xc / W, top + 0.07 / H, "ahead", ha="center", color=MUTED, fontsize=7.5)
         lines = describe(rings).split("; ")
-        fig.text(xc / W, (1.05 - 0.25) / H, "\n".join(lines), ha="center", va="top", color=INK, fontsize=8.8,
-                 linespacing=1.3)
-        fig.text(xc / W, top + 0.1 / H, "ahead", ha="center", color=MUTED, fontsize=8)
+        fig.text(xc / W, (y0 - 0.08) / H, "\n".join(lines), ha="center", va="top", color=INK, fontsize=8.3,
+                 linespacing=1.25)
     handles = [Patch(color=c, label=l) for c, l in STATUS.values()]
-    fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False, fontsize=10, labelcolor=INK2,
-               bbox_to_anchor=(0.5, 0.03))
-    fig.text(0.5, 0.012, "Rings: required range per direction (requirements.py), not to scale. Car: 253 m ahead, "
-             "81 m sides, 96 m behind. Pedestrian: 82 m ahead, 15 m around. Near field: 0.1-5 m, 0.5 m tall.",
-             ha="center", color=MUTED, fontsize=8.3)
+    fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False, fontsize=9, labelcolor=INK2,
+               bbox_to_anchor=(0.5, 0.04))
+    fig.text(0.5, 0.012, "Rings (not to scale): car 253 m ahead, 81 m sides, 96 m behind; pedestrian 82 m ahead, "
+             "15 m around; near field 0.1-5 m, 0.5 m objects.", ha="center", color=MUTED, fontsize=7.3)
     os.makedirs("figures", exist_ok=True)
     for ext in ("png", "pdf"):
-        fig.savefig(f"figures/coverage_conditions.{ext}", dpi=200)
+        fig.savefig(f"figures/coverage_conditions.{ext}", dpi=250)
     plt.close(fig)
 
 

@@ -74,7 +74,7 @@ def fog_sweep(sensors, V, lwir_ratio=None):
 
 
 def figure(V, sw, sw_bad):
-    fig, ax = plt.subplots(figsize=(8.0, 4.6))
+    fig, ax = plt.subplots(figsize=(6.4, 4.0))
     ax.axhline(130, color=GRID, lw=1.0, zorder=0)
     ax.text(21, 132, "130 km/h highway design speed", ha="left", va="bottom", color=MUTED, fontsize=8.5)
     law_v = np.where(V < 50, 50, np.nan)
@@ -88,7 +88,7 @@ def figure(V, sw, sw_bad):
         if k == 1:                                        # sensitivity: LWIR no better than visible in fog
             ax.fill_between(V, sw_bad[target][k], y, color=col, alpha=0.10, lw=0)
     ax.fill_between([], [], color=INK2, alpha=0.15, lw=0,
-                    label="band: if thermal sees no further than visible light in fog")
+                    label="band: if LWIR sees no further than visible light")
     ax.axvline(200, color=GRID, lw=1.0, zorder=0)
     ax.text(205, 8, "our fog case\n(V = 200 m)", color=MUTED, fontsize=8.5, va="bottom")
     ax.set_xscale("log")
@@ -104,8 +104,8 @@ def figure(V, sw, sw_bad):
     for sp in ("left", "bottom"):
         ax.spines[sp].set_color(GRID)
     ax.tick_params(colors=MUTED)
-    ax.legend(loc="lower right", frameon=False, fontsize=9, labelcolor=INK2)
-    ax.set_title("How fast the suite may drive in fog: stopping distance (1 s + 3 m/s²) inside the range ahead",
+    ax.legend(loc="lower right", frameon=False, fontsize=8.3, labelcolor=INK2, handlelength=1.5)
+    ax.set_title("Highest safe speed in fog (stopping distance inside the 2nd-best range)",
                  loc="left", color=INK, fontsize=10.5)
     fig.tight_layout()
     os.makedirs("figures", exist_ok=True)

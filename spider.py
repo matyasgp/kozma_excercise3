@@ -41,17 +41,22 @@ plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10
 
 
 def takeaway(g, s):
-    """One line per chart, with the numbers taken from the scores."""
+    """Two short lines per chart, with the numbers taken from the scores."""
     c, l, r, t = (s[m] for m in ("camera", "lidar", "radar", "thermal"))
     return {
-        "Clear day": "camera: detail and color; radar: speed; lidar: 3D",
-        "Night": f"camera contrast {c[AXES[0]]:.2f}; thermal {t[AXES[5]]:.2f} on living objects",
-        "Fog / heavy rain": f"optical range {l[AXES[1]]:.2f} (lidar); radar keeps {r[AXES[1]]:.2f}",
-        "Snow / glare / tunnel": f"glare: camera contrast {c[AXES[0]]:.2f}; snow: lidar range {l[AXES[1]]:.2f}",
+        "Clear day": "camera: detail, color\nradar: speed · lidar: 3D",
+        "Night": f"camera contrast {c[AXES[0]]:.2f}\nthermal {t[AXES[5]]:.2f} on living objects",
+        "Fog / heavy rain": f"optical range {l[AXES[1]]:.2f} (lidar)\nradar keeps {r[AXES[1]]:.2f}",
+        "Snow / glare / tunnel": f"glare: camera contrast {c[AXES[0]]:.2f}\nsnow: lidar range {l[AXES[1]]:.2f}",
     }[g]
 
 
-def draw(ax, g, s, small=False):
+# font sizes [pt] and marker size for the two figure scales
+STRIP = dict(label=9.5, title=12.5, sub=8.8, take=9.0, ms=5.0, lw=1.8)
+SINGLE = dict(label=10.5, title=14, sub=10, take=10, ms=6.5, lw=2.0)
+
+
+def draw(ax, s, f):
     n = len(AXES)
     ang = np.linspace(0, 2 * np.pi, n, endpoint=False)
     closed = np.append(ang, ang[0])
@@ -68,32 +73,33 @@ def draw(ax, g, s, small=False):
     ax.plot(closed, suite + suite[:1], color=SUITE, lw=1.0, zorder=1)
     for mod, (col, mk, _) in STYLE.items():
         v = [s[mod][a] for a in AXES]
-        ax.plot(closed, v + v[:1], color=col, lw=2.0, solid_joinstyle="round", zorder=3)
-        ax.plot(ang, v, ls="none", marker=mk, ms=6.5 if not small else 5.5, color=col,
-                mec=SURFACE, mew=1.2, zorder=4)
+        ax.plot(closed, v + v[:1], color=col, lw=f["lw"], solid_joinstyle="round", zorder=3)
+        ax.plot(ang, v, ls="none", marker=mk, ms=f["ms"], color=col, mec=SURFACE, mew=1.1, zorder=4)
     for a, lab in zip(ang, LABELS):
         ha = "center" if np.isclose(np.sin(a), 0, atol=0.05) else ("left" if np.sin(a) > 0 else "right")
         va = "bottom" if np.cos(a) > 0.5 else ("top" if np.cos(a) < -0.5 else "center")
-        ax.text(a, 1.12, lab, ha=ha, va=va, color=INK2, fontsize=9 if small else 10, linespacing=1.05)
+        ax.text(a, 1.12, lab, ha=ha, va=va, color=INK2, fontsize=f["label"], linespacing=1.0)
 
 
-def legend_handles():
-    h = [Line2D([0], [0], color=c, lw=2.0, marker=mk, ms=6.5, mec=SURFACE, mew=1.2, label=lab)
+def legend_handles(ms=6.5):
+    h = [Line2D([0], [0], color=c, lw=2.0, marker=mk, ms=ms, mec=SURFACE, mew=1.1, label=lab)
          for c, mk, lab in STYLE.values()]
     h.append(Patch(facecolor=SUITE, alpha=0.25, edgecolor=SUITE, lw=1.0, label="Whole suite (best per axis)"))
     return h
 
 
-def panel(fig, x_c, y0, size, g, s, small):
+def panel(fig, x_c, y0, size, g, s, f):
     """One chart centred at x_c [in] with its plot bottom at y0 [in], plot `size` inches square."""
     W, H = fig.get_size_inches()
     ax = fig.add_axes([(x_c - size / 2) / W, y0 / H, size / W, size / H], projection="polar")
-    draw(ax, g, s, small)
-    top, gap = (y0 + size) / H, 0.2 * size          # gap: room for the axis labels around the plot
-    fig.text(x_c / W, top + (gap + 0.36) / H, g, ha="center", color=INK, fontsize=13 if small else 14,
-             fontweight="semibold")
-    fig.text(x_c / W, top + (gap + 0.13) / H, CASES[g], ha="center", color=INK2, fontsize=9.5 if small else 10)
-    fig.text(x_c / W, (y0 - gap - 0.25) / H, takeaway(g, s), ha="center", color=INK, fontsize=9.5 if small else 10)
+    draw(ax, s, f)
+    lab_h = 0.06 * size + 2.1 * f["label"] / 72          # room for a two-line axis label
+    top = y0 + size + lab_h
+    fig.text(x_c / W, (top + 0.08 + 1.5 * f["sub"] / 72) / H, g, ha="center", va="bottom", color=INK,
+             fontsize=f["title"], fontweight="semibold")
+    fig.text(x_c / W, (top + 0.06) / H, CASES[g], ha="center", va="bottom", color=INK2, fontsize=f["sub"])
+    fig.text(x_c / W, (y0 - lab_h - 0.06) / H, takeaway(g, s), ha="center", va="top", color=INK,
+             fontsize=f["take"], linespacing=1.15)
 
 
 def main():
@@ -102,21 +108,22 @@ def main():
     os.makedirs("figures", exist_ok=True)
     note = "Scores 0-1 from model.py (outer ring = 1). Gray area: whole suite, the best modality on each axis."
 
-    fig = plt.figure(figsize=(13.33, 4.85))
+    W, H = 10.0, 3.75                                      # sized for a 10 in wide slide (Google Slides default)
+    fig = plt.figure(figsize=(W, H))
     for i, (g, s) in enumerate(sp.items()):
-        panel(fig, 0.3 + (i + 0.5) * (13.33 - 0.6) / 4, 1.45, 2.1, g, s, small=True)
-    fig.legend(handles=legend_handles(), loc="lower center", ncol=5, frameon=False, fontsize=10,
-               labelcolor=INK2, bbox_to_anchor=(0.5, 0.05))
-    fig.text(0.5, 0.015, note, ha="center", color=MUTED, fontsize=8.5)
+        panel(fig, 0.12 + (i + 0.5) * (W - 0.24) / 4, 1.2, 1.42, g, s, STRIP)
+    fig.legend(handles=legend_handles(5.0), loc="lower center", ncol=5, frameon=False, fontsize=9,
+               labelcolor=INK2, bbox_to_anchor=(0.5, 0.045), handlelength=1.6, columnspacing=1.2)
+    fig.text(0.5, 0.012, note, ha="center", color=MUTED, fontsize=7.5)
     for ext in ("png", "pdf"):
-        fig.savefig(f"figures/spider_conditions.{ext}", dpi=200)
+        fig.savefig(f"figures/spider_conditions.{ext}", dpi=250)
     plt.close(fig)
 
     for g, s in sp.items():
         fig = plt.figure(figsize=(5.6, 6.4))
-        panel(fig, 2.8, 1.85, 3.0, g, s, small=False)
+        panel(fig, 2.8, 1.9, 3.0, g, s, SINGLE)
         fig.legend(handles=legend_handles(), loc="lower center", ncol=3, frameon=False, fontsize=9,
-                   labelcolor=INK2, bbox_to_anchor=(0.5, 0.04))
+                   labelcolor=INK2, bbox_to_anchor=(0.5, 0.03))
         slug = g.lower().replace(" / ", "_").replace(" ", "_")
         fig.savefig(f"figures/spider_{slug}.png", dpi=200)
         plt.close(fig)
