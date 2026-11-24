@@ -23,11 +23,14 @@ model.py          range + spider scores per sensor and condition     ─┼─> 
                                                                       └─> bom.py       cost table
 ```
 
-Run everything (Python 3 with numpy, matplotlib, pyyaml; about 15 s):
+Run everything (Python 3 with numpy, matplotlib, pyyaml; about 15 s), then the slides (MiKTeX/TeX Live; Node):
 
 ```
 python requirements.py && python model.py && python spider.py && python coverage.py && python odd.py && python layout.py && python bom.py
+cd slides && latexmk -pdf presentation.tex && latexmk -pdf backup.tex && npm install && node build_pptx.js
 ```
+
+Figures are sized for a 10-inch-wide slide (the Google Slides default); `*_detail.png` versions are for the backup.
 
 | File | What it is | Writes |
 |---|---|---|
@@ -40,8 +43,8 @@ python requirements.py && python model.py && python spider.py && python coverage
 | `odd.py` | highest speed with two modalities covering the stopping distance; fog visibility sweep | `safe_speed.csv`, `figures/safe_speed_fog.png/pdf` |
 | `layout.py` | mounting layout, reach per modality, requirement contour | `figures/suite_layout.png`, `figures/reach_by_modality.png`, `figures/requirements.png` |
 | `bom.py` | count × unit price per model | `bom.csv` |
-| `slides/` | beamer draft of the pitch (`presentation.tex`) and backup slides (`backup.tex`) | PDFs |
-| `docs/` | speaker notes and Q&A guide | |
+| `slides/` | the pitch as beamer (`presentation.tex`) and as PowerPoint for Google Slides (`build_pptx.js` → `pitch.pptx`, with speaker notes); backup slides B1–B13 (`backup.tex`) | PDFs, `pitch.pptx` |
+| `docs/` | `speaker_notes.md` (5-minute script, suggested split), `qa_guide.md` (likely questions → backup slide) | |
 
 The course deck and datasheet PDFs stay local in `sources/` (gitignored).
 
@@ -87,7 +90,7 @@ Coverage (`coverage.py`, worst sub-case of each condition):
 
 Highest safe speed with two modalities over the stopping distance (`odd.py`): clear 142 km/h, night with
 pedestrians 78 km/h, fog (V = 200 m) 84 km/h for cars / 77 km/h with pedestrians, snow 124 / 98 km/h.
-Below 50 m visibility: 40–70 km/h depending on how well LWIR sees through the fog (German law: 50 km/h).
+Below 50 m visibility: about 35–66 km/h depending on how well LWIR sees through the fog (German law: 50 km/h).
 
 Cost (`bom.py`): 10,986 USD for the 20 sensors (lidar 4,000, camera 3,936, radar 2,000, thermal 800,
 GNSS/INS 250). Only the fisheye price is listed by its seller; the rest are our estimates.
