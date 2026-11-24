@@ -7,12 +7,8 @@
                                 250 m fit on one plot; mount offsets are left out)
 Run `python layout.py`.
 """
-import logging
 import os
 
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
@@ -21,12 +17,9 @@ from matplotlib.patches import Polygon, Rectangle
 from coverage import BEARINGS, MODS, load
 from model import effective_range
 from requirements import FRONT_CONE, NEAR, REAR_CONE, REQ, required_range
+from style import GRID, INK, INK2, MOD_COLOR, MOD_MARKER, MUTED, SURFACE
 
-INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
-STYLE = {"camera": ("#2a78d6", "o"), "lidar": ("#008300", "s"), "radar": ("#eda100", "^"), "thermal": ("#e87ba4", "D")}
-logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
-plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10,
-                     "figure.facecolor": SURFACE, "savefig.facecolor": SURFACE})
+STYLE = {mod: (MOD_COLOR[mod], MOD_MARKER[mod]) for mod in MOD_COLOR}
 
 # display nudges [m, vehicle frame] so co-located sensors don't hide each other (the figure says so)
 NUDGE = {"R_front": (0, -0.32), "F_front": (0, 0.32), "T_front": (0, 0.30), "L_front": (0, 0),

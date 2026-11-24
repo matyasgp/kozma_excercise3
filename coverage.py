@@ -16,33 +16,24 @@ Status: >= 2 modalities = redundant, 1 = single point of failure, 0 = gap.
 Run `python coverage.py`: prints the summary, writes coverage.csv and figures/coverage_conditions.{png,pdf}
 and figures/coverage_detail_1.png and _2.png.
 """
-import logging
 import os
 
-import matplotlib
-import yaml
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+import yaml
 from matplotlib.patches import Patch
 
 from model import FORWARD_YAW, GROUPS, LOW_BEAM_HALF, SUBCASES, effective_range, load_suite
-from requirements import NEAR, NEAR_H, required_range
+from requirements import NEAR, NEAR_H, REQ, required_range
+from style import GRID, INK, INK2, MOD_COLOR, MUTED
 
 MODS = ("camera", "lidar", "radar", "thermal")
 RINGS = ("car", "pedestrian", "near")
 RING_NAME = {"car": "Car", "pedestrian": "Pedestrian", "near": "Near field"}
 BEARINGS = np.arange(-180, 180)                     # deg
 NEAR_STEPS = np.round(np.arange(NEAR[0], NEAR[1] + 1e-9, 0.1), 2)
-
-INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
 STATUS = {2: ("#0ca30c", "2 or more modalities"), 1: ("#fab219", "1 modality (no redundancy)"),
           0: ("#d03b3b", "0 (gap)")}
-MOD_COLOR = {"camera": "#2a78d6", "lidar": "#008300", "radar": "#eda100", "thermal": "#e87ba4"}
-logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
-plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10,
-                     "figure.facecolor": SURFACE, "savefig.facecolor": SURFACE})
 
 
 def wrap(a):
@@ -239,11 +230,11 @@ def draw_donut(ax, rings, first=False):
         for ring, (r0, r1) in RADII.items():
             st = status(rings[ring]["count"])
             r = (r0 + r1) / 2
-            back = {"car": "car  96 m", "pedestrian": "pedestrian  15 m", "near": "near field"}[ring]
+            back = f"{ring}  {REQ[('rear', ring)]:.0f} m" if ring != "near" else "near field"
             ax.text(np.pi, r, back, ha="center", va="center", fontsize=6.8, color=text_on(st[0]))
             if ring != "near":
-                front = {"car": "253 m", "pedestrian": "82 m"}[ring]
-                ax.text(0, r, front, ha="center", va="center", fontsize=6.8, color=text_on(st[180]))
+                ax.text(0, r, f"{REQ[('front', ring)]:.0f} m", ha="center", va="center", fontsize=6.8,
+                        color=text_on(st[180]))
 
 
 def describe(rings):
@@ -283,8 +274,10 @@ def figure(res):
     handles = [Patch(color=c, label=l) for c, l in STATUS.values()]
     fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False, fontsize=9, labelcolor=INK2,
                bbox_to_anchor=(0.5, 0.04))
-    fig.text(0.5, 0.012, "Rings (not to scale): car 253 m ahead, 81 m sides, 96 m behind; pedestrian 82 m ahead, "
-             "15 m around; near field 0.1-5 m, 0.5 m objects.", ha="center", color=MUTED, fontsize=7.3)
+    car, ped = (tuple(REQ[(d, t)] for d in ("front", "side", "rear")) for t in ("car", "pedestrian"))
+    fig.text(0.5, 0.012, f"Rings (not to scale): car {car[0]:.0f} m ahead, {car[1]:.0f} m sides, {car[2]:.0f} m behind; "
+             f"pedestrian {ped[0]:.0f} m ahead, {ped[1]:.0f} m around; near field {NEAR[0]}-{NEAR[1]:.0f} m, "
+             f"{NEAR_H} m objects.", ha="center", color=MUTED, fontsize=7.3)
     os.makedirs("figures", exist_ok=True)
     for ext in ("png", "pdf"):
         fig.savefig(f"figures/coverage_conditions.{ext}", dpi=250)

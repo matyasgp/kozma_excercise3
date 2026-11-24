@@ -9,24 +9,15 @@ for a car and a pedestrian, per condition (worst sub-case), and as a sweep over 
 
 Run `python odd.py`: prints the table, writes safe_speed.csv and figures/safe_speed_fog.{png,pdf}.
 """
-import logging
 import os
 
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-import model
 from coverage import MODS, load
 from model import GROUPS, SUBCASES, effective_range
 from requirements import safe_speed
-
-INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
-logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
-plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10,
-                     "figure.facecolor": SURFACE, "savefig.facecolor": SURFACE})
+from style import GRID, INK, INK2, MUTED
 
 
 def ahead_ranges(sensors, target, sub):
@@ -57,19 +48,15 @@ def table(sensors):
     return rows
 
 
-def fog_sweep(sensors, V, lwir_ratio=None):
-    """Safe speeds over fog visibility; lwir_ratio overrides model.LWIR_FOG_RATIO (sensitivity)."""
-    keep = model.LWIR_FOG_RATIO
-    if lwir_ratio is not None:
-        model.LWIR_FOG_RATIO = lwir_ratio
+def fog_sweep(sensors, V, lwir_ratio=SUBCASES["fog"]["lwir"]):
+    """Safe speeds over fog visibility; lwir_ratio = LWIR / visible extinction (1.0 for the sensitivity case)."""
     out = {"car": ([], []), "pedestrian": ([], [])}
     for v in V:
-        sc = dict(SUBCASES["fog"], V=float(v))
+        sc = dict(SUBCASES["fog"], V=float(v), lwir=lwir_ratio)
         for target in out:
             v1, v2, _, _ = speeds(sensors, target, sc)
             out[target][0].append(v1)
             out[target][1].append(v2)
-    model.LWIR_FOG_RATIO = keep
     return {k: (np.array(a), np.array(b)) for k, (a, b) in out.items()}
 
 

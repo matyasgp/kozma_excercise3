@@ -7,7 +7,8 @@ from datasheet numbers plus one small physics law per effect. One function per e
 
   atmosphere   extinction alpha per band [1/m]: Koschmieder alpha = 3.912/V for fog/snow (Kim et al. 2001:
                no wavelength dependence below V = 500 m, so the same for 550/905/1550 nm), rain
-               alpha = 0.365 R^0.63 [1/km] (R in mm/h, Carbonneau 1998), LWIR fog = LWIR_FOG_RATIO x visible.
+               alpha = 0.365 R^0.63 [1/km] (R in mm/h, Carbonneau 1998), LWIR in fog/snow = a ratio x visible
+               (the `lwir` column of SUBCASES; fog: LWIR_FOG_RATIO).
                Radar: rain attenuation gamma = k R^a dB/km (ITU-R P.838-3, ~77 GHz), fog/snow small.
   lidar        per-beam return probability p = 1 - exp(-c rho/R^2 exp(-2 alpha R)), c calibrated to the
                datasheet range at 10 %; the object is detected when P(>= 5 returns) >= 99 %
@@ -44,6 +45,7 @@ TARGETS = {
 RCS_CAR = 10.0          # radar datasheet ranges are "on passenger car"; ~10 dBsm
 K_MIN, CONF = 5, 0.99   # lidar: >= 5 returns with 99 % probability (Exercise 3 / EBA)
 P0_DEFAULT = 0.90       # lidar detection probability behind the datasheet range (InnovizTwo states 90 %)
+RHO_SPEC = 0.10         # lidar datasheet ranges are quoted for a 10 % reflective target
 N_PX = 25               # camera/thermal: minimum object height in pixels (KITTI "moderate" minimum)
 EPS = 0.05              # camera: minimum usable contrast
 I_LOW_BEAM = 4000.0     # cd, low beam towards a pedestrian ahead
@@ -60,14 +62,17 @@ BOX_JITTER_PX = 1.0     # camera/thermal: noise of the detected box height [px]
 
 # --- conditions (sub-cases); the spider groups take the worst sub-case per sensor ---
 SUBCASES = {
-    #               visibility m, rain mm/h, night, glare G, scene DR dB, lidar snow clutter, radar extra dB/km, thermal dT ped/car
-    "clear_day":     dict(V=23000, rain=0,  night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(5, 5)),
-    "night":         dict(V=23000, rain=0,  night=True,  G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(10, 8)),
-    "fog":           dict(V=200,   rain=0,  night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.1, dT=(3, 3)),
-    "heavy_rain":    dict(V=23000, rain=25, night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(3, 3)),
-    "snow":          dict(V=1000,  rain=0,  night=False, G=0, scene_db=0,   clutter=0.5, radar_db=1.0, dT=(15, 10)),
-    "low_sun_glare": dict(V=23000, rain=0,  night=False, G=3, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(5, 5)),
-    "tunnel_exit":   dict(V=23000, rain=0,  night=False, G=0, scene_db=125, clutter=1.0, radar_db=0.0, dT=(5, 5)),
+    # V: visibility m, rain: mm/h, G: veiling glare, scene_db: scene dynamic range dB, clutter: lidar snow clutter,
+    # radar_db: extra radar attenuation dB/km, dT: thermal contrast ped/car K,
+    # lwir: LWIR / visible extinction when V < 5 km (fog: small droplets; snow: large flakes block both alike)
+    "clear_day":     dict(V=23000, rain=0,  night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(5, 5),   lwir=1.0),
+    "night":         dict(V=23000, rain=0,  night=True,  G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(10, 8),  lwir=1.0),
+    "fog":           dict(V=200,   rain=0,  night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.1, dT=(3, 3),
+                          lwir=LWIR_FOG_RATIO),
+    "heavy_rain":    dict(V=23000, rain=25, night=False, G=0, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(3, 3),   lwir=1.0),
+    "snow":          dict(V=1000,  rain=0,  night=False, G=0, scene_db=0,   clutter=0.5, radar_db=1.0, dT=(15, 10), lwir=1.0),
+    "low_sun_glare": dict(V=23000, rain=0,  night=False, G=3, scene_db=0,   clutter=1.0, radar_db=0.0, dT=(5, 5),   lwir=1.0),
+    "tunnel_exit":   dict(V=23000, rain=0,  night=False, G=0, scene_db=125, clutter=1.0, radar_db=0.0, dT=(5, 5),   lwir=1.0),
 }
 GROUPS = {
     "Clear day": ["clear_day"],
@@ -82,11 +87,9 @@ RANGE_REQ = REQ[("front", "car")]   # range axis: car range relative to the 253 
 # ---------------- atmosphere ----------------
 def alpha(band, sc):
     """Extinction coefficient [1/m] for 'vis' (camera), 'nir' (lidar) or 'lwir' (thermal)."""
-    a = 3.912 / sc["V"]
-    if band == "lwir" and sc["V"] < 5000:
-        a *= LWIR_FOG_RATIO if sc["clutter"] == 1.0 else 1.0      # fog: small droplets; snow: large flakes
-    elif band == "lwir":
-        a = 1.5e-4                                                 # clear humid air, water-vapour absorption
+    a = 3.912 / sc["V"]                                            # Koschmieder
+    if band == "lwir":
+        a = a * sc["lwir"] if sc["V"] < 5000 else 1.5e-4           # clear humid air: water-vapour absorption
     return a + 0.365 * sc["rain"] ** 0.63 / 1000
 
 
@@ -97,9 +100,15 @@ def radar_gamma(sc):
 
 
 # ---------------- lidar (Exercise 3 model) ----------------
-def lidar_p_beam(m, R, sc, rho=0.10):
-    c = -np.log(1 - m.get("p0", P0_DEFAULT)) * m["range_10pct"] ** 2 / 0.10 * sc["clutter"]
-    return 1 - np.exp(-c * rho / R**2 * np.exp(-2 * alpha("nir", sc) * R))
+def return_probability(p0, range_10pct, rho, R, a, clutter):
+    """Probability that one beam returns from a target of reflectivity rho at R [m] through extinction a [1/m].
+    c is calibrated so that p = p0 for a 10 % target at the datasheet range; snow clutter scales it down."""
+    c = -np.log(1 - p0) * range_10pct**2 / RHO_SPEC * clutter
+    return 1 - np.exp(-c * rho / R**2 * np.exp(-2 * a * R))
+
+
+def lidar_p_beam(m, R, sc, rho=RHO_SPEC):
+    return return_probability(m.get("p0", P0_DEFAULT), m["range_10pct"], rho, R, alpha("nir", sc), sc["clutter"])
 
 
 def p_at_least(k, n, p):
@@ -138,11 +147,10 @@ def lidar_channels_p_detect(m, t, R, sc):
     """P(>= K_MIN returns) for a lidar with a per-channel table (Hesai OT128, manual Appendix A.1): each channel
     that hits the target has its own 10 % range and horizontal resolution; the number of returns is the sum of
     the channels' binomials (the horizontal grid offset of each channel averaged as in beam_counts)."""
-    ch, a = m["ch"], alpha("nir", sc)
-    dist = np.array([1.0])
-    for r10, resh in zip(ch["range_10pct_m"][channels_on_target(m, t, R)], ch["res_h_deg"][channels_on_target(m, t, R)]):
-        c = -np.log(1 - m["p0"]) * r10**2 / 0.10 * sc["clutter"]
-        p = 1 - np.exp(-c * t["rho"] / R**2 * np.exp(-2 * a * R))
+    ch, a, hit = m["ch"], alpha("nir", sc), channels_on_target(m, t, R)
+    dist = np.array([1.0])                               # distribution of the number of returns so far
+    for r10, resh in zip(ch["range_10pct_m"][hit], ch["res_h_deg"][hit]):
+        p = return_probability(m["p0"], r10, t["rho"], R, a, sc["clutter"])
         (n0, n1), (w0, w1) = beam_counts(t["w"], R, np.radians(resh))
         pmf = np.zeros(int(n1) + 1)
         pmf[: int(n0) + 1] += w0 * binom_pmf(n0, p)
@@ -365,7 +373,7 @@ def range_table(models):
     return rows
 
 
-if __name__ == "__main__":
+def main():
     models, mounts = load_suite()
     rows = range_table(models)
     with open("ranges.csv", "w", encoding="utf-8") as f:
@@ -387,3 +395,7 @@ if __name__ == "__main__":
         print(g)
         for mod, s in mods.items():
             print(f"  {mod:12s}" + "  ".join(f"{a.split(',')[0][:8]:>8s} {s[a]:.2f}" for a in AXES))
+
+
+if __name__ == "__main__":
+    main()

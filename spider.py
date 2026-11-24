@@ -3,31 +3,21 @@
 One chart per condition group with the four modalities as lines and the whole suite (best modality per
 axis) as the gray area. Axes are the professor's template. Run `python spider.py`; it writes
 figures/spider_conditions.{png,pdf} (all four in a row, for the pitch) and figures/spider_<group>.png.
-Colors: categorical light palette checked with the dataviz validator for all pairs (CVD dE 13.0, normal
-vision 19.6); radar yellow and thermal pink are below 3:1 contrast, so every series also has its own
-marker shape and the legend and spider_scores.csv carry the values.
+Colors and markers: style.py.
 """
-import logging
 import os
 
-import matplotlib
-
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 from model import AXES, load_suite, spider_scores
+from style import GRID, INK, INK2, MOD_COLOR, MOD_MARKER, MUTED, SURFACE
 
-INK, INK2, MUTED, GRID, SURFACE = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
-SUITE = "#52514e"
-STYLE = {  # modality: (color, marker, label)
-    "camera": ("#2a78d6", "o", "Camera"),
-    "lidar": ("#008300", "s", "Lidar"),
-    "radar": ("#eda100", "^", "Radar"),
-    "thermal": ("#e87ba4", "D", "Thermal (LWIR)"),
-}
+SUITE = INK2
+NAMES = {"camera": "Camera", "lidar": "Lidar", "radar": "Radar", "thermal": "Thermal (LWIR)"}
+STYLE = {mod: (MOD_COLOR[mod], MOD_MARKER[mod], NAMES[mod]) for mod in NAMES}   # modality: (color, marker, label)
 LABELS = ["Contrast,\nresolution", "Range", "Color", "Speed\ndetection", "3D recon-\nstruction", "Living\nobjects"]
 CASES = {
     "Clear day": "23 km visibility",
@@ -35,9 +25,7 @@ CASES = {
     "Fog / heavy rain": "worst of fog (200 m) and 25 mm/h rain",
     "Snow / glare / tunnel": "worst of snow, low sun and tunnel exit",
 }
-logging.getLogger("matplotlib.font_manager").setLevel(logging.ERROR)
-plt.rcParams.update({"font.family": ["Segoe UI", "DejaVu Sans"], "font.size": 10,
-                     "axes.edgecolor": GRID, "figure.facecolor": SURFACE, "savefig.facecolor": SURFACE})
+plt.rcParams["axes.edgecolor"] = GRID
 
 
 def takeaway(g, s):
