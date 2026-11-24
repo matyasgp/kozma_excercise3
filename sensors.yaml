@@ -1,12 +1,11 @@
-# Sensor suite for Exercise 4 (generic private car, city + highway, lidar-heavy).
-# None of these products appears in the earlier groups' slides (see PLAN.md, Originality).
+# Sensor suite for Exercise 4: lean private car, city + highway (redesign of 2026-11-24).
+# Only the Hesai OT128 was used by an earlier group (reuse is allowed for a few sensors; see PLAN.md).
 #
 # Vehicle frame: origin at the car's centre on the ground, x forward, y left, z up [m]; yaw in deg (0 = forward, +90 = left).
 # Car body: 4.8 m long x 1.9 m wide x 1.5 m high.
 # Each entry has an official source. "source_kind" says what that source is:
-#   datasheet = manufacturer datasheet, product_brief = manufacturer brief, product_page = manufacturer web page,
-#   whitepaper = manufacturer whitepaper.
-# All prices are rough estimates for the BOM step, not quotes.
+#   datasheet = manufacturer datasheet/manual, product_page = manufacturer spec web page.
+# Prices: listed prices where a source gives one, otherwise rough estimates (marked _est); the total is reported, no target.
 
 vehicle: {length: 4.8, width: 1.9, height: 1.5}
 
@@ -28,56 +27,23 @@ models:
     range_accuracy: 0.10  # long-range bias
     fps: 20
     price_usd_est: 1000
-  seyond_falcon_k2_pro:
+  hesai_ot128:
     modality: lidar
-    name: Seyond Falcon K2 Pro
-    source: Seyond Falcon K2 Pro LiDAR datasheet, REV 24/06/27; seyond.com/products/falcon-k
-    source_kind: datasheet
-    wavelength_nm: 1550
-    hfov: 120
-    vfov: 25
-    res_h: 0.1            # ROI 120 x 9.6 deg: 0.1 x 0.15 / 0.1 x 0.1; non-ROI 0.2 x 0.24
-    res_v: 0.1
-    range_10pct: 250      # 100 klx, POD > 90 %
-    range_max: 500
-    range_min: 1.5
-    range_precision: 0.02
-    fps: 10
-    points_per_s: 1370000
-    power_w: 20
-    price_usd_est: 5000
-  valeo_scala3:
-    modality: lidar
-    name: Valeo SCALA 3 (Gen 3)
-    source: https://www.valeo.com/en/catalogue/cda/long-range-lidar-sensors-valeo-scala-gen-3/ (updated 16 Sep 2024)
+    name: Hesai OT128 (360 deg mechanical, roof)
+    source: https://www.hesaitech.com/product/ot128 (Hesai product spec page)
     source_kind: product_page
-    hfov: 120
-    vfov: 26
-    res_h: 0.05
-    res_v: 0.05
-    range_10pct: 200
-    fps: 10
-    points_per_s: 12500000
-    price_usd_est: 1500
-  seyond_robin_w1g:
-    modality: lidar
-    name: Seyond Robin W1G (wide near-field)
-    source: Seyond Robin W1G LiDAR datasheet, REV 24/12/30; seyond.com/products/robin-w
-    source_kind: datasheet
     wavelength_nm: 905
-    hfov: 120
-    vfov: 70
-    res_h: 0.15
-    res_v: 0.36
-    range_10pct: 70
-    range_max: 150
-    range_min: 0.1
-    range_precision: 0.03
-    range_accuracy: 0.05
+    hfov: 360
+    vfov: 40              # -25 .. +15 deg
+    vfov_down: 25
+    res_h: 0.1
+    res_v: 0.125          # finest, in the central band
+    range_10pct: 200
+    range_max: 230
+    points_per_s: 3456000 # single return
+    power_w: 29
     fps: 10
-    points_per_s: 1280000
-    power_w: 7.2
-    price_usd_est: 1500
+    price_usd_est: 3000
 
   # ---------------- radar ----------------
   smartmicro_drvegrd171:
@@ -94,7 +60,7 @@ models:
       short:        [40,  0.1,  0.14]
     az_accuracy: 0.25
     el_accuracy: 0.5
-    az_separation: 2.0    # "not available yet" per datasheet footnote 8
+    az_separation: 2.0    # "not available yet" per datasheet footnote 8; don't quote as achieved
     cycle_ms: 55
     price_usd_est: 400
 
@@ -153,7 +119,7 @@ models:
     hfov: 196
     vfov: 154
     fps: 30
-    price_usd_est: 459    # listed price on the datasheet (2026-11-11)
+    price_usd: 459        # listed on the datasheet (2026-11-11)
 
   # ---------------- thermal ----------------
   raytron_horus640d_13:
@@ -172,58 +138,31 @@ models:
     pedestrian_identify_m: 169   # Johnson criteria, 1.8 x 0.5 m pedestrian (manual table 2-2)
     qualification: AEC-Q100 Grade 2 detector and ISP
     price_usd_est: 800
-  raytron_horus640d_9:
-    modality: thermal
-    name: Raytron Horus640-D automotive LWIR module, 9.1 mm F1.1 lens
-    source: as above
-    source_kind: datasheet
-    band_um: [8, 14]
-    resolution: [640, 512]
-    pixel_um: 12
-    netd_mk: 35
-    hfov: 48
-    vfov: 37
-    ifov_mrad: 1.3
-    fps: 30
-    pedestrian_identify_m: 114
-    qualification: AEC-Q100 Grade 2 detector and ISP
-    price_usd_est: 800
 
   # ---------------- localisation ----------------
-  oxts_rt3000v4:
+  ublox_zed_f9k:
     modality: gnss_ins
-    name: OxTS RT3000 v4 GNSS/INS (+ HD map)
-    source: https://www.oxts.com/products/rt3000v4/
-    source_kind: product_page
-    position_m: 0.01      # RTK
-    heading_deg: 0.04
-    drift_60s_outage_m: 0.5
-    rate_hz: 100
-    price_usd_est: 20000  # survey-grade; a series car would use a cheaper automotive INS
+    name: u-blox ZED-F9K-01A (automotive RTK GNSS + IMU dead reckoning) + HD map
+    source: ZED-F9K-01A Data Sheet UBX-21045820 (u-blox)
+    source_kind: datasheet
+    position_rtk_m: 0.2   # < 0.2 m + 1 ppm CEP
+    dead_reckoning: "< 1 % of distance travelled without GNSS (u-blox brochure figure)"
+    price_usd_est: 250
 
-# Mounts: id, model, x, y, z, yaw. 9 lidars + 6 radars + 12 cameras + 2 thermal + 1 GNSS/INS = 30 sensors.
+# Mounts: id, model, x, y, z, yaw. 2 lidars + 5 radars + 11 cameras + 1 thermal + 1 GNSS/INS = 20 sensors.
 mounts:
-  # lidar: front long-range, roof ring (front / left / right / rear), 4 corner near-field
+  # lidar: front long-range behind the grille, 360 deg on the roof
   - [L_front,      innoviz_two,           2.35,  0.00, 0.60,    0]
-  - [L_roof_front, seyond_falcon_k2_pro,   0.60,  0.00, 1.65,    0]
-  - [L_roof_left,  seyond_falcon_k2_pro,  0.00,  0.45, 1.65,   90]
-  - [L_roof_right, seyond_falcon_k2_pro,  0.00, -0.45, 1.65,  -90]
-  - [L_roof_rear,  valeo_scala3,         -0.60,  0.00, 1.65,  180]
-  - [L_fl,         seyond_robin_w1g,      2.20,  0.85, 0.50,   45]
-  - [L_fr,         seyond_robin_w1g,      2.20, -0.85, 0.50,  -45]
-  - [L_rl,         seyond_robin_w1g,     -2.20,  0.85, 0.50,  135]
-  - [L_rr,         seyond_robin_w1g,     -2.20, -0.85, 0.50, -135]
-  # radar: front, rear, 4 corners
+  - [L_roof,       hesai_ot128,           0.00,  0.00, 1.75,    0]
+  # radar: front + 4 corners (front corners in medium mode, rear corners in long mode for lane changes)
   - [R_front,      smartmicro_drvegrd171, 2.40,  0.00, 0.45,    0]
-  - [R_rear,       smartmicro_drvegrd171,-2.40,  0.00, 0.45,  180]
   - [R_fl,         smartmicro_drvegrd171, 2.15,  0.85, 0.45,   50]
   - [R_fr,         smartmicro_drvegrd171, 2.15, -0.85, 0.45,  -50]
   - [R_rl,         smartmicro_drvegrd171,-2.15,  0.85, 0.45,  130]
   - [R_rr,         smartmicro_drvegrd171,-2.15, -0.85, 0.45, -130]
-  # camera: front tele / main / wide, 4 side, rear, 4 fisheyes
+  # camera: front tele + main, 4 side (2 forward-, 2 rearward-looking), rear, 4 near-field fisheyes
   - [C_front_tele, supertek_ox08b40_h30,  0.90,  0.00, 1.40,    0]
   - [C_front_main, supertek_ox08b40_h60,  0.90,  0.10, 1.40,    0]
-  - [C_front_wide, supertek_ox08b40_h120, 0.90, -0.10, 1.40,    0]
   - [C_side_lf,    supertek_ox08b40_h120, 0.80,  0.95, 1.10,   70]
   - [C_side_rf,    supertek_ox08b40_h120, 0.80, -0.95, 1.10,  -70]
   - [C_side_lr,    supertek_ox08b40_h120, 0.80,  0.95, 1.10,  140]
@@ -233,8 +172,7 @@ mounts:
   - [F_left,       sensing_isx031_h190,   0.90,  0.95, 1.00,   90]
   - [F_right,      sensing_isx031_h190,   0.90, -0.95, 1.00,  -90]
   - [F_rear,       sensing_isx031_h190,  -2.40,  0.00, 0.90,  180]
-  # thermal: two forward (highway 32 deg, city 48 deg)
-  - [T_front_nar,  raytron_horus640d_13,  2.35,  0.25, 0.70,    0]
-  - [T_front_wide, raytron_horus640d_9,   2.35, -0.25, 0.70,    0]
+  # thermal: one forward, narrow lens for night pedestrians at highway stopping distances
+  - [T_front,      raytron_horus640d_13,  2.35,  0.25, 0.70,    0]
   # localisation
-  - [G_ins,        oxts_rt3000v4,         0.00,  0.00, 0.50,    0]
+  - [G_ins,        ublox_zed_f9k,         0.00,  0.00, 0.50,    0]

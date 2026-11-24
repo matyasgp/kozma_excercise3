@@ -5,6 +5,6 @@ under different conditions; design a sensor setup for city + highway; answer "Is
 5-minute pitch.
 
 - `PLAN.md`: agreed decisions, steps, originality rules (products earlier groups used are excluded).
-- `sensors.yaml`: the 30 chosen sensors (9 lidar, 6 radar, 12 camera, 2 thermal, 1 GNSS/INS) with mounts, official sources and the numbers the scripts use.
+- `sensors.yaml`: the 20-sensor lean suite (2 lidar, 5 radar, 11 camera, 1 thermal, 1 GNSS/INS) with mounts, official sources and the numbers the scripts use.
 
 The course deck and datasheet PDFs stay local in `sources/` (gitignored).
