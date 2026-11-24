@@ -335,7 +335,7 @@ if __name__ == "__main__":
 
     sp = spider_scores(models, mounts)
     with open("spider_scores.csv", "w", encoding="utf-8") as f:
-        f.write("condition,modality," + ",".join(AXES) + "\n")
+        f.write("condition,modality," + ",".join(f'"{a}"' for a in AXES) + "\n")
         for g, mods in sp.items():
             for mod, s in mods.items():
                 f.write(f"{g},{mod}," + ",".join(f"{s[a]:.2f}" for a in AXES) + "\n")

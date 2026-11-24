@@ -1,4 +1,4 @@
-condition,modality,Contrast, resolution,Range,Color,Speed detection,3D reconstruction,Living objects
+condition,modality,"Contrast, resolution","Range","Color","Speed detection","3D reconstruction","Living objects"
 Clear day,camera,0.99,1.00,0.99,0.15,0.50,0.84
 Clear day,lidar,0.79,1.00,0.15,0.27,0.75,0.70
 Clear day,radar,0.00,0.95,0.00,0.93,0.19,0.30

@@ -5,6 +5,7 @@ Prices are the listed price where the source gives one (price_usd) and otherwise
 cleaning and calibration are not included.
 Run `python bom.py`: prints the table and writes bom.csv.
 """
+import csv
 from collections import Counter
 
 from model import load_suite
@@ -25,11 +26,12 @@ def bom(path="sensors.yaml"):
 
 if __name__ == "__main__":
     rows = bom()
-    with open("bom.csv", "w", encoding="utf-8") as f:
-        f.write("modality,model,count,unit_usd,price_source,subtotal_usd\n")
+    with open("bom.csv", "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["modality", "model", "count", "unit_usd", "price_source", "subtotal_usd"])
         for r in rows:
-            f.write(f"{r['modality']},{r['name']},{r['count']},{r['unit']},{'listed' if r['listed'] else 'estimate'},"
-                    f"{r['subtotal']}\n")
+            w.writerow([r["modality"], r["name"], r["count"], r["unit"], "listed" if r["listed"] else "estimate",
+                        r["subtotal"]])
     for r in rows:
         print(f"{r['modality']:9s}{r['name'][:62]:64s}{r['count']:3d} x {r['unit']:6,d} "
               f"{'' if r['listed'] else 'est.':5s}= {r['subtotal']:7,d} USD")
