@@ -40,6 +40,7 @@ models:
     res_v: 0.125          # finest, in the central band
     range_10pct: 200
     range_max: 230
+    range_accuracy: 0.03  # +-3 cm typical (Hesai spec page); to re-check when citing
     points_per_s: 3456000 # single return
     power_w: 29
     fps: 10
