@@ -11,9 +11,10 @@ from datasheet numbers plus one small physics law per effect. One function per e
                Radar: rain attenuation gamma = k R^a dB/km (ITU-R P.838-3, ~77 GHz), fog/snow small.
   lidar        per-beam return probability p = 1 - exp(-c rho/R^2 exp(-2 alpha R)), c calibrated to the
                datasheet range at 10 %; the object is detected when P(>= 5 returns) >= 99 %
-               (the Exercise 3 model, here for every lidar and condition).
+               (the Exercise 3 model, here for every lidar and condition). Outside the InnovizTwo ROI the
+               datasheet's side-FOV numbers apply (140 m at 10 %, 0.2 deg horizontal).
   radar        radar equation with attenuation: R^4 10^(2 gamma R/10) = R0^4 sigma/sigma_car,
-               R0 = datasheet range on a passenger car.
+               R0 = datasheet range on a passenger car, reduced off boresight by the antenna pattern.
   camera       range = min(geometry, contrast, light):
                geometry  - the object must be >= N_PX pixels high (KITTI's minimum box height, 25 px);
                contrast  - C(R) = C0 exp(-alpha R) / (1 + G) must stay >= EPS (Koschmieder; G = veiling glare);
@@ -29,6 +30,8 @@ from math import comb, log10
 
 import numpy as np
 import yaml
+
+from requirements import REQ
 
 # --- targets: (width, height) [m], lidar reflectivity, radar cross-section [m^2], camera contrast, thermal dT [K] ---
 TARGETS = {
@@ -46,7 +49,10 @@ E_GOOD = 10.0           # lux for full image quality (contrast/resolution axis a
 SNR_REQ = 5.0           # thermal: dT must exceed 5 x NETD
 LWIR_FOG_RATIO = 0.4    # LWIR / visible extinction in fog (small droplets; literature ~0.2-1)
 RADAR_RAIN = (1.02, 0.73)  # ITU-R P.838-3 k, a near 77 GHz (horizontal), gamma = k R^a [dB/km]
+RADAR_HALF_3DB = 40.0   # deg, one-way 3 dB half-width (datasheet: the 3 dB FOV is narrower than the +-50 deg total)
 FORWARD_YAW = 60        # glare and tunnel exit hit sensors looking within +-60 deg of ahead
+T_SPEED = 0.1           # speed axis: the speed must be known within 100 ms
+BOX_JITTER_PX = 1.0     # camera/thermal: noise of the detected box height [px]
 
 # --- conditions (sub-cases); the spider groups take the worst sub-case per sensor ---
 SUBCASES = {
@@ -66,7 +72,7 @@ GROUPS = {
     "Snow / glare / tunnel": ["snow", "low_sun_glare", "tunnel_exit"],
 }
 AXES = ["Contrast, resolution", "Range", "Color", "Speed detection", "3D reconstruction", "Living objects"]
-RANGE_REQ = 250.0       # range axis: car range relative to the 250 m front requirement
+RANGE_REQ = REQ[("front", "car")]   # range axis: car range relative to the 253 m front requirement
 
 
 # ---------------- atmosphere ----------------
@@ -111,20 +117,38 @@ def lidar_p_detect(m, t, R, sc):
     return sum(ph[i] * pv[j] * p_at_least(K_MIN, nh[i] * nv[j], p) for i in range(2) for j in range(2))
 
 
+def lidar_at(m, phi):
+    """The lidar's parameters at phi deg off boresight (InnovizTwo: side FOV outside the central ROI)."""
+    if "side_fov" in m and abs(phi) > m["roi_hfov"] / 2:
+        return {**m, **m["side_fov"]}
+    return m
+
+
+_LIDAR_CACHE = {}
+
+
 def lidar_range(m, t, sc):
     """Largest R with P(>= 5 returns) >= 99 %, capped at the datasheet maximum range."""
-    R = np.arange(1, int(m.get("range_max", m["range_10pct"])) + 1)
-    ok = [r for r in R if lidar_p_detect(m, t, r, sc) >= CONF]
-    return int(max(ok)) if ok else 0
+    key = (m["name"], m["res_h"], m["range_10pct"], t["w"], t["h"], tuple(sorted(sc.items())))
+    if key not in _LIDAR_CACHE:
+        R = np.arange(1, int(m.get("range_max", m["range_10pct"])) + 1)
+        ok = [r for r in R if lidar_p_detect(m, t, r, sc) >= CONF]
+        _LIDAR_CACHE[key] = int(max(ok)) if ok else 0
+    return _LIDAR_CACHE[key]
 
 
 # ---------------- radar ----------------
-def radar_range(m, t, sc, mode="extra_long"):
-    R0 = m["modes"][mode][0] * (t["rcs"] / RCS_CAR) ** 0.25
+def radar_pattern(phi):
+    """Range factor phi deg off boresight: one-way gain -3 (phi/phi_3dB)^2 dB, two ways, R ~ gain^(1/4)."""
+    return 10 ** (-2 * 3 * (phi / RADAR_HALF_3DB) ** 2 / 40)
+
+
+def radar_range(m, t, sc, mode="extra_long", phi=0.0):
+    R0 = m["modes"][mode][0] * radar_pattern(phi) * (t["rcs"] / RCS_CAR) ** 0.25
     g = radar_gamma(sc)
-    R = np.arange(1, R0 + 1, 0.5)
+    R = np.arange(0.5, R0 + 0.5, 0.5)
     ok = R**4 * 10 ** (2 * g * R / 10) <= R0**4
-    return float(R[ok].max())
+    return float(R[ok].max()) if ok.any() else 0.0
 
 
 # ---------------- camera ----------------
@@ -161,13 +185,14 @@ def thermal_range(m, t, sc, name="pedestrian"):
     return float(min(r_geo, r_rad))
 
 
-def effective_range(m, target, sub, forward=True):
-    """Detection range [m] of one sensor model for 'pedestrian' or 'car' in one sub-case."""
+def effective_range(m, target, sub, forward=True, phi=0.0):
+    """Detection range [m] of one sensor model for 'pedestrian' or 'car' in one sub-case,
+    phi deg off the sensor's boresight (only lidar ROI and radar antenna pattern depend on it)."""
     t, sc, mod = TARGETS[target], SUBCASES[sub], m["modality"]
     if mod == "lidar":
-        return lidar_range(m, t, sc)
+        return lidar_range(lidar_at(m, phi), t, sc)
     if mod == "radar":
-        return radar_range(m, t, sc)
+        return max(radar_range(m, t, sc, mode, phi) for mode in m.get("operating_modes", ["extra_long"]))
     if mod == "camera":
         return camera_range(m, t, sc, forward, target)
     if mod == "thermal":
@@ -181,6 +206,11 @@ def log_score(x, worst, best):
     return float(np.clip(log10(x / worst) / log10(best / worst), 0, 1))
 
 
+def pixel_angle(m):
+    """Vertical angle of one image pixel [rad] (camera or thermal)."""
+    return ifov(m) if m["modality"] == "camera" else m["ifov_mrad"] / 1000
+
+
 def samples_on_pedestrian(m, R=50.0):
     """Pixels / points / radar cells on a pedestrian at R (before weather)."""
     t = TARGETS["pedestrian"]
@@ -191,7 +221,7 @@ def samples_on_pedestrian(m, R=50.0):
     if m["modality"] == "camera":
         a = np.radians(m["hfov"]) / m["resolution"][0]
         return t["w"] / (R * a) * t["h"] / (R * ifov(m))
-    a = m["ifov_mrad"] / 1000
+    a = pixel_angle(m)
     return t["w"] / (R * a) * t["h"] / (R * a)
 
 
@@ -215,16 +245,22 @@ def depth_sigma(m, R=50.0):
     """Range (depth) error at R [m]."""
     if m["modality"] == "lidar":
         return m.get("range_accuracy", 0.1)
-    if m["modality"] == "radar":
-        return m["modes"]["extra_medium"][1]
+    if m["modality"] == "radar":                        # best operating mode that reaches R
+        return min(m["modes"][k][1] for k in m.get("operating_modes", m["modes"]) if m["modes"][k][0] >= R)
     return 0.10 * R                                     # monocular: depth from object size, ~10 % size prior
 
 
 def speed_sigma(m, R=50.0):
-    """Radial speed error [m/s]: radar measures Doppler, the others difference two depths."""
-    if m["modality"] == "radar":
+    """Radial-speed error [m/s] at R, known within T_SPEED: radar measures Doppler in one cycle, lidar
+    differences two ranges, camera/thermal use the change of the object's image height (the size prior
+    cancels; only the box-height noise counts)."""
+    mod = m["modality"]
+    if mod == "radar":
         return m["modes"]["extra_long"][2]
-    return np.sqrt(2) * depth_sigma(m, R) / (1 / m["fps"])
+    if mod == "lidar":
+        return np.sqrt(2) * m.get("range_accuracy", 0.1) / T_SPEED
+    h_px = TARGETS["pedestrian"]["h"] / (R * pixel_angle(m))
+    return np.sqrt(2) * R * BOX_JITTER_PX / h_px / T_SPEED
 
 
 LIVING_CAP = {"thermal": 1.0, "camera": 0.85, "lidar": 0.7, "radar": 0.3}   # rule: heat > appearance > shape > micro-Doppler

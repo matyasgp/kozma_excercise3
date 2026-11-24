@@ -1,21 +1,21 @@
 condition,modality,Contrast, resolution,Range,Color,Speed detection,3D reconstruction,Living objects
-Clear day,camera,0.99,1.00,0.99,0.00,0.50,0.84
+Clear day,camera,0.99,1.00,0.99,0.15,0.50,0.84
 Clear day,lidar,0.79,1.00,0.15,0.54,0.79,0.70
-Clear day,radar,0.00,0.96,0.00,0.93,0.27,0.30
+Clear day,radar,0.00,0.95,0.00,0.93,0.19,0.30
 Clear day,thermal,0.91,0.30,0.00,0.00,0.45,0.99
 Clear day,whole suite,0.99,1.00,0.99,0.93,0.79,0.99
-Night,camera,0.16,1.00,0.05,0.00,0.08,0.13
+Night,camera,0.16,1.00,0.05,0.02,0.08,0.13
 Night,lidar,0.79,1.00,0.15,0.54,0.79,0.70
-Night,radar,0.00,0.96,0.00,0.93,0.27,0.30
+Night,radar,0.00,0.95,0.00,0.93,0.19,0.30
 Night,thermal,0.92,0.30,0.00,0.00,0.46,1.00
 Night,whole suite,0.92,1.00,0.15,0.93,0.79,1.00
-Fog / heavy rain,camera,0.38,0.43,0.38,0.00,0.19,0.32
-Fog / heavy rain,lidar,0.79,0.46,0.15,0.53,0.79,0.70
-Fog / heavy rain,radar,0.00,0.76,0.00,0.72,0.21,0.23
+Fog / heavy rain,camera,0.38,0.42,0.38,0.06,0.19,0.32
+Fog / heavy rain,lidar,0.79,0.45,0.15,0.53,0.79,0.70
+Fog / heavy rain,radar,0.00,0.75,0.00,0.72,0.15,0.23
 Fog / heavy rain,thermal,0.37,0.30,0.00,0.00,0.19,0.41
-Fog / heavy rain,whole suite,0.79,0.76,0.38,0.72,0.79,0.70
-Snow / glare / tunnel,camera,0.25,1.00,0.25,0.00,0.12,0.21
-Snow / glare / tunnel,lidar,0.79,0.79,0.15,0.54,0.79,0.70
-Snow / glare / tunnel,radar,0.00,0.93,0.00,0.91,0.27,0.29
+Fog / heavy rain,whole suite,0.79,0.75,0.38,0.72,0.79,0.70
+Snow / glare / tunnel,camera,0.25,1.00,0.25,0.04,0.12,0.21
+Snow / glare / tunnel,lidar,0.79,0.78,0.15,0.54,0.79,0.70
+Snow / glare / tunnel,radar,0.00,0.92,0.00,0.91,0.19,0.29
 Snow / glare / tunnel,thermal,0.91,0.30,0.00,0.00,0.45,0.99
 Snow / glare / tunnel,whole suite,0.91,1.00,0.25,0.91,0.79,0.99

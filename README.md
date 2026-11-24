@@ -8,6 +8,7 @@ under different conditions; design a sensor setup for city + highway; answer "Is
 - `sensors.yaml`: the 20-sensor lean suite (2 lidar, 5 radar, 11 camera, 1 thermal, 1 GNSS/INS) with mounts, official sources and the numbers the scripts use.
 
 The course deck and datasheet PDFs stay local in `sources/` (gitignored).
+- `requirements.py`: required detection range per direction, each from one driving scenario and one formula (`python requirements.py` prints the table).
 - `model.py`: the physics model. For every sensor and condition it computes the pedestrian and car detection
   range and the six spider scores (professor's template axes). `python model.py` prints the tables and writes
   `ranges.csv` and `spider_scores.csv`.
@@ -30,4 +31,7 @@ The course deck and datasheet PDFs stay local in `sources/` (gitignored).
 | Tunnel exit | 125 dB scene dynamic range vs camera HDR (140 dB OX08B40, 120 dB ISX031) | |
 | Thermal contrast ΔT (pedestrian) | 5 K day, 10 K night, 3 K wet (fog/rain), 15 K snow | |
 | Rule-based axes | Color: camera 1, lidar 0.15 (NIR intensity), thermal/radar 0. Living objects cap: thermal 1, camera 0.85, lidar 0.7, radar 0.3 | not physics; labelled as rules on the slide |
-| Speed detection | radial speed: radar Doppler; others differentiate two range readings | camera depth from object size (~10 % error) |
+| Speed detection | radial-speed error known within 100 ms: radar Doppler (one cycle); lidar differences two ranges; camera/thermal use the change of the object's image height with 1 px box noise | the size prior cancels in the change |
+| Radar off boresight | one-way gain −3 (φ/40°)² dB, so range × 0.58 at the ±50° FOV edge | datasheet: the 3 dB FOV is narrower than ±50° |
+| Radar modes | every radar interleaves extra-long-range (240 m) and short-range (0.2–40 m) cycles | modes switch at runtime (datasheet) |
+| InnovizTwo outside the ROI | 140 m at 10 %, 0.2° × 0.05° (datasheet side FOV) | ROI is the central 30° |
