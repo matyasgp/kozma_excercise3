@@ -43,6 +43,8 @@
 % ---------------------------------------------------------------
 \begin{frame}{Model: one law per effect (model.py)}
   \footnotesize
+  \setlength{\abovedisplayskip}{3pt}\setlength{\belowdisplayskip}{3pt}
+  \setlength{\abovedisplayshortskip}{2pt}\setlength{\belowdisplayshortskip}{3pt}
   \begin{columns}[t]
     \column{0.5\textwidth}
     \textbf{Atmosphere}
@@ -63,11 +65,11 @@
     \textbf{Camera}
     \[ R = \min\Big(\frac{H}{25\,\mathrm{IFOV}},\; \frac{1}{\alpha}\ln\frac{C_0}{0.05\,(1+G)},\; \sqrt{I/E_\text{min}}\Big) \]
     25\,px object height (KITTI); contrast $\ge 0.05$; glare $G$; at night the low beam
-    ($I$ = 4000\,cd, $E_\text{min}$ = 1\,lux) lights pedestrians only; HDR deficit costs $10^{-\Delta\text{dB}/20}$
+    ($I$ = 4000\,cd, $E_\text{min}$ = 1\,lux) lights pedestrians only; HDR deficit costs $10^{-\Delta\text{dB}/20}$\par\medskip
 
     \textbf{Thermal}
     \[ R = \min\Big(\frac{H}{25\,\mathrm{IFOV}},\; -\frac{1}{\alpha_\text{LWIR}}\ln\frac{5\,\mathrm{NETD}}{\Delta T}\Big) \]
-    \smallnote{$\alpha_\text{LWIR}$ = 0.4\,$\times$ visible in fog (assumption, see B10)}
+    \smallnote{$\alpha_\text{LWIR}$ = 0.4\,$\times$ visible in fog (assumption, see B10)}\par\medskip
 
     \textbf{Stopping distance and safe speed}
     \[ d = v\,t_r + \frac{v^2}{2a}, \quad v_\text{safe} = a\Big(-t_r + \sqrt{t_r^2 + 2d/a}\Big) \]
@@ -79,7 +81,7 @@
 \begin{frame}{Detection range per sensor and condition (ranges.csv)}
   \centering\scriptsize
   \renewcommand{\arraystretch}{1.15}
-  \setlength{\tabcolsep}{4pt}
+  \setlength{\tabcolsep}{2.5pt}
   \begin{tabular}{@{}lrrrrrrr@{}}
     \toprule
     pedestrian / car [m] & clear & night & fog 200\,m & rain 25\,mm/h & snow & low sun & tunnel exit \\
